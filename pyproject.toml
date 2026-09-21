@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kineret"
+version = "0.1.0"
+description = "Horizon-risk benchmark on Mediator-abstracted EMR data."
+requires-python = ">=3.9"
+dependencies = [
+    "pandas",
+    "numpy",
+    "torch>=2.0.0",
+    "scikit-learn",
+    "matplotlib>=3.7.0",
+    "tqdm",
+    "joblib",
+    "openpyxl",
+    "pytz",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "jupyter"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["kineret*"]
+
+[tool.setuptools.package-data]
+"kineret.config" = ["*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["unittests"]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::FutureWarning",
+]

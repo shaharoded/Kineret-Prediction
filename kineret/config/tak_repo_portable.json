@@ -1,0 +1,3128 @@
+{
+  "taks": {
+    "ACIDOSIS": {
+      "name": "ACIDOSIS",
+      "family": "raw-concept",
+      "categories": [
+        "Complications"
+      ],
+      "description": "Acidosis treated with insulin IV. Calculated during ETL (PH se 7.3, BICARBONATE se 10, Insulin IV within 2h of PH)",
+      "derived_from": null,
+      "attributes": [
+        "ACIDOSIS"
+      ]
+    },
+    "ACUTE_RESPIRATORY_DISORDER": {
+      "name": "ACUTE_RESPIRATORY_DISORDER",
+      "family": "raw-concept",
+      "categories": [
+        "Complications"
+      ],
+      "description": "Raw concept to mark the acute respiratory disorder event, inputed from 'Observation'",
+      "derived_from": null,
+      "attributes": [
+        "ACUTE_RESPIRATORY_DISORDER"
+      ]
+    },
+    "ADMISSION": {
+      "name": "ADMISSION",
+      "family": "raw-concept",
+      "categories": [
+        "Events"
+      ],
+      "description": "Raw concept to mark the admission event",
+      "derived_from": null,
+      "attributes": [
+        "ADMISSION"
+      ]
+    },
+    "ALANINE-AMINOTRANSFERASE_MEASURE": {
+      "name": "ALANINE-AMINOTRANSFERASE_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to manage the measurement of ALANINE-AMINOTRANSFERASE",
+      "derived_from": null,
+      "attributes": [
+        "ALANINE-AMINOTRANSFERASE_MEASURE"
+      ]
+    },
+    "ALBUMIN_MEASURE": {
+      "name": "ALBUMIN_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to manage the measurement of ALBUMIN by serum, for g/dL units",
+      "derived_from": null,
+      "attributes": [
+        "ALBUMIN_MEASURE",
+        "ALBUMIN_SERUM_MEASURE"
+      ]
+    },
+    "ANTIBIOTIC_IV_BITZUA": {
+      "name": "ANTIBIOTIC_IV_BITZUA",
+      "family": "raw-concept",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Raw concept to mark antibiotic drugs administration event (IV/SC/IM - more severe)",
+      "derived_from": null,
+      "attributes": [
+        "ANTIBIOTIC_IV_BITZUA"
+      ]
+    },
+    "ANTIBIOTIC_PO_BITZUA": {
+      "name": "ANTIBIOTIC_PO_BITZUA",
+      "family": "raw-concept",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Raw concept to mark antibiotic drugs administration event (oral - less severe)",
+      "derived_from": null,
+      "attributes": [
+        "ANTIBIOTIC_PO_BITZUA"
+      ]
+    },
+    "ANTIDIABETIC_HOME_BITZUA": {
+      "name": "ANTIDIABETIC_HOME_BITZUA",
+      "family": "raw-concept",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Raw concept to mark antidiabetic PO drugs administration event (at home, signaling valuable context) that have high hypoglycemia risk (used only to monitor if were stopped during the first 3 days or after event)",
+      "derived_from": null,
+      "attributes": [
+        "ANTIDIABETIC_HIGH_HYPO_HOME_BITZUA"
+      ]
+    },
+    "ANTIDIABETIC_HOSPITAL_BITZUA": {
+      "name": "ANTIDIABETIC_HOSPITAL_BITZUA",
+      "family": "raw-concept",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Raw concept to mark antidiabetic PO drugs administration event (in hospital) that have high hypoglycemia risk (used only to monitor if were stopped during the first 3 days or after event)",
+      "derived_from": null,
+      "attributes": [
+        "ANTIDIABETIC_HIGH_HYPO_HOSPITAL_BITZUA"
+      ]
+    },
+    "ASPARATE-AMINOTRANSFERASE_MEASURE": {
+      "name": "ASPARATE-AMINOTRANSFERASE_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to manage the measurement of ASPARATE-AMINOTRANSFERASE for U/L units",
+      "derived_from": null,
+      "attributes": [
+        "ASPARATE-AMINOTRANSFERASE_MEASURE"
+      ]
+    },
+    "BASAL_BITZUA": {
+      "name": "BASAL_BITZUA",
+      "family": "raw-concept",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Raw concept to manage the administration of BASAL (long term) insulin, which is SubCutaneous by default",
+      "derived_from": null,
+      "attributes": [
+        "BASAL_DOSAGE"
+      ]
+    },
+    "BASAL_HOME_BITZUA": {
+      "name": "BASAL_HOME_BITZUA",
+      "family": "raw-concept",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Raw concept to mark basal medication administration event (at home, signaling valuable context) that the patient is already treated routinely at home",
+      "derived_from": null,
+      "attributes": [
+        "BASAL_HOME_BITZUA"
+      ]
+    },
+    "BASE_GLUCOSE_MEASURE": {
+      "name": "BASE_GLUCOSE_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to manage base GLUCOSE level derived from glucose tolerance or HBA1C calculated glucose level",
+      "derived_from": null,
+      "attributes": [
+        "BASE_GLUCOSE_MEASURE"
+      ]
+    },
+    "BICARBONATE_BITZUA": {
+      "name": "BICARBONATE_BITZUA",
+      "family": "raw-concept",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Raw concept to mark calcium-bicarbonate administration event (IV only)",
+      "derived_from": null,
+      "attributes": [
+        "BICARBONATE_BITZUA"
+      ]
+    },
+    "BICARBONATE_MEASURE": {
+      "name": "BICARBONATE_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to manage the measurement of BICARBONATE in units of mmol/l",
+      "derived_from": null,
+      "attributes": [
+        "BICARBONATE_MEASURE"
+      ]
+    },
+    "BLOOD_PRESSURE_DIASTOLIC_MEASURE": {
+      "name": "BLOOD_PRESSURE_DIASTOLIC_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to manage the measurement of BLOOD_PRESSURE in DIASTOLIC measure for mmHg units",
+      "derived_from": null,
+      "attributes": [
+        "BLOOD_PRESSURE_DIASTOLIC_MEASURE"
+      ]
+    },
+    "BLOOD_PRESSURE_SYSTOLIC_MEASURE": {
+      "name": "BLOOD_PRESSURE_SYSTOLIC_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to manage the measurement of BLOOD_PRESSURE in SYSTOLIC measure in mmHg units",
+      "derived_from": null,
+      "attributes": [
+        "BLOOD_PRESSURE_SYSTOLIC_MEASURE"
+      ]
+    },
+    "BMI_MEASURE": {
+      "name": "BMI_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to manage the measurement of BMI",
+      "derived_from": null,
+      "attributes": [
+        "BMI_MEASURE"
+      ]
+    },
+    "BODY_TEMPERATURE_MEASURE": {
+      "name": "BODY_TEMPERATURE_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to manage base BODY TEMPERATURE (units Celsius)",
+      "derived_from": null,
+      "attributes": [
+        "BODY_TEMPERATURE_MEASURE",
+        "BODY_TEMPERATURE"
+      ]
+    },
+    "BOLUS_BITZUA": {
+      "name": "BOLUS_BITZUA",
+      "family": "raw-concept",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Raw concept to manage the administration of BOLUS (short term) insulin, assumed to be SubCutaneous by default (many DB mismatches there)",
+      "derived_from": null,
+      "attributes": [
+        "BOLUS_DOSAGE"
+      ]
+    },
+    "CALCIUM-GLUCONATE_BITZUA": {
+      "name": "CALCIUM-GLUCONATE_BITZUA",
+      "family": "raw-concept",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Raw concept to mark calcium gluconate administration event",
+      "derived_from": null,
+      "attributes": [
+        "CALCIUM-GLUCONATE_BITZUA"
+      ]
+    },
+    "CARDIO-VASCULAR_DISORDER": {
+      "name": "CARDIO-VASCULAR_DISORDER",
+      "family": "raw-concept",
+      "categories": [
+        "Complications"
+      ],
+      "description": "Raw concept to mark a cardio-vascular disorder event, inputed from 'Observation'",
+      "derived_from": null,
+      "attributes": [
+        "CARDIO-VASCULAR_DISORDER",
+        "CARDIOVASCULAR_DISORDER"
+      ]
+    },
+    "CREATINE-KINASE_MEASURE": {
+      "name": "CREATINE-KINASE_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to manage the measurement of creatine kinase in Serum (U/L, no MB measurement)",
+      "derived_from": null,
+      "attributes": [
+        "CREATINE-KINASE_MEASURE"
+      ]
+    },
+    "CREATININE_SERUM_MEASURE": {
+      "name": "CREATININE_SERUM_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to manage the measurement of CREATININE by Serum using mg/dL units",
+      "derived_from": null,
+      "attributes": [
+        "CREATININE_SERUM_MEASURE"
+      ]
+    },
+    "DEATH": {
+      "name": "DEATH",
+      "family": "raw-concept",
+      "categories": [
+        "Complications"
+      ],
+      "description": "Raw concept to mark the death event",
+      "derived_from": null,
+      "attributes": [
+        "DEATH"
+      ]
+    },
+    "DEXTROSE_BITZUA": {
+      "name": "DEXTROSE_BITZUA",
+      "family": "raw-concept",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Raw concept to mark dextrose administration event (IV only)",
+      "derived_from": null,
+      "attributes": [
+        "DEXTROSE_BITZUA"
+      ]
+    },
+    "DIABETES_DIAGNOSIS": {
+      "name": "DIABETES_DIAGNOSIS",
+      "family": "raw-concept",
+      "categories": [
+        "Context"
+      ],
+      "description": "Raw concept to mark the diabetes diagnosis event",
+      "derived_from": null,
+      "attributes": [
+        "DIABETES_DIAGNOSIS"
+      ]
+    },
+    "DIABETIC_COMA": {
+      "name": "DIABETIC_COMA",
+      "family": "raw-concept",
+      "categories": [
+        "Complications"
+      ],
+      "description": "Raw concept to mark the coma event, inputed from 'Observation'",
+      "derived_from": null,
+      "attributes": [
+        "DIABETIC_COMA"
+      ]
+    },
+    "E-GFR_MEASURE": {
+      "name": "E-GFR_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to manage the measurement of E-GFR in units of ml/min/1.73m² or similar. Programatically calculated using the GFR MDRD formula + uses declared measurements of correct units",
+      "derived_from": null,
+      "attributes": [
+        "E-GFR_MEASURE"
+      ]
+    },
+    "GLUCOSE_MEASURE": {
+      "name": "GLUCOSE_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to manage the measurement of GLUCOSE in units of mg/dL",
+      "derived_from": null,
+      "attributes": [
+        "GLUCOSE_MEASURE"
+      ]
+    },
+    "HEART_RATE_MEASURE": {
+      "name": "HEART_RATE_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to manage the measurement of HEART_RATE in units of BpM",
+      "derived_from": null,
+      "attributes": [
+        "HEART_RATE_MEASURE"
+      ]
+    },
+    "HEMATOCRIT_MEASURE": {
+      "name": "HEMATOCRIT_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to manage the measurement of HEMATOCRIT in units of %",
+      "derived_from": null,
+      "attributes": [
+        "HEMATOCRIT_MEASURE"
+      ]
+    },
+    "HEMOGLOBIN_MEASURE": {
+      "name": "HEMOGLOBIN_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to manage the measurement of HEMOGLOBIN in units of g/dL",
+      "derived_from": null,
+      "attributes": [
+        "HEMOGLOBIN_MEASURE"
+      ]
+    },
+    "HEPARIN_IV_BITZUA": {
+      "name": "HEPARIN_IV_BITZUA",
+      "family": "raw-concept",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Raw concept to mark heparin administration event (IV - more severe)",
+      "derived_from": null,
+      "attributes": [
+        "HEPARIN_IV_BITZUA"
+      ]
+    },
+    "HEPARIN_SC_BITZUA": {
+      "name": "HEPARIN_SC_BITZUA",
+      "family": "raw-concept",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Raw concept to mark heparin administration event (SC - less severe)",
+      "derived_from": null,
+      "attributes": [
+        "HEPARIN_SC_BITZUA"
+      ]
+    },
+    "HIGH_GLUCOSE_IND": {
+      "name": "HIGH_GLUCOSE_IND",
+      "family": "raw-concept",
+      "categories": [
+        "Context"
+      ],
+      "description": "Raw concept to indicate the transition to high glucose range in admission",
+      "derived_from": null,
+      "attributes": [
+        "GLUCOSE_MEASURE"
+      ]
+    },
+    "HYPEROSMOLALITY": {
+      "name": "HYPEROSMOLALITY",
+      "family": "raw-concept",
+      "categories": [
+        "Complications"
+      ],
+      "description": "Raw concept to mark the hyperosmolality event, inputed as 'Observation'",
+      "derived_from": null,
+      "attributes": [
+        "HYPEROSMOLALITY"
+      ]
+    },
+    "HYPERTONIC-SALINE_BITZUA": {
+      "name": "HYPERTONIC-SALINE_BITZUA",
+      "family": "raw-concept",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Raw concept to mark hypertonic saline administration event (IV only)",
+      "derived_from": null,
+      "attributes": [
+        "HYPERTONIC-SALINE_BITZUA",
+        "HYPERTONIC_SALINE_BITZUA"
+      ]
+    },
+    "INFECTION": {
+      "name": "INFECTION",
+      "family": "raw-concept",
+      "categories": [
+        "Complications"
+      ],
+      "description": "Infection event. Calculated during ETL based on clinical and laboratory data indicating infection presence.",
+      "derived_from": null,
+      "attributes": [
+        "INFECTION"
+      ]
+    },
+    "INFECTION_WBC_MEASURE": {
+      "name": "INFECTION_WBC_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to manage the measurement of WHITE BLOOD CELLS for infection determination in units of 10³/µL (LEUKOCYTES)",
+      "derived_from": null,
+      "attributes": [
+        "INFECTION_WBC_MEASURE"
+      ]
+    },
+    "INSULIN_BITZUA": {
+      "name": "INSULIN_BITZUA",
+      "family": "raw-concept",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Raw concept to manage the administration of regular insulin, which is IntraVenous by default",
+      "derived_from": null,
+      "attributes": [
+        "INSULIN_IV_DOSAGE"
+      ]
+    },
+    "K-BINDER_BITZUA": {
+      "name": "K-BINDER_BITZUA",
+      "family": "raw-concept",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Raw concept to mark potassium binder administration event (oral/ rectal route)",
+      "derived_from": null,
+      "attributes": [
+        "K-BINDER_BITZUA",
+        "K_BINDER_BITZUA"
+      ]
+    },
+    "KETOACIDOSIS": {
+      "name": "KETOACIDOSIS",
+      "family": "raw-concept",
+      "categories": [
+        "Complications"
+      ],
+      "description": "Raw concept to mark the ketoacidosis event, inputed from 'Observation'",
+      "derived_from": null,
+      "attributes": [
+        "KETOACIDOSIS"
+      ]
+    },
+    "KETONES_SERUM_MEASURE": {
+      "name": "KETONES_SERUM_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to manage the measurement of KETONES by SERUM in mg/dL units",
+      "derived_from": null,
+      "attributes": [
+        "KETONES_SERUM_MEASURE"
+      ]
+    },
+    "KETONES_URINE_MEASURE": {
+      "name": "KETONES_URINE_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to manage the measurement of KETONES by URINE in mg/dL units",
+      "derived_from": null,
+      "attributes": [
+        "KETONES_URINE_MEASURE"
+      ]
+    },
+    "LOW_GLUCOSE_IND": {
+      "name": "LOW_GLUCOSE_IND",
+      "family": "raw-concept",
+      "categories": [
+        "Context"
+      ],
+      "description": "Raw concept to indicate the transition to low glucose range in admission",
+      "derived_from": null,
+      "attributes": [
+        "GLUCOSE_MEASURE"
+      ]
+    },
+    "MEAL": {
+      "name": "MEAL",
+      "family": "raw-concept",
+      "categories": [
+        "Events"
+      ],
+      "description": "Raw concept to manage the assessed meal events in hospitalization",
+      "derived_from": null,
+      "attributes": [
+        "MEAL"
+      ]
+    },
+    "METFORMIN_HOME_BITZUA": {
+      "name": "METFORMIN_HOME_BITZUA",
+      "family": "raw-concept",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Raw concept to mark METFORMIN drugs administration event (at home) that have low hypoglycemia risk (but we'll want to monitor this)",
+      "derived_from": null,
+      "attributes": [
+        "METFORMIN_HOME_BITZUA"
+      ]
+    },
+    "METFORMIN_HOSPITAL_BITZUA": {
+      "name": "METFORMIN_HOSPITAL_BITZUA",
+      "family": "raw-concept",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Raw concept to mark METFORMIN drugs administration event (at hospital) that have low hypoglycemia risk (but we'll want to monitor this)",
+      "derived_from": null,
+      "attributes": [
+        "METFORMIN_HOSPITAL_BITZUA"
+      ]
+    },
+    "NEUTROPHILS_MEASURE": {
+      "name": "NEUTROPHILS_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to manage the measurement of Absolute NEUTROPHILS count (ANC) in units of 10e3/uL",
+      "derived_from": null,
+      "attributes": [
+        "NEUTROPHILS_MEASURE"
+      ]
+    },
+    "NORMAL_GLUCOSE_IND": {
+      "name": "NORMAL_GLUCOSE_IND",
+      "family": "raw-concept",
+      "categories": [
+        "Context"
+      ],
+      "description": "Raw concept to indicate the transition to normal glucose range in admission",
+      "derived_from": null,
+      "attributes": [
+        "GLUCOSE_MEASURE"
+      ]
+    },
+    "OTHER_COMPLICATION": {
+      "name": "OTHER_COMPLICATION",
+      "family": "raw-concept",
+      "categories": [
+        "Complications"
+      ],
+      "description": "Raw concept to mark an unidentified diabetic complication event, inputed from 'Observation'",
+      "derived_from": null,
+      "attributes": [
+        "OTHER_COMPLICATION"
+      ]
+    },
+    "PH_MEASURE": {
+      "name": "PH_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to manage the measurement of blood PH (units of mmHg or mg/dL)",
+      "derived_from": null,
+      "attributes": [
+        "PH_MEASURE"
+      ]
+    },
+    "PLT_MEASURE": {
+      "name": "PLT_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to manage the measurement of blood PLT (in units of 10e3/uL)",
+      "derived_from": null,
+      "attributes": [
+        "PLT_MEASURE"
+      ]
+    },
+    "POTASSIUM_MEASURE": {
+      "name": "POTASSIUM_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to manage the measurement of blood POTASSIUM (K⁺) in units of mmol/L",
+      "derived_from": null,
+      "attributes": [
+        "POTASSIUM_MEASURE"
+      ]
+    },
+    "RELEASE": {
+      "name": "RELEASE",
+      "family": "raw-concept",
+      "categories": [
+        "Events"
+      ],
+      "description": "Raw concept to mark the release event",
+      "derived_from": null,
+      "attributes": [
+        "RELEASE"
+      ]
+    },
+    "SGLT2_HOME_BITZUA": {
+      "name": "SGLT2_HOME_BITZUA",
+      "family": "raw-concept",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Raw concept to mark SGLT2 drugs administration event (at home, signaling valuable context) that have high hypoglycemia risk (used only to monitor if were stopped during the first 3 days or after event)",
+      "derived_from": null,
+      "attributes": [
+        "SGLT2_HOME_BITZUA"
+      ]
+    },
+    "SGLT2_HOSPITAL_BITZUA": {
+      "name": "SGLT2_HOSPITAL_BITZUA",
+      "family": "raw-concept",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Raw concept to mark SGLT2 drugs administration event (at hospital, signaling valuable context) that have high hypoglycemia risk (used only to monitor if were stopped during the first 3 days or after event)",
+      "derived_from": null,
+      "attributes": [
+        "SGLT2_HOSPITAL_BITZUA"
+      ]
+    },
+    "SODIUM_MEASURE": {
+      "name": "SODIUM_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to manage the measurement of SODIUM (Na⁺) by serum/ blood/ plasma in units of mmol/L",
+      "derived_from": null,
+      "attributes": [
+        "SODIUM_MEASURE"
+      ]
+    },
+    "STEROIDS_IV_BITZUA": {
+      "name": "STEROIDS_IV_BITZUA",
+      "family": "raw-concept",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Raw concept to mark steroids administration event (IV - more severe)",
+      "derived_from": null,
+      "attributes": [
+        "STEROIDS_IV_BITZUA"
+      ]
+    },
+    "STEROIDS_PO_BITZUA": {
+      "name": "STEROIDS_PO_BITZUA",
+      "family": "raw-concept",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Raw concept to mark steroids administration event (PO - oral route)",
+      "derived_from": null,
+      "attributes": [
+        "STEROIDS_PO_BITZUA"
+      ]
+    },
+    "TROPONIN_MEASURE": {
+      "name": "TROPONIN_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to manage the measurement of TROPONIN in units of ng/L",
+      "derived_from": null,
+      "attributes": [
+        "TROPONIN_MEASURE"
+      ]
+    },
+    "UREA_MEASURE": {
+      "name": "UREA_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to manage the measurement of blood/ serum/ plasma UREA in units of mg/dL",
+      "derived_from": null,
+      "attributes": [
+        "UREA_MEASURE"
+      ]
+    },
+    "WEIGHT_MEASURE": {
+      "name": "WEIGHT_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept for measurement of WEIGHT (in KG), used to assess proper medication dosages",
+      "derived_from": null,
+      "attributes": [
+        "WEIGHT_MEASURE"
+      ]
+    },
+    "BASAL_BITZUA_RATIO": {
+      "name": "BASAL_BITZUA_RATIO",
+      "family": "raw-concept",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Raw concept to manage the BASAL ratio (long term) compared to the last administered dose",
+      "derived_from": "BASAL_BITZUA",
+      "attributes": [
+        "BASAL_DOSAGE"
+      ],
+      "parameters": [
+        {
+          "name": "BASAL_BITZUA",
+          "tak": "raw-concept",
+          "idx": 0,
+          "how": "before",
+          "dynamic": true,
+          "ref": "P1",
+          "default": null
+        }
+      ]
+    },
+    "BOLUS_BITZUA_RATIO": {
+      "name": "BOLUS_BITZUA_RATIO",
+      "family": "raw-concept",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Raw concept to manage the BOLUS ratio (short term) compared to the last administered dose",
+      "derived_from": "BOLUS_BITZUA",
+      "attributes": [
+        "BOLUS_DOSAGE"
+      ],
+      "parameters": [
+        {
+          "name": "BOLUS_BITZUA",
+          "tak": "raw-concept",
+          "idx": 0,
+          "how": "before",
+          "dynamic": true,
+          "ref": "P1",
+          "default": null
+        }
+      ]
+    },
+    "CREATININE_REL_SERUM_MEASURE": {
+      "name": "CREATININE_REL_SERUM_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to monitor the creatinine trend within admission, if 2 or more exist, compared to baseline",
+      "derived_from": "CREATININE_SERUM_MEASURE",
+      "attributes": [
+        "CREATININE_SERUM_MEASURE"
+      ],
+      "parameters": [
+        {
+          "name": "CREATININE_SERUM_MEASURE",
+          "tak": "raw-concept",
+          "idx": 0,
+          "how": "before",
+          "dynamic": false,
+          "ref": "P1",
+          "default": null
+        }
+      ]
+    },
+    "CREATININE_RISE_SERUM_MEASURE": {
+      "name": "CREATININE_RISE_SERUM_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to monitor the creatinine numerical increase within admission, if 2 or more exist",
+      "derived_from": "CREATININE_SERUM_MEASURE",
+      "attributes": [
+        "CREATININE_SERUM_MEASURE"
+      ],
+      "parameters": [
+        {
+          "name": "CREATININE_SERUM_MEASURE",
+          "tak": "raw-concept",
+          "idx": 0,
+          "how": "before",
+          "dynamic": true,
+          "ref": "P1",
+          "default": null
+        }
+      ]
+    },
+    "M-SHR_MEASURE": {
+      "name": "M-SHR_MEASURE",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept to manage the temporal measurement of M-SHR ratio (glucose / base glucose measure)",
+      "derived_from": "GLUCOSE_MEASURE",
+      "attributes": [
+        "GLUCOSE_MEASURE"
+      ],
+      "parameters": [
+        {
+          "name": "BASE_GLUCOSE_MEASURE",
+          "tak": "raw-concept",
+          "idx": 0,
+          "how": "all",
+          "dynamic": false,
+          "ref": "P1",
+          "default": null
+        }
+      ]
+    },
+    "STEADY_GLUCOSE_MEASURE_HIGH_AFTER_FIRST": {
+      "name": "STEADY_GLUCOSE_MEASURE_HIGH_AFTER_FIRST",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept that outputs only the glucose measurements after the first high glucose measurement (meaning it's repetative if high)",
+      "derived_from": "GLUCOSE_MEASURE",
+      "attributes": [
+        "GLUCOSE_MEASURE"
+      ],
+      "parameters": [
+        {
+          "name": "HIGH_GLUCOSE_IND",
+          "tak": "raw-concept",
+          "idx": 0,
+          "how": "before",
+          "dynamic": false,
+          "ref": "P1",
+          "default": null
+        }
+      ]
+    },
+    "STEADY_GLUCOSE_MEASURE_LOW_AFTER_FIRST": {
+      "name": "STEADY_GLUCOSE_MEASURE_LOW_AFTER_FIRST",
+      "family": "raw-concept",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Raw concept that outputs only the glucose measurements after the first low glucose measurement (meaning it's repetative if low)",
+      "derived_from": "GLUCOSE_MEASURE",
+      "attributes": [
+        "GLUCOSE_MEASURE"
+      ],
+      "parameters": [
+        {
+          "name": "LOW_GLUCOSE_IND",
+          "tak": "raw-concept",
+          "idx": 0,
+          "how": "before",
+          "dynamic": false,
+          "ref": "P1",
+          "default": null
+        }
+      ]
+    },
+    "ACIDOSIS_EVENT": {
+      "name": "ACIDOSIS_EVENT",
+      "family": "event",
+      "categories": [
+        "Complications"
+      ],
+      "description": "Marks Acidosis (in admission complication) event",
+      "derived_from": [
+        {
+          "name": "ACIDOSIS",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "ACUTE_RESPIRATORY_DISORDER_EVENT": {
+      "name": "ACUTE_RESPIRATORY_DISORDER_EVENT",
+      "family": "event",
+      "categories": [
+        "Complications"
+      ],
+      "description": "Marks Acute Respiratory Disorder (in admission complication) event",
+      "derived_from": [
+        {
+          "name": "ACUTE_RESPIRATORY_DISORDER",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "ADMISSION_EVENT": {
+      "name": "ADMISSION_EVENT",
+      "family": "event",
+      "categories": [
+        "Events"
+      ],
+      "description": "Admission event",
+      "derived_from": [
+        {
+          "name": "ADMISSION",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "AKI_EVENT": {
+      "name": "AKI_EVENT",
+      "family": "event",
+      "categories": [
+        "Biomarkers"
+      ],
+      "description": "Lab-derived acute kidney injury stage based on creatinine absolute rise, creatinine ratio from baseline, severe absolute creatinine. basis for complication.",
+      "derived_from": [
+        {
+          "name": "CREATININE_SERUM_MEASURE",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "C1"
+        },
+        {
+          "name": "CREATININE_RISE_SERUM_MEASURE",
+          "tak_type": "parameterized-raw-concept",
+          "idx": 0,
+          "ref": "R1"
+        },
+        {
+          "name": "CREATININE_REL_SERUM_MEASURE",
+          "tak_type": "parameterized-raw-concept",
+          "idx": 0,
+          "ref": "R2"
+        }
+      ]
+    },
+    "ANTIBIOTIC_BITZUA_EVENT": {
+      "name": "ANTIBIOTIC_BITZUA_EVENT",
+      "family": "event",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Marks Antibiotic Drugs administration event (IV or PO)",
+      "derived_from": [
+        {
+          "name": "ANTIBIOTIC_IV_BITZUA",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        },
+        {
+          "name": "ANTIBIOTIC_PO_BITZUA",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A2"
+        }
+      ]
+    },
+    "ANTIDIABETIC_BITZUA_EVENT": {
+      "name": "ANTIDIABETIC_BITZUA_EVENT",
+      "family": "event",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Marks Antidiabetic Drugs administration event in hospital (PO) - High hypoglycemia risk medications",
+      "derived_from": [
+        {
+          "name": "ANTIDIABETIC_HOSPITAL_BITZUA",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "BICARBONATE_BITZUA_EVENT": {
+      "name": "BICARBONATE_BITZUA_EVENT",
+      "family": "event",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Marks Bicarbonate administration event (IV only)",
+      "derived_from": [
+        {
+          "name": "BICARBONATE_BITZUA",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "CALCIUM-GLUCONATE_BITZUA_EVENT": {
+      "name": "CALCIUM-GLUCONATE_BITZUA_EVENT",
+      "family": "event",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Marks Calcium Gluconate administration event",
+      "derived_from": [
+        {
+          "name": "CALCIUM-GLUCONATE_BITZUA",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "CARDIO-VASCULAR_DISORDER_EVENT": {
+      "name": "CARDIO-VASCULAR_DISORDER_EVENT",
+      "family": "event",
+      "categories": [
+        "Complications"
+      ],
+      "description": "Marks Cardiovascular (MI) Disorder (in admission complication) event, derived from ETL - cardiovascular disorders, ischemic heart disease/ MI/ coronary intervention/ cardiac catheterization/ revascularization AND troponin at least 600",
+      "derived_from": [
+        {
+          "name": "CARDIO-VASCULAR_DISORDER",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "ELECTROLYTE_DERANGEMENT_EVENT": {
+      "name": "ELECTROLYTE_DERANGEMENT_EVENT",
+      "family": "event",
+      "categories": [
+        "Biomarkers"
+      ],
+      "description": "Critical electrolyte derangement event",
+      "derived_from": [
+        {
+          "name": "POTASSIUM_MEASURE",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        },
+        {
+          "name": "SODIUM_MEASURE",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A2"
+        },
+        {
+          "name": "PH_MEASURE",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A3"
+        },
+        {
+          "name": "BICARBONATE_MEASURE",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A4"
+        }
+      ]
+    },
+    "DEATH_EVENT": {
+      "name": "DEATH_EVENT",
+      "family": "event",
+      "categories": [
+        "Complications"
+      ],
+      "description": "Death event",
+      "derived_from": [
+        {
+          "name": "DEATH",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "DEXTROSE_BITZUA_EVENT": {
+      "name": "DEXTROSE_BITZUA_EVENT",
+      "family": "event",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Marks Dextrose administration event",
+      "derived_from": [
+        {
+          "name": "DEXTROSE_BITZUA",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "DIABETIC_COMA_EVENT": {
+      "name": "DIABETIC_COMA_EVENT",
+      "family": "event",
+      "categories": [
+        "Complications"
+      ],
+      "description": "Marks Diabetic Coma (in admission complication) event",
+      "derived_from": [
+        {
+          "name": "DIABETIC_COMA",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "HEPARIN_BITZUA_EVENT": {
+      "name": "HEPARIN_BITZUA_EVENT",
+      "family": "event",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Marks Heparin administration event (IV - more severe)",
+      "derived_from": [
+        {
+          "name": "HEPARIN_IV_BITZUA",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        },
+        {
+          "name": "HEPARIN_SC_BITZUA",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A2"
+        }
+      ]
+    },
+    "HYPERGLYCEMIA_EVENT": {
+      "name": "HYPERGLYCEMIA_EVENT",
+      "family": "event",
+      "categories": [
+        "Complications"
+      ],
+      "description": "Hyperglycemia event (only after the 2nd unstable event or extreme measurement)",
+      "derived_from": [
+        {
+          "name": "GLUCOSE_MEASURE",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        },
+        {
+          "name": "STEADY_GLUCOSE_MEASURE_HIGH_AFTER_FIRST",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "S1"
+        }
+      ]
+    },
+    "HYPEROSMOLALITY_EVENT": {
+      "name": "HYPEROSMOLALITY_EVENT",
+      "family": "event",
+      "categories": [
+        "Complications"
+      ],
+      "description": "Marks Hyperosmolality (in admission complication) event",
+      "derived_from": [
+        {
+          "name": "HYPEROSMOLALITY",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "HYPERTONIC-SALINE_BITZUA_EVENT": {
+      "name": "HYPERTONIC-SALINE_BITZUA_EVENT",
+      "family": "event",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Marks Hypertonic Saline administration event",
+      "derived_from": [
+        {
+          "name": "HYPERTONIC-SALINE_BITZUA",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "HYPOGLYCEMIA_EVENT": {
+      "name": "HYPOGLYCEMIA_EVENT",
+      "family": "event",
+      "categories": [
+        "Complications"
+      ],
+      "description": "Hypoglycemia event (only after the 2nd unstable event or extreme measurement)",
+      "derived_from": [
+        {
+          "name": "GLUCOSE_MEASURE",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        },
+        {
+          "name": "STEADY_GLUCOSE_MEASURE_LOW_AFTER_FIRST",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "S2"
+        }
+      ]
+    },
+    "INFECTION_EVENT": {
+      "name": "INFECTION_EVENT",
+      "family": "event",
+      "categories": [
+        "Complications"
+      ],
+      "description": "Marks Infection (in admission complication) event",
+      "derived_from": [
+        {
+          "name": "INFECTION",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "K-BINDER_BITZUA_EVENT": {
+      "name": "K-BINDER_BITZUA_EVENT",
+      "family": "event",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Marks K Binder administration event",
+      "derived_from": [
+        {
+          "name": "K-BINDER_BITZUA",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "KETOACIDOSIS_EVENT": {
+      "name": "KETOACIDOSIS_EVENT",
+      "family": "event",
+      "categories": [
+        "Complications"
+      ],
+      "description": "Marks Ketoacidosis (in admission complication) event",
+      "derived_from": [
+        {
+          "name": "KETOACIDOSIS",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "KIDNEY_COMPLICATION_EVENT": {
+      "name": "KIDNEY_COMPLICATION_EVENT",
+      "family": "event",
+      "categories": [
+        "Complications"
+      ],
+      "description": "Lab-derived AKI renal complication prediction target, defined as AKI Stage 2 or Stage 3.",
+      "derived_from": [
+        {
+          "name": "CREATININE_SERUM_MEASURE",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "C1"
+        },
+        {
+          "name": "CREATININE_REL_SERUM_MEASURE",
+          "tak_type": "parameterized-raw-concept",
+          "idx": 0,
+          "ref": "R1"
+        }
+      ]
+    },
+    "MYOCARDIAL_INJURY_EVENT": {
+      "name": "MYOCARDIAL_INJURY_EVENT",
+      "family": "event",
+      "categories": [
+        "Biomarkers"
+      ],
+      "description": "Myocardial injury event (e.g., myocardial infarction). Derived from troponin (not full on complication but important biomarker)",
+      "derived_from": [
+        {
+          "name": "TROPONIN_MEASURE",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "OTHER_COMPLICATION_EVENT": {
+      "name": "OTHER_COMPLICATION_EVENT",
+      "family": "event",
+      "categories": [
+        "Complications"
+      ],
+      "description": "Marks Other Complication (in admission complication) event",
+      "derived_from": [
+        {
+          "name": "OTHER_COMPLICATION",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "RELEASE_EVENT": {
+      "name": "RELEASE_EVENT",
+      "family": "event",
+      "categories": [
+        "Events"
+      ],
+      "description": "Release event",
+      "derived_from": [
+        {
+          "name": "RELEASE",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "SEVERE_HYPERGLYCEMIA_EVENT": {
+      "name": "SEVERE_HYPERGLYCEMIA_EVENT",
+      "family": "event",
+      "categories": [
+        "Complications"
+      ],
+      "description": "Severe hyperglycemia event (extremely high glucose levels). Overlaps with regular hyperglycemia events, but is more severe (prediction target).",
+      "derived_from": [
+        {
+          "name": "GLUCOSE_MEASURE",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "SEVERE_HYPOGLYCEMIA_EVENT": {
+      "name": "SEVERE_HYPOGLYCEMIA_EVENT",
+      "family": "event",
+      "categories": [
+        "Complications"
+      ],
+      "description": "Severe hypoglycemia event (extremely low glucose levels). Overlaps with regular hypoglycemia events, but is more severe (prediction target).",
+      "derived_from": [
+        {
+          "name": "GLUCOSE_MEASURE",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "STEROIDS_BITZUA_EVENT": {
+      "name": "STEROIDS_BITZUA_EVENT",
+      "family": "event",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Marks steroids administration event (IV/PO/SC)",
+      "derived_from": [
+        {
+          "name": "STEROIDS_IV_BITZUA",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        },
+        {
+          "name": "STEROIDS_PO_BITZUA",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A2"
+        }
+      ]
+    },
+    "ALANINE-AMINOTRANSFERASE_MEASURE_STATE": {
+      "name": "ALANINE-AMINOTRANSFERASE_MEASURE_STATE",
+      "family": "state",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Abstraction for the measurements of ALANINE-AMINOTRANSFERASE",
+      "derived_from": "ALANINE-AMINOTRANSFERASE_MEASURE"
+    },
+    "ALBUMIN_MEASURE_STATE": {
+      "name": "ALBUMIN_MEASURE_STATE",
+      "family": "state",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Abstraction for the measurements of ALBUMIN by serum, excluding ratio units",
+      "derived_from": "ALBUMIN_MEASURE"
+    },
+    "ASPARATE-AMINOTRANSFERASE_MEASURE_STATE": {
+      "name": "ASPARATE-AMINOTRANSFERASE_MEASURE_STATE",
+      "family": "state",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Abstraction for the measurements of ASPARATE-AMINOTRANSFERASE",
+      "derived_from": "ASPARATE-AMINOTRANSFERASE_MEASURE"
+    },
+    "BASAL_BITZUA_STATE": {
+      "name": "BASAL_BITZUA_STATE",
+      "family": "state",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Abstraction for the dosage and route of administration of BASAL insulin (SC by default)",
+      "derived_from": "BASAL_BITZUA"
+    },
+    "BICARBONATE_MEASURE_STATE": {
+      "name": "BICARBONATE_MEASURE_STATE",
+      "family": "state",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Abstraction for the measurements of BICARBONATE",
+      "derived_from": "BICARBONATE_MEASURE"
+    },
+    "BLOOD_PRESSURE_DIASTOLIC_MEASURE_STATE": {
+      "name": "BLOOD_PRESSURE_DIASTOLIC_MEASURE_STATE",
+      "family": "state",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Abstraction for the measurements of Diastolic BLOOD PRESSURE",
+      "derived_from": "BLOOD_PRESSURE_DIASTOLIC_MEASURE"
+    },
+    "BLOOD_PRESSURE_SYSTOLIC_MEASURE_STATE": {
+      "name": "BLOOD_PRESSURE_SYSTOLIC_MEASURE_STATE",
+      "family": "state",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Abstraction for the measurements of Systolic BLOOD PRESSURE",
+      "derived_from": "BLOOD_PRESSURE_SYSTOLIC_MEASURE"
+    },
+    "BODY_TEMPERATURE_MEASURE_STATE": {
+      "name": "BODY_TEMPERATURE_MEASURE_STATE",
+      "family": "state",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Abstraction for the measurements of BODY TEMPERATURE",
+      "derived_from": "BODY_TEMPERATURE_MEASURE"
+    },
+    "BOLUS_BITZUA_STATE": {
+      "name": "BOLUS_BITZUA_STATE",
+      "family": "state",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Abstraction for the dosage and route of administration of BOLUS insulin",
+      "derived_from": "BOLUS_BITZUA"
+    },
+    "CREATINE-KINASE_MEASURE_STATE": {
+      "name": "CREATINE-KINASE_MEASURE_STATE",
+      "family": "state",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Abstraction for the measurements of CREATINE-KINASE",
+      "derived_from": "CREATINE-KINASE_MEASURE"
+    },
+    "CREATININE_SERUM_MEASURE_STATE": {
+      "name": "CREATININE_SERUM_MEASURE_STATE",
+      "family": "state",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Abstraction for the measurements of CREATININE (Serum)",
+      "derived_from": "CREATININE_SERUM_MEASURE"
+    },
+    "E-GFR_MEASURE_STATE": {
+      "name": "E-GFR_MEASURE_STATE",
+      "family": "state",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Abstraction for the measurements of E-GFR",
+      "derived_from": "E-GFR_MEASURE"
+    },
+    "GLUCOSE_MEASURE_STATE": {
+      "name": "GLUCOSE_MEASURE_STATE",
+      "family": "state",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Abstraction for the measurements of GLUCOSE (Lab / Capillary)",
+      "derived_from": "GLUCOSE_MEASURE"
+    },
+    "HEART_RATE_MEASURE_STATE": {
+      "name": "HEART_RATE_MEASURE_STATE",
+      "family": "state",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Abstraction for the measurements of HEART RATE",
+      "derived_from": "HEART_RATE_MEASURE"
+    },
+    "HEMATOCRIT_MEASURE_STATE": {
+      "name": "HEMATOCRIT_MEASURE_STATE",
+      "family": "state",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Abstraction for the measurements of HEMATOCRIT",
+      "derived_from": "HEMATOCRIT_MEASURE"
+    },
+    "HEMOGLOBIN_MEASURE_STATE": {
+      "name": "HEMOGLOBIN_MEASURE_STATE",
+      "family": "state",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Abstraction for the measurements of HEMOGLOBIN",
+      "derived_from": "HEMOGLOBIN_MEASURE"
+    },
+    "INFECTION_WBC_MEASURE_STATE": {
+      "name": "INFECTION_WBC_MEASURE_STATE",
+      "family": "state",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Abstraction for the measurements of WHITE BLOOD CELLS for infection determination",
+      "derived_from": "INFECTION_WBC_MEASURE"
+    },
+    "INSULIN_BITZUA_STATE": {
+      "name": "INSULIN_BITZUA_STATE",
+      "family": "state",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Abstraction for the dosage and route of administration of regular insulin (IV by default)",
+      "derived_from": "INSULIN_BITZUA"
+    },
+    "KETONES_SERUM_MEASURE_STATE": {
+      "name": "KETONES_SERUM_MEASURE_STATE",
+      "family": "state",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Abstraction for the measurements of KETONES (by Serum) in mg/dL units",
+      "derived_from": "KETONES_SERUM_MEASURE"
+    },
+    "M-SHR_MEASURE_STATE": {
+      "name": "M-SHR_MEASURE_STATE",
+      "family": "state",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Abstraction for the M-SHR ratio measurements",
+      "derived_from": "M-SHR_MEASURE"
+    },
+    "NEUTROPHILS_MEASURE_STATE": {
+      "name": "NEUTROPHILS_MEASURE_STATE",
+      "family": "state",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Abstraction for the measurements of NEUTROPHILS (units 10e3/mL)",
+      "derived_from": "NEUTROPHILS_MEASURE"
+    },
+    "PH_MEASURE_STATE": {
+      "name": "PH_MEASURE_STATE",
+      "family": "state",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Abstraction for the measurements of PH",
+      "derived_from": "PH_MEASURE"
+    },
+    "PLT_MEASURE_STATE": {
+      "name": "PLT_MEASURE_STATE",
+      "family": "state",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Abstraction for the measurements of PLT (in units of 10e3/uL)",
+      "derived_from": "PLT_MEASURE"
+    },
+    "POTASSIUM_MEASURE_STATE": {
+      "name": "POTASSIUM_MEASURE_STATE",
+      "family": "state",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Abstraction for the measurements of POTASSIUM",
+      "derived_from": "POTASSIUM_MEASURE"
+    },
+    "SODIUM_MEASURE_STATE": {
+      "name": "SODIUM_MEASURE_STATE",
+      "family": "state",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Abstraction for the measurements of SODIUM (Na⁺) by serum/ blood/ plasma in units of mmol/L",
+      "derived_from": "SODIUM_MEASURE"
+    },
+    "TROPONIN_MEASURE_STATE": {
+      "name": "TROPONIN_MEASURE_STATE",
+      "family": "state",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Abstraction for the measurements of TROPONIN",
+      "derived_from": "TROPONIN_MEASURE"
+    },
+    "UREA_MEASURE_STATE": {
+      "name": "UREA_MEASURE_STATE",
+      "family": "state",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Abstraction for the measurements of UREA",
+      "derived_from": "UREA_MEASURE"
+    },
+    "ALANINE-AMINOTRANSFERASE_MEASURE_TREND": {
+      "name": "ALANINE-AMINOTRANSFERASE_MEASURE_TREND",
+      "family": "trend",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Trend for the measurements of ALANINE-AMINOTRANSFERASE",
+      "derived_from": "ALANINE-AMINOTRANSFERASE_MEASURE"
+    },
+    "ALBUMIN_MEASURE_TREND": {
+      "name": "ALBUMIN_MEASURE_TREND",
+      "family": "trend",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Trend for the measurements of ALBUMIN",
+      "derived_from": "ALBUMIN_MEASURE"
+    },
+    "ASPARATE-AMINOTRANSFERASE_MEASURE_TREND": {
+      "name": "ASPARATE-AMINOTRANSFERASE_MEASURE_TREND",
+      "family": "trend",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Trend for the measurements of ASPARATE-AMINOTRANSFERASE",
+      "derived_from": "ASPARATE-AMINOTRANSFERASE_MEASURE"
+    },
+    "BICARBONATE_MEASURE_TREND": {
+      "name": "BICARBONATE_MEASURE_TREND",
+      "family": "trend",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Trend for the measurements of BICARBONATE",
+      "derived_from": "BICARBONATE_MEASURE"
+    },
+    "BLOOD_PRESSURE_DIASTOLIC_MEASURE_TREND": {
+      "name": "BLOOD_PRESSURE_DIASTOLIC_MEASURE_TREND",
+      "family": "trend",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Trend for the measurements of BLOOD_PRESSURE_DIASTOLIC",
+      "derived_from": "BLOOD_PRESSURE_DIASTOLIC_MEASURE"
+    },
+    "BLOOD_PRESSURE_SYSTOLIC_MEASURE_TREND": {
+      "name": "BLOOD_PRESSURE_SYSTOLIC_MEASURE_TREND",
+      "family": "trend",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Trend for the measurements of BLOOD_PRESSURE_SYSTOLIC",
+      "derived_from": "BLOOD_PRESSURE_SYSTOLIC_MEASURE"
+    },
+    "BODY_TEMPERATURE_MEASURE_TREND": {
+      "name": "BODY_TEMPERATURE_MEASURE_TREND",
+      "family": "trend",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Trend for the measurements of BODY_TEMPERATURE",
+      "derived_from": "BODY_TEMPERATURE_MEASURE"
+    },
+    "CREATINE-KINASE_MEASURE_TREND": {
+      "name": "CREATINE-KINASE_MEASURE_TREND",
+      "family": "trend",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Trend for the measurements of CREATINE-KINASE",
+      "derived_from": "CREATINE-KINASE_MEASURE"
+    },
+    "CREATININE_SERUM_MEASURE_TREND": {
+      "name": "CREATININE_SERUM_MEASURE_TREND",
+      "family": "trend",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Trend for the measurements of CREATININE (Serum)",
+      "derived_from": "CREATININE_SERUM_MEASURE"
+    },
+    "E-GFR_MEASURE_TREND": {
+      "name": "E-GFR_MEASURE_TREND",
+      "family": "trend",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Trend for the measurements of E-GFR",
+      "derived_from": "E-GFR_MEASURE"
+    },
+    "GLUCOSE_MEASURE_TREND": {
+      "name": "GLUCOSE_MEASURE_TREND",
+      "family": "trend",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Trend for the measurements of GLUCOSE (Lab / Capillary)",
+      "derived_from": "GLUCOSE_MEASURE"
+    },
+    "HEART_RATE_MEASURE_TREND": {
+      "name": "HEART_RATE_MEASURE_TREND",
+      "family": "trend",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Trend for the measurements of HEART_RATE",
+      "derived_from": "HEART_RATE_MEASURE"
+    },
+    "HEMATOCRIT_MEASURE_TREND": {
+      "name": "HEMATOCRIT_MEASURE_TREND",
+      "family": "trend",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Trend for the measurements of HEMATOCRIT",
+      "derived_from": "HEMATOCRIT_MEASURE"
+    },
+    "HEMOGLOBIN_MEASURE_TREND": {
+      "name": "HEMOGLOBIN_MEASURE_TREND",
+      "family": "trend",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Trend for the measurements of HEMOGLOBIN",
+      "derived_from": "HEMOGLOBIN_MEASURE"
+    },
+    "INFECTION_WBC_MEASURE_TREND": {
+      "name": "INFECTION_WBC_MEASURE_TREND",
+      "family": "trend",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Trend for the measurements of WHITE BLOOD CELLS for infection determination (using LEUKOCYTES in 10³/µL units)",
+      "derived_from": "INFECTION_WBC_MEASURE"
+    },
+    "KETONES_SERUM_MEASURE_TREND": {
+      "name": "KETONES_SERUM_MEASURE_TREND",
+      "family": "trend",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Trend for the measurements of KETONES_SERUM",
+      "derived_from": "KETONES_SERUM_MEASURE"
+    },
+    "M-SHR_MEASURE_TREND": {
+      "name": "M-SHR_MEASURE_TREND",
+      "family": "trend",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Trend for the measurements of M-SHR ratio (glucose / first glucose measure)",
+      "derived_from": "M-SHR_MEASURE"
+    },
+    "NEUTROPHILS_MEASURE_TREND": {
+      "name": "NEUTROPHILS_MEASURE_TREND",
+      "family": "trend",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Trend for the measurements of NEUTROPHILS",
+      "derived_from": "NEUTROPHILS_MEASURE"
+    },
+    "PH_MEASURE_TREND": {
+      "name": "PH_MEASURE_TREND",
+      "family": "trend",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Trend for the measurements of PH",
+      "derived_from": "PH_MEASURE"
+    },
+    "PLT_MEASURE_TREND": {
+      "name": "PLT_MEASURE_TREND",
+      "family": "trend",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Trend for the measurements of PLT",
+      "derived_from": "PLT_MEASURE"
+    },
+    "POTASSIUM_MEASURE_TREND": {
+      "name": "POTASSIUM_MEASURE_TREND",
+      "family": "trend",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Trend for the measurements of POTASSIUM",
+      "derived_from": "POTASSIUM_MEASURE"
+    },
+    "SODIUM_MEASURE_TREND": {
+      "name": "SODIUM_MEASURE_TREND",
+      "family": "trend",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Trend for the measurements of SODIUM (Blood)",
+      "derived_from": "SODIUM_MEASURE"
+    },
+    "TROPONIN_MEASURE_TREND": {
+      "name": "TROPONIN_MEASURE_TREND",
+      "family": "trend",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Trend for the measurements of TROPONIN",
+      "derived_from": "TROPONIN_MEASURE"
+    },
+    "UREA_MEASURE_TREND": {
+      "name": "UREA_MEASURE_TREND",
+      "family": "trend",
+      "categories": [
+        "Measurements"
+      ],
+      "description": "Trend for the measurements of UREA",
+      "derived_from": "UREA_MEASURE"
+    },
+    "ANTIDIABETIC_HOME_BITZUA_CONTEXT": {
+      "name": "ANTIDIABETIC_HOME_BITZUA_CONTEXT",
+      "family": "context",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Context to identify if antidiabetic medication administration at home is chronic, which will affect compliance patterns",
+      "derived_from": [
+        {
+          "name": "ANTIDIABETIC_HOME_BITZUA",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "BASAL_HOME_BITZUA_CONTEXT": {
+      "name": "BASAL_HOME_BITZUA_CONTEXT",
+      "family": "context",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Context to identify if basal medication administration at home is chronic, which will affect compliance patterns",
+      "derived_from": [
+        {
+          "name": "BASAL_HOME_BITZUA",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "DIABETES_DIAGNOSIS_CONTEXT": {
+      "name": "DIABETES_DIAGNOSIS_CONTEXT",
+      "family": "context",
+      "categories": [
+        "Diagnosis"
+      ],
+      "description": "DIABETES context",
+      "derived_from": [
+        {
+          "name": "DIABETES_DIAGNOSIS",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "HIGH_GLUCOSE_CONTEXT": {
+      "name": "HIGH_GLUCOSE_CONTEXT",
+      "family": "context",
+      "categories": [
+        "Diagnosis"
+      ],
+      "description": "HIGH GLUCOSE context to mark time windows where insulin treatment is needed, derived from steady glucose measurements",
+      "derived_from": [
+        {
+          "name": "HYPERGLYCEMIA_EVENT",
+          "tak_type": "event",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "LOW_GLUCOSE_CONTEXT": {
+      "name": "LOW_GLUCOSE_CONTEXT",
+      "family": "context",
+      "categories": [
+        "Diagnosis"
+      ],
+      "description": "LOW GLUCOSE context to mark time windows where insulin treatment is dangerous (risk for hypoglycemia)",
+      "derived_from": [
+        {
+          "name": "HYPOGLYCEMIA_EVENT",
+          "tak_type": "event",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "MEAL_CONTEXT": {
+      "name": "MEAL_CONTEXT",
+      "family": "context",
+      "categories": [
+        "Events"
+      ],
+      "description": "Meal event, with context window around meal times",
+      "derived_from": [
+        {
+          "name": "MEAL",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "METFORMIN_HOME_BITZUA_CONTEXT": {
+      "name": "METFORMIN_HOME_BITZUA_CONTEXT",
+      "family": "context",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Context to identify if METFORMIN medications administration at home is chronic",
+      "derived_from": [
+        {
+          "name": "METFORMIN_HOME_BITZUA",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "REACTIVE_INSULIN_BITZUA_CONTEXT": {
+      "name": "REACTIVE_INSULIN_BITZUA_CONTEXT",
+      "family": "context",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Insulin (bolus/ IV) influence context, to cover for high glucose levels",
+      "derived_from": [
+        {
+          "name": "BOLUS_BITZUA",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        },
+        {
+          "name": "INSULIN_BITZUA",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A2"
+        }
+      ]
+    },
+    "SGLT2_HOME_BITZUA_CONTEXT": {
+      "name": "SGLT2_HOME_BITZUA_CONTEXT",
+      "family": "context",
+      "categories": [
+        "DrugAdministration"
+      ],
+      "description": "Context to identify if SGLT2 medications administration at home is chronic, which will affect compliance patterns",
+      "derived_from": [
+        {
+          "name": "SGLT2_HOME_BITZUA",
+          "tak_type": "raw-concept",
+          "idx": 0,
+          "ref": "A1"
+        }
+      ]
+    },
+    "BMI_MEASURE_ON_ADMISSION": {
+      "name": "BMI_MEASURE_ON_ADMISSION",
+      "family": "local-pattern",
+      "categories": [
+        "Admission"
+      ],
+      "description": "Captures if BMI (Body Mass Index) or weight were measured within reasonable time of admission. The data process place a BMI/ weight instance if was measured 6 month prior to admission.",
+      "derived_from": [
+        {
+          "ref": "E1",
+          "name": "BMI_MEASURE",
+          "tak": "raw-concept",
+          "idx": 0
+        },
+        {
+          "ref": "E2",
+          "name": "WEIGHT_MEASURE",
+          "tak": "raw-concept",
+          "idx": 0
+        },
+        {
+          "ref": "A1",
+          "name": "ADMISSION_EVENT",
+          "tak": "event",
+          "idx": 0
+        }
+      ]
+    },
+    "CONTINUE_BASAL_ON_ADMISSION_PATTERN": {
+      "name": "CONTINUE_BASAL_ON_ADMISSION_PATTERN",
+      "family": "local-pattern",
+      "categories": [
+        "Admission"
+      ],
+      "description": "Captures if BASAL_BITZUA was performed within reasonable time of admission, assuming patient is regularly treated at home",
+      "derived_from": [
+        {
+          "ref": "A1",
+          "name": "ADMISSION_EVENT",
+          "tak": "event",
+          "idx": 0
+        },
+        {
+          "ref": "E1",
+          "name": "BASAL_BITZUA",
+          "tak": "raw-concept",
+          "idx": 0
+        },
+        {
+          "ref": "C1",
+          "name": "BASAL_HOME_BITZUA_CONTEXT",
+          "tak": "context",
+          "idx": 0
+        }
+      ]
+    },
+    "CONTINUE_METFORMIN_ON_ADMISSION_PATTERN": {
+      "name": "CONTINUE_METFORMIN_ON_ADMISSION_PATTERN",
+      "family": "local-pattern",
+      "categories": [
+        "Admission"
+      ],
+      "description": "Captures if perscribed METFORMIN medications were stopped during the first 3 days of admission, with no compliance",
+      "derived_from": [
+        {
+          "ref": "A1",
+          "name": "ADMISSION_EVENT",
+          "tak": "event",
+          "idx": 0
+        },
+        {
+          "ref": "C1",
+          "name": "METFORMIN_HOME_BITZUA_CONTEXT",
+          "tak": "context",
+          "idx": 0
+        },
+        {
+          "ref": "E1",
+          "name": "METFORMIN_HOSPITAL_BITZUA",
+          "tak": "raw-concept",
+          "idx": 0
+        }
+      ]
+    },
+    "CREATININE_MEASURE_ON_ADMISSION": {
+      "name": "CREATININE_MEASURE_ON_ADMISSION",
+      "family": "local-pattern",
+      "categories": [
+        "Admission"
+      ],
+      "description": "Captures if CREATININE (Serum) was performed within reasonable time of admission",
+      "derived_from": [
+        {
+          "ref": "E1",
+          "name": "CREATININE_SERUM_MEASURE",
+          "tak": "raw-concept",
+          "idx": 0
+        },
+        {
+          "ref": "A1",
+          "name": "ADMISSION_EVENT",
+          "tak": "event",
+          "idx": 0
+        }
+      ]
+    },
+    "INSULIN_ON_HYPERGLYCEMIA_PATTERN": {
+      "name": "INSULIN_ON_HYPERGLYCEMIA_PATTERN",
+      "family": "local-pattern",
+      "categories": [
+        "RoutineTreatment"
+      ],
+      "description": "Captures if reactive INSULIN (BOLUS/IV) was performed within proximity to a meal, assuming glucose was high at the time",
+      "derived_from": [
+        {
+          "ref": "A1",
+          "name": "MEAL_CONTEXT",
+          "tak": "context",
+          "idx": 0
+        },
+        {
+          "ref": "C1",
+          "name": "HIGH_GLUCOSE_CONTEXT",
+          "tak": "context",
+          "idx": 0
+        },
+        {
+          "ref": "E1",
+          "name": "REACTIVE_INSULIN_BITZUA_CONTEXT",
+          "tak": "context",
+          "idx": 0
+        }
+      ]
+    },
+    "REDUCE_BASAL_ON_HYPOGLYCEMIA_PATTERN": {
+      "name": "REDUCE_BASAL_ON_HYPOGLYCEMIA_PATTERN",
+      "family": "local-pattern",
+      "categories": [
+        "RoutineTreatment"
+      ],
+      "description": "Captures if long term INSULIN (BASAL) was reduced after low glucose measured (if was given within 24h of the event, ignores otherwise)",
+      "derived_from": [
+        {
+          "ref": "A2",
+          "name": "HYPOGLYCEMIA_EVENT",
+          "tak": "event",
+          "idx": 0
+        },
+        {
+          "ref": "E1",
+          "name": "BASAL_BITZUA_RATIO",
+          "tak": "raw-concept",
+          "idx": 0
+        }
+      ]
+    },
+    "REDUCE_BOLUS_ON_HYPOGLYCEMIA_PATTERN": {
+      "name": "REDUCE_BOLUS_ON_HYPOGLYCEMIA_PATTERN",
+      "family": "local-pattern",
+      "categories": [
+        "RoutineTreatment"
+      ],
+      "description": "Captures if short term INSULIN (BOLUS) was reduced after low glucose measured (if was given within 24h of the event, ignores otherwise)",
+      "derived_from": [
+        {
+          "ref": "A2",
+          "name": "HYPOGLYCEMIA_EVENT",
+          "tak": "event",
+          "idx": 0
+        },
+        {
+          "ref": "E1",
+          "name": "BOLUS_BITZUA_RATIO",
+          "tak": "raw-concept",
+          "idx": 0
+        }
+      ]
+    },
+    "STOP_ANTIDIABETICS_ON_ADMISSION_PATTERN": {
+      "name": "STOP_ANTIDIABETICS_ON_ADMISSION_PATTERN",
+      "family": "local-pattern",
+      "categories": [
+        "Admission"
+      ],
+      "description": "Captures if perscribed antidiabetic medications with high hypo risk were stopped during the first 3 days of admission",
+      "derived_from": [
+        {
+          "ref": "A1",
+          "name": "ADMISSION_EVENT",
+          "tak": "event",
+          "idx": 0
+        },
+        {
+          "ref": "C1",
+          "name": "ANTIDIABETIC_HOME_BITZUA_CONTEXT",
+          "tak": "context",
+          "idx": 0
+        },
+        {
+          "ref": "E1",
+          "name": "ANTIDIABETIC_HOSPITAL_BITZUA",
+          "tak": "raw-concept",
+          "idx": 0
+        }
+      ]
+    },
+    "STOP_ANTIDIABETICS_ON_HYPOGLYCEMIA_PATTERN": {
+      "name": "STOP_ANTIDIABETICS_ON_HYPOGLYCEMIA_PATTERN",
+      "family": "local-pattern",
+      "categories": [
+        "RoutineTreatment"
+      ],
+      "description": "Captures if perscribed antidiabetic medications were stopped for 72 hours after hypoglycemia event",
+      "derived_from": [
+        {
+          "ref": "A1",
+          "name": "HYPOGLYCEMIA_EVENT",
+          "tak": "event",
+          "idx": 0
+        },
+        {
+          "ref": "C1",
+          "name": "ANTIDIABETIC_HOME_BITZUA_CONTEXT",
+          "tak": "context",
+          "idx": 0
+        },
+        {
+          "ref": "E1",
+          "name": "ANTIDIABETIC_HOSPITAL_BITZUA",
+          "tak": "raw-concept",
+          "idx": 0
+        }
+      ]
+    },
+    "STOP_SGLT2_ON_ADMISSION_PATTERN": {
+      "name": "STOP_SGLT2_ON_ADMISSION_PATTERN",
+      "family": "local-pattern",
+      "categories": [
+        "Admission"
+      ],
+      "description": "Captures if perscribed antidiabetic medications with high hypo risk were stopped during the first 3 days of admission",
+      "derived_from": [
+        {
+          "ref": "A1",
+          "name": "ADMISSION_EVENT",
+          "tak": "event",
+          "idx": 0
+        },
+        {
+          "ref": "C1",
+          "name": "SGLT2_HOME_BITZUA_CONTEXT",
+          "tak": "context",
+          "idx": 0
+        },
+        {
+          "ref": "E1",
+          "name": "SGLT2_HOSPITAL_BITZUA",
+          "tak": "raw-concept",
+          "idx": 0
+        }
+      ]
+    },
+    "ROUTINE_BASAL_DOSAGE_PATTERN": {
+      "name": "ROUTINE_BASAL_DOSAGE_PATTERN",
+      "family": "global-pattern",
+      "categories": [
+        "RoutineTreatment"
+      ],
+      "description": "Captures if Basal was given at least once a day and no more than 4 times within 14 days of admission, with correct dosage compared to body weight",
+      "derived_from": [
+        {
+          "ref": "I1",
+          "name": "ADMISSION",
+          "tak": "raw-concept",
+          "idx": 0
+        },
+        {
+          "ref": "E1",
+          "name": "BASAL_BITZUA",
+          "tak": "raw-concept",
+          "idx": 0
+        },
+        {
+          "ref": "C1",
+          "name": "DEATH",
+          "tak": "raw-concept",
+          "idx": 0
+        },
+        {
+          "ref": "C2",
+          "name": "RELEASE",
+          "tak": "raw-concept",
+          "idx": 0
+        },
+        {
+          "ref": "C3",
+          "name": "HIGH_GLUCOSE_CONTEXT",
+          "tak": "context",
+          "idx": 0
+        },
+        {
+          "ref": "C4",
+          "name": "BASAL_HOME_BITZUA_CONTEXT",
+          "tak": "context",
+          "idx": 0
+        }
+      ],
+      "parameters": [
+        {
+          "ref": "P1",
+          "name": "WEIGHT_MEASURE",
+          "tak": "raw-concept",
+          "idx": 0,
+          "default": "81"
+        }
+      ]
+    },
+    "ROUTINE_GLUCOSE_MEASURE_PATTERN": {
+      "name": "ROUTINE_GLUCOSE_MEASURE_PATTERN",
+      "family": "global-pattern",
+      "categories": [
+        "RoutineTreatment"
+      ],
+      "description": "Captures if glucose measurement was performed routinly every 24 hours, 3 times if glucose level is above 180, else 1 time",
+      "derived_from": [
+        {
+          "ref": "I1",
+          "name": "ADMISSION",
+          "tak": "raw-concept",
+          "idx": 0
+        },
+        {
+          "ref": "E1",
+          "name": "GLUCOSE_MEASURE",
+          "tak": "raw-concept",
+          "idx": 0
+        },
+        {
+          "ref": "C1",
+          "name": "DEATH",
+          "tak": "raw-concept",
+          "idx": 0
+        },
+        {
+          "ref": "C2",
+          "name": "RELEASE",
+          "tak": "raw-concept",
+          "idx": 0
+        },
+        {
+          "ref": "C3",
+          "name": "HYPOGLYCEMIA_EVENT",
+          "tak": "event",
+          "idx": 0
+        },
+        {
+          "ref": "C4",
+          "name": "HYPERGLYCEMIA_EVENT",
+          "tak": "event",
+          "idx": 0
+        }
+      ]
+    },
+    "ROUTINE_GLUCOSE_MEASURE_ON_ADMISSION_PATTERN": {
+      "name": "ROUTINE_GLUCOSE_MEASURE_ON_ADMISSION_PATTERN",
+      "family": "global-pattern",
+      "categories": [
+        "RoutineTreatment"
+      ],
+      "description": "Captures if glucose measurement was performed routinly every 24 hours for the first 2-3 days, depending on diabetes status",
+      "derived_from": [
+        {
+          "ref": "I1",
+          "name": "ADMISSION",
+          "tak": "raw-concept",
+          "idx": 0
+        },
+        {
+          "ref": "E1",
+          "name": "GLUCOSE_MEASURE",
+          "tak": "raw-concept",
+          "idx": 0
+        },
+        {
+          "ref": "C1",
+          "name": "DEATH",
+          "tak": "raw-concept",
+          "idx": 0
+        },
+        {
+          "ref": "C2",
+          "name": "RELEASE",
+          "tak": "raw-concept",
+          "idx": 0
+        },
+        {
+          "ref": "C3",
+          "name": "DIABETES_DIAGNOSIS_CONTEXT",
+          "tak": "context",
+          "idx": 0
+        }
+      ]
+    },
+    "ROUTINE_GLUCOSE_MEASURE_ON_STEROIDS_PATTERN": {
+      "name": "ROUTINE_GLUCOSE_MEASURE_ON_STEROIDS_PATTERN",
+      "family": "global-pattern",
+      "categories": [
+        "RoutineTreatment"
+      ],
+      "description": "Captures if glucose measurement was performed routinly every 24 hours, 3 times if patient is treated with steroids in hospital",
+      "derived_from": [
+        {
+          "ref": "I1",
+          "name": "STEROIDS_IV_BITZUA",
+          "tak": "raw-concept",
+          "idx": 0
+        },
+        {
+          "ref": "I2",
+          "name": "STEROIDS_PO_BITZUA",
+          "tak": "raw-concept",
+          "idx": 0
+        },
+        {
+          "ref": "E1",
+          "name": "GLUCOSE_MEASURE",
+          "tak": "raw-concept",
+          "idx": 0
+        },
+        {
+          "ref": "C1",
+          "name": "DEATH",
+          "tak": "raw-concept",
+          "idx": 0
+        },
+        {
+          "ref": "C2",
+          "name": "RELEASE",
+          "tak": "raw-concept",
+          "idx": 0
+        }
+      ]
+    }
+  },
+  "graph": {
+    "ACIDOSIS": [],
+    "ACUTE_RESPIRATORY_DISORDER": [],
+    "ADMISSION": [],
+    "ALANINE-AMINOTRANSFERASE_MEASURE": [],
+    "ALBUMIN_MEASURE": [],
+    "ANTIBIOTIC_IV_BITZUA": [],
+    "ANTIBIOTIC_PO_BITZUA": [],
+    "ANTIDIABETIC_HOME_BITZUA": [],
+    "ANTIDIABETIC_HOSPITAL_BITZUA": [],
+    "ASPARATE-AMINOTRANSFERASE_MEASURE": [],
+    "BASAL_BITZUA": [],
+    "BASAL_HOME_BITZUA": [],
+    "BASE_GLUCOSE_MEASURE": [],
+    "BICARBONATE_BITZUA": [],
+    "BICARBONATE_MEASURE": [],
+    "BLOOD_PRESSURE_DIASTOLIC_MEASURE": [],
+    "BLOOD_PRESSURE_SYSTOLIC_MEASURE": [],
+    "BMI_MEASURE": [],
+    "BODY_TEMPERATURE_MEASURE": [],
+    "BOLUS_BITZUA": [],
+    "CALCIUM-GLUCONATE_BITZUA": [],
+    "CARDIO-VASCULAR_DISORDER": [],
+    "CREATINE-KINASE_MEASURE": [],
+    "CREATININE_SERUM_MEASURE": [],
+    "DEATH": [],
+    "DEXTROSE_BITZUA": [],
+    "DIABETES_DIAGNOSIS": [],
+    "DIABETIC_COMA": [],
+    "E-GFR_MEASURE": [],
+    "GLUCOSE_MEASURE": [],
+    "HEART_RATE_MEASURE": [],
+    "HEMATOCRIT_MEASURE": [],
+    "HEMOGLOBIN_MEASURE": [],
+    "HEPARIN_IV_BITZUA": [],
+    "HEPARIN_SC_BITZUA": [],
+    "HIGH_GLUCOSE_IND": [],
+    "HYPEROSMOLALITY": [],
+    "HYPERTONIC-SALINE_BITZUA": [],
+    "INFECTION": [],
+    "INFECTION_WBC_MEASURE": [],
+    "INSULIN_BITZUA": [],
+    "K-BINDER_BITZUA": [],
+    "KETOACIDOSIS": [],
+    "KETONES_SERUM_MEASURE": [],
+    "KETONES_URINE_MEASURE": [],
+    "LOW_GLUCOSE_IND": [],
+    "MEAL": [],
+    "METFORMIN_HOME_BITZUA": [],
+    "METFORMIN_HOSPITAL_BITZUA": [],
+    "NEUTROPHILS_MEASURE": [],
+    "NORMAL_GLUCOSE_IND": [],
+    "OTHER_COMPLICATION": [],
+    "PH_MEASURE": [],
+    "PLT_MEASURE": [],
+    "POTASSIUM_MEASURE": [],
+    "RELEASE": [],
+    "SGLT2_HOME_BITZUA": [],
+    "SGLT2_HOSPITAL_BITZUA": [],
+    "SODIUM_MEASURE": [],
+    "STEROIDS_IV_BITZUA": [],
+    "STEROIDS_PO_BITZUA": [],
+    "TROPONIN_MEASURE": [],
+    "UREA_MEASURE": [],
+    "WEIGHT_MEASURE": [],
+    "BASAL_BITZUA_RATIO": [
+      "BASAL_BITZUA"
+    ],
+    "BOLUS_BITZUA_RATIO": [
+      "BOLUS_BITZUA"
+    ],
+    "CREATININE_REL_SERUM_MEASURE": [
+      "CREATININE_SERUM_MEASURE"
+    ],
+    "CREATININE_RISE_SERUM_MEASURE": [
+      "CREATININE_SERUM_MEASURE"
+    ],
+    "M-SHR_MEASURE": [
+      "BASE_GLUCOSE_MEASURE",
+      "GLUCOSE_MEASURE"
+    ],
+    "STEADY_GLUCOSE_MEASURE_HIGH_AFTER_FIRST": [
+      "HIGH_GLUCOSE_IND",
+      "GLUCOSE_MEASURE"
+    ],
+    "STEADY_GLUCOSE_MEASURE_LOW_AFTER_FIRST": [
+      "LOW_GLUCOSE_IND",
+      "GLUCOSE_MEASURE"
+    ],
+    "ACIDOSIS_EVENT": [
+      "ACIDOSIS"
+    ],
+    "ACUTE_RESPIRATORY_DISORDER_EVENT": [
+      "ACUTE_RESPIRATORY_DISORDER"
+    ],
+    "ADMISSION_EVENT": [
+      "ADMISSION"
+    ],
+    "AKI_EVENT": [
+      "CREATININE_REL_SERUM_MEASURE",
+      "CREATININE_RISE_SERUM_MEASURE",
+      "CREATININE_SERUM_MEASURE"
+    ],
+    "ANTIBIOTIC_BITZUA_EVENT": [
+      "ANTIBIOTIC_IV_BITZUA",
+      "ANTIBIOTIC_PO_BITZUA"
+    ],
+    "ANTIDIABETIC_BITZUA_EVENT": [
+      "ANTIDIABETIC_HOSPITAL_BITZUA"
+    ],
+    "BICARBONATE_BITZUA_EVENT": [
+      "BICARBONATE_BITZUA"
+    ],
+    "CALCIUM-GLUCONATE_BITZUA_EVENT": [
+      "CALCIUM-GLUCONATE_BITZUA"
+    ],
+    "CARDIO-VASCULAR_DISORDER_EVENT": [
+      "CARDIO-VASCULAR_DISORDER"
+    ],
+    "ELECTROLYTE_DERANGEMENT_EVENT": [
+      "POTASSIUM_MEASURE",
+      "PH_MEASURE",
+      "SODIUM_MEASURE",
+      "BICARBONATE_MEASURE"
+    ],
+    "DEATH_EVENT": [
+      "DEATH"
+    ],
+    "DEXTROSE_BITZUA_EVENT": [
+      "DEXTROSE_BITZUA"
+    ],
+    "DIABETIC_COMA_EVENT": [
+      "DIABETIC_COMA"
+    ],
+    "HEPARIN_BITZUA_EVENT": [
+      "HEPARIN_SC_BITZUA",
+      "HEPARIN_IV_BITZUA"
+    ],
+    "HYPERGLYCEMIA_EVENT": [
+      "STEADY_GLUCOSE_MEASURE_HIGH_AFTER_FIRST",
+      "GLUCOSE_MEASURE"
+    ],
+    "HYPEROSMOLALITY_EVENT": [
+      "HYPEROSMOLALITY"
+    ],
+    "HYPERTONIC-SALINE_BITZUA_EVENT": [
+      "HYPERTONIC-SALINE_BITZUA"
+    ],
+    "HYPOGLYCEMIA_EVENT": [
+      "STEADY_GLUCOSE_MEASURE_LOW_AFTER_FIRST",
+      "GLUCOSE_MEASURE"
+    ],
+    "INFECTION_EVENT": [
+      "INFECTION"
+    ],
+    "K-BINDER_BITZUA_EVENT": [
+      "K-BINDER_BITZUA"
+    ],
+    "KETOACIDOSIS_EVENT": [
+      "KETOACIDOSIS"
+    ],
+    "KIDNEY_COMPLICATION_EVENT": [
+      "CREATININE_REL_SERUM_MEASURE",
+      "CREATININE_SERUM_MEASURE"
+    ],
+    "MYOCARDIAL_INJURY_EVENT": [
+      "TROPONIN_MEASURE"
+    ],
+    "OTHER_COMPLICATION_EVENT": [
+      "OTHER_COMPLICATION"
+    ],
+    "RELEASE_EVENT": [
+      "RELEASE"
+    ],
+    "SEVERE_HYPERGLYCEMIA_EVENT": [
+      "GLUCOSE_MEASURE"
+    ],
+    "SEVERE_HYPOGLYCEMIA_EVENT": [
+      "GLUCOSE_MEASURE"
+    ],
+    "STEROIDS_BITZUA_EVENT": [
+      "STEROIDS_PO_BITZUA",
+      "STEROIDS_IV_BITZUA"
+    ],
+    "ALANINE-AMINOTRANSFERASE_MEASURE_STATE": [
+      "ALANINE-AMINOTRANSFERASE_MEASURE"
+    ],
+    "ALBUMIN_MEASURE_STATE": [
+      "ALBUMIN_MEASURE"
+    ],
+    "ASPARATE-AMINOTRANSFERASE_MEASURE_STATE": [
+      "ASPARATE-AMINOTRANSFERASE_MEASURE"
+    ],
+    "BASAL_BITZUA_STATE": [
+      "BASAL_BITZUA"
+    ],
+    "BICARBONATE_MEASURE_STATE": [
+      "BICARBONATE_MEASURE"
+    ],
+    "BLOOD_PRESSURE_DIASTOLIC_MEASURE_STATE": [
+      "BLOOD_PRESSURE_DIASTOLIC_MEASURE"
+    ],
+    "BLOOD_PRESSURE_SYSTOLIC_MEASURE_STATE": [
+      "BLOOD_PRESSURE_SYSTOLIC_MEASURE"
+    ],
+    "BODY_TEMPERATURE_MEASURE_STATE": [
+      "BODY_TEMPERATURE_MEASURE"
+    ],
+    "BOLUS_BITZUA_STATE": [
+      "BOLUS_BITZUA"
+    ],
+    "CREATINE-KINASE_MEASURE_STATE": [
+      "CREATINE-KINASE_MEASURE"
+    ],
+    "CREATININE_SERUM_MEASURE_STATE": [
+      "CREATININE_SERUM_MEASURE"
+    ],
+    "E-GFR_MEASURE_STATE": [
+      "E-GFR_MEASURE"
+    ],
+    "GLUCOSE_MEASURE_STATE": [
+      "GLUCOSE_MEASURE"
+    ],
+    "HEART_RATE_MEASURE_STATE": [
+      "HEART_RATE_MEASURE"
+    ],
+    "HEMATOCRIT_MEASURE_STATE": [
+      "HEMATOCRIT_MEASURE"
+    ],
+    "HEMOGLOBIN_MEASURE_STATE": [
+      "HEMOGLOBIN_MEASURE"
+    ],
+    "INFECTION_WBC_MEASURE_STATE": [
+      "INFECTION_WBC_MEASURE"
+    ],
+    "INSULIN_BITZUA_STATE": [
+      "INSULIN_BITZUA"
+    ],
+    "KETONES_SERUM_MEASURE_STATE": [
+      "KETONES_SERUM_MEASURE"
+    ],
+    "M-SHR_MEASURE_STATE": [
+      "M-SHR_MEASURE"
+    ],
+    "NEUTROPHILS_MEASURE_STATE": [
+      "NEUTROPHILS_MEASURE"
+    ],
+    "PH_MEASURE_STATE": [
+      "PH_MEASURE"
+    ],
+    "PLT_MEASURE_STATE": [
+      "PLT_MEASURE"
+    ],
+    "POTASSIUM_MEASURE_STATE": [
+      "POTASSIUM_MEASURE"
+    ],
+    "SODIUM_MEASURE_STATE": [
+      "SODIUM_MEASURE"
+    ],
+    "TROPONIN_MEASURE_STATE": [
+      "TROPONIN_MEASURE"
+    ],
+    "UREA_MEASURE_STATE": [
+      "UREA_MEASURE"
+    ],
+    "ALANINE-AMINOTRANSFERASE_MEASURE_TREND": [
+      "ALANINE-AMINOTRANSFERASE_MEASURE"
+    ],
+    "ALBUMIN_MEASURE_TREND": [
+      "ALBUMIN_MEASURE"
+    ],
+    "ASPARATE-AMINOTRANSFERASE_MEASURE_TREND": [
+      "ASPARATE-AMINOTRANSFERASE_MEASURE"
+    ],
+    "BICARBONATE_MEASURE_TREND": [
+      "BICARBONATE_MEASURE"
+    ],
+    "BLOOD_PRESSURE_DIASTOLIC_MEASURE_TREND": [
+      "BLOOD_PRESSURE_DIASTOLIC_MEASURE"
+    ],
+    "BLOOD_PRESSURE_SYSTOLIC_MEASURE_TREND": [
+      "BLOOD_PRESSURE_SYSTOLIC_MEASURE"
+    ],
+    "BODY_TEMPERATURE_MEASURE_TREND": [
+      "BODY_TEMPERATURE_MEASURE"
+    ],
+    "CREATINE-KINASE_MEASURE_TREND": [
+      "CREATINE-KINASE_MEASURE"
+    ],
+    "CREATININE_SERUM_MEASURE_TREND": [
+      "CREATININE_SERUM_MEASURE"
+    ],
+    "E-GFR_MEASURE_TREND": [
+      "E-GFR_MEASURE"
+    ],
+    "GLUCOSE_MEASURE_TREND": [
+      "GLUCOSE_MEASURE"
+    ],
+    "HEART_RATE_MEASURE_TREND": [
+      "HEART_RATE_MEASURE"
+    ],
+    "HEMATOCRIT_MEASURE_TREND": [
+      "HEMATOCRIT_MEASURE"
+    ],
+    "HEMOGLOBIN_MEASURE_TREND": [
+      "HEMOGLOBIN_MEASURE"
+    ],
+    "INFECTION_WBC_MEASURE_TREND": [
+      "INFECTION_WBC_MEASURE"
+    ],
+    "KETONES_SERUM_MEASURE_TREND": [
+      "KETONES_SERUM_MEASURE"
+    ],
+    "M-SHR_MEASURE_TREND": [
+      "M-SHR_MEASURE"
+    ],
+    "NEUTROPHILS_MEASURE_TREND": [
+      "NEUTROPHILS_MEASURE"
+    ],
+    "PH_MEASURE_TREND": [
+      "PH_MEASURE"
+    ],
+    "PLT_MEASURE_TREND": [
+      "PLT_MEASURE"
+    ],
+    "POTASSIUM_MEASURE_TREND": [
+      "POTASSIUM_MEASURE"
+    ],
+    "SODIUM_MEASURE_TREND": [
+      "SODIUM_MEASURE"
+    ],
+    "TROPONIN_MEASURE_TREND": [
+      "TROPONIN_MEASURE"
+    ],
+    "UREA_MEASURE_TREND": [
+      "UREA_MEASURE"
+    ],
+    "ANTIDIABETIC_HOME_BITZUA_CONTEXT": [
+      "ANTIDIABETIC_HOME_BITZUA"
+    ],
+    "BASAL_HOME_BITZUA_CONTEXT": [
+      "BASAL_HOME_BITZUA"
+    ],
+    "DIABETES_DIAGNOSIS_CONTEXT": [
+      "DIABETES_DIAGNOSIS"
+    ],
+    "HIGH_GLUCOSE_CONTEXT": [
+      "LOW_GLUCOSE_IND",
+      "NORMAL_GLUCOSE_IND",
+      "BOLUS_BITZUA",
+      "HYPERGLYCEMIA_EVENT"
+    ],
+    "LOW_GLUCOSE_CONTEXT": [
+      "NORMAL_GLUCOSE_IND",
+      "HIGH_GLUCOSE_IND",
+      "HYPOGLYCEMIA_EVENT"
+    ],
+    "MEAL_CONTEXT": [
+      "MEAL"
+    ],
+    "METFORMIN_HOME_BITZUA_CONTEXT": [
+      "METFORMIN_HOME_BITZUA"
+    ],
+    "REACTIVE_INSULIN_BITZUA_CONTEXT": [
+      "INSULIN_BITZUA",
+      "BOLUS_BITZUA"
+    ],
+    "SGLT2_HOME_BITZUA_CONTEXT": [
+      "SGLT2_HOME_BITZUA"
+    ],
+    "BMI_MEASURE_ON_ADMISSION": [
+      "BMI_MEASURE",
+      "WEIGHT_MEASURE",
+      "ADMISSION_EVENT"
+    ],
+    "CONTINUE_BASAL_ON_ADMISSION_PATTERN": [
+      "BASAL_BITZUA",
+      "BASAL_HOME_BITZUA_CONTEXT",
+      "ADMISSION_EVENT"
+    ],
+    "CONTINUE_METFORMIN_ON_ADMISSION_PATTERN": [
+      "METFORMIN_HOSPITAL_BITZUA",
+      "METFORMIN_HOME_BITZUA_CONTEXT",
+      "ADMISSION_EVENT"
+    ],
+    "CREATININE_MEASURE_ON_ADMISSION": [
+      "ADMISSION_EVENT",
+      "CREATININE_SERUM_MEASURE"
+    ],
+    "INSULIN_ON_HYPERGLYCEMIA_PATTERN": [
+      "HIGH_GLUCOSE_CONTEXT",
+      "MEAL_CONTEXT",
+      "REACTIVE_INSULIN_BITZUA_CONTEXT"
+    ],
+    "REDUCE_BASAL_ON_HYPOGLYCEMIA_PATTERN": [
+      "BASAL_BITZUA_RATIO",
+      "HYPOGLYCEMIA_EVENT"
+    ],
+    "REDUCE_BOLUS_ON_HYPOGLYCEMIA_PATTERN": [
+      "BOLUS_BITZUA_RATIO",
+      "HYPOGLYCEMIA_EVENT"
+    ],
+    "STOP_ANTIDIABETICS_ON_ADMISSION_PATTERN": [
+      "ANTIDIABETIC_HOSPITAL_BITZUA",
+      "ADMISSION_EVENT",
+      "ANTIDIABETIC_HOME_BITZUA_CONTEXT"
+    ],
+    "STOP_ANTIDIABETICS_ON_HYPOGLYCEMIA_PATTERN": [
+      "ANTIDIABETIC_HOME_BITZUA_CONTEXT",
+      "ANTIDIABETIC_HOSPITAL_BITZUA",
+      "HYPOGLYCEMIA_EVENT"
+    ],
+    "STOP_SGLT2_ON_ADMISSION_PATTERN": [
+      "SGLT2_HOSPITAL_BITZUA",
+      "SGLT2_HOME_BITZUA_CONTEXT",
+      "ADMISSION_EVENT"
+    ],
+    "ROUTINE_BASAL_DOSAGE_PATTERN": [
+      "HIGH_GLUCOSE_CONTEXT",
+      "RELEASE",
+      "DEATH",
+      "BASAL_BITZUA",
+      "ADMISSION",
+      "BASAL_HOME_BITZUA_CONTEXT",
+      "WEIGHT_MEASURE"
+    ],
+    "ROUTINE_GLUCOSE_MEASURE_PATTERN": [
+      "HYPERGLYCEMIA_EVENT",
+      "RELEASE",
+      "DEATH",
+      "GLUCOSE_MEASURE",
+      "ADMISSION",
+      "HYPOGLYCEMIA_EVENT"
+    ],
+    "ROUTINE_GLUCOSE_MEASURE_ON_ADMISSION_PATTERN": [
+      "RELEASE",
+      "DEATH",
+      "GLUCOSE_MEASURE",
+      "ADMISSION",
+      "DIABETES_DIAGNOSIS_CONTEXT"
+    ],
+    "ROUTINE_GLUCOSE_MEASURE_ON_STEROIDS_PATTERN": [
+      "STEROIDS_PO_BITZUA",
+      "RELEASE",
+      "DEATH",
+      "GLUCOSE_MEASURE",
+      "STEROIDS_IV_BITZUA"
+    ]
+  },
+  "execution_order": [
+    "ACIDOSIS",
+    "ACUTE_RESPIRATORY_DISORDER",
+    "ADMISSION",
+    "ALANINE-AMINOTRANSFERASE_MEASURE",
+    "ALBUMIN_MEASURE",
+    "ANTIBIOTIC_IV_BITZUA",
+    "ANTIBIOTIC_PO_BITZUA",
+    "ANTIDIABETIC_HOME_BITZUA",
+    "ANTIDIABETIC_HOSPITAL_BITZUA",
+    "ASPARATE-AMINOTRANSFERASE_MEASURE",
+    "BASAL_BITZUA",
+    "BASAL_BITZUA_RATIO",
+    "BASAL_HOME_BITZUA",
+    "BASE_GLUCOSE_MEASURE",
+    "BICARBONATE_BITZUA",
+    "BICARBONATE_MEASURE",
+    "BLOOD_PRESSURE_DIASTOLIC_MEASURE",
+    "BLOOD_PRESSURE_SYSTOLIC_MEASURE",
+    "BMI_MEASURE",
+    "BODY_TEMPERATURE_MEASURE",
+    "BOLUS_BITZUA",
+    "BOLUS_BITZUA_RATIO",
+    "CALCIUM-GLUCONATE_BITZUA",
+    "CARDIO-VASCULAR_DISORDER",
+    "CREATINE-KINASE_MEASURE",
+    "CREATININE_SERUM_MEASURE",
+    "CREATININE_REL_SERUM_MEASURE",
+    "CREATININE_RISE_SERUM_MEASURE",
+    "DEATH",
+    "DEXTROSE_BITZUA",
+    "DIABETES_DIAGNOSIS",
+    "DIABETIC_COMA",
+    "E-GFR_MEASURE",
+    "GLUCOSE_MEASURE",
+    "HEART_RATE_MEASURE",
+    "HEMATOCRIT_MEASURE",
+    "HEMOGLOBIN_MEASURE",
+    "HEPARIN_IV_BITZUA",
+    "HEPARIN_SC_BITZUA",
+    "HIGH_GLUCOSE_IND",
+    "HYPEROSMOLALITY",
+    "HYPERTONIC-SALINE_BITZUA",
+    "INFECTION",
+    "INFECTION_WBC_MEASURE",
+    "INSULIN_BITZUA",
+    "K-BINDER_BITZUA",
+    "KETOACIDOSIS",
+    "KETONES_SERUM_MEASURE",
+    "KETONES_URINE_MEASURE",
+    "LOW_GLUCOSE_IND",
+    "M-SHR_MEASURE",
+    "MEAL",
+    "METFORMIN_HOME_BITZUA",
+    "METFORMIN_HOSPITAL_BITZUA",
+    "NEUTROPHILS_MEASURE",
+    "NORMAL_GLUCOSE_IND",
+    "OTHER_COMPLICATION",
+    "PH_MEASURE",
+    "PLT_MEASURE",
+    "POTASSIUM_MEASURE",
+    "RELEASE",
+    "SGLT2_HOME_BITZUA",
+    "SGLT2_HOSPITAL_BITZUA",
+    "SODIUM_MEASURE",
+    "STEADY_GLUCOSE_MEASURE_HIGH_AFTER_FIRST",
+    "STEADY_GLUCOSE_MEASURE_LOW_AFTER_FIRST",
+    "STEROIDS_IV_BITZUA",
+    "STEROIDS_PO_BITZUA",
+    "TROPONIN_MEASURE",
+    "UREA_MEASURE",
+    "WEIGHT_MEASURE",
+    "ACIDOSIS_EVENT",
+    "ACUTE_RESPIRATORY_DISORDER_EVENT",
+    "ADMISSION_EVENT",
+    "AKI_EVENT",
+    "ANTIBIOTIC_BITZUA_EVENT",
+    "ANTIDIABETIC_BITZUA_EVENT",
+    "BICARBONATE_BITZUA_EVENT",
+    "CALCIUM-GLUCONATE_BITZUA_EVENT",
+    "CARDIO-VASCULAR_DISORDER_EVENT",
+    "DEATH_EVENT",
+    "DEXTROSE_BITZUA_EVENT",
+    "DIABETIC_COMA_EVENT",
+    "ELECTROLYTE_DERANGEMENT_EVENT",
+    "HEPARIN_BITZUA_EVENT",
+    "HYPERGLYCEMIA_EVENT",
+    "HYPEROSMOLALITY_EVENT",
+    "HYPERTONIC-SALINE_BITZUA_EVENT",
+    "HYPOGLYCEMIA_EVENT",
+    "INFECTION_EVENT",
+    "K-BINDER_BITZUA_EVENT",
+    "KETOACIDOSIS_EVENT",
+    "KIDNEY_COMPLICATION_EVENT",
+    "MYOCARDIAL_INJURY_EVENT",
+    "OTHER_COMPLICATION_EVENT",
+    "RELEASE_EVENT",
+    "SEVERE_HYPERGLYCEMIA_EVENT",
+    "SEVERE_HYPOGLYCEMIA_EVENT",
+    "STEROIDS_BITZUA_EVENT",
+    "ALANINE-AMINOTRANSFERASE_MEASURE_STATE",
+    "ALBUMIN_MEASURE_STATE",
+    "ASPARATE-AMINOTRANSFERASE_MEASURE_STATE",
+    "BASAL_BITZUA_STATE",
+    "BICARBONATE_MEASURE_STATE",
+    "BLOOD_PRESSURE_DIASTOLIC_MEASURE_STATE",
+    "BLOOD_PRESSURE_SYSTOLIC_MEASURE_STATE",
+    "BODY_TEMPERATURE_MEASURE_STATE",
+    "BOLUS_BITZUA_STATE",
+    "CREATINE-KINASE_MEASURE_STATE",
+    "CREATININE_SERUM_MEASURE_STATE",
+    "E-GFR_MEASURE_STATE",
+    "GLUCOSE_MEASURE_STATE",
+    "HEART_RATE_MEASURE_STATE",
+    "HEMATOCRIT_MEASURE_STATE",
+    "HEMOGLOBIN_MEASURE_STATE",
+    "INFECTION_WBC_MEASURE_STATE",
+    "INSULIN_BITZUA_STATE",
+    "KETONES_SERUM_MEASURE_STATE",
+    "M-SHR_MEASURE_STATE",
+    "NEUTROPHILS_MEASURE_STATE",
+    "PH_MEASURE_STATE",
+    "PLT_MEASURE_STATE",
+    "POTASSIUM_MEASURE_STATE",
+    "SODIUM_MEASURE_STATE",
+    "TROPONIN_MEASURE_STATE",
+    "UREA_MEASURE_STATE",
+    "ALANINE-AMINOTRANSFERASE_MEASURE_TREND",
+    "ALBUMIN_MEASURE_TREND",
+    "ASPARATE-AMINOTRANSFERASE_MEASURE_TREND",
+    "BICARBONATE_MEASURE_TREND",
+    "BLOOD_PRESSURE_DIASTOLIC_MEASURE_TREND",
+    "BLOOD_PRESSURE_SYSTOLIC_MEASURE_TREND",
+    "BODY_TEMPERATURE_MEASURE_TREND",
+    "CREATINE-KINASE_MEASURE_TREND",
+    "CREATININE_SERUM_MEASURE_TREND",
+    "E-GFR_MEASURE_TREND",
+    "GLUCOSE_MEASURE_TREND",
+    "HEART_RATE_MEASURE_TREND",
+    "HEMATOCRIT_MEASURE_TREND",
+    "HEMOGLOBIN_MEASURE_TREND",
+    "INFECTION_WBC_MEASURE_TREND",
+    "KETONES_SERUM_MEASURE_TREND",
+    "M-SHR_MEASURE_TREND",
+    "NEUTROPHILS_MEASURE_TREND",
+    "PH_MEASURE_TREND",
+    "PLT_MEASURE_TREND",
+    "POTASSIUM_MEASURE_TREND",
+    "SODIUM_MEASURE_TREND",
+    "TROPONIN_MEASURE_TREND",
+    "UREA_MEASURE_TREND",
+    "ANTIDIABETIC_HOME_BITZUA_CONTEXT",
+    "BASAL_HOME_BITZUA_CONTEXT",
+    "DIABETES_DIAGNOSIS_CONTEXT",
+    "HIGH_GLUCOSE_CONTEXT",
+    "LOW_GLUCOSE_CONTEXT",
+    "MEAL_CONTEXT",
+    "METFORMIN_HOME_BITZUA_CONTEXT",
+    "REACTIVE_INSULIN_BITZUA_CONTEXT",
+    "SGLT2_HOME_BITZUA_CONTEXT",
+    "BMI_MEASURE_ON_ADMISSION",
+    "CONTINUE_BASAL_ON_ADMISSION_PATTERN",
+    "CONTINUE_METFORMIN_ON_ADMISSION_PATTERN",
+    "CREATININE_MEASURE_ON_ADMISSION",
+    "INSULIN_ON_HYPERGLYCEMIA_PATTERN",
+    "REDUCE_BASAL_ON_HYPOGLYCEMIA_PATTERN",
+    "REDUCE_BOLUS_ON_HYPOGLYCEMIA_PATTERN",
+    "STOP_ANTIDIABETICS_ON_ADMISSION_PATTERN",
+    "STOP_ANTIDIABETICS_ON_HYPOGLYCEMIA_PATTERN",
+    "STOP_SGLT2_ON_ADMISSION_PATTERN",
+    "ROUTINE_BASAL_DOSAGE_PATTERN",
+    "ROUTINE_GLUCOSE_MEASURE_ON_ADMISSION_PATTERN",
+    "ROUTINE_GLUCOSE_MEASURE_ON_STEROIDS_PATTERN",
+    "ROUTINE_GLUCOSE_MEASURE_PATTERN"
+  ]
+}

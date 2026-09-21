@@ -1,0 +1,60 @@
+{
+  "model": "intervene_enc",
+  "abstraction": "kb",
+  "context_days": 4,
+  "train_context_days": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "use_qa": true,
+  "seed": 2023,
+  "outcome_names": [
+    "CARDIO-VASCULAR_DISORDER_EVENT",
+    "DEATH_EVENT",
+    "HYPERGLYCEMIA_EVENT",
+    "HYPOGLYCEMIA_EVENT",
+    "INFECTION_EVENT",
+    "KIDNEY_COMPLICATION_EVENT",
+    "SEVERE_HYPERGLYCEMIA_EVENT",
+    "SEVERE_HYPOGLYCEMIA_EVENT"
+  ],
+  "label_window_hours": [
+    96.0,
+    336.0
+  ],
+  "n_train_samples": 179141,
+  "n_val": 4600,
+  "n_test": 4686,
+  "model_config": {
+    "time2vec_dim": 32,
+    "embed_dim": 128,
+    "n_head": 2,
+    "n_layer": 4,
+    "dropout": 0.1,
+    "bias": true,
+    "ctx_dim": 56
+  },
+  "head_outcomes": [
+    "CARDIO-VASCULAR_DISORDER_EVENT",
+    "DEATH_EVENT",
+    "HYPERGLYCEMIA_EVENT",
+    "HYPOGLYCEMIA_EVENT",
+    "INFECTION_EVENT",
+    "KIDNEY_COMPLICATION_EVENT",
+    "RELEASE_EVENT",
+    "SEVERE_HYPERGLYCEMIA_EVENT",
+    "SEVERE_HYPOGLYCEMIA_EVENT"
+  ],
+  "checkpoint_dir": "/workspace/notebooks/code/Predictions/kineret-prediction/checkpoints/k4_qa"
+}

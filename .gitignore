@@ -1,0 +1,20 @@
+# Data is private — never commit the cohort or anything derived from it.
+data/source/*
+!data/source/.gitkeep
+data/source_synth/
+data/processed/
+checkpoints/
+outputs/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Packaging
+kineret_deploy/
+kineret_deploy.zip
+.hf_cache/

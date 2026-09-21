@@ -1,0 +1,5554 @@
+
+03/09/2026 18:38:25 >> [ss-STraTS] {'dataset': 'kineret_qa', 'train_frac': 1.0, 'run': '1o1', 'model_type': 'strats', 'max_obs': 880, 'hid_dim': 64, 'num_layers': 2, 'num_heads': 16, 'dropout': 0.2, 'attention_dropout': 0.2, 'output_dir': '/workspace/notebooks/code/Predictions/kineret-prediction/outputs/strats/qa', 'seed': 2023, 'max_epochs': 50, 'patience': 10, 'lr': 0.0005, 'train_batch_size': 16, 'gradient_accumulation_steps': 1, 'eval_batch_size': 32, 'print_train_loss_every': 100, 'validate_after': -1, 'validate_every': None, 'los_loss_weight': 1.0, 'time_loss_weight': 0.1, 'bootstrap_resamples': 0, 'bootstrap_seed': 42, 'use_qa': True, 'context_days': 4, 'device': device(type='cuda'), 'logger': <kineret.strats.model_utils.Logger object at 0x75948e9c1290>}
+
+03/09/2026 18:38:28 >> Preparing dataset kineret_qa
+03/09/2026 18:38:35 >> Removing variables not in training set: []
+03/09/2026 18:38:39 >> # train, val, test TS: [179141, 4600, 4686]
+03/09/2026 18:38:45 >> pos class weight: [57.77329396 11.6182292   1.97230795 25.86174839 86.17323601  7.99437666
+  2.28006958 38.43231345]
+03/09/2026 18:38:45 >> % pos class in train, val, test splits: [array([0.01701453, 0.07925042, 0.33643889, 0.03722766, 0.01147141,
+       0.11118058, 0.30487158, 0.02535991]), array([0.01391304, 0.06717391, 0.31      , 0.03586957, 0.00804348,
+       0.11173913, 0.27956522, 0.02543478]), array([0.01472471, 0.07276995, 0.31370038, 0.03862569, 0.00789586,
+       0.12078532, 0.28104994, 0.02368758])]
+03/09/2026 18:38:58 >> # static features: 56
+03/09/2026 18:39:31 >> # TS variables: 65
+
+03/09/2026 18:40:20 >> Model details:
+03/09/2026 18:40:20 >> # parameters: 93105
+03/09/2026 18:40:20 >> # trainable parameters: 93105, 100.0%
+03/09/2026 18:40:20 >> #params by dtype:
+03/09/2026 18:40:20 >> torch.float32: 93105, 100.0%
+
+03/09/2026 18:40:20 >> Batches/epoch = 11196.3, max_steps = 559800
+
+03/09/2026 18:40:25 >> Train-loss at step 100: 2.02705
+
+03/09/2026 18:40:30 >> Train-loss at step 200: 1.95330
+
+03/09/2026 18:40:35 >> Train-loss at step 300: 1.80694
+
+03/09/2026 18:40:41 >> Train-loss at step 400: 1.77025
+
+03/09/2026 18:40:47 >> Train-loss at step 500: 1.61229
+
+03/09/2026 18:40:52 >> Train-loss at step 600: 1.63587
+
+03/09/2026 18:40:58 >> Train-loss at step 700: 1.79032
+
+03/09/2026 18:41:03 >> Train-loss at step 800: 1.63222
+
+03/09/2026 18:41:08 >> Train-loss at step 900: 1.65041
+
+03/09/2026 18:41:13 >> Train-loss at step 1000: 1.60946
+
+03/09/2026 18:41:18 >> Train-loss at step 1100: 1.61130
+
+03/09/2026 18:41:24 >> Train-loss at step 1200: 1.62668
+
+03/09/2026 18:41:29 >> Train-loss at step 1300: 1.57698
+
+03/09/2026 18:41:34 >> Train-loss at step 1400: 1.62693
+
+03/09/2026 18:41:39 >> Train-loss at step 1500: 1.57379
+
+03/09/2026 18:41:44 >> Train-loss at step 1600: 1.63674
+
+03/09/2026 18:41:50 >> Train-loss at step 1700: 1.62999
+
+03/09/2026 18:41:55 >> Train-loss at step 1800: 1.60169
+
+03/09/2026 18:42:00 >> Train-loss at step 1900: 1.52043
+
+03/09/2026 18:42:05 >> Train-loss at step 2000: 1.57645
+
+03/09/2026 18:42:10 >> Train-loss at step 2100: 1.65245
+
+03/09/2026 18:42:15 >> Train-loss at step 2200: 1.61216
+
+03/09/2026 18:42:21 >> Train-loss at step 2300: 1.60127
+
+03/09/2026 18:42:27 >> Train-loss at step 2400: 1.55595
+
+03/09/2026 18:42:32 >> Train-loss at step 2500: 1.56634
+
+03/09/2026 18:42:37 >> Train-loss at step 2600: 1.66880
+
+03/09/2026 18:42:42 >> Train-loss at step 2700: 1.53519
+
+03/09/2026 18:42:48 >> Train-loss at step 2800: 1.61660
+
+03/09/2026 18:42:53 >> Train-loss at step 2900: 1.61197
+
+03/09/2026 18:42:58 >> Train-loss at step 3000: 1.58948
+
+03/09/2026 18:43:03 >> Train-loss at step 3100: 1.63139
+
+03/09/2026 18:43:08 >> Train-loss at step 3200: 1.54718
+
+03/09/2026 18:43:13 >> Train-loss at step 3300: 1.68446
+
+03/09/2026 18:43:19 >> Train-loss at step 3400: 1.62532
+
+03/09/2026 18:43:24 >> Train-loss at step 3500: 1.58053
+
+03/09/2026 18:43:30 >> Train-loss at step 3600: 1.60647
+
+03/09/2026 18:43:35 >> Train-loss at step 3700: 1.60589
+
+03/09/2026 18:43:40 >> Train-loss at step 3800: 1.47340
+
+03/09/2026 18:43:45 >> Train-loss at step 3900: 1.65144
+
+03/09/2026 18:43:51 >> Train-loss at step 4000: 1.53376
+
+03/09/2026 18:43:56 >> Train-loss at step 4100: 1.56348
+
+03/09/2026 18:44:01 >> Train-loss at step 4200: 1.50019
+
+03/09/2026 18:44:07 >> Train-loss at step 4300: 1.56593
+
+03/09/2026 18:44:12 >> Train-loss at step 4400: 1.50506
+
+03/09/2026 18:44:17 >> Train-loss at step 4500: 1.57236
+
+03/09/2026 18:44:23 >> Train-loss at step 4600: 1.56579
+
+03/09/2026 18:44:29 >> Train-loss at step 4700: 1.51834
+
+03/09/2026 18:44:35 >> Train-loss at step 4800: 1.56760
+
+03/09/2026 18:44:40 >> Train-loss at step 4900: 1.64594
+
+03/09/2026 18:44:45 >> Train-loss at step 5000: 1.55000
+
+03/09/2026 18:44:50 >> Train-loss at step 5100: 1.54016
+
+03/09/2026 18:44:56 >> Train-loss at step 5200: 1.54563
+
+03/09/2026 18:45:01 >> Train-loss at step 5300: 1.51104
+
+03/09/2026 18:45:06 >> Train-loss at step 5400: 1.53516
+
+03/09/2026 18:45:11 >> Train-loss at step 5500: 1.49883
+
+03/09/2026 18:45:16 >> Train-loss at step 5600: 1.55226
+
+03/09/2026 18:45:21 >> Train-loss at step 5700: 1.51337
+
+03/09/2026 18:45:27 >> Train-loss at step 5800: 1.47674
+
+03/09/2026 18:45:32 >> Train-loss at step 5900: 1.43820
+
+03/09/2026 18:45:37 >> Train-loss at step 6000: 1.62467
+
+03/09/2026 18:45:43 >> Train-loss at step 6100: 1.52550
+
+03/09/2026 18:45:48 >> Train-loss at step 6200: 1.58495
+
+03/09/2026 18:45:54 >> Train-loss at step 6300: 1.58207
+
+03/09/2026 18:45:59 >> Train-loss at step 6400: 1.56347
+
+03/09/2026 18:46:05 >> Train-loss at step 6500: 1.53165
+
+03/09/2026 18:46:09 >> Train-loss at step 6600: 1.43244
+
+03/09/2026 18:46:15 >> Train-loss at step 6700: 1.60134
+
+03/09/2026 18:46:20 >> Train-loss at step 6800: 1.55751
+
+03/09/2026 18:46:25 >> Train-loss at step 6900: 1.54555
+
+03/09/2026 18:46:30 >> Train-loss at step 7000: 1.57579
+
+03/09/2026 18:46:35 >> Train-loss at step 7100: 1.51658
+
+03/09/2026 18:46:41 >> Train-loss at step 7200: 1.58196
+
+03/09/2026 18:46:46 >> Train-loss at step 7300: 1.52385
+
+03/09/2026 18:46:52 >> Train-loss at step 7400: 1.67374
+
+03/09/2026 18:46:58 >> Train-loss at step 7500: 1.54903
+
+03/09/2026 18:47:03 >> Train-loss at step 7600: 1.51350
+
+03/09/2026 18:47:08 >> Train-loss at step 7700: 1.52107
+
+03/09/2026 18:47:13 >> Train-loss at step 7800: 1.61145
+
+03/09/2026 18:47:19 >> Train-loss at step 7900: 1.50827
+
+03/09/2026 18:47:24 >> Train-loss at step 8000: 1.50293
+
+03/09/2026 18:47:29 >> Train-loss at step 8100: 1.61135
+
+03/09/2026 18:47:35 >> Train-loss at step 8200: 1.50344
+
+03/09/2026 18:47:40 >> Train-loss at step 8300: 1.60443
+
+03/09/2026 18:47:45 >> Train-loss at step 8400: 1.54160
+
+03/09/2026 18:47:50 >> Train-loss at step 8500: 1.63989
+
+03/09/2026 18:47:55 >> Train-loss at step 8600: 1.51395
+
+03/09/2026 18:48:00 >> Train-loss at step 8700: 1.54239
+
+03/09/2026 18:48:06 >> Train-loss at step 8800: 1.41893
+
+03/09/2026 18:48:11 >> Train-loss at step 8900: 1.52139
+
+03/09/2026 18:48:17 >> Train-loss at step 9000: 1.54902
+
+03/09/2026 18:48:22 >> Train-loss at step 9100: 1.56738
+
+03/09/2026 18:48:27 >> Train-loss at step 9200: 1.47150
+
+03/09/2026 18:48:32 >> Train-loss at step 9300: 1.59226
+
+03/09/2026 18:48:37 >> Train-loss at step 9400: 1.58284
+
+03/09/2026 18:48:43 >> Train-loss at step 9500: 1.58383
+
+03/09/2026 18:48:48 >> Train-loss at step 9600: 1.73418
+
+03/09/2026 18:48:54 >> Train-loss at step 9700: 1.54505
+
+03/09/2026 18:48:59 >> Train-loss at step 9800: 1.56035
+
+03/09/2026 18:49:04 >> Train-loss at step 9900: 1.58191
+
+03/09/2026 18:49:10 >> Train-loss at step 10000: 1.46159
+
+03/09/2026 18:49:15 >> Train-loss at step 10100: 1.50671
+
+03/09/2026 18:49:21 >> Train-loss at step 10200: 1.47542
+
+03/09/2026 18:49:27 >> Train-loss at step 10300: 1.55873
+
+03/09/2026 18:49:33 >> Train-loss at step 10400: 1.55021
+
+03/09/2026 18:49:38 >> Train-loss at step 10500: 1.53307
+
+03/09/2026 18:49:44 >> Train-loss at step 10600: 1.46820
+
+03/09/2026 18:49:50 >> Train-loss at step 10700: 1.47229
+
+03/09/2026 18:49:55 >> Train-loss at step 10800: 1.43421
+
+03/09/2026 18:50:00 >> Train-loss at step 10900: 1.55832
+
+03/09/2026 18:50:06 >> Train-loss at step 11000: 1.57303
+
+03/09/2026 18:50:11 >> Train-loss at step 11100: 1.60274
+
+03/09/2026 18:50:17 >> Evaluating on split = val
+03/09/2026 18:50:20 >> Result on val split at train step 11196: {'auroc': 0.7801663680716833, 'auprc': 0.29504516603442954, 'minrp': 0.32694242588960426, 'f1_0_5': 0.3262521284035594, 'best_f1': 0.38263198797725284, 'los_mae_hours': 47.881769963869836, 'los_n_valid': 4600}
+
+03/09/2026 18:50:20 >> Per-outcome val results:
+                                   auroc     auprc     minrp    f1_0_5  \
+outcome                                                                  
+CARDIO-VASCULAR_DISORDER_EVENT  0.944785  0.373057  0.471264  0.490196   
+DEATH_EVENT                     0.862676  0.423601  0.415335  0.352941   
+HYPERGLYCEMIA_EVENT             0.623888  0.398898  0.401370  0.424500   
+HYPOGLYCEMIA_EVENT              0.792006  0.123456  0.175758  0.187384   
+INFECTION_EVENT                 0.662153  0.024193  0.081081  0.026263   
+KIDNEY_COMPLICATION_EVENT       0.914445  0.529925  0.539806  0.583867   
+SEVERE_HYPERGLYCEMIA_EVENT      0.646697  0.387584  0.390300  0.400287   
+SEVERE_HYPOGLYCEMIA_EVENT       0.794681  0.099648  0.140625  0.144578   
+
+                                 best_f1  n_pos  n_neg  
+outcome                                                 
+CARDIO-VASCULAR_DISORDER_EVENT  0.550898     64   4536  
+DEATH_EVENT                     0.423601    309   4291  
+HYPERGLYCEMIA_EVENT             0.506265   1426   3174  
+HYPOGLYCEMIA_EVENT              0.218029    165   4435  
+INFECTION_EVENT                 0.083333     37   4563  
+KIDNEY_COMPLICATION_EVENT       0.612360    514   4086  
+SEVERE_HYPERGLYCEMIA_EVENT      0.489112   1286   3314  
+SEVERE_HYPOGLYCEMIA_EVENT       0.177458    117   4483  
+
+03/09/2026 18:50:20 >> Saved ckpt at /workspace/notebooks/code/Predictions/kineret-prediction/outputs/strats/qa/checkpoint_best.bin
+
+03/09/2026 18:50:20 >> Train-loss at step 11200: 1.46831
+
+03/09/2026 18:50:25 >> Train-loss at step 11300: 1.52517
+
+03/09/2026 18:50:31 >> Train-loss at step 11400: 1.46793
+
+03/09/2026 18:50:36 >> Train-loss at step 11500: 1.55729
+
+03/09/2026 18:50:41 >> Train-loss at step 11600: 1.52682
+
+03/09/2026 18:50:47 >> Train-loss at step 11700: 1.47714
+
+03/09/2026 18:50:53 >> Train-loss at step 11800: 1.55164
+
+03/09/2026 18:50:58 >> Train-loss at step 11900: 1.57195
+
+03/09/2026 18:51:03 >> Train-loss at step 12000: 1.57485
+
+03/09/2026 18:51:08 >> Train-loss at step 12100: 1.59931
+
+03/09/2026 18:51:14 >> Train-loss at step 12200: 1.45250
+
+03/09/2026 18:51:19 >> Train-loss at step 12300: 1.54489
+
+03/09/2026 18:51:24 >> Train-loss at step 12400: 1.54527
+
+03/09/2026 18:51:29 >> Train-loss at step 12500: 1.54464
+
+03/09/2026 18:51:34 >> Train-loss at step 12600: 1.62032
+
+03/09/2026 18:51:40 >> Train-loss at step 12700: 1.55915
+
+03/09/2026 18:51:45 >> Train-loss at step 12800: 1.61116
+
+03/09/2026 18:51:51 >> Train-loss at step 12900: 1.64411
+
+03/09/2026 18:51:57 >> Train-loss at step 13000: 1.56349
+
+03/09/2026 18:52:02 >> Train-loss at step 13100: 1.52006
+
+03/09/2026 18:52:07 >> Train-loss at step 13200: 1.50491
+
+03/09/2026 18:52:12 >> Train-loss at step 13300: 1.52355
+
+03/09/2026 18:52:17 >> Train-loss at step 13400: 1.55203
+
+03/09/2026 18:52:23 >> Train-loss at step 13500: 1.52213
+
+03/09/2026 18:52:28 >> Train-loss at step 13600: 1.50460
+
+03/09/2026 18:52:34 >> Train-loss at step 13700: 1.45978
+
+03/09/2026 18:52:38 >> Train-loss at step 13800: 1.53078
+
+03/09/2026 18:52:44 >> Train-loss at step 13900: 1.55204
+
+03/09/2026 18:52:49 >> Train-loss at step 14000: 1.51216
+
+03/09/2026 18:52:54 >> Train-loss at step 14100: 1.53947
+
+03/09/2026 18:52:59 >> Train-loss at step 14200: 1.57035
+
+03/09/2026 18:53:05 >> Train-loss at step 14300: 1.51152
+
+03/09/2026 18:53:10 >> Train-loss at step 14400: 1.55365
+
+03/09/2026 18:53:15 >> Train-loss at step 14500: 1.53745
+
+03/09/2026 18:53:21 >> Train-loss at step 14600: 1.53552
+
+03/09/2026 18:53:27 >> Train-loss at step 14700: 1.49259
+
+03/09/2026 18:53:32 >> Train-loss at step 14800: 1.44871
+
+03/09/2026 18:53:37 >> Train-loss at step 14900: 1.47120
+
+03/09/2026 18:53:43 >> Train-loss at step 15000: 1.50470
+
+03/09/2026 18:53:48 >> Train-loss at step 15100: 1.55522
+
+03/09/2026 18:53:53 >> Train-loss at step 15200: 1.54188
+
+03/09/2026 18:53:58 >> Train-loss at step 15300: 1.51313
+
+03/09/2026 18:54:04 >> Train-loss at step 15400: 1.46642
+
+03/09/2026 18:54:09 >> Train-loss at step 15500: 1.52685
+
+03/09/2026 18:54:15 >> Train-loss at step 15600: 1.50386
+
+03/09/2026 18:54:20 >> Train-loss at step 15700: 1.54993
+
+03/09/2026 18:54:25 >> Train-loss at step 15800: 1.49175
+
+03/09/2026 18:54:31 >> Train-loss at step 15900: 1.49321
+
+03/09/2026 18:54:36 >> Train-loss at step 16000: 1.43730
+
+03/09/2026 18:54:42 >> Train-loss at step 16100: 1.49584
+
+03/09/2026 18:54:47 >> Train-loss at step 16200: 1.54495
+
+03/09/2026 18:54:52 >> Train-loss at step 16300: 1.57975
+
+03/09/2026 18:54:57 >> Train-loss at step 16400: 1.51947
+
+03/09/2026 18:55:02 >> Train-loss at step 16500: 1.44309
+
+03/09/2026 18:55:07 >> Train-loss at step 16600: 1.51446
+
+03/09/2026 18:55:12 >> Train-loss at step 16700: 1.55572
+
+03/09/2026 18:55:18 >> Train-loss at step 16800: 1.57520
+
+03/09/2026 18:55:24 >> Train-loss at step 16900: 1.57875
+
+03/09/2026 18:55:29 >> Train-loss at step 17000: 1.47411
+
+03/09/2026 18:55:33 >> Train-loss at step 17100: 1.41231
+
+03/09/2026 18:55:39 >> Train-loss at step 17200: 1.56783
+
+03/09/2026 18:55:44 >> Train-loss at step 17300: 1.37542
+
+03/09/2026 18:55:49 >> Train-loss at step 17400: 1.50996
+
+03/09/2026 18:55:54 >> Train-loss at step 17500: 1.53029
+
+03/09/2026 18:55:59 >> Train-loss at step 17600: 1.52923
+
+03/09/2026 18:56:05 >> Train-loss at step 17700: 1.45233
+
+03/09/2026 18:56:10 >> Train-loss at step 17800: 1.48196
+
+03/09/2026 18:56:16 >> Train-loss at step 17900: 1.50356
+
+03/09/2026 18:56:21 >> Train-loss at step 18000: 1.52450
+
+03/09/2026 18:56:27 >> Train-loss at step 18100: 1.36120
+
+03/09/2026 18:56:32 >> Train-loss at step 18200: 1.49475
+
+03/09/2026 18:56:37 >> Train-loss at step 18300: 1.46340
+
+03/09/2026 18:56:42 >> Train-loss at step 18400: 1.57684
+
+03/09/2026 18:56:47 >> Train-loss at step 18500: 1.44377
+
+03/09/2026 18:56:53 >> Train-loss at step 18600: 1.49216
+
+03/09/2026 18:56:58 >> Train-loss at step 18700: 1.53526
+
+03/09/2026 18:57:03 >> Train-loss at step 18800: 1.40208
+
+03/09/2026 18:57:09 >> Train-loss at step 18900: 1.47908
+
+03/09/2026 18:57:15 >> Train-loss at step 19000: 1.54150
+
+03/09/2026 18:57:20 >> Train-loss at step 19100: 1.53615
+
+03/09/2026 18:57:25 >> Train-loss at step 19200: 1.48376
+
+03/09/2026 18:57:31 >> Train-loss at step 19300: 1.39623
+
+03/09/2026 18:57:36 >> Train-loss at step 19400: 1.49364
+
+03/09/2026 18:57:42 >> Train-loss at step 19500: 1.48840
+
+03/09/2026 18:57:47 >> Train-loss at step 19600: 1.43760
+
+03/09/2026 18:57:52 >> Train-loss at step 19700: 1.52205
+
+03/09/2026 18:57:57 >> Train-loss at step 19800: 1.51772
+
+03/09/2026 18:58:02 >> Train-loss at step 19900: 1.42834
+
+03/09/2026 18:58:07 >> Train-loss at step 20000: 1.49491
+
+03/09/2026 18:58:12 >> Train-loss at step 20100: 1.55626
+
+03/09/2026 18:58:18 >> Train-loss at step 20200: 1.45538
+
+03/09/2026 18:58:23 >> Train-loss at step 20300: 1.43866
+
+03/09/2026 18:58:29 >> Train-loss at step 20400: 1.55428
+
+03/09/2026 18:58:34 >> Train-loss at step 20500: 1.50664
+
+03/09/2026 18:58:38 >> Train-loss at step 20600: 1.40467
+
+03/09/2026 18:58:44 >> Train-loss at step 20700: 1.42102
+
+03/09/2026 18:58:49 >> Train-loss at step 20800: 1.65200
+
+03/09/2026 18:58:55 >> Train-loss at step 20900: 1.45833
+
+03/09/2026 18:59:01 >> Train-loss at step 21000: 1.48578
+
+03/09/2026 18:59:06 >> Train-loss at step 21100: 1.50905
+
+03/09/2026 18:59:11 >> Train-loss at step 21200: 1.49870
+
+03/09/2026 18:59:16 >> Train-loss at step 21300: 1.47018
+
+03/09/2026 18:59:22 >> Train-loss at step 21400: 1.48195
+
+03/09/2026 18:59:27 >> Train-loss at step 21500: 1.49848
+
+03/09/2026 18:59:33 >> Train-loss at step 21600: 1.46591
+
+03/09/2026 18:59:38 >> Train-loss at step 21700: 1.52251
+
+03/09/2026 18:59:43 >> Train-loss at step 21800: 1.53835
+
+03/09/2026 18:59:48 >> Train-loss at step 21900: 1.47749
+
+03/09/2026 18:59:54 >> Train-loss at step 22000: 1.53460
+
+03/09/2026 18:59:59 >> Train-loss at step 22100: 1.39117
+
+03/09/2026 19:00:04 >> Train-loss at step 22200: 1.41386
+
+03/09/2026 19:00:10 >> Train-loss at step 22300: 1.46832
+
+03/09/2026 19:00:15 >> Evaluating on split = val
+03/09/2026 19:00:18 >> Result on val split at train step 22393: {'auroc': 0.7971957141781867, 'auprc': 0.315317025446303, 'minrp': 0.32959169342344513, 'f1_0_5': 0.32325678837037264, 'best_f1': 0.38979899564055664, 'los_mae_hours': 47.404011737613395, 'los_n_valid': 4600}
+
+03/09/2026 19:00:18 >> Per-outcome val results:
+                                   auroc     auprc     minrp    f1_0_5  \
+outcome                                                                  
+CARDIO-VASCULAR_DISORDER_EVENT  0.954989  0.449767  0.469880  0.478873   
+DEATH_EVENT                     0.876996  0.480794  0.476038  0.352763   
+HYPERGLYCEMIA_EVENT             0.633737  0.415392  0.407806  0.413769   
+HYPOGLYCEMIA_EVENT              0.799656  0.119902  0.177778  0.165787   
+INFECTION_EVENT                 0.739224  0.019806  0.041096  0.038610   
+KIDNEY_COMPLICATION_EVENT       0.916124  0.541962  0.537864  0.584870   
+SEVERE_HYPERGLYCEMIA_EVENT      0.662271  0.404316  0.402778  0.417933   
+SEVERE_HYPOGLYCEMIA_EVENT       0.794569  0.090597  0.123494  0.133449   
+
+                                 best_f1  n_pos  n_neg  
+outcome                                                 
+CARDIO-VASCULAR_DISORDER_EVENT  0.546448     64   4536  
+DEATH_EVENT                     0.482003    309   4291  
+HYPERGLYCEMIA_EVENT             0.512148   1426   3174  
+HYPOGLYCEMIA_EVENT              0.233577    165   4435  
+INFECTION_EVENT                 0.054545     37   4563  
+KIDNEY_COMPLICATION_EVENT       0.609603    514   4086  
+SEVERE_HYPERGLYCEMIA_EVENT      0.497439   1286   3314  
+SEVERE_HYPOGLYCEMIA_EVENT       0.182628    117   4483  
+
+03/09/2026 19:00:18 >> Saved ckpt at /workspace/notebooks/code/Predictions/kineret-prediction/outputs/strats/qa/checkpoint_best.bin
+
+03/09/2026 19:00:18 >> Train-loss at step 22400: 1.48840
+
+03/09/2026 19:00:23 >> Train-loss at step 22500: 1.49215
+
+03/09/2026 19:00:28 >> Train-loss at step 22600: 1.50764
+
+03/09/2026 19:00:33 >> Train-loss at step 22700: 1.42804
+
+03/09/2026 19:00:38 >> Train-loss at step 22800: 1.47100
+
+03/09/2026 19:00:44 >> Train-loss at step 22900: 1.53701
+
+03/09/2026 19:00:50 >> Train-loss at step 23000: 1.53253
+
+03/09/2026 19:00:55 >> Train-loss at step 23100: 1.48278
+
+03/09/2026 19:01:00 >> Train-loss at step 23200: 1.51075
+
+03/09/2026 19:01:06 >> Train-loss at step 23300: 1.49855
+
+03/09/2026 19:01:11 >> Train-loss at step 23400: 1.46147
+
+03/09/2026 19:01:16 >> Train-loss at step 23500: 1.57258
+
+03/09/2026 19:01:22 >> Train-loss at step 23600: 1.38752
+
+03/09/2026 19:01:28 >> Train-loss at step 23700: 1.42433
+
+03/09/2026 19:01:33 >> Train-loss at step 23800: 1.63956
+
+03/09/2026 19:01:38 >> Train-loss at step 23900: 1.44883
+
+03/09/2026 19:01:44 >> Train-loss at step 24000: 1.50635
+
+03/09/2026 19:01:49 >> Train-loss at step 24100: 1.52406
+
+03/09/2026 19:01:55 >> Train-loss at step 24200: 1.43454
+
+03/09/2026 19:01:59 >> Train-loss at step 24300: 1.50266
+
+03/09/2026 19:02:04 >> Train-loss at step 24400: 1.49547
+
+03/09/2026 19:02:09 >> Train-loss at step 24500: 1.46246
+
+03/09/2026 19:02:14 >> Train-loss at step 24600: 1.42431
+
+03/09/2026 19:02:19 >> Train-loss at step 24700: 1.55372
+
+03/09/2026 19:02:25 >> Train-loss at step 24800: 1.39467
+
+03/09/2026 19:02:30 >> Train-loss at step 24900: 1.48680
+
+03/09/2026 19:02:35 >> Train-loss at step 25000: 1.41342
+
+03/09/2026 19:02:40 >> Train-loss at step 25100: 1.49574
+
+03/09/2026 19:02:45 >> Train-loss at step 25200: 1.52622
+
+03/09/2026 19:02:51 >> Train-loss at step 25300: 1.46974
+
+03/09/2026 19:02:56 >> Train-loss at step 25400: 1.48424
+
+03/09/2026 19:03:01 >> Train-loss at step 25500: 1.62310
+
+03/09/2026 19:03:07 >> Train-loss at step 25600: 1.47880
+
+03/09/2026 19:03:12 >> Train-loss at step 25700: 1.54434
+
+03/09/2026 19:03:18 >> Train-loss at step 25800: 1.52484
+
+03/09/2026 19:03:23 >> Train-loss at step 25900: 1.36304
+
+03/09/2026 19:03:29 >> Train-loss at step 26000: 1.41103
+
+03/09/2026 19:03:34 >> Train-loss at step 26100: 1.38777
+
+03/09/2026 19:03:39 >> Train-loss at step 26200: 1.47636
+
+03/09/2026 19:03:43 >> Train-loss at step 26300: 1.46418
+
+03/09/2026 19:03:49 >> Train-loss at step 26400: 1.43788
+
+03/09/2026 19:03:55 >> Train-loss at step 26500: 1.55358
+
+03/09/2026 19:04:00 >> Train-loss at step 26600: 1.46193
+
+03/09/2026 19:04:05 >> Train-loss at step 26700: 1.48310
+
+03/09/2026 19:04:09 >> Train-loss at step 26800: 1.53743
+
+03/09/2026 19:04:15 >> Train-loss at step 26900: 1.51063
+
+03/09/2026 19:04:20 >> Train-loss at step 27000: 1.51977
+
+03/09/2026 19:04:25 >> Train-loss at step 27100: 1.44930
+
+03/09/2026 19:04:32 >> Train-loss at step 27200: 1.54190
+
+03/09/2026 19:04:37 >> Train-loss at step 27300: 1.39247
+
+03/09/2026 19:04:43 >> Train-loss at step 27400: 1.50605
+
+03/09/2026 19:04:48 >> Train-loss at step 27500: 1.42255
+
+03/09/2026 19:04:53 >> Train-loss at step 27600: 1.51470
+
+03/09/2026 19:04:58 >> Train-loss at step 27700: 1.48211
+
+03/09/2026 19:05:03 >> Train-loss at step 27800: 1.44159
+
+03/09/2026 19:05:09 >> Train-loss at step 27900: 1.49179
+
+03/09/2026 19:05:14 >> Train-loss at step 28000: 1.45052
+
+03/09/2026 19:05:19 >> Train-loss at step 28100: 1.46062
+
+03/09/2026 19:05:25 >> Train-loss at step 28200: 1.52840
+
+03/09/2026 19:05:29 >> Train-loss at step 28300: 1.38153
+
+03/09/2026 19:05:34 >> Train-loss at step 28400: 1.48445
+
+03/09/2026 19:05:39 >> Train-loss at step 28500: 1.49282
+
+03/09/2026 19:05:45 >> Train-loss at step 28600: 1.52405
+
+03/09/2026 19:05:50 >> Train-loss at step 28700: 1.39732
+
+03/09/2026 19:05:56 >> Train-loss at step 28800: 1.47319
+
+03/09/2026 19:06:02 >> Train-loss at step 28900: 1.44958
+
+03/09/2026 19:06:07 >> Train-loss at step 29000: 1.30376
+
+03/09/2026 19:06:13 >> Train-loss at step 29100: 1.41582
+
+03/09/2026 19:06:18 >> Train-loss at step 29200: 1.55455
+
+03/09/2026 19:06:24 >> Train-loss at step 29300: 1.46420
+
+03/09/2026 19:06:29 >> Train-loss at step 29400: 1.50271
+
+03/09/2026 19:06:34 >> Train-loss at step 29500: 1.42224
+
+03/09/2026 19:06:39 >> Train-loss at step 29600: 1.44617
+
+03/09/2026 19:06:44 >> Train-loss at step 29700: 1.43127
+
+03/09/2026 19:06:49 >> Train-loss at step 29800: 1.46466
+
+03/09/2026 19:06:54 >> Train-loss at step 29900: 1.48808
+
+03/09/2026 19:06:59 >> Train-loss at step 30000: 1.39984
+
+03/09/2026 19:07:05 >> Train-loss at step 30100: 1.42365
+
+03/09/2026 19:07:10 >> Train-loss at step 30200: 1.47447
+
+03/09/2026 19:07:15 >> Train-loss at step 30300: 1.53220
+
+03/09/2026 19:07:20 >> Train-loss at step 30400: 1.52000
+
+03/09/2026 19:07:26 >> Train-loss at step 30500: 1.44117
+
+03/09/2026 19:07:32 >> Train-loss at step 30600: 1.43500
+
+03/09/2026 19:07:37 >> Train-loss at step 30700: 1.51989
+
+03/09/2026 19:07:43 >> Train-loss at step 30800: 1.46445
+
+03/09/2026 19:07:48 >> Train-loss at step 30900: 1.46135
+
+03/09/2026 19:07:54 >> Train-loss at step 31000: 1.42016
+
+03/09/2026 19:08:00 >> Train-loss at step 31100: 1.46092
+
+03/09/2026 19:08:06 >> Train-loss at step 31200: 1.42702
+
+03/09/2026 19:08:11 >> Train-loss at step 31300: 1.40187
+
+03/09/2026 19:08:16 >> Train-loss at step 31400: 1.50662
+
+03/09/2026 19:08:22 >> Train-loss at step 31500: 1.50190
+
+03/09/2026 19:08:27 >> Train-loss at step 31600: 1.44529
+
+03/09/2026 19:08:33 >> Train-loss at step 31700: 1.53355
+
+03/09/2026 19:08:38 >> Train-loss at step 31800: 1.49319
+
+03/09/2026 19:08:44 >> Train-loss at step 31900: 1.41406
+
+03/09/2026 19:08:49 >> Train-loss at step 32000: 1.41727
+
+03/09/2026 19:08:55 >> Train-loss at step 32100: 1.49270
+
+03/09/2026 19:09:00 >> Train-loss at step 32200: 1.54785
+
+03/09/2026 19:09:06 >> Train-loss at step 32300: 1.40995
+
+03/09/2026 19:09:12 >> Train-loss at step 32400: 1.47590
+
+03/09/2026 19:09:17 >> Train-loss at step 32500: 1.57576
+
+03/09/2026 19:09:22 >> Train-loss at step 32600: 1.46262
+
+03/09/2026 19:09:27 >> Train-loss at step 32700: 1.46189
+
+03/09/2026 19:09:33 >> Train-loss at step 32800: 1.45671
+
+03/09/2026 19:09:38 >> Train-loss at step 32900: 1.42924
+
+03/09/2026 19:09:43 >> Train-loss at step 33000: 1.33193
+
+03/09/2026 19:09:49 >> Train-loss at step 33100: 1.52670
+
+03/09/2026 19:09:54 >> Train-loss at step 33200: 1.49765
+
+03/09/2026 19:09:59 >> Train-loss at step 33300: 1.56034
+
+03/09/2026 19:10:04 >> Train-loss at step 33400: 1.47244
+
+03/09/2026 19:10:09 >> Train-loss at step 33500: 1.49420
+
+03/09/2026 19:10:14 >> Evaluating on split = val
+03/09/2026 19:10:17 >> Result on val split at train step 33590: {'auroc': 0.7978827579449697, 'auprc': 0.32157591604580926, 'minrp': 0.34150597302857844, 'f1_0_5': 0.3438413172201597, 'best_f1': 0.3959548488932983, 'los_mae_hours': 47.204000990501804, 'los_n_valid': 4600}
+
+03/09/2026 19:10:17 >> Per-outcome val results:
+                                   auroc     auprc     minrp    f1_0_5  \
+outcome                                                                  
+CARDIO-VASCULAR_DISORDER_EVENT  0.952767  0.412993  0.469697  0.438596   
+DEATH_EVENT                     0.881150  0.517223  0.478964  0.429016   
+HYPERGLYCEMIA_EVENT             0.645557  0.426715  0.408333  0.422460   
+HYPOGLYCEMIA_EVENT              0.800377  0.129011  0.200000  0.188235   
+INFECTION_EVENT                 0.699196  0.021901  0.054054  0.040000   
+KIDNEY_COMPLICATION_EVENT       0.917410  0.543593  0.542910  0.609164   
+SEVERE_HYPERGLYCEMIA_EVENT      0.685549  0.417249  0.424242  0.468043   
+SEVERE_HYPOGLYCEMIA_EVENT       0.801057  0.103923  0.153846  0.155216   
+
+                                 best_f1  n_pos  n_neg  
+outcome                                                 
+CARDIO-VASCULAR_DISORDER_EVENT  0.546448     64   4536  
+DEATH_EVENT                     0.485857    309   4291  
+HYPERGLYCEMIA_EVENT             0.520399   1426   3174  
+HYPOGLYCEMIA_EVENT              0.231441    165   4435  
+INFECTION_EVENT                 0.058824     37   4563  
+KIDNEY_COMPLICATION_EVENT       0.611111    514   4086  
+SEVERE_HYPERGLYCEMIA_EVENT      0.508955   1286   3314  
+SEVERE_HYPOGLYCEMIA_EVENT       0.204604    117   4483  
+
+03/09/2026 19:10:17 >> Saved ckpt at /workspace/notebooks/code/Predictions/kineret-prediction/outputs/strats/qa/checkpoint_best.bin
+
+03/09/2026 19:10:18 >> Train-loss at step 33600: 1.45875
+
+03/09/2026 19:10:22 >> Train-loss at step 33700: 1.45234
+
+03/09/2026 19:10:28 >> Train-loss at step 33800: 1.42663
+
+03/09/2026 19:10:33 >> Train-loss at step 33900: 1.35804
+
+03/09/2026 19:10:39 >> Train-loss at step 34000: 1.45317
+
+03/09/2026 19:10:44 >> Train-loss at step 34100: 1.37339
+
+03/09/2026 19:10:49 >> Train-loss at step 34200: 1.43922
+
+03/09/2026 19:10:55 >> Train-loss at step 34300: 1.46649
+
+03/09/2026 19:11:00 >> Train-loss at step 34400: 1.48502
+
+03/09/2026 19:11:05 >> Train-loss at step 34500: 1.45373
+
+03/09/2026 19:11:10 >> Train-loss at step 34600: 1.41980
+
+03/09/2026 19:11:16 >> Train-loss at step 34700: 1.41244
+
+03/09/2026 19:11:21 >> Train-loss at step 34800: 1.45125
+
+03/09/2026 19:11:28 >> Train-loss at step 34900: 1.41005
+
+03/09/2026 19:11:33 >> Train-loss at step 35000: 1.29247
+
+03/09/2026 19:11:38 >> Train-loss at step 35100: 1.48712
+
+03/09/2026 19:11:43 >> Train-loss at step 35200: 1.44102
+
+03/09/2026 19:11:49 >> Train-loss at step 35300: 1.40850
+
+03/09/2026 19:11:54 >> Train-loss at step 35400: 1.48520
+
+03/09/2026 19:12:00 >> Train-loss at step 35500: 1.40917
+
+03/09/2026 19:12:06 >> Train-loss at step 35600: 1.45488
+
+03/09/2026 19:12:11 >> Train-loss at step 35700: 1.40322
+
+03/09/2026 19:12:15 >> Train-loss at step 35800: 1.43337
+
+03/09/2026 19:12:21 >> Train-loss at step 35900: 1.44426
+
+03/09/2026 19:12:26 >> Train-loss at step 36000: 1.35822
+
+03/09/2026 19:12:31 >> Train-loss at step 36100: 1.50598
+
+03/09/2026 19:12:36 >> Train-loss at step 36200: 1.59963
+
+03/09/2026 19:12:41 >> Train-loss at step 36300: 1.54233
+
+03/09/2026 19:12:46 >> Train-loss at step 36400: 1.41201
+
+03/09/2026 19:12:51 >> Train-loss at step 36500: 1.42263
+
+03/09/2026 19:12:56 >> Train-loss at step 36600: 1.35574
+
+03/09/2026 19:13:01 >> Train-loss at step 36700: 1.46112
+
+03/09/2026 19:13:07 >> Train-loss at step 36800: 1.51939
+
+03/09/2026 19:13:13 >> Train-loss at step 36900: 1.40621
+
+03/09/2026 19:13:18 >> Train-loss at step 37000: 1.40112
+
+03/09/2026 19:13:23 >> Train-loss at step 37100: 1.57983
+
+03/09/2026 19:13:28 >> Train-loss at step 37200: 1.40468
+
+03/09/2026 19:13:34 >> Train-loss at step 37300: 1.35507
+
+03/09/2026 19:13:39 >> Train-loss at step 37400: 1.46091
+
+03/09/2026 19:13:45 >> Train-loss at step 37500: 1.54132
+
+03/09/2026 19:13:50 >> Train-loss at step 37600: 1.44851
+
+03/09/2026 19:13:56 >> Train-loss at step 37700: 1.39692
+
+03/09/2026 19:14:02 >> Train-loss at step 37800: 1.44634
+
+03/09/2026 19:14:08 >> Train-loss at step 37900: 1.41356
+
+03/09/2026 19:14:12 >> Train-loss at step 38000: 1.37893
+
+03/09/2026 19:14:18 >> Train-loss at step 38100: 1.44273
+
+03/09/2026 19:14:23 >> Train-loss at step 38200: 1.43952
+
+03/09/2026 19:14:29 >> Train-loss at step 38300: 1.44957
+
+03/09/2026 19:14:34 >> Train-loss at step 38400: 1.44598
+
+03/09/2026 19:14:40 >> Train-loss at step 38500: 1.44626
+
+03/09/2026 19:14:45 >> Train-loss at step 38600: 1.41808
+
+03/09/2026 19:14:50 >> Train-loss at step 38700: 1.42804
+
+03/09/2026 19:14:55 >> Train-loss at step 38800: 1.42220
+
+03/09/2026 19:15:00 >> Train-loss at step 38900: 1.42752
+
+03/09/2026 19:15:06 >> Train-loss at step 39000: 1.45671
+
+03/09/2026 19:15:11 >> Train-loss at step 39100: 1.43510
+
+03/09/2026 19:15:16 >> Train-loss at step 39200: 1.46161
+
+03/09/2026 19:15:22 >> Train-loss at step 39300: 1.45882
+
+03/09/2026 19:15:27 >> Train-loss at step 39400: 1.46361
+
+03/09/2026 19:15:33 >> Train-loss at step 39500: 1.42171
+
+03/09/2026 19:15:38 >> Train-loss at step 39600: 1.41868
+
+03/09/2026 19:15:44 >> Train-loss at step 39700: 1.45276
+
+03/09/2026 19:15:50 >> Train-loss at step 39800: 1.45534
+
+03/09/2026 19:15:55 >> Train-loss at step 39900: 1.44357
+
+03/09/2026 19:16:00 >> Train-loss at step 40000: 1.32253
+
+03/09/2026 19:16:05 >> Train-loss at step 40100: 1.42335
+
+03/09/2026 19:16:10 >> Train-loss at step 40200: 1.47587
+
+03/09/2026 19:16:15 >> Train-loss at step 40300: 1.57039
+
+03/09/2026 19:16:21 >> Train-loss at step 40400: 1.38269
+
+03/09/2026 19:16:27 >> Train-loss at step 40500: 1.47349
+
+03/09/2026 19:16:32 >> Train-loss at step 40600: 1.46029
+
+03/09/2026 19:16:37 >> Train-loss at step 40700: 1.41380
+
+03/09/2026 19:16:42 >> Train-loss at step 40800: 1.42178
+
+03/09/2026 19:16:47 >> Train-loss at step 40900: 1.47599
+
+03/09/2026 19:16:53 >> Train-loss at step 41000: 1.44772
+
+03/09/2026 19:16:58 >> Train-loss at step 41100: 1.48657
+
+03/09/2026 19:17:02 >> Train-loss at step 41200: 1.47172
+
+03/09/2026 19:17:08 >> Train-loss at step 41300: 1.44855
+
+03/09/2026 19:17:13 >> Train-loss at step 41400: 1.41450
+
+03/09/2026 19:17:18 >> Train-loss at step 41500: 1.43565
+
+03/09/2026 19:17:24 >> Train-loss at step 41600: 1.45664
+
+03/09/2026 19:17:29 >> Train-loss at step 41700: 1.37197
+
+03/09/2026 19:17:35 >> Train-loss at step 41800: 1.45716
+
+03/09/2026 19:17:40 >> Train-loss at step 41900: 1.51592
+
+03/09/2026 19:17:45 >> Train-loss at step 42000: 1.48188
+
+03/09/2026 19:17:50 >> Train-loss at step 42100: 1.39439
+
+03/09/2026 19:17:56 >> Train-loss at step 42200: 1.50041
+
+03/09/2026 19:18:01 >> Train-loss at step 42300: 1.45259
+
+03/09/2026 19:18:07 >> Train-loss at step 42400: 1.48778
+
+03/09/2026 19:18:12 >> Train-loss at step 42500: 1.46263
+
+03/09/2026 19:18:17 >> Train-loss at step 42600: 1.35749
+
+03/09/2026 19:18:22 >> Train-loss at step 42700: 1.38419
+
+03/09/2026 19:18:27 >> Train-loss at step 42800: 1.42057
+
+03/09/2026 19:18:33 >> Train-loss at step 42900: 1.41766
+
+03/09/2026 19:18:38 >> Train-loss at step 43000: 1.39164
+
+03/09/2026 19:18:44 >> Train-loss at step 43100: 1.39536
+
+03/09/2026 19:18:49 >> Train-loss at step 43200: 1.54543
+
+03/09/2026 19:18:54 >> Train-loss at step 43300: 1.47132
+
+03/09/2026 19:18:59 >> Train-loss at step 43400: 1.43598
+
+03/09/2026 19:19:05 >> Train-loss at step 43500: 1.48420
+
+03/09/2026 19:19:10 >> Train-loss at step 43600: 1.40374
+
+03/09/2026 19:19:15 >> Train-loss at step 43700: 1.36505
+
+03/09/2026 19:19:21 >> Train-loss at step 43800: 1.43995
+
+03/09/2026 19:19:26 >> Train-loss at step 43900: 1.45527
+
+03/09/2026 19:19:32 >> Train-loss at step 44000: 1.44098
+
+03/09/2026 19:19:37 >> Train-loss at step 44100: 1.45168
+
+03/09/2026 19:19:42 >> Train-loss at step 44200: 1.36821
+
+03/09/2026 19:19:48 >> Train-loss at step 44300: 1.33278
+
+03/09/2026 19:19:53 >> Train-loss at step 44400: 1.40520
+
+03/09/2026 19:19:58 >> Train-loss at step 44500: 1.57640
+
+03/09/2026 19:20:04 >> Train-loss at step 44600: 1.35176
+
+03/09/2026 19:20:09 >> Train-loss at step 44700: 1.59665
+
+03/09/2026 19:20:14 >> Evaluating on split = val
+03/09/2026 19:20:17 >> Result on val split at train step 44787: {'auroc': 0.8051427108918653, 'auprc': 0.3249770365047797, 'minrp': 0.3508556675535933, 'f1_0_5': 0.34820758044921407, 'best_f1': 0.40109101795268387, 'los_mae_hours': 46.97792286687289, 'los_n_valid': 4600}
+
+03/09/2026 19:20:17 >> Per-outcome val results:
+                                   auroc     auprc     minrp    f1_0_5  \
+outcome                                                                  
+CARDIO-VASCULAR_DISORDER_EVENT  0.943556  0.439450  0.528571  0.450450   
+DEATH_EVENT                     0.888424  0.523859  0.508091  0.426000   
+HYPERGLYCEMIA_EVENT             0.656346  0.432313  0.434081  0.435327   
+HYPOGLYCEMIA_EVENT              0.808132  0.125090  0.181287  0.199143   
+INFECTION_EVENT                 0.733367  0.022361  0.058252  0.042781   
+KIDNEY_COMPLICATION_EVENT       0.916757  0.539128  0.537718  0.602522   
+SEVERE_HYPERGLYCEMIA_EVENT      0.690051  0.424308  0.430640  0.477207   
+SEVERE_HYPOGLYCEMIA_EVENT       0.804509  0.093308  0.128205  0.152231   
+
+                                 best_f1  n_pos  n_neg  
+outcome                                                 
+CARDIO-VASCULAR_DISORDER_EVENT  0.560000     64   4536  
+DEATH_EVENT                     0.514190    309   4291  
+HYPERGLYCEMIA_EVENT             0.521793   1426   3174  
+HYPOGLYCEMIA_EVENT              0.221865    165   4435  
+INFECTION_EVENT                 0.085714     37   4563  
+KIDNEY_COMPLICATION_EVENT       0.615385    514   4086  
+SEVERE_HYPERGLYCEMIA_EVENT      0.514271   1286   3314  
+SEVERE_HYPOGLYCEMIA_EVENT       0.175510    117   4483  
+
+03/09/2026 19:20:17 >> Saved ckpt at /workspace/notebooks/code/Predictions/kineret-prediction/outputs/strats/qa/checkpoint_best.bin
+
+03/09/2026 19:20:17 >> Train-loss at step 44800: 1.33709
+
+03/09/2026 19:20:23 >> Train-loss at step 44900: 1.48495
+
+03/09/2026 19:20:28 >> Train-loss at step 45000: 1.39000
+
+03/09/2026 19:20:33 >> Train-loss at step 45100: 1.41990
+
+03/09/2026 19:20:39 >> Train-loss at step 45200: 1.42984
+
+03/09/2026 19:20:45 >> Train-loss at step 45300: 1.33960
+
+03/09/2026 19:20:49 >> Train-loss at step 45400: 1.43846
+
+03/09/2026 19:20:55 >> Train-loss at step 45500: 1.32692
+
+03/09/2026 19:21:00 >> Train-loss at step 45600: 1.42519
+
+03/09/2026 19:21:06 >> Train-loss at step 45700: 1.43172
+
+03/09/2026 19:21:10 >> Train-loss at step 45800: 1.45118
+
+03/09/2026 19:21:16 >> Train-loss at step 45900: 1.43411
+
+03/09/2026 19:21:21 >> Train-loss at step 46000: 1.45480
+
+03/09/2026 19:21:27 >> Train-loss at step 46100: 1.44213
+
+03/09/2026 19:21:32 >> Train-loss at step 46200: 1.37700
+
+03/09/2026 19:21:38 >> Train-loss at step 46300: 1.34652
+
+03/09/2026 19:21:43 >> Train-loss at step 46400: 1.46885
+
+03/09/2026 19:21:48 >> Train-loss at step 46500: 1.47610
+
+03/09/2026 19:21:53 >> Train-loss at step 46600: 1.52149
+
+03/09/2026 19:21:59 >> Train-loss at step 46700: 1.55802
+
+03/09/2026 19:22:04 >> Train-loss at step 46800: 1.33783
+
+03/09/2026 19:22:09 >> Train-loss at step 46900: 1.38093
+
+03/09/2026 19:22:15 >> Train-loss at step 47000: 1.46646
+
+03/09/2026 19:22:20 >> Train-loss at step 47100: 1.39532
+
+03/09/2026 19:22:25 >> Train-loss at step 47200: 1.41383
+
+03/09/2026 19:22:30 >> Train-loss at step 47300: 1.37919
+
+03/09/2026 19:22:35 >> Train-loss at step 47400: 1.43283
+
+03/09/2026 19:22:41 >> Train-loss at step 47500: 1.45857
+
+03/09/2026 19:22:46 >> Train-loss at step 47600: 1.42298
+
+03/09/2026 19:22:52 >> Train-loss at step 47700: 1.45813
+
+03/09/2026 19:22:57 >> Train-loss at step 47800: 1.43315
+
+03/09/2026 19:23:02 >> Train-loss at step 47900: 1.34519
+
+03/09/2026 19:23:08 >> Train-loss at step 48000: 1.43519
+
+03/09/2026 19:23:13 >> Train-loss at step 48100: 1.39687
+
+03/09/2026 19:23:18 >> Train-loss at step 48200: 1.39776
+
+03/09/2026 19:23:23 >> Train-loss at step 48300: 1.40557
+
+03/09/2026 19:23:27 >> Train-loss at step 48400: 1.46638
+
+03/09/2026 19:23:32 >> Train-loss at step 48500: 1.42052
+
+03/09/2026 19:23:38 >> Train-loss at step 48600: 1.36535
+
+03/09/2026 19:23:43 >> Train-loss at step 48700: 1.45236
+
+03/09/2026 19:23:48 >> Train-loss at step 48800: 1.50630
+
+03/09/2026 19:23:54 >> Train-loss at step 48900: 1.43303
+
+03/09/2026 19:23:59 >> Train-loss at step 49000: 1.38925
+
+03/09/2026 19:24:05 >> Train-loss at step 49100: 1.43537
+
+03/09/2026 19:24:10 >> Train-loss at step 49200: 1.44838
+
+03/09/2026 19:24:16 >> Train-loss at step 49300: 1.45523
+
+03/09/2026 19:24:21 >> Train-loss at step 49400: 1.41552
+
+03/09/2026 19:24:26 >> Train-loss at step 49500: 1.44737
+
+03/09/2026 19:24:32 >> Train-loss at step 49600: 1.38238
+
+03/09/2026 19:24:37 >> Train-loss at step 49700: 1.42644
+
+03/09/2026 19:24:42 >> Train-loss at step 49800: 1.43161
+
+03/09/2026 19:24:48 >> Train-loss at step 49900: 1.31959
+
+03/09/2026 19:24:53 >> Train-loss at step 50000: 1.35597
+
+03/09/2026 19:24:58 >> Train-loss at step 50100: 1.35822
+
+03/09/2026 19:25:03 >> Train-loss at step 50200: 1.44257
+
+03/09/2026 19:25:09 >> Train-loss at step 50300: 1.48329
+
+03/09/2026 19:25:14 >> Train-loss at step 50400: 1.34513
+
+03/09/2026 19:25:19 >> Train-loss at step 50500: 1.43650
+
+03/09/2026 19:25:24 >> Train-loss at step 50600: 1.47482
+
+03/09/2026 19:25:29 >> Train-loss at step 50700: 1.45561
+
+03/09/2026 19:25:34 >> Train-loss at step 50800: 1.37917
+
+03/09/2026 19:25:39 >> Train-loss at step 50900: 1.39200
+
+03/09/2026 19:25:44 >> Train-loss at step 51000: 1.42911
+
+03/09/2026 19:25:49 >> Train-loss at step 51100: 1.43575
+
+03/09/2026 19:25:55 >> Train-loss at step 51200: 1.49573
+
+03/09/2026 19:26:00 >> Train-loss at step 51300: 1.45263
+
+03/09/2026 19:26:05 >> Train-loss at step 51400: 1.36903
+
+03/09/2026 19:26:10 >> Train-loss at step 51500: 1.43374
+
+03/09/2026 19:26:15 >> Train-loss at step 51600: 1.33682
+
+03/09/2026 19:26:21 >> Train-loss at step 51700: 1.39598
+
+03/09/2026 19:26:27 >> Train-loss at step 51800: 1.37759
+
+03/09/2026 19:26:32 >> Train-loss at step 51900: 1.34952
+
+03/09/2026 19:26:38 >> Train-loss at step 52000: 1.34821
+
+03/09/2026 19:26:43 >> Train-loss at step 52100: 1.34981
+
+03/09/2026 19:26:47 >> Train-loss at step 52200: 1.46819
+
+03/09/2026 19:26:52 >> Train-loss at step 52300: 1.43840
+
+03/09/2026 19:26:57 >> Train-loss at step 52400: 1.37690
+
+03/09/2026 19:27:03 >> Train-loss at step 52500: 1.38086
+
+03/09/2026 19:27:09 >> Train-loss at step 52600: 1.42676
+
+03/09/2026 19:27:15 >> Train-loss at step 52700: 1.36266
+
+03/09/2026 19:27:20 >> Train-loss at step 52800: 1.42394
+
+03/09/2026 19:27:26 >> Train-loss at step 52900: 1.33853
+
+03/09/2026 19:27:32 >> Train-loss at step 53000: 1.43894
+
+03/09/2026 19:27:37 >> Train-loss at step 53100: 1.34220
+
+03/09/2026 19:27:42 >> Train-loss at step 53200: 1.36399
+
+03/09/2026 19:27:48 >> Train-loss at step 53300: 1.36533
+
+03/09/2026 19:27:53 >> Train-loss at step 53400: 1.49951
+
+03/09/2026 19:27:58 >> Train-loss at step 53500: 1.45499
+
+03/09/2026 19:28:04 >> Train-loss at step 53600: 1.34865
+
+03/09/2026 19:28:09 >> Train-loss at step 53700: 1.34160
+
+03/09/2026 19:28:14 >> Train-loss at step 53800: 1.42755
+
+03/09/2026 19:28:19 >> Train-loss at step 53900: 1.36879
+
+03/09/2026 19:28:26 >> Train-loss at step 54000: 1.42119
+
+03/09/2026 19:28:31 >> Train-loss at step 54100: 1.35163
+
+03/09/2026 19:28:36 >> Train-loss at step 54200: 1.44095
+
+03/09/2026 19:28:42 >> Train-loss at step 54300: 1.47627
+
+03/09/2026 19:28:47 >> Train-loss at step 54400: 1.37290
+
+03/09/2026 19:28:52 >> Train-loss at step 54500: 1.42754
+
+03/09/2026 19:28:59 >> Train-loss at step 54600: 1.43121
+
+03/09/2026 19:29:04 >> Train-loss at step 54700: 1.42565
+
+03/09/2026 19:29:09 >> Train-loss at step 54800: 1.42983
+
+03/09/2026 19:29:14 >> Train-loss at step 54900: 1.38635
+
+03/09/2026 19:29:20 >> Train-loss at step 55000: 1.37396
+
+03/09/2026 19:29:25 >> Train-loss at step 55100: 1.34520
+
+03/09/2026 19:29:31 >> Train-loss at step 55200: 1.43300
+
+03/09/2026 19:29:36 >> Train-loss at step 55300: 1.32319
+
+03/09/2026 19:29:42 >> Train-loss at step 55400: 1.36299
+
+03/09/2026 19:29:48 >> Train-loss at step 55500: 1.42789
+
+03/09/2026 19:29:53 >> Train-loss at step 55600: 1.42983
+
+03/09/2026 19:29:59 >> Train-loss at step 55700: 1.43180
+
+03/09/2026 19:30:03 >> Train-loss at step 55800: 1.46464
+
+03/09/2026 19:30:08 >> Train-loss at step 55900: 1.33926
+
+03/09/2026 19:30:13 >> Evaluating on split = val
+03/09/2026 19:30:16 >> Result on val split at train step 55984: {'auroc': 0.7981964825445144, 'auprc': 0.3228131773398597, 'minrp': 0.34504356865428754, 'f1_0_5': 0.34398869486680317, 'best_f1': 0.3947243589138423, 'los_mae_hours': 47.013282496937926, 'los_n_valid': 4600}
+
+03/09/2026 19:30:16 >> Per-outcome val results:
+                                   auroc     auprc     minrp    f1_0_5  \
+outcome                                                                  
+CARDIO-VASCULAR_DISORDER_EVENT  0.957358  0.443263  0.477612  0.447368   
+DEATH_EVENT                     0.881179  0.487353  0.485531  0.413127   
+HYPERGLYCEMIA_EVENT             0.661593  0.437175  0.439946  0.456897   
+HYPOGLYCEMIA_EVENT              0.792792  0.129465  0.192771  0.180569   
+INFECTION_EVENT                 0.684436  0.019533  0.054054  0.034783   
+KIDNEY_COMPLICATION_EVENT       0.917650  0.544999  0.536965  0.595882   
+SEVERE_HYPERGLYCEMIA_EVENT      0.701436  0.435592  0.442322  0.485431   
+SEVERE_HYPOGLYCEMIA_EVENT       0.789127  0.085125  0.131148  0.137853   
+
+                                 best_f1  n_pos  n_neg  
+outcome                                                 
+CARDIO-VASCULAR_DISORDER_EVENT  0.547619     64   4536  
+DEATH_EVENT                     0.495327    309   4291  
+HYPERGLYCEMIA_EVENT             0.527418   1426   3174  
+HYPOGLYCEMIA_EVENT              0.227848    165   4435  
+INFECTION_EVENT                 0.059480     37   4563  
+KIDNEY_COMPLICATION_EVENT       0.611111    514   4086  
+SEVERE_HYPERGLYCEMIA_EVENT      0.520231   1286   3314  
+SEVERE_HYPOGLYCEMIA_EVENT       0.168761    117   4483  
+03/09/2026 19:30:16 >> Updating wait to 9
+
+03/09/2026 19:30:17 >> Train-loss at step 56000: 1.37982
+
+03/09/2026 19:30:22 >> Train-loss at step 56100: 1.44290
+
+03/09/2026 19:30:28 >> Train-loss at step 56200: 1.36153
+
+03/09/2026 19:30:34 >> Train-loss at step 56300: 1.36502
+
+03/09/2026 19:30:38 >> Train-loss at step 56400: 1.45322
+
+03/09/2026 19:30:43 >> Train-loss at step 56500: 1.39010
+
+03/09/2026 19:30:48 >> Train-loss at step 56600: 1.39395
+
+03/09/2026 19:30:54 >> Train-loss at step 56700: 1.38618
+
+03/09/2026 19:31:00 >> Train-loss at step 56800: 1.34705
+
+03/09/2026 19:31:05 >> Train-loss at step 56900: 1.42011
+
+03/09/2026 19:31:10 >> Train-loss at step 57000: 1.46786
+
+03/09/2026 19:31:15 >> Train-loss at step 57100: 1.33848
+
+03/09/2026 19:31:21 >> Train-loss at step 57200: 1.42327
+
+03/09/2026 19:31:26 >> Train-loss at step 57300: 1.37811
+
+03/09/2026 19:31:31 >> Train-loss at step 57400: 1.38469
+
+03/09/2026 19:31:37 >> Train-loss at step 57500: 1.44511
+
+03/09/2026 19:31:42 >> Train-loss at step 57600: 1.32785
+
+03/09/2026 19:31:47 >> Train-loss at step 57700: 1.42099
+
+03/09/2026 19:31:53 >> Train-loss at step 57800: 1.40263
+
+03/09/2026 19:31:58 >> Train-loss at step 57900: 1.34918
+
+03/09/2026 19:32:04 >> Train-loss at step 58000: 1.40036
+
+03/09/2026 19:32:09 >> Train-loss at step 58100: 1.30890
+
+03/09/2026 19:32:14 >> Train-loss at step 58200: 1.35147
+
+03/09/2026 19:32:20 >> Train-loss at step 58300: 1.32940
+
+03/09/2026 19:32:25 >> Train-loss at step 58400: 1.33959
+
+03/09/2026 19:32:30 >> Train-loss at step 58500: 1.38112
+
+03/09/2026 19:32:35 >> Train-loss at step 58600: 1.37453
+
+03/09/2026 19:32:41 >> Train-loss at step 58700: 1.37887
+
+03/09/2026 19:32:46 >> Train-loss at step 58800: 1.31543
+
+03/09/2026 19:32:51 >> Train-loss at step 58900: 1.34223
+
+03/09/2026 19:32:57 >> Train-loss at step 59000: 1.39756
+
+03/09/2026 19:33:03 >> Train-loss at step 59100: 1.41777
+
+03/09/2026 19:33:08 >> Train-loss at step 59200: 1.43506
+
+03/09/2026 19:33:13 >> Train-loss at step 59300: 1.43737
+
+03/09/2026 19:33:18 >> Train-loss at step 59400: 1.37364
+
+03/09/2026 19:33:23 >> Train-loss at step 59500: 1.33884
+
+03/09/2026 19:33:28 >> Train-loss at step 59600: 1.34438
+
+03/09/2026 19:33:32 >> Train-loss at step 59700: 1.39051
+
+03/09/2026 19:33:38 >> Train-loss at step 59800: 1.31548
+
+03/09/2026 19:33:43 >> Train-loss at step 59900: 1.32333
+
+03/09/2026 19:33:48 >> Train-loss at step 60000: 1.41740
+
+03/09/2026 19:33:53 >> Train-loss at step 60100: 1.36546
+
+03/09/2026 19:33:58 >> Train-loss at step 60200: 1.35812
+
+03/09/2026 19:34:04 >> Train-loss at step 60300: 1.41151
+
+03/09/2026 19:34:09 >> Train-loss at step 60400: 1.35310
+
+03/09/2026 19:34:15 >> Train-loss at step 60500: 1.41117
+
+03/09/2026 19:34:20 >> Train-loss at step 60600: 1.31030
+
+03/09/2026 19:34:26 >> Train-loss at step 60700: 1.46327
+
+03/09/2026 19:34:31 >> Train-loss at step 60800: 1.37030
+
+03/09/2026 19:34:36 >> Train-loss at step 60900: 1.36350
+
+03/09/2026 19:34:41 >> Train-loss at step 61000: 1.43922
+
+03/09/2026 19:34:47 >> Train-loss at step 61100: 1.39903
+
+03/09/2026 19:34:53 >> Train-loss at step 61200: 1.39418
+
+03/09/2026 19:34:58 >> Train-loss at step 61300: 1.36424
+
+03/09/2026 19:35:04 >> Train-loss at step 61400: 1.41700
+
+03/09/2026 19:35:09 >> Train-loss at step 61500: 1.46298
+
+03/09/2026 19:35:15 >> Train-loss at step 61600: 1.41326
+
+03/09/2026 19:35:21 >> Train-loss at step 61700: 1.41984
+
+03/09/2026 19:35:26 >> Train-loss at step 61800: 1.43794
+
+03/09/2026 19:35:31 >> Train-loss at step 61900: 1.47889
+
+03/09/2026 19:35:37 >> Train-loss at step 62000: 1.41405
+
+03/09/2026 19:35:42 >> Train-loss at step 62100: 1.33371
+
+03/09/2026 19:35:47 >> Train-loss at step 62200: 1.36928
+
+03/09/2026 19:35:53 >> Train-loss at step 62300: 1.39665
+
+03/09/2026 19:35:58 >> Train-loss at step 62400: 1.39085
+
+03/09/2026 19:36:03 >> Train-loss at step 62500: 1.35939
+
+03/09/2026 19:36:08 >> Train-loss at step 62600: 1.41387
+
+03/09/2026 19:36:14 >> Train-loss at step 62700: 1.40657
+
+03/09/2026 19:36:20 >> Train-loss at step 62800: 1.38836
+
+03/09/2026 19:36:25 >> Train-loss at step 62900: 1.32644
+
+03/09/2026 19:36:30 >> Train-loss at step 63000: 1.32021
+
+03/09/2026 19:36:35 >> Train-loss at step 63100: 1.34944
+
+03/09/2026 19:36:41 >> Train-loss at step 63200: 1.37595
+
+03/09/2026 19:36:46 >> Train-loss at step 63300: 1.41346
+
+03/09/2026 19:36:50 >> Train-loss at step 63400: 1.37895
+
+03/09/2026 19:36:56 >> Train-loss at step 63500: 1.34213
+
+03/09/2026 19:37:02 >> Train-loss at step 63600: 1.48756
+
+03/09/2026 19:37:07 >> Train-loss at step 63700: 1.55598
+
+03/09/2026 19:37:13 >> Train-loss at step 63800: 1.34941
+
+03/09/2026 19:37:18 >> Train-loss at step 63900: 1.38162
+
+03/09/2026 19:37:24 >> Train-loss at step 64000: 1.42011
+
+03/09/2026 19:37:28 >> Train-loss at step 64100: 1.35103
+
+03/09/2026 19:37:34 >> Train-loss at step 64200: 1.28294
+
+03/09/2026 19:37:39 >> Train-loss at step 64300: 1.40263
+
+03/09/2026 19:37:45 >> Train-loss at step 64400: 1.42283
+
+03/09/2026 19:37:50 >> Train-loss at step 64500: 1.30986
+
+03/09/2026 19:37:55 >> Train-loss at step 64600: 1.39265
+
+03/09/2026 19:38:00 >> Train-loss at step 64700: 1.39485
+
+03/09/2026 19:38:05 >> Train-loss at step 64800: 1.35467
+
+03/09/2026 19:38:10 >> Train-loss at step 64900: 1.43107
+
+03/09/2026 19:38:15 >> Train-loss at step 65000: 1.32717
+
+03/09/2026 19:38:20 >> Train-loss at step 65100: 1.39498
+
+03/09/2026 19:38:26 >> Train-loss at step 65200: 1.41171
+
+03/09/2026 19:38:32 >> Train-loss at step 65300: 1.40310
+
+03/09/2026 19:38:37 >> Train-loss at step 65400: 1.34126
+
+03/09/2026 19:38:42 >> Train-loss at step 65500: 1.36552
+
+03/09/2026 19:38:47 >> Train-loss at step 65600: 1.34185
+
+03/09/2026 19:38:53 >> Train-loss at step 65700: 1.36044
+
+03/09/2026 19:38:58 >> Train-loss at step 65800: 1.37966
+
+03/09/2026 19:39:03 >> Train-loss at step 65900: 1.37815
+
+03/09/2026 19:39:08 >> Train-loss at step 66000: 1.42190
+
+03/09/2026 19:39:13 >> Train-loss at step 66100: 1.40774
+
+03/09/2026 19:39:19 >> Train-loss at step 66200: 1.49233
+
+03/09/2026 19:39:24 >> Train-loss at step 66300: 1.37365
+
+03/09/2026 19:39:29 >> Train-loss at step 66400: 1.40776
+
+03/09/2026 19:39:34 >> Train-loss at step 66500: 1.30347
+
+03/09/2026 19:39:39 >> Train-loss at step 66600: 1.41223
+
+03/09/2026 19:39:45 >> Train-loss at step 66700: 1.46451
+
+03/09/2026 19:39:50 >> Train-loss at step 66800: 1.48807
+
+03/09/2026 19:39:55 >> Train-loss at step 66900: 1.41473
+
+03/09/2026 19:40:00 >> Train-loss at step 67000: 1.42440
+
+03/09/2026 19:40:06 >> Train-loss at step 67100: 1.37415
+
+03/09/2026 19:40:10 >> Evaluating on split = val
+03/09/2026 19:40:13 >> Result on val split at train step 67181: {'auroc': 0.8049083260185724, 'auprc': 0.3236256161334448, 'minrp': 0.3456135921465362, 'f1_0_5': 0.3459581676192609, 'best_f1': 0.3974539143743212, 'los_mae_hours': 47.21360229271046, 'los_n_valid': 4600}
+
+03/09/2026 19:40:13 >> Per-outcome val results:
+                                   auroc     auprc     minrp    f1_0_5  \
+outcome                                                                  
+CARDIO-VASCULAR_DISORDER_EVENT  0.956849  0.414545  0.500000  0.441558   
+DEATH_EVENT                     0.885731  0.521398  0.508091  0.454446   
+HYPERGLYCEMIA_EVENT             0.667342  0.446588  0.449057  0.406542   
+HYPOGLYCEMIA_EVENT              0.794002  0.118748  0.174419  0.207959   
+INFECTION_EVENT                 0.720964  0.020854  0.035714  0.058824   
+KIDNEY_COMPLICATION_EVENT       0.914668  0.536766  0.521401  0.604930   
+SEVERE_HYPERGLYCEMIA_EVENT      0.705545  0.439775  0.439476  0.437524   
+SEVERE_HYPOGLYCEMIA_EVENT       0.794166  0.090330  0.136752  0.155882   
+
+                                 best_f1  n_pos  n_neg  
+outcome                                                 
+CARDIO-VASCULAR_DISORDER_EVENT  0.558140     64   4536  
+DEATH_EVENT                     0.520295    309   4291  
+HYPERGLYCEMIA_EVENT             0.527431   1426   3174  
+HYPOGLYCEMIA_EVENT              0.210959    165   4435  
+INFECTION_EVENT                 0.062802     37   4563  
+KIDNEY_COMPLICATION_EVENT       0.609987    514   4086  
+SEVERE_HYPERGLYCEMIA_EVENT      0.526577   1286   3314  
+SEVERE_HYPOGLYCEMIA_EVENT       0.163441    117   4483  
+03/09/2026 19:40:13 >> Updating wait to 8
+
+03/09/2026 19:40:14 >> Train-loss at step 67200: 1.36395
+
+03/09/2026 19:40:19 >> Train-loss at step 67300: 1.30867
+
+03/09/2026 19:40:24 >> Train-loss at step 67400: 1.34704
+
+03/09/2026 19:40:30 >> Train-loss at step 67500: 1.27769
+
+03/09/2026 19:40:34 >> Train-loss at step 67600: 1.38616
+
+03/09/2026 19:40:40 >> Train-loss at step 67700: 1.39850
+
+03/09/2026 19:40:45 >> Train-loss at step 67800: 1.40744
+
+03/09/2026 19:40:51 >> Train-loss at step 67900: 1.32050
+
+03/09/2026 19:40:56 >> Train-loss at step 68000: 1.44432
+
+03/09/2026 19:41:01 >> Train-loss at step 68100: 1.37644
+
+03/09/2026 19:41:07 >> Train-loss at step 68200: 1.32986
+
+03/09/2026 19:41:12 >> Train-loss at step 68300: 1.38954
+
+03/09/2026 19:41:18 >> Train-loss at step 68400: 1.41703
+
+03/09/2026 19:41:22 >> Train-loss at step 68500: 1.41758
+
+03/09/2026 19:41:28 >> Train-loss at step 68600: 1.39654
+
+03/09/2026 19:41:33 >> Train-loss at step 68700: 1.33866
+
+03/09/2026 19:41:39 >> Train-loss at step 68800: 1.39062
+
+03/09/2026 19:41:44 >> Train-loss at step 68900: 1.30177
+
+03/09/2026 19:41:49 >> Train-loss at step 69000: 1.41586
+
+03/09/2026 19:41:55 >> Train-loss at step 69100: 1.33149
+
+03/09/2026 19:42:00 >> Train-loss at step 69200: 1.40280
+
+03/09/2026 19:42:06 >> Train-loss at step 69300: 1.30658
+
+03/09/2026 19:42:12 >> Train-loss at step 69400: 1.41906
+
+03/09/2026 19:42:17 >> Train-loss at step 69500: 1.33646
+
+03/09/2026 19:42:23 >> Train-loss at step 69600: 1.38144
+
+03/09/2026 19:42:28 >> Train-loss at step 69700: 1.29559
+
+03/09/2026 19:42:33 >> Train-loss at step 69800: 1.30967
+
+03/09/2026 19:42:39 >> Train-loss at step 69900: 1.39816
+
+03/09/2026 19:42:45 >> Train-loss at step 70000: 1.38946
+
+03/09/2026 19:42:50 >> Train-loss at step 70100: 1.39426
+
+03/09/2026 19:42:55 >> Train-loss at step 70200: 1.34379
+
+03/09/2026 19:43:00 >> Train-loss at step 70300: 1.39665
+
+03/09/2026 19:43:05 >> Train-loss at step 70400: 1.37225
+
+03/09/2026 19:43:10 >> Train-loss at step 70500: 1.35410
+
+03/09/2026 19:43:16 >> Train-loss at step 70600: 1.30140
+
+03/09/2026 19:43:21 >> Train-loss at step 70700: 1.31107
+
+03/09/2026 19:43:26 >> Train-loss at step 70800: 1.27436
+
+03/09/2026 19:43:32 >> Train-loss at step 70900: 1.43461
+
+03/09/2026 19:43:37 >> Train-loss at step 71000: 1.33177
+
+03/09/2026 19:43:42 >> Train-loss at step 71100: 1.33292
+
+03/09/2026 19:43:47 >> Train-loss at step 71200: 1.39114
+
+03/09/2026 19:43:53 >> Train-loss at step 71300: 1.51177
+
+03/09/2026 19:43:58 >> Train-loss at step 71400: 1.52157
+
+03/09/2026 19:44:04 >> Train-loss at step 71500: 1.37369
+
+03/09/2026 19:44:09 >> Train-loss at step 71600: 1.24863
+
+03/09/2026 19:44:14 >> Train-loss at step 71700: 1.38343
+
+03/09/2026 19:44:19 >> Train-loss at step 71800: 1.31657
+
+03/09/2026 19:44:25 >> Train-loss at step 71900: 1.37318
+
+03/09/2026 19:44:30 >> Train-loss at step 72000: 1.41894
+
+03/09/2026 19:44:35 >> Train-loss at step 72100: 1.36344
+
+03/09/2026 19:44:40 >> Train-loss at step 72200: 1.28726
+
+03/09/2026 19:44:45 >> Train-loss at step 72300: 1.29081
+
+03/09/2026 19:44:50 >> Train-loss at step 72400: 1.38103
+
+03/09/2026 19:44:56 >> Train-loss at step 72500: 1.37193
+
+03/09/2026 19:45:01 >> Train-loss at step 72600: 1.42268
+
+03/09/2026 19:45:06 >> Train-loss at step 72700: 1.37638
+
+03/09/2026 19:45:11 >> Train-loss at step 72800: 1.35501
+
+03/09/2026 19:45:16 >> Train-loss at step 72900: 1.32942
+
+03/09/2026 19:45:21 >> Train-loss at step 73000: 1.37783
+
+03/09/2026 19:45:26 >> Train-loss at step 73100: 1.37847
+
+03/09/2026 19:45:31 >> Train-loss at step 73200: 1.34489
+
+03/09/2026 19:45:36 >> Train-loss at step 73300: 1.38262
+
+03/09/2026 19:45:42 >> Train-loss at step 73400: 1.37041
+
+03/09/2026 19:45:47 >> Train-loss at step 73500: 1.36026
+
+03/09/2026 19:45:53 >> Train-loss at step 73600: 1.40384
+
+03/09/2026 19:45:58 >> Train-loss at step 73700: 1.37284
+
+03/09/2026 19:46:04 >> Train-loss at step 73800: 1.32678
+
+03/09/2026 19:46:09 >> Train-loss at step 73900: 1.44885
+
+03/09/2026 19:46:14 >> Train-loss at step 74000: 1.27648
+
+03/09/2026 19:46:20 >> Train-loss at step 74100: 1.37681
+
+03/09/2026 19:46:24 >> Train-loss at step 74200: 1.39715
+
+03/09/2026 19:46:29 >> Train-loss at step 74300: 1.35716
+
+03/09/2026 19:46:35 >> Train-loss at step 74400: 1.35811
+
+03/09/2026 19:46:40 >> Train-loss at step 74500: 1.44401
+
+03/09/2026 19:46:45 >> Train-loss at step 74600: 1.37492
+
+03/09/2026 19:46:50 >> Train-loss at step 74700: 1.41579
+
+03/09/2026 19:46:56 >> Train-loss at step 74800: 1.32992
+
+03/09/2026 19:47:01 >> Train-loss at step 74900: 1.26543
+
+03/09/2026 19:47:07 >> Train-loss at step 75000: 1.35842
+
+03/09/2026 19:47:13 >> Train-loss at step 75100: 1.35889
+
+03/09/2026 19:47:18 >> Train-loss at step 75200: 1.35139
+
+03/09/2026 19:47:24 >> Train-loss at step 75300: 1.40998
+
+03/09/2026 19:47:28 >> Train-loss at step 75400: 1.36045
+
+03/09/2026 19:47:34 >> Train-loss at step 75500: 1.34785
+
+03/09/2026 19:47:39 >> Train-loss at step 75600: 1.39837
+
+03/09/2026 19:47:44 >> Train-loss at step 75700: 1.35508
+
+03/09/2026 19:47:49 >> Train-loss at step 75800: 1.30071
+
+03/09/2026 19:47:54 >> Train-loss at step 75900: 1.35482
+
+03/09/2026 19:48:00 >> Train-loss at step 76000: 1.33316
+
+03/09/2026 19:48:05 >> Train-loss at step 76100: 1.34719
+
+03/09/2026 19:48:10 >> Train-loss at step 76200: 1.44247
+
+03/09/2026 19:48:15 >> Train-loss at step 76300: 1.37255
+
+03/09/2026 19:48:20 >> Train-loss at step 76400: 1.26600
+
+03/09/2026 19:48:26 >> Train-loss at step 76500: 1.40411
+
+03/09/2026 19:48:31 >> Train-loss at step 76600: 1.37197
+
+03/09/2026 19:48:37 >> Train-loss at step 76700: 1.36544
+
+03/09/2026 19:48:41 >> Train-loss at step 76800: 1.41164
+
+03/09/2026 19:48:47 >> Train-loss at step 76900: 1.30215
+
+03/09/2026 19:48:52 >> Train-loss at step 77000: 1.47847
+
+03/09/2026 19:48:57 >> Train-loss at step 77100: 1.27478
+
+03/09/2026 19:49:02 >> Train-loss at step 77200: 1.51269
+
+03/09/2026 19:49:07 >> Train-loss at step 77300: 1.29338
+
+03/09/2026 19:49:12 >> Train-loss at step 77400: 1.45130
+
+03/09/2026 19:49:17 >> Train-loss at step 77500: 1.31074
+
+03/09/2026 19:49:22 >> Train-loss at step 77600: 1.37616
+
+03/09/2026 19:49:28 >> Train-loss at step 77700: 1.40316
+
+03/09/2026 19:49:34 >> Train-loss at step 77800: 1.33479
+
+03/09/2026 19:49:40 >> Train-loss at step 77900: 1.34600
+
+03/09/2026 19:49:45 >> Train-loss at step 78000: 1.37675
+
+03/09/2026 19:49:51 >> Train-loss at step 78100: 1.36078
+
+03/09/2026 19:49:56 >> Train-loss at step 78200: 1.33670
+
+03/09/2026 19:50:02 >> Train-loss at step 78300: 1.27190
+
+03/09/2026 19:50:05 >> Evaluating on split = val
+03/09/2026 19:50:08 >> Result on val split at train step 78378: {'auroc': 0.8043524596858743, 'auprc': 0.32782217136239666, 'minrp': 0.35458455839298136, 'f1_0_5': 0.35572186674466755, 'best_f1': 0.3995247613089572, 'los_mae_hours': 47.51312042484007, 'los_n_valid': 4600}
+
+03/09/2026 19:50:08 >> Per-outcome val results:
+                                   auroc     auprc     minrp    f1_0_5  \
+outcome                                                                  
+CARDIO-VASCULAR_DISORDER_EVENT  0.965746  0.424549  0.472222  0.403162   
+DEATH_EVENT                     0.881256  0.464130  0.443366  0.412444   
+HYPERGLYCEMIA_EVENT             0.691494  0.464792  0.466230  0.501439   
+HYPOGLYCEMIA_EVENT              0.788671  0.131265  0.200000  0.195294   
+INFECTION_EVENT                 0.670872  0.020243  0.055556  0.040816   
+KIDNEY_COMPLICATION_EVENT       0.920112  0.564732  0.557692  0.593023   
+SEVERE_HYPERGLYCEMIA_EVENT      0.727563  0.452471  0.469480  0.531001   
+SEVERE_HYPOGLYCEMIA_EVENT       0.789105  0.100394  0.172131  0.168595   
+
+                                 best_f1  n_pos  n_neg  
+outcome                                                 
+CARDIO-VASCULAR_DISORDER_EVENT  0.543478     64   4536  
+DEATH_EVENT                     0.458931    309   4291  
+HYPERGLYCEMIA_EVENT             0.539604   1426   3174  
+HYPOGLYCEMIA_EVENT              0.235556    165   4435  
+INFECTION_EVENT                 0.078740     37   4563  
+KIDNEY_COMPLICATION_EVENT       0.602976    514   4086  
+SEVERE_HYPERGLYCEMIA_EVENT      0.543560   1286   3314  
+SEVERE_HYPOGLYCEMIA_EVENT       0.193353    117   4483  
+
+03/09/2026 19:50:08 >> Saved ckpt at /workspace/notebooks/code/Predictions/kineret-prediction/outputs/strats/qa/checkpoint_best.bin
+
+03/09/2026 19:50:09 >> Train-loss at step 78400: 1.44404
+
+03/09/2026 19:50:15 >> Train-loss at step 78500: 1.35065
+
+03/09/2026 19:50:20 >> Train-loss at step 78600: 1.37927
+
+03/09/2026 19:50:25 >> Train-loss at step 78700: 1.32345
+
+03/09/2026 19:50:31 >> Train-loss at step 78800: 1.33103
+
+03/09/2026 19:50:37 >> Train-loss at step 78900: 1.33996
+
+03/09/2026 19:50:42 >> Train-loss at step 79000: 1.40523
+
+03/09/2026 19:50:47 >> Train-loss at step 79100: 1.33747
+
+03/09/2026 19:50:52 >> Train-loss at step 79200: 1.28948
+
+03/09/2026 19:50:58 >> Train-loss at step 79300: 1.35702
+
+03/09/2026 19:51:03 >> Train-loss at step 79400: 1.46225
+
+03/09/2026 19:51:09 >> Train-loss at step 79500: 1.35542
+
+03/09/2026 19:51:14 >> Train-loss at step 79600: 1.30609
+
+03/09/2026 19:51:20 >> Train-loss at step 79700: 1.34171
+
+03/09/2026 19:51:26 >> Train-loss at step 79800: 1.24538
+
+03/09/2026 19:51:32 >> Train-loss at step 79900: 1.38392
+
+03/09/2026 19:51:37 >> Train-loss at step 80000: 1.33862
+
+03/09/2026 19:51:42 >> Train-loss at step 80100: 1.25750
+
+03/09/2026 19:51:48 >> Train-loss at step 80200: 1.30923
+
+03/09/2026 19:51:54 >> Train-loss at step 80300: 1.33843
+
+03/09/2026 19:51:59 >> Train-loss at step 80400: 1.37165
+
+03/09/2026 19:52:04 >> Train-loss at step 80500: 1.28544
+
+03/09/2026 19:52:09 >> Train-loss at step 80600: 1.36398
+
+03/09/2026 19:52:15 >> Train-loss at step 80700: 1.30817
+
+03/09/2026 19:52:20 >> Train-loss at step 80800: 1.26291
+
+03/09/2026 19:52:25 >> Train-loss at step 80900: 1.32996
+
+03/09/2026 19:52:31 >> Train-loss at step 81000: 1.37387
+
+03/09/2026 19:52:36 >> Train-loss at step 81100: 1.28133
+
+03/09/2026 19:52:41 >> Train-loss at step 81200: 1.35698
+
+03/09/2026 19:52:46 >> Train-loss at step 81300: 1.36729
+
+03/09/2026 19:52:51 >> Train-loss at step 81400: 1.31874
+
+03/09/2026 19:52:57 >> Train-loss at step 81500: 1.43283
+
+03/09/2026 19:53:02 >> Train-loss at step 81600: 1.34958
+
+03/09/2026 19:53:08 >> Train-loss at step 81700: 1.30719
+
+03/09/2026 19:53:12 >> Train-loss at step 81800: 1.33657
+
+03/09/2026 19:53:18 >> Train-loss at step 81900: 1.33177
+
+03/09/2026 19:53:23 >> Train-loss at step 82000: 1.27847
+
+03/09/2026 19:53:29 >> Train-loss at step 82100: 1.37511
+
+03/09/2026 19:53:34 >> Train-loss at step 82200: 1.43698
+
+03/09/2026 19:53:39 >> Train-loss at step 82300: 1.29588
+
+03/09/2026 19:53:44 >> Train-loss at step 82400: 1.30981
+
+03/09/2026 19:53:49 >> Train-loss at step 82500: 1.34781
+
+03/09/2026 19:53:55 >> Train-loss at step 82600: 1.39001
+
+03/09/2026 19:54:00 >> Train-loss at step 82700: 1.39024
+
+03/09/2026 19:54:06 >> Train-loss at step 82800: 1.32695
+
+03/09/2026 19:54:10 >> Train-loss at step 82900: 1.38771
+
+03/09/2026 19:54:15 >> Train-loss at step 83000: 1.39267
+
+03/09/2026 19:54:21 >> Train-loss at step 83100: 1.29031
+
+03/09/2026 19:54:26 >> Train-loss at step 83200: 1.21322
+
+03/09/2026 19:54:32 >> Train-loss at step 83300: 1.42144
+
+03/09/2026 19:54:37 >> Train-loss at step 83400: 1.34536
+
+03/09/2026 19:54:43 >> Train-loss at step 83500: 1.30610
+
+03/09/2026 19:54:48 >> Train-loss at step 83600: 1.33114
+
+03/09/2026 19:54:53 >> Train-loss at step 83700: 1.39125
+
+03/09/2026 19:54:58 >> Train-loss at step 83800: 1.36573
+
+03/09/2026 19:55:04 >> Train-loss at step 83900: 1.18557
+
+03/09/2026 19:55:09 >> Train-loss at step 84000: 1.38441
+
+03/09/2026 19:55:14 >> Train-loss at step 84100: 1.41781
+
+03/09/2026 19:55:19 >> Train-loss at step 84200: 1.38496
+
+03/09/2026 19:55:24 >> Train-loss at step 84300: 1.36739
+
+03/09/2026 19:55:30 >> Train-loss at step 84400: 1.30863
+
+03/09/2026 19:55:35 >> Train-loss at step 84500: 1.41170
+
+03/09/2026 19:55:39 >> Train-loss at step 84600: 1.33320
+
+03/09/2026 19:55:45 >> Train-loss at step 84700: 1.32186
+
+03/09/2026 19:55:50 >> Train-loss at step 84800: 1.38062
+
+03/09/2026 19:55:56 >> Train-loss at step 84900: 1.41506
+
+03/09/2026 19:56:00 >> Train-loss at step 85000: 1.35317
+
+03/09/2026 19:56:05 >> Train-loss at step 85100: 1.35061
+
+03/09/2026 19:56:11 >> Train-loss at step 85200: 1.43521
+
+03/09/2026 19:56:15 >> Train-loss at step 85300: 1.39844
+
+03/09/2026 19:56:21 >> Train-loss at step 85400: 1.34777
+
+03/09/2026 19:56:26 >> Train-loss at step 85500: 1.34779
+
+03/09/2026 19:56:31 >> Train-loss at step 85600: 1.33481
+
+03/09/2026 19:56:37 >> Train-loss at step 85700: 1.38725
+
+03/09/2026 19:56:42 >> Train-loss at step 85800: 1.34297
+
+03/09/2026 19:56:47 >> Train-loss at step 85900: 1.31436
+
+03/09/2026 19:56:53 >> Train-loss at step 86000: 1.37815
+
+03/09/2026 19:56:58 >> Train-loss at step 86100: 1.36139
+
+03/09/2026 19:57:03 >> Train-loss at step 86200: 1.28520
+
+03/09/2026 19:57:08 >> Train-loss at step 86300: 1.30907
+
+03/09/2026 19:57:13 >> Train-loss at step 86400: 1.30579
+
+03/09/2026 19:57:19 >> Train-loss at step 86500: 1.34224
+
+03/09/2026 19:57:24 >> Train-loss at step 86600: 1.42221
+
+03/09/2026 19:57:29 >> Train-loss at step 86700: 1.34210
+
+03/09/2026 19:57:34 >> Train-loss at step 86800: 1.36138
+
+03/09/2026 19:57:38 >> Train-loss at step 86900: 1.32198
+
+03/09/2026 19:57:44 >> Train-loss at step 87000: 1.31819
+
+03/09/2026 19:57:49 >> Train-loss at step 87100: 1.29390
+
+03/09/2026 19:57:54 >> Train-loss at step 87200: 1.38228
+
+03/09/2026 19:57:59 >> Train-loss at step 87300: 1.31979
+
+03/09/2026 19:58:04 >> Train-loss at step 87400: 1.29112
+
+03/09/2026 19:58:10 >> Train-loss at step 87500: 1.38088
+
+03/09/2026 19:58:15 >> Train-loss at step 87600: 1.27446
+
+03/09/2026 19:58:21 >> Train-loss at step 87700: 1.28167
+
+03/09/2026 19:58:25 >> Train-loss at step 87800: 1.38757
+
+03/09/2026 19:58:30 >> Train-loss at step 87900: 1.30766
+
+03/09/2026 19:58:35 >> Train-loss at step 88000: 1.40440
+
+03/09/2026 19:58:41 >> Train-loss at step 88100: 1.39795
+
+03/09/2026 19:58:46 >> Train-loss at step 88200: 1.44243
+
+03/09/2026 19:58:50 >> Train-loss at step 88300: 1.31772
+
+03/09/2026 19:58:56 >> Train-loss at step 88400: 1.28994
+
+03/09/2026 19:59:01 >> Train-loss at step 88500: 1.32181
+
+03/09/2026 19:59:06 >> Train-loss at step 88600: 1.33786
+
+03/09/2026 19:59:11 >> Train-loss at step 88700: 1.42366
+
+03/09/2026 19:59:17 >> Train-loss at step 88800: 1.35596
+
+03/09/2026 19:59:22 >> Train-loss at step 88900: 1.30435
+
+03/09/2026 19:59:27 >> Train-loss at step 89000: 1.29401
+
+03/09/2026 19:59:32 >> Train-loss at step 89100: 1.26762
+
+03/09/2026 19:59:37 >> Train-loss at step 89200: 1.33391
+
+03/09/2026 19:59:42 >> Train-loss at step 89300: 1.31202
+
+03/09/2026 19:59:47 >> Train-loss at step 89400: 1.42256
+
+03/09/2026 19:59:53 >> Train-loss at step 89500: 1.35349
+
+03/09/2026 19:59:56 >> Evaluating on split = val
+03/09/2026 19:59:59 >> Result on val split at train step 89575: {'auroc': 0.789620540830428, 'auprc': 0.3209133268416234, 'minrp': 0.34991151814446775, 'f1_0_5': 0.3566743246718779, 'best_f1': 0.3990822674666062, 'los_mae_hours': 47.183510175939006, 'los_n_valid': 4600}
+
+03/09/2026 19:59:59 >> Per-outcome val results:
+                                   auroc     auprc     minrp    f1_0_5  \
+outcome                                                                  
+CARDIO-VASCULAR_DISORDER_EVENT  0.948578  0.363280  0.459459  0.435897   
+DEATH_EVENT                     0.883652  0.509835  0.485437  0.401065   
+HYPERGLYCEMIA_EVENT             0.674721  0.454162  0.451923  0.480206   
+HYPOGLYCEMIA_EVENT              0.773823  0.129997  0.193939  0.203267   
+INFECTION_EVENT                 0.655129  0.032723  0.055556  0.057637   
+KIDNEY_COMPLICATION_EVENT       0.918875  0.563023  0.545631  0.605281   
+SEVERE_HYPERGLYCEMIA_EVENT      0.695018  0.427308  0.435472  0.505863   
+SEVERE_HYPOGLYCEMIA_EVENT       0.767168  0.086980  0.171875  0.164179   
+
+                                 best_f1  n_pos  n_neg  
+outcome                                                 
+CARDIO-VASCULAR_DISORDER_EVENT  0.552486     64   4536  
+DEATH_EVENT                     0.508050    309   4291  
+HYPERGLYCEMIA_EVENT             0.534411   1426   3174  
+HYPOGLYCEMIA_EVENT              0.215768    165   4435  
+INFECTION_EVENT                 0.077519     37   4563  
+KIDNEY_COMPLICATION_EVENT       0.609859    514   4086  
+SEVERE_HYPERGLYCEMIA_EVENT      0.514973   1286   3314  
+SEVERE_HYPOGLYCEMIA_EVENT       0.179592    117   4483  
+03/09/2026 19:59:59 >> Updating wait to 9
+
+03/09/2026 20:00:01 >> Train-loss at step 89600: 1.34581
+
+03/09/2026 20:00:06 >> Train-loss at step 89700: 1.29857
+
+03/09/2026 20:00:11 >> Train-loss at step 89800: 1.36535
+
+03/09/2026 20:00:17 >> Train-loss at step 89900: 1.29472
+
+03/09/2026 20:00:23 >> Train-loss at step 90000: 1.29970
+
+03/09/2026 20:00:28 >> Train-loss at step 90100: 1.25701
+
+03/09/2026 20:00:32 >> Train-loss at step 90200: 1.35525
+
+03/09/2026 20:00:37 >> Train-loss at step 90300: 1.34294
+
+03/09/2026 20:00:43 >> Train-loss at step 90400: 1.35819
+
+03/09/2026 20:00:47 >> Train-loss at step 90500: 1.27106
+
+03/09/2026 20:00:52 >> Train-loss at step 90600: 1.26529
+
+03/09/2026 20:00:58 >> Train-loss at step 90700: 1.44312
+
+03/09/2026 20:01:03 >> Train-loss at step 90800: 1.27138
+
+03/09/2026 20:01:08 >> Train-loss at step 90900: 1.33657
+
+03/09/2026 20:01:13 >> Train-loss at step 91000: 1.29519
+
+03/09/2026 20:01:19 >> Train-loss at step 91100: 1.23139
+
+03/09/2026 20:01:24 >> Train-loss at step 91200: 1.28705
+
+03/09/2026 20:01:29 >> Train-loss at step 91300: 1.37731
+
+03/09/2026 20:01:35 >> Train-loss at step 91400: 1.36779
+
+03/09/2026 20:01:40 >> Train-loss at step 91500: 1.27724
+
+03/09/2026 20:01:46 >> Train-loss at step 91600: 1.32419
+
+03/09/2026 20:01:51 >> Train-loss at step 91700: 1.26391
+
+03/09/2026 20:01:57 >> Train-loss at step 91800: 1.33728
+
+03/09/2026 20:02:02 >> Train-loss at step 91900: 1.33817
+
+03/09/2026 20:02:07 >> Train-loss at step 92000: 1.36248
+
+03/09/2026 20:02:13 >> Train-loss at step 92100: 1.38236
+
+03/09/2026 20:02:19 >> Train-loss at step 92200: 1.33112
+
+03/09/2026 20:02:24 >> Train-loss at step 92300: 1.39390
+
+03/09/2026 20:02:28 >> Train-loss at step 92400: 1.23135
+
+03/09/2026 20:02:33 >> Train-loss at step 92500: 1.37030
+
+03/09/2026 20:02:38 >> Train-loss at step 92600: 1.35785
+
+03/09/2026 20:02:43 >> Train-loss at step 92700: 1.33787
+
+03/09/2026 20:02:49 >> Train-loss at step 92800: 1.29452
+
+03/09/2026 20:02:54 >> Train-loss at step 92900: 1.29400
+
+03/09/2026 20:03:00 >> Train-loss at step 93000: 1.35739
+
+03/09/2026 20:03:05 >> Train-loss at step 93100: 1.29446
+
+03/09/2026 20:03:10 >> Train-loss at step 93200: 1.31051
+
+03/09/2026 20:03:15 >> Train-loss at step 93300: 1.34793
+
+03/09/2026 20:03:20 >> Train-loss at step 93400: 1.31748
+
+03/09/2026 20:03:25 >> Train-loss at step 93500: 1.35880
+
+03/09/2026 20:03:31 >> Train-loss at step 93600: 1.41622
+
+03/09/2026 20:03:36 >> Train-loss at step 93700: 1.25326
+
+03/09/2026 20:03:41 >> Train-loss at step 93800: 1.27227
+
+03/09/2026 20:03:47 >> Train-loss at step 93900: 1.27618
+
+03/09/2026 20:03:52 >> Train-loss at step 94000: 1.31231
+
+03/09/2026 20:03:57 >> Train-loss at step 94100: 1.31385
+
+03/09/2026 20:04:02 >> Train-loss at step 94200: 1.49045
+
+03/09/2026 20:04:08 >> Train-loss at step 94300: 1.25747
+
+03/09/2026 20:04:13 >> Train-loss at step 94400: 1.24919
+
+03/09/2026 20:04:18 >> Train-loss at step 94500: 1.36955
+
+03/09/2026 20:04:24 >> Train-loss at step 94600: 1.25707
+
+03/09/2026 20:04:28 >> Train-loss at step 94700: 1.24353
+
+03/09/2026 20:04:33 >> Train-loss at step 94800: 1.35906
+
+03/09/2026 20:04:38 >> Train-loss at step 94900: 1.43991
+
+03/09/2026 20:04:43 >> Train-loss at step 95000: 1.33432
+
+03/09/2026 20:04:48 >> Train-loss at step 95100: 1.30697
+
+03/09/2026 20:04:53 >> Train-loss at step 95200: 1.46311
+
+03/09/2026 20:04:58 >> Train-loss at step 95300: 1.22829
+
+03/09/2026 20:05:03 >> Train-loss at step 95400: 1.40208
+
+03/09/2026 20:05:08 >> Train-loss at step 95500: 1.38637
+
+03/09/2026 20:05:13 >> Train-loss at step 95600: 1.44245
+
+03/09/2026 20:05:18 >> Train-loss at step 95700: 1.21357
+
+03/09/2026 20:05:24 >> Train-loss at step 95800: 1.35559
+
+03/09/2026 20:05:30 >> Train-loss at step 95900: 1.33832
+
+03/09/2026 20:05:35 >> Train-loss at step 96000: 1.30715
+
+03/09/2026 20:05:40 >> Train-loss at step 96100: 1.34294
+
+03/09/2026 20:05:46 >> Train-loss at step 96200: 1.33873
+
+03/09/2026 20:05:51 >> Train-loss at step 96300: 1.21300
+
+03/09/2026 20:05:56 >> Train-loss at step 96400: 1.37797
+
+03/09/2026 20:06:01 >> Train-loss at step 96500: 1.30213
+
+03/09/2026 20:06:07 >> Train-loss at step 96600: 1.24386
+
+03/09/2026 20:06:12 >> Train-loss at step 96700: 1.41523
+
+03/09/2026 20:06:18 >> Train-loss at step 96800: 1.38029
+
+03/09/2026 20:06:24 >> Train-loss at step 96900: 1.27540
+
+03/09/2026 20:06:30 >> Train-loss at step 97000: 1.36381
+
+03/09/2026 20:06:36 >> Train-loss at step 97100: 1.30313
+
+03/09/2026 20:06:40 >> Train-loss at step 97200: 1.41823
+
+03/09/2026 20:06:45 >> Train-loss at step 97300: 1.28724
+
+03/09/2026 20:06:51 >> Train-loss at step 97400: 1.35044
+
+03/09/2026 20:06:56 >> Train-loss at step 97500: 1.34525
+
+03/09/2026 20:07:01 >> Train-loss at step 97600: 1.24774
+
+03/09/2026 20:07:07 >> Train-loss at step 97700: 1.38220
+
+03/09/2026 20:07:12 >> Train-loss at step 97800: 1.37126
+
+03/09/2026 20:07:17 >> Train-loss at step 97900: 1.26202
+
+03/09/2026 20:07:22 >> Train-loss at step 98000: 1.42355
+
+03/09/2026 20:07:28 >> Train-loss at step 98100: 1.42905
+
+03/09/2026 20:07:33 >> Train-loss at step 98200: 1.40058
+
+03/09/2026 20:07:38 >> Train-loss at step 98300: 1.24328
+
+03/09/2026 20:07:43 >> Train-loss at step 98400: 1.43128
+
+03/09/2026 20:07:49 >> Train-loss at step 98500: 1.27729
+
+03/09/2026 20:07:54 >> Train-loss at step 98600: 1.39976
+
+03/09/2026 20:07:59 >> Train-loss at step 98700: 1.42577
+
+03/09/2026 20:08:04 >> Train-loss at step 98800: 1.41275
+
+03/09/2026 20:08:09 >> Train-loss at step 98900: 1.26170
+
+03/09/2026 20:08:14 >> Train-loss at step 99000: 1.30167
+
+03/09/2026 20:08:19 >> Train-loss at step 99100: 1.30780
+
+03/09/2026 20:08:25 >> Train-loss at step 99200: 1.35651
+
+03/09/2026 20:08:30 >> Train-loss at step 99300: 1.37383
+
+03/09/2026 20:08:35 >> Train-loss at step 99400: 1.29734
+
+03/09/2026 20:08:40 >> Train-loss at step 99500: 1.32275
+
+03/09/2026 20:08:45 >> Train-loss at step 99600: 1.35080
+
+03/09/2026 20:08:51 >> Train-loss at step 99700: 1.34832
+
+03/09/2026 20:08:56 >> Train-loss at step 99800: 1.32785
+
+03/09/2026 20:09:02 >> Train-loss at step 99900: 1.28254
+
+03/09/2026 20:09:06 >> Train-loss at step 100000: 1.27104
+
+03/09/2026 20:09:12 >> Train-loss at step 100100: 1.35115
+
+03/09/2026 20:09:17 >> Train-loss at step 100200: 1.30508
+
+03/09/2026 20:09:22 >> Train-loss at step 100300: 1.27283
+
+03/09/2026 20:09:27 >> Train-loss at step 100400: 1.32100
+
+03/09/2026 20:09:32 >> Train-loss at step 100500: 1.37958
+
+03/09/2026 20:09:38 >> Train-loss at step 100600: 1.30137
+
+03/09/2026 20:09:43 >> Train-loss at step 100700: 1.29520
+
+03/09/2026 20:09:47 >> Evaluating on split = val
+03/09/2026 20:09:50 >> Result on val split at train step 100772: {'auroc': 0.8037275608695679, 'auprc': 0.3329873726273044, 'minrp': 0.3616939524476265, 'f1_0_5': 0.36232118840821126, 'best_f1': 0.4026686318973447, 'los_mae_hours': 46.93973081351755, 'los_n_valid': 4600}
+
+03/09/2026 20:09:50 >> Per-outcome val results:
+                                   auroc     auprc     minrp    f1_0_5  \
+outcome                                                                  
+CARDIO-VASCULAR_DISORDER_EVENT  0.952491  0.439448  0.492754  0.495238   
+DEATH_EVENT                     0.886784  0.495402  0.475728  0.408759   
+HYPERGLYCEMIA_EVENT             0.699716  0.475299  0.476190  0.486121   
+HYPOGLYCEMIA_EVENT              0.782354  0.121193  0.193939  0.182635   
+INFECTION_EVENT                 0.667295  0.020558  0.075000  0.052632   
+KIDNEY_COMPLICATION_EVENT       0.921284  0.557545  0.552727  0.597732   
+SEVERE_HYPERGLYCEMIA_EVENT      0.733175  0.461839  0.464611  0.507033   
+SEVERE_HYPOGLYCEMIA_EVENT       0.786721  0.092614  0.162602  0.168421   
+
+                                 best_f1  n_pos  n_neg  
+outcome                                                 
+CARDIO-VASCULAR_DISORDER_EVENT  0.548571     64   4536  
+DEATH_EVENT                     0.487445    309   4291  
+HYPERGLYCEMIA_EVENT             0.547529   1426   3174  
+HYPOGLYCEMIA_EVENT              0.207547    165   4435  
+INFECTION_EVENT                 0.077922     37   4563  
+KIDNEY_COMPLICATION_EVENT       0.611650    514   4086  
+SEVERE_HYPERGLYCEMIA_EVENT      0.550521   1286   3314  
+SEVERE_HYPOGLYCEMIA_EVENT       0.190164    117   4483  
+
+03/09/2026 20:09:50 >> Saved ckpt at /workspace/notebooks/code/Predictions/kineret-prediction/outputs/strats/qa/checkpoint_best.bin
+
+03/09/2026 20:09:52 >> Train-loss at step 100800: 1.36452
+
+03/09/2026 20:09:57 >> Train-loss at step 100900: 1.34589
+
+03/09/2026 20:10:02 >> Train-loss at step 101000: 1.32340
+
+03/09/2026 20:10:08 >> Train-loss at step 101100: 1.34131
+
+03/09/2026 20:10:13 >> Train-loss at step 101200: 1.22204
+
+03/09/2026 20:10:18 >> Train-loss at step 101300: 1.26866
+
+03/09/2026 20:10:23 >> Train-loss at step 101400: 1.24132
+
+03/09/2026 20:10:28 >> Train-loss at step 101500: 1.23862
+
+03/09/2026 20:10:34 >> Train-loss at step 101600: 1.27601
+
+03/09/2026 20:10:38 >> Train-loss at step 101700: 1.27596
+
+03/09/2026 20:10:44 >> Train-loss at step 101800: 1.36049
+
+03/09/2026 20:10:49 >> Train-loss at step 101900: 1.35932
+
+03/09/2026 20:10:55 >> Train-loss at step 102000: 1.35627
+
+03/09/2026 20:11:00 >> Train-loss at step 102100: 1.21695
+
+03/09/2026 20:11:05 >> Train-loss at step 102200: 1.42419
+
+03/09/2026 20:11:10 >> Train-loss at step 102300: 1.32392
+
+03/09/2026 20:11:15 >> Train-loss at step 102400: 1.38119
+
+03/09/2026 20:11:20 >> Train-loss at step 102500: 1.26756
+
+03/09/2026 20:11:25 >> Train-loss at step 102600: 1.29489
+
+03/09/2026 20:11:29 >> Train-loss at step 102700: 1.40106
+
+03/09/2026 20:11:34 >> Train-loss at step 102800: 1.29792
+
+03/09/2026 20:11:39 >> Train-loss at step 102900: 1.33545
+
+03/09/2026 20:11:44 >> Train-loss at step 103000: 1.28225
+
+03/09/2026 20:11:50 >> Train-loss at step 103100: 1.28920
+
+03/09/2026 20:11:56 >> Train-loss at step 103200: 1.32026
+
+03/09/2026 20:12:02 >> Train-loss at step 103300: 1.34898
+
+03/09/2026 20:12:07 >> Train-loss at step 103400: 1.34021
+
+03/09/2026 20:12:13 >> Train-loss at step 103500: 1.31767
+
+03/09/2026 20:12:18 >> Train-loss at step 103600: 1.35186
+
+03/09/2026 20:12:23 >> Train-loss at step 103700: 1.24271
+
+03/09/2026 20:12:28 >> Train-loss at step 103800: 1.39240
+
+03/09/2026 20:12:34 >> Train-loss at step 103900: 1.33158
+
+03/09/2026 20:12:40 >> Train-loss at step 104000: 1.36502
+
+03/09/2026 20:12:45 >> Train-loss at step 104100: 1.23624
+
+03/09/2026 20:12:50 >> Train-loss at step 104200: 1.34686
+
+03/09/2026 20:12:54 >> Train-loss at step 104300: 1.23711
+
+03/09/2026 20:13:00 >> Train-loss at step 104400: 1.29823
+
+03/09/2026 20:13:06 >> Train-loss at step 104500: 1.32207
+
+03/09/2026 20:13:11 >> Train-loss at step 104600: 1.24524
+
+03/09/2026 20:13:17 >> Train-loss at step 104700: 1.32307
+
+03/09/2026 20:13:22 >> Train-loss at step 104800: 1.42354
+
+03/09/2026 20:13:27 >> Train-loss at step 104900: 1.25744
+
+03/09/2026 20:13:33 >> Train-loss at step 105000: 1.32403
+
+03/09/2026 20:13:38 >> Train-loss at step 105100: 1.27400
+
+03/09/2026 20:13:43 >> Train-loss at step 105200: 1.27941
+
+03/09/2026 20:13:49 >> Train-loss at step 105300: 1.32650
+
+03/09/2026 20:13:53 >> Train-loss at step 105400: 1.29010
+
+03/09/2026 20:13:58 >> Train-loss at step 105500: 1.28772
+
+03/09/2026 20:14:04 >> Train-loss at step 105600: 1.27209
+
+03/09/2026 20:14:09 >> Train-loss at step 105700: 1.29394
+
+03/09/2026 20:14:15 >> Train-loss at step 105800: 1.39646
+
+03/09/2026 20:14:20 >> Train-loss at step 105900: 1.31254
+
+03/09/2026 20:14:25 >> Train-loss at step 106000: 1.18851
+
+03/09/2026 20:14:30 >> Train-loss at step 106100: 1.38059
+
+03/09/2026 20:14:36 >> Train-loss at step 106200: 1.27385
+
+03/09/2026 20:14:41 >> Train-loss at step 106300: 1.33011
+
+03/09/2026 20:14:47 >> Train-loss at step 106400: 1.33977
+
+03/09/2026 20:14:52 >> Train-loss at step 106500: 1.24471
+
+03/09/2026 20:14:57 >> Train-loss at step 106600: 1.31753
+
+03/09/2026 20:15:03 >> Train-loss at step 106700: 1.37036
+
+03/09/2026 20:15:09 >> Train-loss at step 106800: 1.34643
+
+03/09/2026 20:15:13 >> Train-loss at step 106900: 1.30329
+
+03/09/2026 20:15:18 >> Train-loss at step 107000: 1.17852
+
+03/09/2026 20:15:24 >> Train-loss at step 107100: 1.45410
+
+03/09/2026 20:15:30 >> Train-loss at step 107200: 1.31310
+
+03/09/2026 20:15:35 >> Train-loss at step 107300: 1.26218
+
+03/09/2026 20:15:41 >> Train-loss at step 107400: 1.27890
+
+03/09/2026 20:15:45 >> Train-loss at step 107500: 1.30547
+
+03/09/2026 20:15:52 >> Train-loss at step 107600: 1.26196
+
+03/09/2026 20:15:57 >> Train-loss at step 107700: 1.36769
+
+03/09/2026 20:16:01 >> Train-loss at step 107800: 1.31786
+
+03/09/2026 20:16:06 >> Train-loss at step 107900: 1.31072
+
+03/09/2026 20:16:11 >> Train-loss at step 108000: 1.41224
+
+03/09/2026 20:16:17 >> Train-loss at step 108100: 1.33053
+
+03/09/2026 20:16:22 >> Train-loss at step 108200: 1.27594
+
+03/09/2026 20:16:27 >> Train-loss at step 108300: 1.32220
+
+03/09/2026 20:16:32 >> Train-loss at step 108400: 1.24572
+
+03/09/2026 20:16:37 >> Train-loss at step 108500: 1.42980
+
+03/09/2026 20:16:42 >> Train-loss at step 108600: 1.39775
+
+03/09/2026 20:16:47 >> Train-loss at step 108700: 1.35231
+
+03/09/2026 20:16:52 >> Train-loss at step 108800: 1.32644
+
+03/09/2026 20:16:57 >> Train-loss at step 108900: 1.32555
+
+03/09/2026 20:17:03 >> Train-loss at step 109000: 1.31122
+
+03/09/2026 20:17:08 >> Train-loss at step 109100: 1.33787
+
+03/09/2026 20:17:13 >> Train-loss at step 109200: 1.39968
+
+03/09/2026 20:17:18 >> Train-loss at step 109300: 1.28977
+
+03/09/2026 20:17:24 >> Train-loss at step 109400: 1.37060
+
+03/09/2026 20:17:29 >> Train-loss at step 109500: 1.36645
+
+03/09/2026 20:17:34 >> Train-loss at step 109600: 1.39049
+
+03/09/2026 20:17:39 >> Train-loss at step 109700: 1.30845
+
+03/09/2026 20:17:44 >> Train-loss at step 109800: 1.27946
+
+03/09/2026 20:17:49 >> Train-loss at step 109900: 1.28980
+
+03/09/2026 20:17:55 >> Train-loss at step 110000: 1.36303
+
+03/09/2026 20:17:59 >> Train-loss at step 110100: 1.30965
+
+03/09/2026 20:18:04 >> Train-loss at step 110200: 1.35945
+
+03/09/2026 20:18:10 >> Train-loss at step 110300: 1.22143
+
+03/09/2026 20:18:16 >> Train-loss at step 110400: 1.37239
+
+03/09/2026 20:18:22 >> Train-loss at step 110500: 1.23854
+
+03/09/2026 20:18:27 >> Train-loss at step 110600: 1.38125
+
+03/09/2026 20:18:32 >> Train-loss at step 110700: 1.34918
+
+03/09/2026 20:18:37 >> Train-loss at step 110800: 1.31101
+
+03/09/2026 20:18:42 >> Train-loss at step 110900: 1.37314
+
+03/09/2026 20:18:48 >> Train-loss at step 111000: 1.31248
+
+03/09/2026 20:18:53 >> Train-loss at step 111100: 1.24049
+
+03/09/2026 20:18:58 >> Train-loss at step 111200: 1.26837
+
+03/09/2026 20:19:04 >> Train-loss at step 111300: 1.25963
+
+03/09/2026 20:19:09 >> Train-loss at step 111400: 1.40992
+
+03/09/2026 20:19:14 >> Train-loss at step 111500: 1.28928
+
+03/09/2026 20:19:19 >> Train-loss at step 111600: 1.28973
+
+03/09/2026 20:19:25 >> Train-loss at step 111700: 1.32128
+
+03/09/2026 20:19:30 >> Train-loss at step 111800: 1.33742
+
+03/09/2026 20:19:35 >> Train-loss at step 111900: 1.25153
+
+03/09/2026 20:19:38 >> Evaluating on split = val
+03/09/2026 20:19:41 >> Result on val split at train step 111969: {'auroc': 0.798653614404728, 'auprc': 0.3237280283392312, 'minrp': 0.35155481889156737, 'f1_0_5': 0.369601334198248, 'best_f1': 0.39538590643192373, 'los_mae_hours': 47.54101614825115, 'los_n_valid': 4600}
+
+03/09/2026 20:19:41 >> Per-outcome val results:
+                                   auroc     auprc     minrp    f1_0_5  \
+outcome                                                                  
+CARDIO-VASCULAR_DISORDER_EVENT  0.959718  0.392100  0.486486  0.480769   
+DEATH_EVENT                     0.879064  0.477586  0.472492  0.425197   
+HYPERGLYCEMIA_EVENT             0.703432  0.483737  0.476752  0.538504   
+HYPOGLYCEMIA_EVENT              0.774451  0.108943  0.157088  0.179959   
+INFECTION_EVENT                 0.640036  0.018716  0.054054  0.047761   
+KIDNEY_COMPLICATION_EVENT       0.921178  0.555397  0.562384  0.604839   
+SEVERE_HYPERGLYCEMIA_EVENT      0.736666  0.468477  0.471603  0.537331   
+SEVERE_HYPOGLYCEMIA_EVENT       0.774683  0.084868  0.131579  0.142450   
+
+                                 best_f1  n_pos  n_neg  
+outcome                                                 
+CARDIO-VASCULAR_DISORDER_EVENT  0.531469     64   4536  
+DEATH_EVENT                     0.484490    309   4291  
+HYPERGLYCEMIA_EVENT             0.549121   1426   3174  
+HYPOGLYCEMIA_EVENT              0.203704    165   4435  
+INFECTION_EVENT                 0.058824     37   4563  
+KIDNEY_COMPLICATION_EVENT       0.609484    514   4086  
+SEVERE_HYPERGLYCEMIA_EVENT      0.552083   1286   3314  
+SEVERE_HYPOGLYCEMIA_EVENT       0.173913    117   4483  
+03/09/2026 20:19:41 >> Updating wait to 9
+
+03/09/2026 20:19:43 >> Train-loss at step 112000: 1.34143
+
+03/09/2026 20:19:49 >> Train-loss at step 112100: 1.42152
+
+03/09/2026 20:19:54 >> Train-loss at step 112200: 1.29387
+
+03/09/2026 20:19:59 >> Train-loss at step 112300: 1.31893
+
+03/09/2026 20:20:05 >> Train-loss at step 112400: 1.26502
+
+03/09/2026 20:20:10 >> Train-loss at step 112500: 1.31111
+
+03/09/2026 20:20:15 >> Train-loss at step 112600: 1.31905
+
+03/09/2026 20:20:20 >> Train-loss at step 112700: 1.34876
+
+03/09/2026 20:20:26 >> Train-loss at step 112800: 1.31042
+
+03/09/2026 20:20:31 >> Train-loss at step 112900: 1.18666
+
+03/09/2026 20:20:36 >> Train-loss at step 113000: 1.25606
+
+03/09/2026 20:20:41 >> Train-loss at step 113100: 1.30085
+
+03/09/2026 20:20:47 >> Train-loss at step 113200: 1.27768
+
+03/09/2026 20:20:52 >> Train-loss at step 113300: 1.26950
+
+03/09/2026 20:20:58 >> Train-loss at step 113400: 1.34947
+
+03/09/2026 20:21:03 >> Train-loss at step 113500: 1.24386
+
+03/09/2026 20:21:08 >> Train-loss at step 113600: 1.20919
+
+03/09/2026 20:21:13 >> Train-loss at step 113700: 1.36033
+
+03/09/2026 20:21:19 >> Train-loss at step 113800: 1.39187
+
+03/09/2026 20:21:25 >> Train-loss at step 113900: 1.32749
+
+03/09/2026 20:21:30 >> Train-loss at step 114000: 1.29456
+
+03/09/2026 20:21:35 >> Train-loss at step 114100: 1.25970
+
+03/09/2026 20:21:41 >> Train-loss at step 114200: 1.43240
+
+03/09/2026 20:21:46 >> Train-loss at step 114300: 1.22765
+
+03/09/2026 20:21:51 >> Train-loss at step 114400: 1.29862
+
+03/09/2026 20:21:56 >> Train-loss at step 114500: 1.29052
+
+03/09/2026 20:22:02 >> Train-loss at step 114600: 1.24225
+
+03/09/2026 20:22:07 >> Train-loss at step 114700: 1.30167
+
+03/09/2026 20:22:12 >> Train-loss at step 114800: 1.37733
+
+03/09/2026 20:22:18 >> Train-loss at step 114900: 1.31185
+
+03/09/2026 20:22:23 >> Train-loss at step 115000: 1.30495
+
+03/09/2026 20:22:28 >> Train-loss at step 115100: 1.32471
+
+03/09/2026 20:22:33 >> Train-loss at step 115200: 1.30701
+
+03/09/2026 20:22:38 >> Train-loss at step 115300: 1.33943
+
+03/09/2026 20:22:44 >> Train-loss at step 115400: 1.30172
+
+03/09/2026 20:22:49 >> Train-loss at step 115500: 1.23411
+
+03/09/2026 20:22:54 >> Train-loss at step 115600: 1.31051
+
+03/09/2026 20:23:00 >> Train-loss at step 115700: 1.27960
+
+03/09/2026 20:23:05 >> Train-loss at step 115800: 1.24522
+
+03/09/2026 20:23:11 >> Train-loss at step 115900: 1.36989
+
+03/09/2026 20:23:17 >> Train-loss at step 116000: 1.18789
+
+03/09/2026 20:23:23 >> Train-loss at step 116100: 1.33478
+
+03/09/2026 20:23:28 >> Train-loss at step 116200: 1.27511
+
+03/09/2026 20:23:33 >> Train-loss at step 116300: 1.24509
+
+03/09/2026 20:23:38 >> Train-loss at step 116400: 1.37452
+
+03/09/2026 20:23:43 >> Train-loss at step 116500: 1.38067
+
+03/09/2026 20:23:49 >> Train-loss at step 116600: 1.30073
+
+03/09/2026 20:23:54 >> Train-loss at step 116700: 1.32596
+
+03/09/2026 20:23:59 >> Train-loss at step 116800: 1.31921
+
+03/09/2026 20:24:05 >> Train-loss at step 116900: 1.27966
+
+03/09/2026 20:24:11 >> Train-loss at step 117000: 1.29469
+
+03/09/2026 20:24:16 >> Train-loss at step 117100: 1.34883
+
+03/09/2026 20:24:22 >> Train-loss at step 117200: 1.26657
+
+03/09/2026 20:24:27 >> Train-loss at step 117300: 1.29716
+
+03/09/2026 20:24:32 >> Train-loss at step 117400: 1.32438
+
+03/09/2026 20:24:37 >> Train-loss at step 117500: 1.31237
+
+03/09/2026 20:24:44 >> Train-loss at step 117600: 1.19772
+
+03/09/2026 20:24:48 >> Train-loss at step 117700: 1.28267
+
+03/09/2026 20:24:53 >> Train-loss at step 117800: 1.38374
+
+03/09/2026 20:24:58 >> Train-loss at step 117900: 1.35970
+
+03/09/2026 20:25:04 >> Train-loss at step 118000: 1.29647
+
+03/09/2026 20:25:09 >> Train-loss at step 118100: 1.31802
+
+03/09/2026 20:25:14 >> Train-loss at step 118200: 1.23469
+
+03/09/2026 20:25:18 >> Train-loss at step 118300: 1.41864
+
+03/09/2026 20:25:24 >> Train-loss at step 118400: 1.27048
+
+03/09/2026 20:25:29 >> Train-loss at step 118500: 1.25360
+
+03/09/2026 20:25:34 >> Train-loss at step 118600: 1.30752
+
+03/09/2026 20:25:39 >> Train-loss at step 118700: 1.22492
+
+03/09/2026 20:25:45 >> Train-loss at step 118800: 1.38974
+
+03/09/2026 20:25:50 >> Train-loss at step 118900: 1.29789
+
+03/09/2026 20:25:55 >> Train-loss at step 119000: 1.23149
+
+03/09/2026 20:25:59 >> Train-loss at step 119100: 1.25382
+
+03/09/2026 20:26:04 >> Train-loss at step 119200: 1.32268
+
+03/09/2026 20:26:10 >> Train-loss at step 119300: 1.34030
+
+03/09/2026 20:26:14 >> Train-loss at step 119400: 1.33730
+
+03/09/2026 20:26:19 >> Train-loss at step 119500: 1.32397
+
+03/09/2026 20:26:25 >> Train-loss at step 119600: 1.25254
+
+03/09/2026 20:26:30 >> Train-loss at step 119700: 1.31002
+
+03/09/2026 20:26:35 >> Train-loss at step 119800: 1.29801
+
+03/09/2026 20:26:40 >> Train-loss at step 119900: 1.34811
+
+03/09/2026 20:26:46 >> Train-loss at step 120000: 1.36178
+
+03/09/2026 20:26:52 >> Train-loss at step 120100: 1.41545
+
+03/09/2026 20:26:57 >> Train-loss at step 120200: 1.31214
+
+03/09/2026 20:27:02 >> Train-loss at step 120300: 1.24589
+
+03/09/2026 20:27:07 >> Train-loss at step 120400: 1.29638
+
+03/09/2026 20:27:13 >> Train-loss at step 120500: 1.28159
+
+03/09/2026 20:27:18 >> Train-loss at step 120600: 1.21772
+
+03/09/2026 20:27:23 >> Train-loss at step 120700: 1.36654
+
+03/09/2026 20:27:29 >> Train-loss at step 120800: 1.27251
+
+03/09/2026 20:27:34 >> Train-loss at step 120900: 1.37502
+
+03/09/2026 20:27:39 >> Train-loss at step 121000: 1.43549
+
+03/09/2026 20:27:45 >> Train-loss at step 121100: 1.26847
+
+03/09/2026 20:27:50 >> Train-loss at step 121200: 1.23110
+
+03/09/2026 20:27:55 >> Train-loss at step 121300: 1.27841
+
+03/09/2026 20:28:00 >> Train-loss at step 121400: 1.21373
+
+03/09/2026 20:28:05 >> Train-loss at step 121500: 1.34523
+
+03/09/2026 20:28:11 >> Train-loss at step 121600: 1.36281
+
+03/09/2026 20:28:16 >> Train-loss at step 121700: 1.23788
+
+03/09/2026 20:28:21 >> Train-loss at step 121800: 1.40438
+
+03/09/2026 20:28:26 >> Train-loss at step 121900: 1.20250
+
+03/09/2026 20:28:32 >> Train-loss at step 122000: 1.28912
+
+03/09/2026 20:28:37 >> Train-loss at step 122100: 1.33997
+
+03/09/2026 20:28:41 >> Train-loss at step 122200: 1.36766
+
+03/09/2026 20:28:46 >> Train-loss at step 122300: 1.26914
+
+03/09/2026 20:28:52 >> Train-loss at step 122400: 1.24527
+
+03/09/2026 20:28:56 >> Train-loss at step 122500: 1.27615
+
+03/09/2026 20:29:02 >> Train-loss at step 122600: 1.34138
+
+03/09/2026 20:29:07 >> Train-loss at step 122700: 1.25918
+
+03/09/2026 20:29:12 >> Train-loss at step 122800: 1.33742
+
+03/09/2026 20:29:17 >> Train-loss at step 122900: 1.36401
+
+03/09/2026 20:29:23 >> Train-loss at step 123000: 1.19369
+
+03/09/2026 20:29:28 >> Train-loss at step 123100: 1.27374
+
+03/09/2026 20:29:31 >> Evaluating on split = val
+03/09/2026 20:29:34 >> Result on val split at train step 123166: {'auroc': 0.8003015851934138, 'auprc': 0.3263170894331271, 'minrp': 0.3587137468940306, 'f1_0_5': 0.35145409698137453, 'best_f1': 0.4017934315057333, 'los_mae_hours': 48.34488450768512, 'los_n_valid': 4600}
+
+03/09/2026 20:29:34 >> Per-outcome val results:
+                                   auroc     auprc     minrp    f1_0_5  \
+outcome                                                                  
+CARDIO-VASCULAR_DISORDER_EVENT  0.951640  0.394894  0.469697  0.462222   
+DEATH_EVENT                     0.882159  0.472032  0.462264  0.351049   
+HYPERGLYCEMIA_EVENT             0.708015  0.482855  0.481145  0.506849   
+HYPOGLYCEMIA_EVENT              0.773045  0.118437  0.218182  0.188450   
+INFECTION_EVENT                 0.654341  0.020395  0.051282  0.041056   
+KIDNEY_COMPLICATION_EVENT       0.919475  0.565183  0.554264  0.568472   
+SEVERE_HYPERGLYCEMIA_EVENT      0.740474  0.467581  0.470085  0.537745   
+SEVERE_HYPOGLYCEMIA_EVENT       0.773263  0.089160  0.162791  0.155789   
+
+                                 best_f1  n_pos  n_neg  
+outcome                                                 
+CARDIO-VASCULAR_DISORDER_EVENT  0.533333     64   4536  
+DEATH_EVENT                     0.476780    309   4291  
+HYPERGLYCEMIA_EVENT             0.553436   1426   3174  
+HYPOGLYCEMIA_EVENT              0.219436    165   4435  
+INFECTION_EVENT                 0.077419     37   4563  
+KIDNEY_COMPLICATION_EVENT       0.604821    514   4086  
+SEVERE_HYPERGLYCEMIA_EVENT      0.555350   1286   3314  
+SEVERE_HYPOGLYCEMIA_EVENT       0.193772    117   4483  
+03/09/2026 20:29:34 >> Updating wait to 8
+
+03/09/2026 20:29:36 >> Train-loss at step 123200: 1.22615
+
+03/09/2026 20:29:41 >> Train-loss at step 123300: 1.31143
+
+03/09/2026 20:29:47 >> Train-loss at step 123400: 1.28103
+
+03/09/2026 20:29:52 >> Train-loss at step 123500: 1.31055
+
+03/09/2026 20:29:57 >> Train-loss at step 123600: 1.15387
+
+03/09/2026 20:30:02 >> Train-loss at step 123700: 1.21506
+
+03/09/2026 20:30:06 >> Train-loss at step 123800: 1.19950
+
+03/09/2026 20:30:11 >> Train-loss at step 123900: 1.27306
+
+03/09/2026 20:30:16 >> Train-loss at step 124000: 1.23644
+
+03/09/2026 20:30:22 >> Train-loss at step 124100: 1.26304
+
+03/09/2026 20:30:27 >> Train-loss at step 124200: 1.25009
+
+03/09/2026 20:30:33 >> Train-loss at step 124300: 1.33849
+
+03/09/2026 20:30:38 >> Train-loss at step 124400: 1.30461
+
+03/09/2026 20:30:43 >> Train-loss at step 124500: 1.35949
+
+03/09/2026 20:30:49 >> Train-loss at step 124600: 1.25015
+
+03/09/2026 20:30:54 >> Train-loss at step 124700: 1.18408
+
+03/09/2026 20:31:00 >> Train-loss at step 124800: 1.27675
+
+03/09/2026 20:31:05 >> Train-loss at step 124900: 1.32623
+
+03/09/2026 20:31:11 >> Train-loss at step 125000: 1.27780
+
+03/09/2026 20:31:16 >> Train-loss at step 125100: 1.35389
+
+03/09/2026 20:31:21 >> Train-loss at step 125200: 1.30026
+
+03/09/2026 20:31:27 >> Train-loss at step 125300: 1.24570
+
+03/09/2026 20:31:32 >> Train-loss at step 125400: 1.26661
+
+03/09/2026 20:31:37 >> Train-loss at step 125500: 1.21340
+
+03/09/2026 20:31:42 >> Train-loss at step 125600: 1.25022
+
+03/09/2026 20:31:48 >> Train-loss at step 125700: 1.18465
+
+03/09/2026 20:31:52 >> Train-loss at step 125800: 1.38946
+
+03/09/2026 20:31:58 >> Train-loss at step 125900: 1.24217
+
+03/09/2026 20:32:04 >> Train-loss at step 126000: 1.33154
+
+03/09/2026 20:32:09 >> Train-loss at step 126100: 1.30992
+
+03/09/2026 20:32:14 >> Train-loss at step 126200: 1.31636
+
+03/09/2026 20:32:19 >> Train-loss at step 126300: 1.35874
+
+03/09/2026 20:32:25 >> Train-loss at step 126400: 1.26613
+
+03/09/2026 20:32:29 >> Train-loss at step 126500: 1.24617
+
+03/09/2026 20:32:35 >> Train-loss at step 126600: 1.34237
+
+03/09/2026 20:32:40 >> Train-loss at step 126700: 1.30493
+
+03/09/2026 20:32:46 >> Train-loss at step 126800: 1.29890
+
+03/09/2026 20:32:51 >> Train-loss at step 126900: 1.22746
+
+03/09/2026 20:32:56 >> Train-loss at step 127000: 1.30824
+
+03/09/2026 20:33:02 >> Train-loss at step 127100: 1.42223
+
+03/09/2026 20:33:07 >> Train-loss at step 127200: 1.27016
+
+03/09/2026 20:33:12 >> Train-loss at step 127300: 1.30708
+
+03/09/2026 20:33:17 >> Train-loss at step 127400: 1.29530
+
+03/09/2026 20:33:23 >> Train-loss at step 127500: 1.31945
+
+03/09/2026 20:33:28 >> Train-loss at step 127600: 1.29784
+
+03/09/2026 20:33:33 >> Train-loss at step 127700: 1.27853
+
+03/09/2026 20:33:39 >> Train-loss at step 127800: 1.28501
+
+03/09/2026 20:33:44 >> Train-loss at step 127900: 1.31963
+
+03/09/2026 20:33:49 >> Train-loss at step 128000: 1.24941
+
+03/09/2026 20:33:54 >> Train-loss at step 128100: 1.27138
+
+03/09/2026 20:34:00 >> Train-loss at step 128200: 1.33586
+
+03/09/2026 20:34:05 >> Train-loss at step 128300: 1.25031
+
+03/09/2026 20:34:10 >> Train-loss at step 128400: 1.30099
+
+03/09/2026 20:34:15 >> Train-loss at step 128500: 1.30540
+
+03/09/2026 20:34:20 >> Train-loss at step 128600: 1.24839
+
+03/09/2026 20:34:24 >> Train-loss at step 128700: 1.26855
+
+03/09/2026 20:34:29 >> Train-loss at step 128800: 1.30215
+
+03/09/2026 20:34:34 >> Train-loss at step 128900: 1.25168
+
+03/09/2026 20:34:39 >> Train-loss at step 129000: 1.28703
+
+03/09/2026 20:34:45 >> Train-loss at step 129100: 1.41068
+
+03/09/2026 20:34:51 >> Train-loss at step 129200: 1.33527
+
+03/09/2026 20:34:56 >> Train-loss at step 129300: 1.30435
+
+03/09/2026 20:35:01 >> Train-loss at step 129400: 1.26908
+
+03/09/2026 20:35:06 >> Train-loss at step 129500: 1.29563
+
+03/09/2026 20:35:12 >> Train-loss at step 129600: 1.31575
+
+03/09/2026 20:35:17 >> Train-loss at step 129700: 1.34409
+
+03/09/2026 20:35:23 >> Train-loss at step 129800: 1.26156
+
+03/09/2026 20:35:28 >> Train-loss at step 129900: 1.28173
+
+03/09/2026 20:35:34 >> Train-loss at step 130000: 1.28225
+
+03/09/2026 20:35:39 >> Train-loss at step 130100: 1.33096
+
+03/09/2026 20:35:44 >> Train-loss at step 130200: 1.31145
+
+03/09/2026 20:35:49 >> Train-loss at step 130300: 1.33747
+
+03/09/2026 20:35:54 >> Train-loss at step 130400: 1.31688
+
+03/09/2026 20:35:59 >> Train-loss at step 130500: 1.28511
+
+03/09/2026 20:36:04 >> Train-loss at step 130600: 1.18674
+
+03/09/2026 20:36:09 >> Train-loss at step 130700: 1.37089
+
+03/09/2026 20:36:14 >> Train-loss at step 130800: 1.26016
+
+03/09/2026 20:36:18 >> Train-loss at step 130900: 1.26266
+
+03/09/2026 20:36:24 >> Train-loss at step 131000: 1.28595
+
+03/09/2026 20:36:29 >> Train-loss at step 131100: 1.25511
+
+03/09/2026 20:36:34 >> Train-loss at step 131200: 1.25828
+
+03/09/2026 20:36:39 >> Train-loss at step 131300: 1.25139
+
+03/09/2026 20:36:45 >> Train-loss at step 131400: 1.26194
+
+03/09/2026 20:36:50 >> Train-loss at step 131500: 1.30845
+
+03/09/2026 20:36:56 >> Train-loss at step 131600: 1.38615
+
+03/09/2026 20:37:01 >> Train-loss at step 131700: 1.31229
+
+03/09/2026 20:37:07 >> Train-loss at step 131800: 1.28940
+
+03/09/2026 20:37:12 >> Train-loss at step 131900: 1.37144
+
+03/09/2026 20:37:18 >> Train-loss at step 132000: 1.25681
+
+03/09/2026 20:37:24 >> Train-loss at step 132100: 1.30571
+
+03/09/2026 20:37:29 >> Train-loss at step 132200: 1.31032
+
+03/09/2026 20:37:35 >> Train-loss at step 132300: 1.23522
+
+03/09/2026 20:37:40 >> Train-loss at step 132400: 1.38052
+
+03/09/2026 20:37:45 >> Train-loss at step 132500: 1.38900
+
+03/09/2026 20:37:50 >> Train-loss at step 132600: 1.27751
+
+03/09/2026 20:37:56 >> Train-loss at step 132700: 1.25435
+
+03/09/2026 20:38:02 >> Train-loss at step 132800: 1.33972
+
+03/09/2026 20:38:07 >> Train-loss at step 132900: 1.33801
+
+03/09/2026 20:38:12 >> Train-loss at step 133000: 1.33491
+
+03/09/2026 20:38:17 >> Train-loss at step 133100: 1.28598
+
+03/09/2026 20:38:23 >> Train-loss at step 133200: 1.45257
+
+03/09/2026 20:38:28 >> Train-loss at step 133300: 1.23964
+
+03/09/2026 20:38:34 >> Train-loss at step 133400: 1.22494
+
+03/09/2026 20:38:39 >> Train-loss at step 133500: 1.24782
+
+03/09/2026 20:38:44 >> Train-loss at step 133600: 1.31150
+
+03/09/2026 20:38:49 >> Train-loss at step 133700: 1.33204
+
+03/09/2026 20:38:54 >> Train-loss at step 133800: 1.22262
+
+03/09/2026 20:39:00 >> Train-loss at step 133900: 1.35905
+
+03/09/2026 20:39:06 >> Train-loss at step 134000: 1.31920
+
+03/09/2026 20:39:11 >> Train-loss at step 134100: 1.24764
+
+03/09/2026 20:39:16 >> Train-loss at step 134200: 1.29880
+
+03/09/2026 20:39:22 >> Train-loss at step 134300: 1.24376
+
+03/09/2026 20:39:25 >> Evaluating on split = val
+03/09/2026 20:39:28 >> Result on val split at train step 134363: {'auroc': 0.8032290001113747, 'auprc': 0.3361673605019436, 'minrp': 0.3606923928856293, 'f1_0_5': 0.3543619428076249, 'best_f1': 0.4046372764575458, 'los_mae_hours': 47.94849286019883, 'los_n_valid': 4600}
+
+03/09/2026 20:39:28 >> Per-outcome val results:
+                                   auroc     auprc     minrp    f1_0_5  \
+outcome                                                                  
+CARDIO-VASCULAR_DISORDER_EVENT  0.954689  0.422893  0.476190  0.359862   
+DEATH_EVENT                     0.885820  0.501598  0.495146  0.419802   
+HYPERGLYCEMIA_EVENT             0.712523  0.488615  0.490210  0.526741   
+HYPOGLYCEMIA_EVENT              0.785203  0.121706  0.180851  0.192572   
+INFECTION_EVENT                 0.641203  0.021054  0.053571  0.051151   
+KIDNEY_COMPLICATION_EVENT       0.921134  0.572058  0.554913  0.578328   
+SEVERE_HYPERGLYCEMIA_EVENT      0.745867  0.476288  0.482115  0.546717   
+SEVERE_HYPOGLYCEMIA_EVENT       0.779393  0.085126  0.152542  0.159722   
+
+                                 best_f1  n_pos  n_neg  
+outcome                                                 
+CARDIO-VASCULAR_DISORDER_EVENT  0.540541     64   4536  
+DEATH_EVENT                     0.499184    309   4291  
+HYPERGLYCEMIA_EVENT             0.559450   1426   3174  
+HYPOGLYCEMIA_EVENT              0.215768    165   4435  
+INFECTION_EVENT                 0.080537     37   4563  
+KIDNEY_COMPLICATION_EVENT       0.610146    514   4086  
+SEVERE_HYPERGLYCEMIA_EVENT      0.559203   1286   3314  
+SEVERE_HYPOGLYCEMIA_EVENT       0.172269    117   4483  
+
+03/09/2026 20:39:28 >> Saved ckpt at /workspace/notebooks/code/Predictions/kineret-prediction/outputs/strats/qa/checkpoint_best.bin
+
+03/09/2026 20:39:29 >> Train-loss at step 134400: 1.26347
+
+03/09/2026 20:39:34 >> Train-loss at step 134500: 1.17758
+
+03/09/2026 20:39:40 >> Train-loss at step 134600: 1.40323
+
+03/09/2026 20:39:46 >> Train-loss at step 134700: 1.20979
+
+03/09/2026 20:39:51 >> Train-loss at step 134800: 1.35032
+
+03/09/2026 20:39:56 >> Train-loss at step 134900: 1.18560
+
+03/09/2026 20:40:01 >> Train-loss at step 135000: 1.24791
+
+03/09/2026 20:40:07 >> Train-loss at step 135100: 1.30455
+
+03/09/2026 20:40:12 >> Train-loss at step 135200: 1.26632
+
+03/09/2026 20:40:17 >> Train-loss at step 135300: 1.26387
+
+03/09/2026 20:40:23 >> Train-loss at step 135400: 1.20966
+
+03/09/2026 20:40:28 >> Train-loss at step 135500: 1.29772
+
+03/09/2026 20:40:33 >> Train-loss at step 135600: 1.32943
+
+03/09/2026 20:40:39 >> Train-loss at step 135700: 1.22484
+
+03/09/2026 20:40:45 >> Train-loss at step 135800: 1.30325
+
+03/09/2026 20:40:50 >> Train-loss at step 135900: 1.20466
+
+03/09/2026 20:40:55 >> Train-loss at step 136000: 1.30863
+
+03/09/2026 20:41:01 >> Train-loss at step 136100: 1.28161
+
+03/09/2026 20:41:06 >> Train-loss at step 136200: 1.27109
+
+03/09/2026 20:41:11 >> Train-loss at step 136300: 1.30140
+
+03/09/2026 20:41:17 >> Train-loss at step 136400: 1.33474
+
+03/09/2026 20:41:22 >> Train-loss at step 136500: 1.28493
+
+03/09/2026 20:41:28 >> Train-loss at step 136600: 1.18781
+
+03/09/2026 20:41:33 >> Train-loss at step 136700: 1.34442
+
+03/09/2026 20:41:38 >> Train-loss at step 136800: 1.20250
+
+03/09/2026 20:41:44 >> Train-loss at step 136900: 1.25141
+
+03/09/2026 20:41:49 >> Train-loss at step 137000: 1.32706
+
+03/09/2026 20:41:55 >> Train-loss at step 137100: 1.24419
+
+03/09/2026 20:42:00 >> Train-loss at step 137200: 1.23825
+
+03/09/2026 20:42:05 >> Train-loss at step 137300: 1.27961
+
+03/09/2026 20:42:11 >> Train-loss at step 137400: 1.31112
+
+03/09/2026 20:42:16 >> Train-loss at step 137500: 1.29299
+
+03/09/2026 20:42:21 >> Train-loss at step 137600: 1.32537
+
+03/09/2026 20:42:27 >> Train-loss at step 137700: 1.22242
+
+03/09/2026 20:42:32 >> Train-loss at step 137800: 1.24904
+
+03/09/2026 20:42:37 >> Train-loss at step 137900: 1.27958
+
+03/09/2026 20:42:42 >> Train-loss at step 138000: 1.29340
+
+03/09/2026 20:42:48 >> Train-loss at step 138100: 1.29111
+
+03/09/2026 20:42:53 >> Train-loss at step 138200: 1.40901
+
+03/09/2026 20:42:59 >> Train-loss at step 138300: 1.21927
+
+03/09/2026 20:43:03 >> Train-loss at step 138400: 1.24669
+
+03/09/2026 20:43:09 >> Train-loss at step 138500: 1.21468
+
+03/09/2026 20:43:15 >> Train-loss at step 138600: 1.30502
+
+03/09/2026 20:43:20 >> Train-loss at step 138700: 1.24608
+
+03/09/2026 20:43:26 >> Train-loss at step 138800: 1.26013
+
+03/09/2026 20:43:30 >> Train-loss at step 138900: 1.30975
+
+03/09/2026 20:43:36 >> Train-loss at step 139000: 1.37136
+
+03/09/2026 20:43:41 >> Train-loss at step 139100: 1.19161
+
+03/09/2026 20:43:46 >> Train-loss at step 139200: 1.43806
+
+03/09/2026 20:43:51 >> Train-loss at step 139300: 1.33161
+
+03/09/2026 20:43:57 >> Train-loss at step 139400: 1.20979
+
+03/09/2026 20:44:02 >> Train-loss at step 139500: 1.21109
+
+03/09/2026 20:44:07 >> Train-loss at step 139600: 1.30901
+
+03/09/2026 20:44:13 >> Train-loss at step 139700: 1.31296
+
+03/09/2026 20:44:19 >> Train-loss at step 139800: 1.25807
+
+03/09/2026 20:44:24 >> Train-loss at step 139900: 1.22951
+
+03/09/2026 20:44:29 >> Train-loss at step 140000: 1.29669
+
+03/09/2026 20:44:34 >> Train-loss at step 140100: 1.26324
+
+03/09/2026 20:44:39 >> Train-loss at step 140200: 1.27620
+
+03/09/2026 20:44:44 >> Train-loss at step 140300: 1.29162
+
+03/09/2026 20:44:49 >> Train-loss at step 140400: 1.33744
+
+03/09/2026 20:44:54 >> Train-loss at step 140500: 1.32892
+
+03/09/2026 20:44:59 >> Train-loss at step 140600: 1.28117
+
+03/09/2026 20:45:05 >> Train-loss at step 140700: 1.24574
+
+03/09/2026 20:45:10 >> Train-loss at step 140800: 1.23769
+
+03/09/2026 20:45:16 >> Train-loss at step 140900: 1.27010
+
+03/09/2026 20:45:21 >> Train-loss at step 141000: 1.31027
+
+03/09/2026 20:45:26 >> Train-loss at step 141100: 1.18349
+
+03/09/2026 20:45:31 >> Train-loss at step 141200: 1.23749
+
+03/09/2026 20:45:37 >> Train-loss at step 141300: 1.36987
+
+03/09/2026 20:45:43 >> Train-loss at step 141400: 1.34276
+
+03/09/2026 20:45:48 >> Train-loss at step 141500: 1.20288
+
+03/09/2026 20:45:54 >> Train-loss at step 141600: 1.27764
+
+03/09/2026 20:45:59 >> Train-loss at step 141700: 1.25244
+
+03/09/2026 20:46:05 >> Train-loss at step 141800: 1.41061
+
+03/09/2026 20:46:10 >> Train-loss at step 141900: 1.29177
+
+03/09/2026 20:46:15 >> Train-loss at step 142000: 1.33153
+
+03/09/2026 20:46:20 >> Train-loss at step 142100: 1.15183
+
+03/09/2026 20:46:25 >> Train-loss at step 142200: 1.22485
+
+03/09/2026 20:46:30 >> Train-loss at step 142300: 1.35286
+
+03/09/2026 20:46:35 >> Train-loss at step 142400: 1.26687
+
+03/09/2026 20:46:40 >> Train-loss at step 142500: 1.27238
+
+03/09/2026 20:46:46 >> Train-loss at step 142600: 1.27944
+
+03/09/2026 20:46:51 >> Train-loss at step 142700: 1.32757
+
+03/09/2026 20:46:56 >> Train-loss at step 142800: 1.35198
+
+03/09/2026 20:47:00 >> Train-loss at step 142900: 1.31771
+
+03/09/2026 20:47:06 >> Train-loss at step 143000: 1.31080
+
+03/09/2026 20:47:11 >> Train-loss at step 143100: 1.27600
+
+03/09/2026 20:47:17 >> Train-loss at step 143200: 1.30988
+
+03/09/2026 20:47:22 >> Train-loss at step 143300: 1.26501
+
+03/09/2026 20:47:27 >> Train-loss at step 143400: 1.39649
+
+03/09/2026 20:47:32 >> Train-loss at step 143500: 1.20782
+
+03/09/2026 20:47:38 >> Train-loss at step 143600: 1.26185
+
+03/09/2026 20:47:43 >> Train-loss at step 143700: 1.27358
+
+03/09/2026 20:47:48 >> Train-loss at step 143800: 1.25673
+
+03/09/2026 20:47:53 >> Train-loss at step 143900: 1.26413
+
+03/09/2026 20:47:59 >> Train-loss at step 144000: 1.36877
+
+03/09/2026 20:48:04 >> Train-loss at step 144100: 1.26754
+
+03/09/2026 20:48:09 >> Train-loss at step 144200: 1.33033
+
+03/09/2026 20:48:14 >> Train-loss at step 144300: 1.28780
+
+03/09/2026 20:48:20 >> Train-loss at step 144400: 1.29551
+
+03/09/2026 20:48:25 >> Train-loss at step 144500: 1.30962
+
+03/09/2026 20:48:31 >> Train-loss at step 144600: 1.24200
+
+03/09/2026 20:48:35 >> Train-loss at step 144700: 1.29181
+
+03/09/2026 20:48:41 >> Train-loss at step 144800: 1.30586
+
+03/09/2026 20:48:46 >> Train-loss at step 144900: 1.32337
+
+03/09/2026 20:48:51 >> Train-loss at step 145000: 1.28771
+
+03/09/2026 20:48:57 >> Train-loss at step 145100: 1.36358
+
+03/09/2026 20:49:01 >> Train-loss at step 145200: 1.23184
+
+03/09/2026 20:49:06 >> Train-loss at step 145300: 1.20787
+
+03/09/2026 20:49:11 >> Train-loss at step 145400: 1.28699
+
+03/09/2026 20:49:16 >> Train-loss at step 145500: 1.31103
+
+03/09/2026 20:49:20 >> Evaluating on split = val
+03/09/2026 20:49:23 >> Result on val split at train step 145560: {'auroc': 0.7945072854620886, 'auprc': 0.3277253356427883, 'minrp': 0.36248436869417283, 'f1_0_5': 0.36843058055034045, 'best_f1': 0.4048942132076435, 'los_mae_hours': 47.69412795152894, 'los_n_valid': 4600}
+
+03/09/2026 20:49:23 >> Per-outcome val results:
+                                   auroc     auprc     minrp    f1_0_5  \
+outcome                                                                  
+CARDIO-VASCULAR_DISORDER_EVENT  0.948316  0.376638  0.486842  0.470046   
+DEATH_EVENT                     0.885047  0.500488  0.472843  0.423158   
+HYPERGLYCEMIA_EVENT             0.710959  0.485693  0.487395  0.528336   
+HYPOGLYCEMIA_EVENT              0.766994  0.107780  0.176471  0.173077   
+INFECTION_EVENT                 0.616261  0.032151  0.108108  0.039702   
+KIDNEY_COMPLICATION_EVENT       0.919591  0.561340  0.545455  0.601187   
+SEVERE_HYPERGLYCEMIA_EVENT      0.749643  0.482262  0.497761  0.549667   
+SEVERE_HYPOGLYCEMIA_EVENT       0.759246  0.075451  0.125000  0.162272   
+
+                                 best_f1  n_pos  n_neg  
+outcome                                                 
+CARDIO-VASCULAR_DISORDER_EVENT  0.537143     64   4536  
+DEATH_EVENT                     0.486289    309   4291  
+HYPERGLYCEMIA_EVENT             0.560347   1426   3174  
+HYPOGLYCEMIA_EVENT              0.203310    165   4435  
+INFECTION_EVENT                 0.109589     37   4563  
+KIDNEY_COMPLICATION_EVENT       0.615060    514   4086  
+SEVERE_HYPERGLYCEMIA_EVENT      0.560384   1286   3314  
+SEVERE_HYPOGLYCEMIA_EVENT       0.167033    117   4483  
+03/09/2026 20:49:23 >> Updating wait to 9
+
+03/09/2026 20:49:25 >> Train-loss at step 145600: 1.27922
+
+03/09/2026 20:49:31 >> Train-loss at step 145700: 1.20388
+
+03/09/2026 20:49:36 >> Train-loss at step 145800: 1.31272
+
+03/09/2026 20:49:41 >> Train-loss at step 145900: 1.20771
+
+03/09/2026 20:49:46 >> Train-loss at step 146000: 1.25801
+
+03/09/2026 20:49:51 >> Train-loss at step 146100: 1.21949
+
+03/09/2026 20:49:56 >> Train-loss at step 146200: 1.33315
+
+03/09/2026 20:50:01 >> Train-loss at step 146300: 1.23886
+
+03/09/2026 20:50:07 >> Train-loss at step 146400: 1.29036
+
+03/09/2026 20:50:13 >> Train-loss at step 146500: 1.23038
+
+03/09/2026 20:50:18 >> Train-loss at step 146600: 1.24811
+
+03/09/2026 20:50:24 >> Train-loss at step 146700: 1.26498
+
+03/09/2026 20:50:28 >> Train-loss at step 146800: 1.33552
+
+03/09/2026 20:50:34 >> Train-loss at step 146900: 1.23703
+
+03/09/2026 20:50:39 >> Train-loss at step 147000: 1.11906
+
+03/09/2026 20:50:44 >> Train-loss at step 147100: 1.29702
+
+03/09/2026 20:50:49 >> Train-loss at step 147200: 1.28543
+
+03/09/2026 20:50:55 >> Train-loss at step 147300: 1.31745
+
+03/09/2026 20:51:01 >> Train-loss at step 147400: 1.23101
+
+03/09/2026 20:51:06 >> Train-loss at step 147500: 1.26182
+
+03/09/2026 20:51:11 >> Train-loss at step 147600: 1.28287
+
+03/09/2026 20:51:17 >> Train-loss at step 147700: 1.35570
+
+03/09/2026 20:51:22 >> Train-loss at step 147800: 1.22932
+
+03/09/2026 20:51:27 >> Train-loss at step 147900: 1.15944
+
+03/09/2026 20:51:32 >> Train-loss at step 148000: 1.29950
+
+03/09/2026 20:51:38 >> Train-loss at step 148100: 1.30212
+
+03/09/2026 20:51:44 >> Train-loss at step 148200: 1.19075
+
+03/09/2026 20:51:49 >> Train-loss at step 148300: 1.22695
+
+03/09/2026 20:51:55 >> Train-loss at step 148400: 1.32791
+
+03/09/2026 20:52:00 >> Train-loss at step 148500: 1.23028
+
+03/09/2026 20:52:05 >> Train-loss at step 148600: 1.31014
+
+03/09/2026 20:52:10 >> Train-loss at step 148700: 1.28638
+
+03/09/2026 20:52:16 >> Train-loss at step 148800: 1.26709
+
+03/09/2026 20:52:21 >> Train-loss at step 148900: 1.28477
+
+03/09/2026 20:52:27 >> Train-loss at step 149000: 1.29392
+
+03/09/2026 20:52:32 >> Train-loss at step 149100: 1.34309
+
+03/09/2026 20:52:37 >> Train-loss at step 149200: 1.22975
+
+03/09/2026 20:52:42 >> Train-loss at step 149300: 1.33547
+
+03/09/2026 20:52:47 >> Train-loss at step 149400: 1.33826
+
+03/09/2026 20:52:52 >> Train-loss at step 149500: 1.20594
+
+03/09/2026 20:52:58 >> Train-loss at step 149600: 1.30263
+
+03/09/2026 20:53:03 >> Train-loss at step 149700: 1.25119
+
+03/09/2026 20:53:08 >> Train-loss at step 149800: 1.15547
+
+03/09/2026 20:53:13 >> Train-loss at step 149900: 1.27707
+
+03/09/2026 20:53:19 >> Train-loss at step 150000: 1.24886
+
+03/09/2026 20:53:24 >> Train-loss at step 150100: 1.30264
+
+03/09/2026 20:53:29 >> Train-loss at step 150200: 1.21697
+
+03/09/2026 20:53:34 >> Train-loss at step 150300: 1.33644
+
+03/09/2026 20:53:39 >> Train-loss at step 150400: 1.22683
+
+03/09/2026 20:53:44 >> Train-loss at step 150500: 1.33543
+
+03/09/2026 20:53:50 >> Train-loss at step 150600: 1.18122
+
+03/09/2026 20:53:55 >> Train-loss at step 150700: 1.36383
+
+03/09/2026 20:54:01 >> Train-loss at step 150800: 1.18320
+
+03/09/2026 20:54:06 >> Train-loss at step 150900: 1.29858
+
+03/09/2026 20:54:12 >> Train-loss at step 151000: 1.26496
+
+03/09/2026 20:54:17 >> Train-loss at step 151100: 1.22756
+
+03/09/2026 20:54:22 >> Train-loss at step 151200: 1.34838
+
+03/09/2026 20:54:26 >> Train-loss at step 151300: 1.24516
+
+03/09/2026 20:54:32 >> Train-loss at step 151400: 1.21916
+
+03/09/2026 20:54:37 >> Train-loss at step 151500: 1.31814
+
+03/09/2026 20:54:42 >> Train-loss at step 151600: 1.25424
+
+03/09/2026 20:54:47 >> Train-loss at step 151700: 1.20392
+
+03/09/2026 20:54:52 >> Train-loss at step 151800: 1.30562
+
+03/09/2026 20:54:57 >> Train-loss at step 151900: 1.22440
+
+03/09/2026 20:55:03 >> Train-loss at step 152000: 1.40647
+
+03/09/2026 20:55:09 >> Train-loss at step 152100: 1.27838
+
+03/09/2026 20:55:13 >> Train-loss at step 152200: 1.27004
+
+03/09/2026 20:55:19 >> Train-loss at step 152300: 1.26522
+
+03/09/2026 20:55:24 >> Train-loss at step 152400: 1.24438
+
+03/09/2026 20:55:29 >> Train-loss at step 152500: 1.23210
+
+03/09/2026 20:55:34 >> Train-loss at step 152600: 1.31901
+
+03/09/2026 20:55:40 >> Train-loss at step 152700: 1.36396
+
+03/09/2026 20:55:44 >> Train-loss at step 152800: 1.28488
+
+03/09/2026 20:55:49 >> Train-loss at step 152900: 1.15136
+
+03/09/2026 20:55:55 >> Train-loss at step 153000: 1.26494
+
+03/09/2026 20:56:01 >> Train-loss at step 153100: 1.32061
+
+03/09/2026 20:56:06 >> Train-loss at step 153200: 1.19188
+
+03/09/2026 20:56:11 >> Train-loss at step 153300: 1.31442
+
+03/09/2026 20:56:17 >> Train-loss at step 153400: 1.39014
+
+03/09/2026 20:56:22 >> Train-loss at step 153500: 1.26971
+
+03/09/2026 20:56:27 >> Train-loss at step 153600: 1.33483
+
+03/09/2026 20:56:33 >> Train-loss at step 153700: 1.31813
+
+03/09/2026 20:56:38 >> Train-loss at step 153800: 1.26761
+
+03/09/2026 20:56:44 >> Train-loss at step 153900: 1.32613
+
+03/09/2026 20:56:50 >> Train-loss at step 154000: 1.31179
+
+03/09/2026 20:56:55 >> Train-loss at step 154100: 1.31366
+
+03/09/2026 20:57:01 >> Train-loss at step 154200: 1.26089
+
+03/09/2026 20:57:07 >> Train-loss at step 154300: 1.34405
+
+03/09/2026 20:57:12 >> Train-loss at step 154400: 1.32676
+
+03/09/2026 20:57:18 >> Train-loss at step 154500: 1.20254
+
+03/09/2026 20:57:23 >> Train-loss at step 154600: 1.22807
+
+03/09/2026 20:57:28 >> Train-loss at step 154700: 1.23208
+
+03/09/2026 20:57:33 >> Train-loss at step 154800: 1.26684
+
+03/09/2026 20:57:38 >> Train-loss at step 154900: 1.23721
+
+03/09/2026 20:57:44 >> Train-loss at step 155000: 1.27582
+
+03/09/2026 20:57:49 >> Train-loss at step 155100: 1.24220
+
+03/09/2026 20:57:54 >> Train-loss at step 155200: 1.31623
+
+03/09/2026 20:57:59 >> Train-loss at step 155300: 1.28004
+
+03/09/2026 20:58:04 >> Train-loss at step 155400: 1.33971
+
+03/09/2026 20:58:10 >> Train-loss at step 155500: 1.24364
+
+03/09/2026 20:58:15 >> Train-loss at step 155600: 1.19486
+
+03/09/2026 20:58:20 >> Train-loss at step 155700: 1.30178
+
+03/09/2026 20:58:25 >> Train-loss at step 155800: 1.30611
+
+03/09/2026 20:58:30 >> Train-loss at step 155900: 1.31647
+
+03/09/2026 20:58:35 >> Train-loss at step 156000: 1.28168
+
+03/09/2026 20:58:40 >> Train-loss at step 156100: 1.31987
+
+03/09/2026 20:58:46 >> Train-loss at step 156200: 1.23124
+
+03/09/2026 20:58:51 >> Train-loss at step 156300: 1.26291
+
+03/09/2026 20:58:56 >> Train-loss at step 156400: 1.42334
+
+03/09/2026 20:59:00 >> Train-loss at step 156500: 1.25137
+
+03/09/2026 20:59:05 >> Train-loss at step 156600: 1.36943
+
+03/09/2026 20:59:11 >> Train-loss at step 156700: 1.16726
+
+03/09/2026 20:59:13 >> Evaluating on split = val
+03/09/2026 20:59:16 >> Result on val split at train step 156757: {'auroc': 0.7917319028223417, 'auprc': 0.3307036662701507, 'minrp': 0.3607815937912595, 'f1_0_5': 0.37151076928028975, 'best_f1': 0.40179684366611335, 'los_mae_hours': 47.99005060777895, 'los_n_valid': 4600}
+
+03/09/2026 20:59:16 >> Per-outcome val results:
+                                   auroc     auprc     minrp    f1_0_5  \
+outcome                                                                  
+CARDIO-VASCULAR_DISORDER_EVENT  0.934779  0.387103  0.493506  0.483092   
+DEATH_EVENT                     0.878983  0.492297  0.487342  0.397272   
+HYPERGLYCEMIA_EVENT             0.715539  0.493701  0.488437  0.556284   
+HYPOGLYCEMIA_EVENT              0.752039  0.107176  0.165939  0.182628   
+INFECTION_EVENT                 0.639693  0.029377  0.081081  0.046997   
+KIDNEY_COMPLICATION_EVENT       0.923226  0.574990  0.548638  0.596330   
+SEVERE_HYPERGLYCEMIA_EVENT      0.743447  0.479851  0.475155  0.553719   
+SEVERE_HYPOGLYCEMIA_EVENT       0.746150  0.081135  0.146154  0.155763   
+
+                                 best_f1  n_pos  n_neg  
+outcome                                                 
+CARDIO-VASCULAR_DISORDER_EVENT  0.544304     64   4536  
+DEATH_EVENT                     0.492800    309   4291  
+HYPERGLYCEMIA_EVENT             0.561028   1426   3174  
+HYPOGLYCEMIA_EVENT              0.194313    165   4435  
+INFECTION_EVENT                 0.090909     37   4563  
+KIDNEY_COMPLICATION_EVENT       0.611730    514   4086  
+SEVERE_HYPERGLYCEMIA_EVENT      0.554835   1286   3314  
+SEVERE_HYPOGLYCEMIA_EVENT       0.164456    117   4483  
+03/09/2026 20:59:16 >> Updating wait to 8
+
+03/09/2026 20:59:18 >> Train-loss at step 156800: 1.20756
+
+03/09/2026 20:59:23 >> Train-loss at step 156900: 1.28363
+
+03/09/2026 20:59:29 >> Train-loss at step 157000: 1.31504
+
+03/09/2026 20:59:34 >> Train-loss at step 157100: 1.16066
+
+03/09/2026 20:59:40 >> Train-loss at step 157200: 1.21170
+
+03/09/2026 20:59:45 >> Train-loss at step 157300: 1.29219
+
+03/09/2026 20:59:51 >> Train-loss at step 157400: 1.23218
+
+03/09/2026 20:59:57 >> Train-loss at step 157500: 1.26329
+
+03/09/2026 21:00:02 >> Train-loss at step 157600: 1.19439
+
+03/09/2026 21:00:07 >> Train-loss at step 157700: 1.26038
+
+03/09/2026 21:00:12 >> Train-loss at step 157800: 1.21061
+
+03/09/2026 21:00:18 >> Train-loss at step 157900: 1.17638
+
+03/09/2026 21:00:24 >> Train-loss at step 158000: 1.30692
+
+03/09/2026 21:00:28 >> Train-loss at step 158100: 1.19672
+
+03/09/2026 21:00:33 >> Train-loss at step 158200: 1.17609
+
+03/09/2026 21:00:39 >> Train-loss at step 158300: 1.30046
+
+03/09/2026 21:00:44 >> Train-loss at step 158400: 1.27448
+
+03/09/2026 21:00:49 >> Train-loss at step 158500: 1.21950
+
+03/09/2026 21:00:54 >> Train-loss at step 158600: 1.39460
+
+03/09/2026 21:01:00 >> Train-loss at step 158700: 1.35691
+
+03/09/2026 21:01:05 >> Train-loss at step 158800: 1.33925
+
+03/09/2026 21:01:10 >> Train-loss at step 158900: 1.26756
+
+03/09/2026 21:01:16 >> Train-loss at step 159000: 1.23088
+
+03/09/2026 21:01:21 >> Train-loss at step 159100: 1.19746
+
+03/09/2026 21:01:26 >> Train-loss at step 159200: 1.26240
+
+03/09/2026 21:01:31 >> Train-loss at step 159300: 1.24910
+
+03/09/2026 21:01:37 >> Train-loss at step 159400: 1.20746
+
+03/09/2026 21:01:42 >> Train-loss at step 159500: 1.23704
+
+03/09/2026 21:01:47 >> Train-loss at step 159600: 1.22463
+
+03/09/2026 21:01:52 >> Train-loss at step 159700: 1.33500
+
+03/09/2026 21:01:58 >> Train-loss at step 159800: 1.29078
+
+03/09/2026 21:02:03 >> Train-loss at step 159900: 1.17920
+
+03/09/2026 21:02:09 >> Train-loss at step 160000: 1.30054
+
+03/09/2026 21:02:14 >> Train-loss at step 160100: 1.27688
+
+03/09/2026 21:02:20 >> Train-loss at step 160200: 1.27214
+
+03/09/2026 21:02:26 >> Train-loss at step 160300: 1.25776
+
+03/09/2026 21:02:32 >> Train-loss at step 160400: 1.30448
+
+03/09/2026 21:02:37 >> Train-loss at step 160500: 1.37747
+
+03/09/2026 21:02:42 >> Train-loss at step 160600: 1.28529
+
+03/09/2026 21:02:47 >> Train-loss at step 160700: 1.24820
+
+03/09/2026 21:02:52 >> Train-loss at step 160800: 1.31496
+
+03/09/2026 21:02:57 >> Train-loss at step 160900: 1.15536
+
+03/09/2026 21:03:02 >> Train-loss at step 161000: 1.34052
+
+03/09/2026 21:03:08 >> Train-loss at step 161100: 1.30052
+
+03/09/2026 21:03:13 >> Train-loss at step 161200: 1.22162
+
+03/09/2026 21:03:18 >> Train-loss at step 161300: 1.21076
+
+03/09/2026 21:03:23 >> Train-loss at step 161400: 1.23603
+
+03/09/2026 21:03:28 >> Train-loss at step 161500: 1.31383
+
+03/09/2026 21:03:34 >> Train-loss at step 161600: 1.23152
+
+03/09/2026 21:03:39 >> Train-loss at step 161700: 1.26882
+
+03/09/2026 21:03:44 >> Train-loss at step 161800: 1.28716
+
+03/09/2026 21:03:49 >> Train-loss at step 161900: 1.29108
+
+03/09/2026 21:03:54 >> Train-loss at step 162000: 1.24959
+
+03/09/2026 21:03:59 >> Train-loss at step 162100: 1.26997
+
+03/09/2026 21:04:05 >> Train-loss at step 162200: 1.21970
+
+03/09/2026 21:04:10 >> Train-loss at step 162300: 1.30905
+
+03/09/2026 21:04:15 >> Train-loss at step 162400: 1.31453
+
+03/09/2026 21:04:20 >> Train-loss at step 162500: 1.25762
+
+03/09/2026 21:04:25 >> Train-loss at step 162600: 1.27342
+
+03/09/2026 21:04:30 >> Train-loss at step 162700: 1.31710
+
+03/09/2026 21:04:35 >> Train-loss at step 162800: 1.32779
+
+03/09/2026 21:04:40 >> Train-loss at step 162900: 1.25847
+
+03/09/2026 21:04:45 >> Train-loss at step 163000: 1.29046
+
+03/09/2026 21:04:50 >> Train-loss at step 163100: 1.33585
+
+03/09/2026 21:04:55 >> Train-loss at step 163200: 1.23722
+
+03/09/2026 21:05:00 >> Train-loss at step 163300: 1.28390
+
+03/09/2026 21:05:05 >> Train-loss at step 163400: 1.39964
+
+03/09/2026 21:05:11 >> Train-loss at step 163500: 1.25055
+
+03/09/2026 21:05:16 >> Train-loss at step 163600: 1.23838
+
+03/09/2026 21:05:21 >> Train-loss at step 163700: 1.31736
+
+03/09/2026 21:05:26 >> Train-loss at step 163800: 1.19774
+
+03/09/2026 21:05:31 >> Train-loss at step 163900: 1.25443
+
+03/09/2026 21:05:36 >> Train-loss at step 164000: 1.27776
+
+03/09/2026 21:05:41 >> Train-loss at step 164100: 1.29380
+
+03/09/2026 21:05:46 >> Train-loss at step 164200: 1.28746
+
+03/09/2026 21:05:52 >> Train-loss at step 164300: 1.30965
+
+03/09/2026 21:05:57 >> Train-loss at step 164400: 1.16139
+
+03/09/2026 21:06:02 >> Train-loss at step 164500: 1.32817
+
+03/09/2026 21:06:07 >> Train-loss at step 164600: 1.20166
+
+03/09/2026 21:06:12 >> Train-loss at step 164700: 1.34208
+
+03/09/2026 21:06:18 >> Train-loss at step 164800: 1.18441
+
+03/09/2026 21:06:23 >> Train-loss at step 164900: 1.31919
+
+03/09/2026 21:06:28 >> Train-loss at step 165000: 1.34031
+
+03/09/2026 21:06:35 >> Train-loss at step 165100: 1.25189
+
+03/09/2026 21:06:40 >> Train-loss at step 165200: 1.13454
+
+03/09/2026 21:06:45 >> Train-loss at step 165300: 1.25957
+
+03/09/2026 21:06:50 >> Train-loss at step 165400: 1.30775
+
+03/09/2026 21:06:56 >> Train-loss at step 165500: 1.30501
+
+03/09/2026 21:07:02 >> Train-loss at step 165600: 1.21068
+
+03/09/2026 21:07:07 >> Train-loss at step 165700: 1.30518
+
+03/09/2026 21:07:12 >> Train-loss at step 165800: 1.25831
+
+03/09/2026 21:07:17 >> Train-loss at step 165900: 1.41344
+
+03/09/2026 21:07:22 >> Train-loss at step 166000: 1.15737
+
+03/09/2026 21:07:28 >> Train-loss at step 166100: 1.21946
+
+03/09/2026 21:07:33 >> Train-loss at step 166200: 1.29292
+
+03/09/2026 21:07:37 >> Train-loss at step 166300: 1.27690
+
+03/09/2026 21:07:43 >> Train-loss at step 166400: 1.30085
+
+03/09/2026 21:07:48 >> Train-loss at step 166500: 1.35198
+
+03/09/2026 21:07:53 >> Train-loss at step 166600: 1.20546
+
+03/09/2026 21:07:58 >> Train-loss at step 166700: 1.32449
+
+03/09/2026 21:08:03 >> Train-loss at step 166800: 1.22427
+
+03/09/2026 21:08:08 >> Train-loss at step 166900: 1.20514
+
+03/09/2026 21:08:13 >> Train-loss at step 167000: 1.35665
+
+03/09/2026 21:08:19 >> Train-loss at step 167100: 1.19493
+
+03/09/2026 21:08:24 >> Train-loss at step 167200: 1.35442
+
+03/09/2026 21:08:30 >> Train-loss at step 167300: 1.22001
+
+03/09/2026 21:08:35 >> Train-loss at step 167400: 1.33385
+
+03/09/2026 21:08:41 >> Train-loss at step 167500: 1.31135
+
+03/09/2026 21:08:46 >> Train-loss at step 167600: 1.29034
+
+03/09/2026 21:08:51 >> Train-loss at step 167700: 1.24656
+
+03/09/2026 21:08:56 >> Train-loss at step 167800: 1.26175
+
+03/09/2026 21:09:02 >> Train-loss at step 167900: 1.18571
+
+03/09/2026 21:09:05 >> Evaluating on split = val
+03/09/2026 21:09:08 >> Result on val split at train step 167954: {'auroc': 0.7960812690233473, 'auprc': 0.3307391239677754, 'minrp': 0.3630205575943614, 'f1_0_5': 0.3633682612231455, 'best_f1': 0.4064768434523217, 'los_mae_hours': 47.36445695983593, 'los_n_valid': 4600}
+
+03/09/2026 21:09:08 >> Per-outcome val results:
+                                   auroc     auprc     minrp    f1_0_5  \
+outcome                                                                  
+CARDIO-VASCULAR_DISORDER_EVENT  0.952942  0.406416  0.531250  0.396947   
+DEATH_EVENT                     0.876305  0.479070  0.467742  0.426263   
+HYPERGLYCEMIA_EVENT             0.715916  0.488808  0.485450  0.549671   
+HYPOGLYCEMIA_EVENT              0.776530  0.120360  0.184524  0.203947   
+INFECTION_EVENT                 0.608034  0.018560  0.054054  0.035242   
+KIDNEY_COMPLICATION_EVENT       0.919666  0.563086  0.538911  0.598701   
+SEVERE_HYPERGLYCEMIA_EVENT      0.743668  0.476304  0.477761  0.530691   
+SEVERE_HYPOGLYCEMIA_EVENT       0.775589  0.093308  0.164474  0.165485   
+
+                                 best_f1  n_pos  n_neg  
+outcome                                                 
+CARDIO-VASCULAR_DISORDER_EVENT  0.571429     64   4536  
+DEATH_EVENT                     0.475904    309   4291  
+HYPERGLYCEMIA_EVENT             0.566506   1426   3174  
+HYPOGLYCEMIA_EVENT              0.210884    165   4435  
+INFECTION_EVENT                 0.067797     37   4563  
+KIDNEY_COMPLICATION_EVENT       0.617354    514   4086  
+SEVERE_HYPERGLYCEMIA_EVENT      0.556068   1286   3314  
+SEVERE_HYPOGLYCEMIA_EVENT       0.185874    117   4483  
+03/09/2026 21:09:08 >> Updating wait to 7
+
+03/09/2026 21:09:11 >> Train-loss at step 168000: 1.19380
+
+03/09/2026 21:09:16 >> Train-loss at step 168100: 1.18172
+
+03/09/2026 21:09:21 >> Train-loss at step 168200: 1.16217
+
+03/09/2026 21:09:27 >> Train-loss at step 168300: 1.22168
+
+03/09/2026 21:09:32 >> Train-loss at step 168400: 1.18990
+
+03/09/2026 21:09:37 >> Train-loss at step 168500: 1.17693
+
+03/09/2026 21:09:42 >> Train-loss at step 168600: 1.23707
+
+03/09/2026 21:09:48 >> Train-loss at step 168700: 1.22353
+
+03/09/2026 21:09:53 >> Train-loss at step 168800: 1.27059
+
+03/09/2026 21:09:58 >> Train-loss at step 168900: 1.26992
+
+03/09/2026 21:10:03 >> Train-loss at step 169000: 1.26290
+
+03/09/2026 21:10:09 >> Train-loss at step 169100: 1.29019
+
+03/09/2026 21:10:14 >> Train-loss at step 169200: 1.31559
+
+03/09/2026 21:10:19 >> Train-loss at step 169300: 1.14707
+
+03/09/2026 21:10:24 >> Train-loss at step 169400: 1.30411
+
+03/09/2026 21:10:29 >> Train-loss at step 169500: 1.20294
+
+03/09/2026 21:10:34 >> Train-loss at step 169600: 1.19695
+
+03/09/2026 21:10:39 >> Train-loss at step 169700: 1.24402
+
+03/09/2026 21:10:44 >> Train-loss at step 169800: 1.23540
+
+03/09/2026 21:10:50 >> Train-loss at step 169900: 1.25854
+
+03/09/2026 21:10:55 >> Train-loss at step 170000: 1.26370
+
+03/09/2026 21:11:01 >> Train-loss at step 170100: 1.25304
+
+03/09/2026 21:11:06 >> Train-loss at step 170200: 1.24650
+
+03/09/2026 21:11:11 >> Train-loss at step 170300: 1.18273
+
+03/09/2026 21:11:17 >> Train-loss at step 170400: 1.23793
+
+03/09/2026 21:11:22 >> Train-loss at step 170500: 1.37490
+
+03/09/2026 21:11:27 >> Train-loss at step 170600: 1.35089
+
+03/09/2026 21:11:33 >> Train-loss at step 170700: 1.20179
+
+03/09/2026 21:11:37 >> Train-loss at step 170800: 1.24399
+
+03/09/2026 21:11:44 >> Train-loss at step 170900: 1.25965
+
+03/09/2026 21:11:49 >> Train-loss at step 171000: 1.30234
+
+03/09/2026 21:11:54 >> Train-loss at step 171100: 1.28201
+
+03/09/2026 21:11:59 >> Train-loss at step 171200: 1.34277
+
+03/09/2026 21:12:04 >> Train-loss at step 171300: 1.17850
+
+03/09/2026 21:12:09 >> Train-loss at step 171400: 1.31324
+
+03/09/2026 21:12:16 >> Train-loss at step 171500: 1.29571
+
+03/09/2026 21:12:21 >> Train-loss at step 171600: 1.16365
+
+03/09/2026 21:12:26 >> Train-loss at step 171700: 1.31182
+
+03/09/2026 21:12:32 >> Train-loss at step 171800: 1.23828
+
+03/09/2026 21:12:37 >> Train-loss at step 171900: 1.21433
+
+03/09/2026 21:12:43 >> Train-loss at step 172000: 1.44229
+
+03/09/2026 21:12:48 >> Train-loss at step 172100: 1.23577
+
+03/09/2026 21:12:53 >> Train-loss at step 172200: 1.20673
+
+03/09/2026 21:12:58 >> Train-loss at step 172300: 1.24509
+
+03/09/2026 21:13:04 >> Train-loss at step 172400: 1.31816
+
+03/09/2026 21:13:09 >> Train-loss at step 172500: 1.24293
+
+03/09/2026 21:13:15 >> Train-loss at step 172600: 1.20777
+
+03/09/2026 21:13:20 >> Train-loss at step 172700: 1.29186
+
+03/09/2026 21:13:26 >> Train-loss at step 172800: 1.13620
+
+03/09/2026 21:13:31 >> Train-loss at step 172900: 1.15656
+
+03/09/2026 21:13:36 >> Train-loss at step 173000: 1.18947
+
+03/09/2026 21:13:41 >> Train-loss at step 173100: 1.36520
+
+03/09/2026 21:13:46 >> Train-loss at step 173200: 1.29187
+
+03/09/2026 21:13:51 >> Train-loss at step 173300: 1.35058
+
+03/09/2026 21:13:56 >> Train-loss at step 173400: 1.27298
+
+03/09/2026 21:14:01 >> Train-loss at step 173500: 1.26351
+
+03/09/2026 21:14:07 >> Train-loss at step 173600: 1.27054
+
+03/09/2026 21:14:12 >> Train-loss at step 173700: 1.26032
+
+03/09/2026 21:14:17 >> Train-loss at step 173800: 1.25711
+
+03/09/2026 21:14:23 >> Train-loss at step 173900: 1.28081
+
+03/09/2026 21:14:28 >> Train-loss at step 174000: 1.29988
+
+03/09/2026 21:14:33 >> Train-loss at step 174100: 1.29086
+
+03/09/2026 21:14:38 >> Train-loss at step 174200: 1.40460
+
+03/09/2026 21:14:44 >> Train-loss at step 174300: 1.29565
+
+03/09/2026 21:14:49 >> Train-loss at step 174400: 1.31735
+
+03/09/2026 21:14:54 >> Train-loss at step 174500: 1.32043
+
+03/09/2026 21:14:59 >> Train-loss at step 174600: 1.21142
+
+03/09/2026 21:15:04 >> Train-loss at step 174700: 1.30246
+
+03/09/2026 21:15:09 >> Train-loss at step 174800: 1.25344
+
+03/09/2026 21:15:14 >> Train-loss at step 174900: 1.19304
+
+03/09/2026 21:15:19 >> Train-loss at step 175000: 1.15502
+
+03/09/2026 21:15:25 >> Train-loss at step 175100: 1.23796
+
+03/09/2026 21:15:30 >> Train-loss at step 175200: 1.31540
+
+03/09/2026 21:15:36 >> Train-loss at step 175300: 1.25320
+
+03/09/2026 21:15:41 >> Train-loss at step 175400: 1.33142
+
+03/09/2026 21:15:46 >> Train-loss at step 175500: 1.32738
+
+03/09/2026 21:15:51 >> Train-loss at step 175600: 1.36364
+
+03/09/2026 21:15:56 >> Train-loss at step 175700: 1.24240
+
+03/09/2026 21:16:01 >> Train-loss at step 175800: 1.32558
+
+03/09/2026 21:16:06 >> Train-loss at step 175900: 1.23792
+
+03/09/2026 21:16:12 >> Train-loss at step 176000: 1.30216
+
+03/09/2026 21:16:17 >> Train-loss at step 176100: 1.22700
+
+03/09/2026 21:16:22 >> Train-loss at step 176200: 1.26779
+
+03/09/2026 21:16:27 >> Train-loss at step 176300: 1.30608
+
+03/09/2026 21:16:33 >> Train-loss at step 176400: 1.21129
+
+03/09/2026 21:16:38 >> Train-loss at step 176500: 1.19973
+
+03/09/2026 21:16:45 >> Train-loss at step 176600: 1.14004
+
+03/09/2026 21:16:50 >> Train-loss at step 176700: 1.25138
+
+03/09/2026 21:16:55 >> Train-loss at step 176800: 1.32430
+
+03/09/2026 21:17:00 >> Train-loss at step 176900: 1.28294
+
+03/09/2026 21:17:06 >> Train-loss at step 177000: 1.22052
+
+03/09/2026 21:17:10 >> Train-loss at step 177100: 1.29782
+
+03/09/2026 21:17:16 >> Train-loss at step 177200: 1.15925
+
+03/09/2026 21:17:21 >> Train-loss at step 177300: 1.27388
+
+03/09/2026 21:17:27 >> Train-loss at step 177400: 1.20264
+
+03/09/2026 21:17:32 >> Train-loss at step 177500: 1.26278
+
+03/09/2026 21:17:37 >> Train-loss at step 177600: 1.39656
+
+03/09/2026 21:17:43 >> Train-loss at step 177700: 1.27076
+
+03/09/2026 21:17:48 >> Train-loss at step 177800: 1.26458
+
+03/09/2026 21:17:53 >> Train-loss at step 177900: 1.24765
+
+03/09/2026 21:17:58 >> Train-loss at step 178000: 1.23878
+
+03/09/2026 21:18:03 >> Train-loss at step 178100: 1.29216
+
+03/09/2026 21:18:08 >> Train-loss at step 178200: 1.23278
+
+03/09/2026 21:18:13 >> Train-loss at step 178300: 1.21883
+
+03/09/2026 21:18:19 >> Train-loss at step 178400: 1.30137
+
+03/09/2026 21:18:24 >> Train-loss at step 178500: 1.27983
+
+03/09/2026 21:18:29 >> Train-loss at step 178600: 1.19830
+
+03/09/2026 21:18:34 >> Train-loss at step 178700: 1.26338
+
+03/09/2026 21:18:40 >> Train-loss at step 178800: 1.23495
+
+03/09/2026 21:18:46 >> Train-loss at step 178900: 1.33035
+
+03/09/2026 21:18:51 >> Train-loss at step 179000: 1.32652
+
+03/09/2026 21:18:56 >> Train-loss at step 179100: 1.30903
+
+03/09/2026 21:18:59 >> Evaluating on split = val
+03/09/2026 21:19:02 >> Result on val split at train step 179151: {'auroc': 0.8016521316061612, 'auprc': 0.3347810456097, 'minrp': 0.3644204806218652, 'f1_0_5': 0.36227750994611596, 'best_f1': 0.40489000440917605, 'los_mae_hours': 47.950382872952815, 'los_n_valid': 4600}
+
+03/09/2026 21:19:02 >> Per-outcome val results:
+                                   auroc     auprc     minrp    f1_0_5  \
+outcome                                                                  
+CARDIO-VASCULAR_DISORDER_EVENT  0.945023  0.405465  0.500000  0.380952   
+DEATH_EVENT                     0.887662  0.497756  0.493590  0.423954   
+HYPERGLYCEMIA_EVENT             0.719498  0.501512  0.492350  0.558609   
+HYPOGLYCEMIA_EVENT              0.765120  0.113644  0.185629  0.176630   
+INFECTION_EVENT                 0.667206  0.024917  0.068182  0.061017   
+KIDNEY_COMPLICATION_EVENT       0.918918  0.564931  0.546693  0.596468   
+SEVERE_HYPERGLYCEMIA_EVENT      0.751563  0.486975  0.487616  0.559028   
+SEVERE_HYPOGLYCEMIA_EVENT       0.758226  0.083049  0.141304  0.141561   
+
+                                 best_f1  n_pos  n_neg  
+outcome                                                 
+CARDIO-VASCULAR_DISORDER_EVENT  0.533333     64   4536  
+DEATH_EVENT                     0.501684    309   4291  
+HYPERGLYCEMIA_EVENT             0.563827   1426   3174  
+HYPOGLYCEMIA_EVENT              0.202532    165   4435  
+INFECTION_EVENT                 0.074074     37   4563  
+KIDNEY_COMPLICATION_EVENT       0.622003    514   4086  
+SEVERE_HYPERGLYCEMIA_EVENT      0.568910   1286   3314  
+SEVERE_HYPOGLYCEMIA_EVENT       0.172757    117   4483  
+03/09/2026 21:19:02 >> Updating wait to 6
+
+03/09/2026 21:19:04 >> Train-loss at step 179200: 1.29870
+
+03/09/2026 21:19:10 >> Train-loss at step 179300: 1.19715
+
+03/09/2026 21:19:15 >> Train-loss at step 179400: 1.14044
+
+03/09/2026 21:19:20 >> Train-loss at step 179500: 1.33289
+
+03/09/2026 21:19:25 >> Train-loss at step 179600: 1.19046
+
+03/09/2026 21:19:30 >> Train-loss at step 179700: 1.17884
+
+03/09/2026 21:19:34 >> Train-loss at step 179800: 1.27996
+
+03/09/2026 21:19:40 >> Train-loss at step 179900: 1.19098
+
+03/09/2026 21:19:45 >> Train-loss at step 180000: 1.16584
+
+03/09/2026 21:19:50 >> Train-loss at step 180100: 1.21038
+
+03/09/2026 21:19:55 >> Train-loss at step 180200: 1.27514
+
+03/09/2026 21:20:01 >> Train-loss at step 180300: 1.15260
+
+03/09/2026 21:20:07 >> Train-loss at step 180400: 1.15717
+
+03/09/2026 21:20:12 >> Train-loss at step 180500: 1.22217
+
+03/09/2026 21:20:17 >> Train-loss at step 180600: 1.25160
+
+03/09/2026 21:20:23 >> Train-loss at step 180700: 1.24645
+
+03/09/2026 21:20:28 >> Train-loss at step 180800: 1.28596
+
+03/09/2026 21:20:33 >> Train-loss at step 180900: 1.25899
+
+03/09/2026 21:20:38 >> Train-loss at step 181000: 1.34991
+
+03/09/2026 21:20:43 >> Train-loss at step 181100: 1.27706
+
+03/09/2026 21:20:48 >> Train-loss at step 181200: 1.15082
+
+03/09/2026 21:20:53 >> Train-loss at step 181300: 1.38848
+
+03/09/2026 21:20:58 >> Train-loss at step 181400: 1.20661
+
+03/09/2026 21:21:04 >> Train-loss at step 181500: 1.14606
+
+03/09/2026 21:21:09 >> Train-loss at step 181600: 1.25771
+
+03/09/2026 21:21:14 >> Train-loss at step 181700: 1.29622
+
+03/09/2026 21:21:19 >> Train-loss at step 181800: 1.21177
+
+03/09/2026 21:21:24 >> Train-loss at step 181900: 1.21209
+
+03/09/2026 21:21:29 >> Train-loss at step 182000: 1.29741
+
+03/09/2026 21:21:33 >> Train-loss at step 182100: 1.26272
+
+03/09/2026 21:21:38 >> Train-loss at step 182200: 1.16327
+
+03/09/2026 21:21:44 >> Train-loss at step 182300: 1.35088
+
+03/09/2026 21:21:50 >> Train-loss at step 182400: 1.28079
+
+03/09/2026 21:21:55 >> Train-loss at step 182500: 1.22763
+
+03/09/2026 21:22:00 >> Train-loss at step 182600: 1.19813
+
+03/09/2026 21:22:06 >> Train-loss at step 182700: 1.22769
+
+03/09/2026 21:22:11 >> Train-loss at step 182800: 1.24803
+
+03/09/2026 21:22:16 >> Train-loss at step 182900: 1.23323
+
+03/09/2026 21:22:21 >> Train-loss at step 183000: 1.23594
+
+03/09/2026 21:22:27 >> Train-loss at step 183100: 1.23523
+
+03/09/2026 21:22:33 >> Train-loss at step 183200: 1.28343
+
+03/09/2026 21:22:38 >> Train-loss at step 183300: 1.25005
+
+03/09/2026 21:22:43 >> Train-loss at step 183400: 1.31372
+
+03/09/2026 21:22:49 >> Train-loss at step 183500: 1.30946
+
+03/09/2026 21:22:54 >> Train-loss at step 183600: 1.25549
+
+03/09/2026 21:22:59 >> Train-loss at step 183700: 1.19722
+
+03/09/2026 21:23:04 >> Train-loss at step 183800: 1.39020
+
+03/09/2026 21:23:09 >> Train-loss at step 183900: 1.24526
+
+03/09/2026 21:23:14 >> Train-loss at step 184000: 1.28130
+
+03/09/2026 21:23:20 >> Train-loss at step 184100: 1.15129
+
+03/09/2026 21:23:25 >> Train-loss at step 184200: 1.26279
+
+03/09/2026 21:23:30 >> Train-loss at step 184300: 1.18317
+
+03/09/2026 21:23:35 >> Train-loss at step 184400: 1.24771
+
+03/09/2026 21:23:40 >> Train-loss at step 184500: 1.25312
+
+03/09/2026 21:23:46 >> Train-loss at step 184600: 1.27924
+
+03/09/2026 21:23:51 >> Train-loss at step 184700: 1.24038
+
+03/09/2026 21:23:56 >> Train-loss at step 184800: 1.31926
+
+03/09/2026 21:24:01 >> Train-loss at step 184900: 1.22604
+
+03/09/2026 21:24:07 >> Train-loss at step 185000: 1.27450
+
+03/09/2026 21:24:12 >> Train-loss at step 185100: 1.23641
+
+03/09/2026 21:24:17 >> Train-loss at step 185200: 1.23426
+
+03/09/2026 21:24:22 >> Train-loss at step 185300: 1.35991
+
+03/09/2026 21:24:27 >> Train-loss at step 185400: 1.27113
+
+03/09/2026 21:24:33 >> Train-loss at step 185500: 1.36557
+
+03/09/2026 21:24:39 >> Train-loss at step 185600: 1.22785
+
+03/09/2026 21:24:44 >> Train-loss at step 185700: 1.35172
+
+03/09/2026 21:24:49 >> Train-loss at step 185800: 1.18400
+
+03/09/2026 21:24:54 >> Train-loss at step 185900: 1.29356
+
+03/09/2026 21:24:59 >> Train-loss at step 186000: 1.18799
+
+03/09/2026 21:25:04 >> Train-loss at step 186100: 1.36194
+
+03/09/2026 21:25:10 >> Train-loss at step 186200: 1.24361
+
+03/09/2026 21:25:15 >> Train-loss at step 186300: 1.35671
+
+03/09/2026 21:25:21 >> Train-loss at step 186400: 1.27549
+
+03/09/2026 21:25:26 >> Train-loss at step 186500: 1.20753
+
+03/09/2026 21:25:30 >> Train-loss at step 186600: 1.18616
+
+03/09/2026 21:25:37 >> Train-loss at step 186700: 1.36935
+
+03/09/2026 21:25:43 >> Train-loss at step 186800: 1.24171
+
+03/09/2026 21:25:48 >> Train-loss at step 186900: 1.26733
+
+03/09/2026 21:25:53 >> Train-loss at step 187000: 1.24453
+
+03/09/2026 21:25:59 >> Train-loss at step 187100: 1.22967
+
+03/09/2026 21:26:04 >> Train-loss at step 187200: 1.25026
+
+03/09/2026 21:26:10 >> Train-loss at step 187300: 1.17217
+
+03/09/2026 21:26:15 >> Train-loss at step 187400: 1.25777
+
+03/09/2026 21:26:20 >> Train-loss at step 187500: 1.27718
+
+03/09/2026 21:26:26 >> Train-loss at step 187600: 1.26701
+
+03/09/2026 21:26:30 >> Train-loss at step 187700: 1.24340
+
+03/09/2026 21:26:36 >> Train-loss at step 187800: 1.17969
+
+03/09/2026 21:26:41 >> Train-loss at step 187900: 1.31920
+
+03/09/2026 21:26:46 >> Train-loss at step 188000: 1.35309
+
+03/09/2026 21:26:52 >> Train-loss at step 188100: 1.24969
+
+03/09/2026 21:26:57 >> Train-loss at step 188200: 1.26964
+
+03/09/2026 21:27:03 >> Train-loss at step 188300: 1.22268
+
+03/09/2026 21:27:08 >> Train-loss at step 188400: 1.21286
+
+03/09/2026 21:27:13 >> Train-loss at step 188500: 1.26596
+
+03/09/2026 21:27:18 >> Train-loss at step 188600: 1.30103
+
+03/09/2026 21:27:24 >> Train-loss at step 188700: 1.32477
+
+03/09/2026 21:27:29 >> Train-loss at step 188800: 1.25714
+
+03/09/2026 21:27:34 >> Train-loss at step 188900: 1.26215
+
+03/09/2026 21:27:39 >> Train-loss at step 189000: 1.16708
+
+03/09/2026 21:27:44 >> Train-loss at step 189100: 1.28890
+
+03/09/2026 21:27:48 >> Train-loss at step 189200: 1.33307
+
+03/09/2026 21:27:54 >> Train-loss at step 189300: 1.37093
+
+03/09/2026 21:27:59 >> Train-loss at step 189400: 1.33899
+
+03/09/2026 21:28:04 >> Train-loss at step 189500: 1.23700
+
+03/09/2026 21:28:10 >> Train-loss at step 189600: 1.25498
+
+03/09/2026 21:28:15 >> Train-loss at step 189700: 1.30188
+
+03/09/2026 21:28:21 >> Train-loss at step 189800: 1.23358
+
+03/09/2026 21:28:27 >> Train-loss at step 189900: 1.20055
+
+03/09/2026 21:28:32 >> Train-loss at step 190000: 1.25852
+
+03/09/2026 21:28:37 >> Train-loss at step 190100: 1.29962
+
+03/09/2026 21:28:42 >> Train-loss at step 190200: 1.25260
+
+03/09/2026 21:28:48 >> Train-loss at step 190300: 1.26614
+
+03/09/2026 21:28:50 >> Evaluating on split = val
+03/09/2026 21:28:53 >> Result on val split at train step 190348: {'auroc': 0.7904293293219878, 'auprc': 0.3290846660285611, 'minrp': 0.35003282663975555, 'f1_0_5': 0.3623671499753377, 'best_f1': 0.39589772673871393, 'los_mae_hours': 48.7623725825729, 'los_n_valid': 4600}
+
+03/09/2026 21:28:53 >> Per-outcome val results:
+                                   auroc     auprc     minrp    f1_0_5  \
+outcome                                                                  
+CARDIO-VASCULAR_DISORDER_EVENT  0.934231  0.406780  0.466667  0.440678   
+DEATH_EVENT                     0.882539  0.479919  0.482759  0.442287   
+HYPERGLYCEMIA_EVENT             0.719032  0.499550  0.489138  0.526878   
+HYPOGLYCEMIA_EVENT              0.758170  0.100663  0.157576  0.150877   
+INFECTION_EVENT                 0.610563  0.015374  0.031532  0.028986   
+KIDNEY_COMPLICATION_EVENT       0.919398  0.574962  0.566990  0.601723   
+SEVERE_HYPERGLYCEMIA_EVENT      0.743679  0.476153  0.478261  0.540842   
+SEVERE_HYPOGLYCEMIA_EVENT       0.755822  0.079277  0.127341  0.166667   
+
+                                 best_f1  n_pos  n_neg  
+outcome                                                 
+CARDIO-VASCULAR_DISORDER_EVENT  0.528302     64   4536  
+DEATH_EVENT                     0.490446    309   4291  
+HYPERGLYCEMIA_EVENT             0.566019   1426   3174  
+HYPOGLYCEMIA_EVENT              0.185185    165   4435  
+INFECTION_EVENT                 0.054054     37   4563  
+KIDNEY_COMPLICATION_EVENT       0.612474    514   4086  
+SEVERE_HYPERGLYCEMIA_EVENT      0.553619   1286   3314  
+SEVERE_HYPOGLYCEMIA_EVENT       0.177083    117   4483  
+03/09/2026 21:28:53 >> Updating wait to 5
+
+03/09/2026 21:28:56 >> Train-loss at step 190400: 1.27718
+
+03/09/2026 21:29:01 >> Train-loss at step 190500: 1.21041
+
+03/09/2026 21:29:06 >> Train-loss at step 190600: 1.24415
+
+03/09/2026 21:29:11 >> Train-loss at step 190700: 1.20456
+
+03/09/2026 21:29:16 >> Train-loss at step 190800: 1.24005
+
+03/09/2026 21:29:22 >> Train-loss at step 190900: 1.29442
+
+03/09/2026 21:29:28 >> Train-loss at step 191000: 1.14006
+
+03/09/2026 21:29:33 >> Train-loss at step 191100: 1.31115
+
+03/09/2026 21:29:38 >> Train-loss at step 191200: 1.27934
+
+03/09/2026 21:29:43 >> Train-loss at step 191300: 1.24612
+
+03/09/2026 21:29:48 >> Train-loss at step 191400: 1.20986
+
+03/09/2026 21:29:54 >> Train-loss at step 191500: 1.27303
+
+03/09/2026 21:30:00 >> Train-loss at step 191600: 1.26739
+
+03/09/2026 21:30:05 >> Train-loss at step 191700: 1.30862
+
+03/09/2026 21:30:10 >> Train-loss at step 191800: 1.31280
+
+03/09/2026 21:30:15 >> Train-loss at step 191900: 1.33790
+
+03/09/2026 21:30:20 >> Train-loss at step 192000: 1.24843
+
+03/09/2026 21:30:25 >> Train-loss at step 192100: 1.18835
+
+03/09/2026 21:30:31 >> Train-loss at step 192200: 1.31777
+
+03/09/2026 21:30:35 >> Train-loss at step 192300: 1.20363
+
+03/09/2026 21:30:41 >> Train-loss at step 192400: 1.20845
+
+03/09/2026 21:30:47 >> Train-loss at step 192500: 1.23213
+
+03/09/2026 21:30:52 >> Train-loss at step 192600: 1.31694
+
+03/09/2026 21:30:57 >> Train-loss at step 192700: 1.12025
+
+03/09/2026 21:31:02 >> Train-loss at step 192800: 1.30522
+
+03/09/2026 21:31:07 >> Train-loss at step 192900: 1.33033
+
+03/09/2026 21:31:12 >> Train-loss at step 193000: 1.18064
+
+03/09/2026 21:31:17 >> Train-loss at step 193100: 1.27253
+
+03/09/2026 21:31:22 >> Train-loss at step 193200: 1.33165
+
+03/09/2026 21:31:27 >> Train-loss at step 193300: 1.24609
+
+03/09/2026 21:31:32 >> Train-loss at step 193400: 1.27321
+
+03/09/2026 21:31:38 >> Train-loss at step 193500: 1.25913
+
+03/09/2026 21:31:43 >> Train-loss at step 193600: 1.17340
+
+03/09/2026 21:31:48 >> Train-loss at step 193700: 1.25152
+
+03/09/2026 21:31:53 >> Train-loss at step 193800: 1.19012
+
+03/09/2026 21:31:58 >> Train-loss at step 193900: 1.26081
+
+03/09/2026 21:32:04 >> Train-loss at step 194000: 1.18703
+
+03/09/2026 21:32:09 >> Train-loss at step 194100: 1.18226
+
+03/09/2026 21:32:14 >> Train-loss at step 194200: 1.32498
+
+03/09/2026 21:32:19 >> Train-loss at step 194300: 1.26599
+
+03/09/2026 21:32:24 >> Train-loss at step 194400: 1.26902
+
+03/09/2026 21:32:29 >> Train-loss at step 194500: 1.15113
+
+03/09/2026 21:32:33 >> Train-loss at step 194600: 1.15370
+
+03/09/2026 21:32:39 >> Train-loss at step 194700: 1.31121
+
+03/09/2026 21:32:44 >> Train-loss at step 194800: 1.26496
+
+03/09/2026 21:32:50 >> Train-loss at step 194900: 1.24173
+
+03/09/2026 21:32:55 >> Train-loss at step 195000: 1.25523
+
+03/09/2026 21:33:00 >> Train-loss at step 195100: 1.26155
+
+03/09/2026 21:33:06 >> Train-loss at step 195200: 1.19160
+
+03/09/2026 21:33:11 >> Train-loss at step 195300: 1.24457
+
+03/09/2026 21:33:16 >> Train-loss at step 195400: 1.45635
+
+03/09/2026 21:33:22 >> Train-loss at step 195500: 1.19216
+
+03/09/2026 21:33:27 >> Train-loss at step 195600: 1.19339
+
+03/09/2026 21:33:32 >> Train-loss at step 195700: 1.20588
+
+03/09/2026 21:33:37 >> Train-loss at step 195800: 1.25931
+
+03/09/2026 21:33:43 >> Train-loss at step 195900: 1.30387
+
+03/09/2026 21:33:49 >> Train-loss at step 196000: 1.29324
+
+03/09/2026 21:33:55 >> Train-loss at step 196100: 1.23899
+
+03/09/2026 21:33:59 >> Train-loss at step 196200: 1.28944
+
+03/09/2026 21:34:05 >> Train-loss at step 196300: 1.22235
+
+03/09/2026 21:34:10 >> Train-loss at step 196400: 1.16306
+
+03/09/2026 21:34:16 >> Train-loss at step 196500: 1.24869
+
+03/09/2026 21:34:20 >> Train-loss at step 196600: 1.27711
+
+03/09/2026 21:34:26 >> Train-loss at step 196700: 1.13350
+
+03/09/2026 21:34:32 >> Train-loss at step 196800: 1.25828
+
+03/09/2026 21:34:37 >> Train-loss at step 196900: 1.25828
+
+03/09/2026 21:34:43 >> Train-loss at step 197000: 1.22701
+
+03/09/2026 21:34:48 >> Train-loss at step 197100: 1.36558
+
+03/09/2026 21:34:54 >> Train-loss at step 197200: 1.23182
+
+03/09/2026 21:34:59 >> Train-loss at step 197300: 1.26192
+
+03/09/2026 21:35:04 >> Train-loss at step 197400: 1.23590
+
+03/09/2026 21:35:10 >> Train-loss at step 197500: 1.25100
+
+03/09/2026 21:35:15 >> Train-loss at step 197600: 1.24654
+
+03/09/2026 21:35:20 >> Train-loss at step 197700: 1.11405
+
+03/09/2026 21:35:25 >> Train-loss at step 197800: 1.21000
+
+03/09/2026 21:35:30 >> Train-loss at step 197900: 1.30253
+
+03/09/2026 21:35:35 >> Train-loss at step 198000: 1.24718
+
+03/09/2026 21:35:40 >> Train-loss at step 198100: 1.24911
+
+03/09/2026 21:35:46 >> Train-loss at step 198200: 1.33498
+
+03/09/2026 21:35:52 >> Train-loss at step 198300: 1.24895
+
+03/09/2026 21:35:57 >> Train-loss at step 198400: 1.24928
+
+03/09/2026 21:36:03 >> Train-loss at step 198500: 1.20476
+
+03/09/2026 21:36:08 >> Train-loss at step 198600: 1.23870
+
+03/09/2026 21:36:13 >> Train-loss at step 198700: 1.24259
+
+03/09/2026 21:36:18 >> Train-loss at step 198800: 1.22489
+
+03/09/2026 21:36:23 >> Train-loss at step 198900: 1.37378
+
+03/09/2026 21:36:29 >> Train-loss at step 199000: 1.26912
+
+03/09/2026 21:36:34 >> Train-loss at step 199100: 1.31125
+
+03/09/2026 21:36:39 >> Train-loss at step 199200: 1.23275
+
+03/09/2026 21:36:44 >> Train-loss at step 199300: 1.28335
+
+03/09/2026 21:36:50 >> Train-loss at step 199400: 1.19448
+
+03/09/2026 21:36:55 >> Train-loss at step 199500: 1.18354
+
+03/09/2026 21:37:00 >> Train-loss at step 199600: 1.19128
+
+03/09/2026 21:37:06 >> Train-loss at step 199700: 1.28522
+
+03/09/2026 21:37:11 >> Train-loss at step 199800: 1.21569
+
+03/09/2026 21:37:16 >> Train-loss at step 199900: 1.21291
+
+03/09/2026 21:37:21 >> Train-loss at step 200000: 1.18135
+
+03/09/2026 21:37:27 >> Train-loss at step 200100: 1.32047
+
+03/09/2026 21:37:32 >> Train-loss at step 200200: 1.28172
+
+03/09/2026 21:37:38 >> Train-loss at step 200300: 1.25362
+
+03/09/2026 21:37:43 >> Train-loss at step 200400: 1.24589
+
+03/09/2026 21:37:48 >> Train-loss at step 200500: 1.26457
+
+03/09/2026 21:37:53 >> Train-loss at step 200600: 1.22443
+
+03/09/2026 21:37:58 >> Train-loss at step 200700: 1.26500
+
+03/09/2026 21:38:04 >> Train-loss at step 200800: 1.20316
+
+03/09/2026 21:38:09 >> Train-loss at step 200900: 1.26398
+
+03/09/2026 21:38:15 >> Train-loss at step 201000: 1.30824
+
+03/09/2026 21:38:21 >> Train-loss at step 201100: 1.26305
+
+03/09/2026 21:38:26 >> Train-loss at step 201200: 1.25291
+
+03/09/2026 21:38:31 >> Train-loss at step 201300: 1.32979
+
+03/09/2026 21:38:36 >> Train-loss at step 201400: 1.28313
+
+03/09/2026 21:38:41 >> Train-loss at step 201500: 1.27628
+
+03/09/2026 21:38:44 >> Evaluating on split = val
+03/09/2026 21:38:47 >> Result on val split at train step 201545: {'auroc': 0.7943522702735246, 'auprc': 0.3270788548127733, 'minrp': 0.3576071189885843, 'f1_0_5': 0.358520452355698, 'best_f1': 0.3991282229646555, 'los_mae_hours': 47.697578488026494, 'los_n_valid': 4600}
+
+03/09/2026 21:38:47 >> Per-outcome val results:
+                                   auroc     auprc     minrp    f1_0_5  \
+outcome                                                                  
+CARDIO-VASCULAR_DISORDER_EVENT  0.950101  0.384472  0.515625  0.432653   
+DEATH_EVENT                     0.881188  0.485611  0.485437  0.412727   
+HYPERGLYCEMIA_EVENT             0.721587  0.494707  0.494390  0.539419   
+HYPOGLYCEMIA_EVENT              0.751705  0.103496  0.155080  0.167421   
+INFECTION_EVENT                 0.646031  0.020530  0.054054  0.031746   
+KIDNEY_COMPLICATION_EVENT       0.920000  0.570112  0.554475  0.595745   
+SEVERE_HYPERGLYCEMIA_EVENT      0.746146  0.480851  0.479845  0.553318   
+SEVERE_HYPOGLYCEMIA_EVENT       0.738061  0.076852  0.121951  0.135135   
+
+                                 best_f1  n_pos  n_neg  
+outcome                                                 
+CARDIO-VASCULAR_DISORDER_EVENT  0.535211     64   4536  
+DEATH_EVENT                     0.495868    309   4291  
+HYPERGLYCEMIA_EVENT             0.564299   1426   3174  
+HYPOGLYCEMIA_EVENT              0.186207    165   4435  
+INFECTION_EVENT                 0.071429     37   4563  
+KIDNEY_COMPLICATION_EVENT       0.620199    514   4086  
+SEVERE_HYPERGLYCEMIA_EVENT      0.560368   1286   3314  
+SEVERE_HYPOGLYCEMIA_EVENT       0.159445    117   4483  
+03/09/2026 21:38:47 >> Updating wait to 4
+
+03/09/2026 21:38:50 >> Train-loss at step 201600: 1.24147
+
+03/09/2026 21:38:55 >> Train-loss at step 201700: 1.37316
+
+03/09/2026 21:39:01 >> Train-loss at step 201800: 1.19944
+
+03/09/2026 21:39:05 >> Train-loss at step 201900: 1.25182
+
+03/09/2026 21:39:10 >> Train-loss at step 202000: 1.33053
+
+03/09/2026 21:39:16 >> Train-loss at step 202100: 1.21486
+
+03/09/2026 21:39:22 >> Train-loss at step 202200: 1.20979
+
+03/09/2026 21:39:26 >> Train-loss at step 202300: 1.18171
+
+03/09/2026 21:39:32 >> Train-loss at step 202400: 1.20118
+
+03/09/2026 21:39:38 >> Train-loss at step 202500: 1.29558
+
+03/09/2026 21:39:42 >> Train-loss at step 202600: 1.27096
+
+03/09/2026 21:39:48 >> Train-loss at step 202700: 1.21528
+
+03/09/2026 21:39:54 >> Train-loss at step 202800: 1.15784
+
+03/09/2026 21:39:59 >> Train-loss at step 202900: 1.26147
+
+03/09/2026 21:40:04 >> Train-loss at step 203000: 1.25285
+
+03/09/2026 21:40:09 >> Train-loss at step 203100: 1.30272
+
+03/09/2026 21:40:15 >> Train-loss at step 203200: 1.28179
+
+03/09/2026 21:40:20 >> Train-loss at step 203300: 1.22226
+
+03/09/2026 21:40:25 >> Train-loss at step 203400: 1.21913
+
+03/09/2026 21:40:30 >> Train-loss at step 203500: 1.23847
+
+03/09/2026 21:40:36 >> Train-loss at step 203600: 1.19050
+
+03/09/2026 21:40:42 >> Train-loss at step 203700: 1.20521
+
+03/09/2026 21:40:47 >> Train-loss at step 203800: 1.24834
+
+03/09/2026 21:40:52 >> Train-loss at step 203900: 1.19424
+
+03/09/2026 21:40:58 >> Train-loss at step 204000: 1.19883
+
+03/09/2026 21:41:03 >> Train-loss at step 204100: 1.26672
+
+03/09/2026 21:41:09 >> Train-loss at step 204200: 1.27190
+
+03/09/2026 21:41:14 >> Train-loss at step 204300: 1.27173
+
+03/09/2026 21:41:19 >> Train-loss at step 204400: 1.26255
+
+03/09/2026 21:41:24 >> Train-loss at step 204500: 1.24225
+
+03/09/2026 21:41:29 >> Train-loss at step 204600: 1.24626
+
+03/09/2026 21:41:35 >> Train-loss at step 204700: 1.24624
+
+03/09/2026 21:41:40 >> Train-loss at step 204800: 1.19504
+
+03/09/2026 21:41:45 >> Train-loss at step 204900: 1.24496
+
+03/09/2026 21:41:51 >> Train-loss at step 205000: 1.28905
+
+03/09/2026 21:41:56 >> Train-loss at step 205100: 1.24587
+
+03/09/2026 21:42:01 >> Train-loss at step 205200: 1.27727
+
+03/09/2026 21:42:06 >> Train-loss at step 205300: 1.10593
+
+03/09/2026 21:42:11 >> Train-loss at step 205400: 1.26149
+
+03/09/2026 21:42:16 >> Train-loss at step 205500: 1.23283
+
+03/09/2026 21:42:22 >> Train-loss at step 205600: 1.31233
+
+03/09/2026 21:42:27 >> Train-loss at step 205700: 1.23990
+
+03/09/2026 21:42:32 >> Train-loss at step 205800: 1.17091
+
+03/09/2026 21:42:36 >> Train-loss at step 205900: 1.18054
+
+03/09/2026 21:42:42 >> Train-loss at step 206000: 1.26705
+
+03/09/2026 21:42:47 >> Train-loss at step 206100: 1.25188
+
+03/09/2026 21:42:52 >> Train-loss at step 206200: 1.23967
+
+03/09/2026 21:42:58 >> Train-loss at step 206300: 1.13652
+
+03/09/2026 21:43:04 >> Train-loss at step 206400: 1.26350
+
+03/09/2026 21:43:10 >> Train-loss at step 206500: 1.28108
+
+03/09/2026 21:43:15 >> Train-loss at step 206600: 1.20698
+
+03/09/2026 21:43:20 >> Train-loss at step 206700: 1.21322
+
+03/09/2026 21:43:25 >> Train-loss at step 206800: 1.28762
+
+03/09/2026 21:43:31 >> Train-loss at step 206900: 1.24951
+
+03/09/2026 21:43:37 >> Train-loss at step 207000: 1.25832
+
+03/09/2026 21:43:41 >> Train-loss at step 207100: 1.27095
+
+03/09/2026 21:43:47 >> Train-loss at step 207200: 1.25520
+
+03/09/2026 21:43:52 >> Train-loss at step 207300: 1.16087
+
+03/09/2026 21:43:57 >> Train-loss at step 207400: 1.35469
+
+03/09/2026 21:44:02 >> Train-loss at step 207500: 1.26156
+
+03/09/2026 21:44:08 >> Train-loss at step 207600: 1.17417
+
+03/09/2026 21:44:13 >> Train-loss at step 207700: 1.39398
+
+03/09/2026 21:44:18 >> Train-loss at step 207800: 1.28695
+
+03/09/2026 21:44:24 >> Train-loss at step 207900: 1.18396
+
+03/09/2026 21:44:29 >> Train-loss at step 208000: 1.17110
+
+03/09/2026 21:44:34 >> Train-loss at step 208100: 1.17764
+
+03/09/2026 21:44:40 >> Train-loss at step 208200: 1.24707
+
+03/09/2026 21:44:45 >> Train-loss at step 208300: 1.21143
+
+03/09/2026 21:44:50 >> Train-loss at step 208400: 1.28541
+
+03/09/2026 21:44:56 >> Train-loss at step 208500: 1.18090
+
+03/09/2026 21:45:01 >> Train-loss at step 208600: 1.15445
+
+03/09/2026 21:45:06 >> Train-loss at step 208700: 1.30963
+
+03/09/2026 21:45:11 >> Train-loss at step 208800: 1.19719
+
+03/09/2026 21:45:16 >> Train-loss at step 208900: 1.24443
+
+03/09/2026 21:45:21 >> Train-loss at step 209000: 1.26188
+
+03/09/2026 21:45:27 >> Train-loss at step 209100: 1.22781
+
+03/09/2026 21:45:32 >> Train-loss at step 209200: 1.26541
+
+03/09/2026 21:45:37 >> Train-loss at step 209300: 1.36414
+
+03/09/2026 21:45:42 >> Train-loss at step 209400: 1.23499
+
+03/09/2026 21:45:48 >> Train-loss at step 209500: 1.22158
+
+03/09/2026 21:45:54 >> Train-loss at step 209600: 1.21485
+
+03/09/2026 21:46:00 >> Train-loss at step 209700: 1.18018
+
+03/09/2026 21:46:05 >> Train-loss at step 209800: 1.31908
+
+03/09/2026 21:46:11 >> Train-loss at step 209900: 1.30375
+
+03/09/2026 21:46:16 >> Train-loss at step 210000: 1.15068
+
+03/09/2026 21:46:21 >> Train-loss at step 210100: 1.30287
+
+03/09/2026 21:46:26 >> Train-loss at step 210200: 1.30444
+
+03/09/2026 21:46:31 >> Train-loss at step 210300: 1.35511
+
+03/09/2026 21:46:37 >> Train-loss at step 210400: 1.19154
+
+03/09/2026 21:46:42 >> Train-loss at step 210500: 1.25382
+
+03/09/2026 21:46:47 >> Train-loss at step 210600: 1.22433
+
+03/09/2026 21:46:52 >> Train-loss at step 210700: 1.31254
+
+03/09/2026 21:46:58 >> Train-loss at step 210800: 1.26410
+
+03/09/2026 21:47:02 >> Train-loss at step 210900: 1.21804
+
+03/09/2026 21:47:08 >> Train-loss at step 211000: 1.26127
+
+03/09/2026 21:47:14 >> Train-loss at step 211100: 1.17946
+
+03/09/2026 21:47:20 >> Train-loss at step 211200: 1.21981
+
+03/09/2026 21:47:25 >> Train-loss at step 211300: 1.20465
+
+03/09/2026 21:47:30 >> Train-loss at step 211400: 1.28369
+
+03/09/2026 21:47:35 >> Train-loss at step 211500: 1.32014
+
+03/09/2026 21:47:41 >> Train-loss at step 211600: 1.36486
+
+03/09/2026 21:47:46 >> Train-loss at step 211700: 1.20306
+
+03/09/2026 21:47:51 >> Train-loss at step 211800: 1.35948
+
+03/09/2026 21:47:57 >> Train-loss at step 211900: 1.19312
+
+03/09/2026 21:48:02 >> Train-loss at step 212000: 1.22365
+
+03/09/2026 21:48:07 >> Train-loss at step 212100: 1.28102
+
+03/09/2026 21:48:12 >> Train-loss at step 212200: 1.21628
+
+03/09/2026 21:48:18 >> Train-loss at step 212300: 1.09991
+
+03/09/2026 21:48:23 >> Train-loss at step 212400: 1.23402
+
+03/09/2026 21:48:28 >> Train-loss at step 212500: 1.24615
+
+03/09/2026 21:48:35 >> Train-loss at step 212600: 1.23261
+
+03/09/2026 21:48:40 >> Train-loss at step 212700: 1.36169
+
+03/09/2026 21:48:42 >> Evaluating on split = val
+03/09/2026 21:48:45 >> Result on val split at train step 212742: {'auroc': 0.7929493273855819, 'auprc': 0.3235341366517035, 'minrp': 0.3652672517348696, 'f1_0_5': 0.34563952007800774, 'best_f1': 0.4041570081512754, 'los_mae_hours': 48.09971912757025, 'los_n_valid': 4600}
+
+03/09/2026 21:48:45 >> Per-outcome val results:
+                                   auroc     auprc     minrp    f1_0_5  \
+outcome                                                                  
+CARDIO-VASCULAR_DISORDER_EVENT  0.950910  0.373387  0.506849  0.290323   
+DEATH_EVENT                     0.874954  0.486110  0.469256  0.417603   
+HYPERGLYCEMIA_EVENT             0.724294  0.500205  0.502104  0.548774   
+HYPOGLYCEMIA_EVENT              0.761230  0.104004  0.169697  0.185039   
+INFECTION_EVENT                 0.619424  0.024610  0.102564  0.037267   
+KIDNEY_COMPLICATION_EVENT       0.918301  0.544528  0.546154  0.587413   
+SEVERE_HYPERGLYCEMIA_EVENT      0.743684  0.475264  0.471229  0.542919   
+SEVERE_HYPOGLYCEMIA_EVENT       0.750796  0.080164  0.154286  0.155779   
+
+                                 best_f1  n_pos  n_neg  
+outcome                                                 
+CARDIO-VASCULAR_DISORDER_EVENT  0.540146     64   4536  
+DEATH_EVENT                     0.475279    309   4291  
+HYPERGLYCEMIA_EVENT             0.564581   1426   3174  
+HYPOGLYCEMIA_EVENT              0.190955    165   4435  
+INFECTION_EVENT                 0.105263     37   4563  
+KIDNEY_COMPLICATION_EVENT       0.612760    514   4086  
+SEVERE_HYPERGLYCEMIA_EVENT      0.559341   1286   3314  
+SEVERE_HYPOGLYCEMIA_EVENT       0.184932    117   4483  
+03/09/2026 21:48:45 >> Updating wait to 3
+
+03/09/2026 21:48:48 >> Train-loss at step 212800: 1.24937
+
+03/09/2026 21:48:53 >> Train-loss at step 212900: 1.33879
+
+03/09/2026 21:48:58 >> Train-loss at step 213000: 1.19211
+
+03/09/2026 21:49:04 >> Train-loss at step 213100: 1.23343
+
+03/09/2026 21:49:10 >> Train-loss at step 213200: 1.14260
+
+03/09/2026 21:49:15 >> Train-loss at step 213300: 1.21743
+
+03/09/2026 21:49:20 >> Train-loss at step 213400: 1.24290
+
+03/09/2026 21:49:26 >> Train-loss at step 213500: 1.25155
+
+03/09/2026 21:49:31 >> Train-loss at step 213600: 1.18888
+
+03/09/2026 21:49:37 >> Train-loss at step 213700: 1.24813
+
+03/09/2026 21:49:41 >> Train-loss at step 213800: 1.25113
+
+03/09/2026 21:49:47 >> Train-loss at step 213900: 1.26632
+
+03/09/2026 21:49:52 >> Train-loss at step 214000: 1.13794
+
+03/09/2026 21:49:57 >> Train-loss at step 214100: 1.31987
+
+03/09/2026 21:50:03 >> Train-loss at step 214200: 1.22982
+
+03/09/2026 21:50:09 >> Train-loss at step 214300: 1.14799
+
+03/09/2026 21:50:14 >> Train-loss at step 214400: 1.21559
+
+03/09/2026 21:50:20 >> Train-loss at step 214500: 1.27763
+
+03/09/2026 21:50:24 >> Train-loss at step 214600: 1.18856
+
+03/09/2026 21:50:30 >> Train-loss at step 214700: 1.17885
+
+03/09/2026 21:50:35 >> Train-loss at step 214800: 1.15472
+
+03/09/2026 21:50:41 >> Train-loss at step 214900: 1.21107
+
+03/09/2026 21:50:47 >> Train-loss at step 215000: 1.27206
+
+03/09/2026 21:50:52 >> Train-loss at step 215100: 1.27354
+
+03/09/2026 21:50:57 >> Train-loss at step 215200: 1.17034
+
+03/09/2026 21:51:02 >> Train-loss at step 215300: 1.27719
+
+03/09/2026 21:51:08 >> Train-loss at step 215400: 1.18080
+
+03/09/2026 21:51:14 >> Train-loss at step 215500: 1.30003
+
+03/09/2026 21:51:20 >> Train-loss at step 215600: 1.31574
+
+03/09/2026 21:51:25 >> Train-loss at step 215700: 1.19969
+
+03/09/2026 21:51:30 >> Train-loss at step 215800: 1.26522
+
+03/09/2026 21:51:35 >> Train-loss at step 215900: 1.17588
+
+03/09/2026 21:51:41 >> Train-loss at step 216000: 1.30718
+
+03/09/2026 21:51:46 >> Train-loss at step 216100: 1.26041
+
+03/09/2026 21:51:51 >> Train-loss at step 216200: 1.21647
+
+03/09/2026 21:51:56 >> Train-loss at step 216300: 1.26407
+
+03/09/2026 21:52:01 >> Train-loss at step 216400: 1.25043
+
+03/09/2026 21:52:06 >> Train-loss at step 216500: 1.17068
+
+03/09/2026 21:52:12 >> Train-loss at step 216600: 1.21784
+
+03/09/2026 21:52:17 >> Train-loss at step 216700: 1.17035
+
+03/09/2026 21:52:22 >> Train-loss at step 216800: 1.19951
+
+03/09/2026 21:52:28 >> Train-loss at step 216900: 1.29071
+
+03/09/2026 21:52:33 >> Train-loss at step 217000: 1.20015
+
+03/09/2026 21:52:39 >> Train-loss at step 217100: 1.24846
+
+03/09/2026 21:52:44 >> Train-loss at step 217200: 1.25369
+
+03/09/2026 21:52:50 >> Train-loss at step 217300: 1.18639
+
+03/09/2026 21:52:55 >> Train-loss at step 217400: 1.34369
+
+03/09/2026 21:53:00 >> Train-loss at step 217500: 1.22929
+
+03/09/2026 21:53:06 >> Train-loss at step 217600: 1.23329
+
+03/09/2026 21:53:12 >> Train-loss at step 217700: 1.23765
+
+03/09/2026 21:53:18 >> Train-loss at step 217800: 1.24329
+
+03/09/2026 21:53:23 >> Train-loss at step 217900: 1.24480
+
+03/09/2026 21:53:28 >> Train-loss at step 218000: 1.21789
+
+03/09/2026 21:53:33 >> Train-loss at step 218100: 1.23765
+
+03/09/2026 21:53:39 >> Train-loss at step 218200: 1.28273
+
+03/09/2026 21:53:44 >> Train-loss at step 218300: 1.29610
+
+03/09/2026 21:53:49 >> Train-loss at step 218400: 1.32413
+
+03/09/2026 21:53:55 >> Train-loss at step 218500: 1.22956
+
+03/09/2026 21:54:00 >> Train-loss at step 218600: 1.27897
+
+03/09/2026 21:54:06 >> Train-loss at step 218700: 1.26292
+
+03/09/2026 21:54:12 >> Train-loss at step 218800: 1.21921
+
+03/09/2026 21:54:17 >> Train-loss at step 218900: 1.27536
+
+03/09/2026 21:54:22 >> Train-loss at step 219000: 1.32687
+
+03/09/2026 21:54:28 >> Train-loss at step 219100: 1.24047
+
+03/09/2026 21:54:33 >> Train-loss at step 219200: 1.31601
+
+03/09/2026 21:54:38 >> Train-loss at step 219300: 1.17606
+
+03/09/2026 21:54:43 >> Train-loss at step 219400: 1.26237
+
+03/09/2026 21:54:49 >> Train-loss at step 219500: 1.25584
+
+03/09/2026 21:54:55 >> Train-loss at step 219600: 1.18218
+
+03/09/2026 21:55:00 >> Train-loss at step 219700: 1.27182
+
+03/09/2026 21:55:06 >> Train-loss at step 219800: 1.27352
+
+03/09/2026 21:55:11 >> Train-loss at step 219900: 1.18543
+
+03/09/2026 21:55:16 >> Train-loss at step 220000: 1.24046
+
+03/09/2026 21:55:21 >> Train-loss at step 220100: 1.19977
+
+03/09/2026 21:55:26 >> Train-loss at step 220200: 1.23206
+
+03/09/2026 21:55:32 >> Train-loss at step 220300: 1.20316
+
+03/09/2026 21:55:37 >> Train-loss at step 220400: 1.22939
+
+03/09/2026 21:55:42 >> Train-loss at step 220500: 1.35404
+
+03/09/2026 21:55:48 >> Train-loss at step 220600: 1.19796
+
+03/09/2026 21:55:53 >> Train-loss at step 220700: 1.13123
+
+03/09/2026 21:55:59 >> Train-loss at step 220800: 1.22270
+
+03/09/2026 21:56:04 >> Train-loss at step 220900: 1.26641
+
+03/09/2026 21:56:09 >> Train-loss at step 221000: 1.30544
+
+03/09/2026 21:56:14 >> Train-loss at step 221100: 1.30114
+
+03/09/2026 21:56:20 >> Train-loss at step 221200: 1.22200
+
+03/09/2026 21:56:25 >> Train-loss at step 221300: 1.21543
+
+03/09/2026 21:56:30 >> Train-loss at step 221400: 1.25645
+
+03/09/2026 21:56:37 >> Train-loss at step 221500: 1.20669
+
+03/09/2026 21:56:41 >> Train-loss at step 221600: 1.17824
+
+03/09/2026 21:56:47 >> Train-loss at step 221700: 1.25320
+
+03/09/2026 21:56:53 >> Train-loss at step 221800: 1.24203
+
+03/09/2026 21:56:58 >> Train-loss at step 221900: 1.31129
+
+03/09/2026 21:57:04 >> Train-loss at step 222000: 1.37213
+
+03/09/2026 21:57:09 >> Train-loss at step 222100: 1.22849
+
+03/09/2026 21:57:15 >> Train-loss at step 222200: 1.25042
+
+03/09/2026 21:57:20 >> Train-loss at step 222300: 1.14055
+
+03/09/2026 21:57:25 >> Train-loss at step 222400: 1.38028
+
+03/09/2026 21:57:30 >> Train-loss at step 222500: 1.16880
+
+03/09/2026 21:57:35 >> Train-loss at step 222600: 1.25149
+
+03/09/2026 21:57:40 >> Train-loss at step 222700: 1.28886
+
+03/09/2026 21:57:45 >> Train-loss at step 222800: 1.31748
+
+03/09/2026 21:57:50 >> Train-loss at step 222900: 1.11674
+
+03/09/2026 21:57:55 >> Train-loss at step 223000: 1.11837
+
+03/09/2026 21:58:00 >> Train-loss at step 223100: 1.20939
+
+03/09/2026 21:58:05 >> Train-loss at step 223200: 1.34839
+
+03/09/2026 21:58:11 >> Train-loss at step 223300: 1.24321
+
+03/09/2026 21:58:16 >> Train-loss at step 223400: 1.20725
+
+03/09/2026 21:58:21 >> Train-loss at step 223500: 1.34474
+
+03/09/2026 21:58:27 >> Train-loss at step 223600: 1.29426
+
+03/09/2026 21:58:32 >> Train-loss at step 223700: 1.24490
+
+03/09/2026 21:58:38 >> Train-loss at step 223800: 1.27960
+
+03/09/2026 21:58:43 >> Train-loss at step 223900: 1.25667
+
+03/09/2026 21:58:45 >> Evaluating on split = val
+03/09/2026 21:58:48 >> Result on val split at train step 223939: {'auroc': 0.8033937752331954, 'auprc': 0.33424713844407533, 'minrp': 0.3679669134156761, 'f1_0_5': 0.36946399840303834, 'best_f1': 0.4056491018057112, 'los_mae_hours': 47.23188238821721, 'los_n_valid': 4600}
+
+03/09/2026 21:58:48 >> Per-outcome val results:
+                                   auroc     auprc     minrp    f1_0_5  \
+outcome                                                                  
+CARDIO-VASCULAR_DISORDER_EVENT  0.945703  0.398207  0.538462  0.455357   
+DEATH_EVENT                     0.882938  0.503748  0.491909  0.415938   
+HYPERGLYCEMIA_EVENT             0.727411  0.508303  0.498284  0.528536   
+HYPOGLYCEMIA_EVENT              0.772273  0.108814  0.191617  0.184000   
+INFECTION_EVENT                 0.663368  0.017708  0.034043  0.054422   
+KIDNEY_COMPLICATION_EVENT       0.919492  0.559642  0.548077  0.599865   
+SEVERE_HYPERGLYCEMIA_EVENT      0.749030  0.492752  0.482253  0.543925   
+SEVERE_HYPOGLYCEMIA_EVENT       0.766935  0.084803  0.159091  0.173669   
+
+                                 best_f1  n_pos  n_neg  
+outcome                                                 
+CARDIO-VASCULAR_DISORDER_EVENT  0.563380     64   4536  
+DEATH_EVENT                     0.499261    309   4291  
+HYPERGLYCEMIA_EVENT             0.570409   1426   3174  
+HYPOGLYCEMIA_EVENT              0.201592    165   4435  
+INFECTION_EVENT                 0.058824     37   4563  
+KIDNEY_COMPLICATION_EVENT       0.606593    514   4086  
+SEVERE_HYPERGLYCEMIA_EVENT      0.562168   1286   3314  
+SEVERE_HYPOGLYCEMIA_EVENT       0.182965    117   4483  
+03/09/2026 21:58:48 >> Updating wait to 2
+
+03/09/2026 21:58:51 >> Train-loss at step 224000: 1.17768
+
+03/09/2026 21:58:56 >> Train-loss at step 224100: 1.22432
+
+03/09/2026 21:59:02 >> Train-loss at step 224200: 1.24394
+
+03/09/2026 21:59:07 >> Train-loss at step 224300: 1.10759
+
+03/09/2026 21:59:12 >> Train-loss at step 224400: 1.22312
+
+03/09/2026 21:59:18 >> Train-loss at step 224500: 1.18741
+
+03/09/2026 21:59:23 >> Train-loss at step 224600: 1.33201
+
+03/09/2026 21:59:29 >> Train-loss at step 224700: 1.22149
+
+03/09/2026 21:59:34 >> Train-loss at step 224800: 1.34563
+
+03/09/2026 21:59:39 >> Train-loss at step 224900: 1.18132
+
+03/09/2026 21:59:45 >> Train-loss at step 225000: 1.35049
+
+03/09/2026 21:59:50 >> Train-loss at step 225100: 1.18092
+
+03/09/2026 21:59:55 >> Train-loss at step 225200: 1.25401
+
+03/09/2026 22:00:00 >> Train-loss at step 225300: 1.17696
+
+03/09/2026 22:00:05 >> Train-loss at step 225400: 1.23643
+
+03/09/2026 22:00:10 >> Train-loss at step 225500: 1.15394
+
+03/09/2026 22:00:15 >> Train-loss at step 225600: 1.09193
+
+03/09/2026 22:00:20 >> Train-loss at step 225700: 1.21278
+
+03/09/2026 22:00:25 >> Train-loss at step 225800: 1.18006
+
+03/09/2026 22:00:31 >> Train-loss at step 225900: 1.21186
+
+03/09/2026 22:00:35 >> Train-loss at step 226000: 1.27316
+
+03/09/2026 22:00:41 >> Train-loss at step 226100: 1.26840
+
+03/09/2026 22:00:47 >> Train-loss at step 226200: 1.17415
+
+03/09/2026 22:00:52 >> Train-loss at step 226300: 1.27223
+
+03/09/2026 22:00:59 >> Train-loss at step 226400: 1.20478
+
+03/09/2026 22:01:04 >> Train-loss at step 226500: 1.23846
+
+03/09/2026 22:01:09 >> Train-loss at step 226600: 1.25108
+
+03/09/2026 22:01:14 >> Train-loss at step 226700: 1.28838
+
+03/09/2026 22:01:20 >> Train-loss at step 226800: 1.27945
+
+03/09/2026 22:01:25 >> Train-loss at step 226900: 1.23778
+
+03/09/2026 22:01:30 >> Train-loss at step 227000: 1.28213
+
+03/09/2026 22:01:35 >> Train-loss at step 227100: 1.28867
+
+03/09/2026 22:01:40 >> Train-loss at step 227200: 1.11892
+
+03/09/2026 22:01:45 >> Train-loss at step 227300: 1.13606
+
+03/09/2026 22:01:50 >> Train-loss at step 227400: 1.20482
+
+03/09/2026 22:01:55 >> Train-loss at step 227500: 1.23580
+
+03/09/2026 22:02:00 >> Train-loss at step 227600: 1.20380
+
+03/09/2026 22:02:06 >> Train-loss at step 227700: 1.25302
+
+03/09/2026 22:02:11 >> Train-loss at step 227800: 1.30768
+
+03/09/2026 22:02:17 >> Train-loss at step 227900: 1.24546
+
+03/09/2026 22:02:23 >> Train-loss at step 228000: 1.20646
+
+03/09/2026 22:02:28 >> Train-loss at step 228100: 1.20125
+
+03/09/2026 22:02:33 >> Train-loss at step 228200: 1.28086
+
+03/09/2026 22:02:38 >> Train-loss at step 228300: 1.27447
+
+03/09/2026 22:02:43 >> Train-loss at step 228400: 1.17448
+
+03/09/2026 22:02:48 >> Train-loss at step 228500: 1.26348
+
+03/09/2026 22:02:54 >> Train-loss at step 228600: 1.25168
+
+03/09/2026 22:02:59 >> Train-loss at step 228700: 1.25017
+
+03/09/2026 22:03:05 >> Train-loss at step 228800: 1.23007
+
+03/09/2026 22:03:11 >> Train-loss at step 228900: 1.34560
+
+03/09/2026 22:03:16 >> Train-loss at step 229000: 1.18271
+
+03/09/2026 22:03:21 >> Train-loss at step 229100: 1.26310
+
+03/09/2026 22:03:26 >> Train-loss at step 229200: 1.21737
+
+03/09/2026 22:03:32 >> Train-loss at step 229300: 1.24508
+
+03/09/2026 22:03:37 >> Train-loss at step 229400: 1.20092
+
+03/09/2026 22:03:42 >> Train-loss at step 229500: 1.18285
+
+03/09/2026 22:03:47 >> Train-loss at step 229600: 1.23360
+
+03/09/2026 22:03:52 >> Train-loss at step 229700: 1.27674
+
+03/09/2026 22:03:57 >> Train-loss at step 229800: 1.24602
+
+03/09/2026 22:04:02 >> Train-loss at step 229900: 1.19922
+
+03/09/2026 22:04:08 >> Train-loss at step 230000: 1.18524
+
+03/09/2026 22:04:13 >> Train-loss at step 230100: 1.21013
+
+03/09/2026 22:04:18 >> Train-loss at step 230200: 1.17962
+
+03/09/2026 22:04:23 >> Train-loss at step 230300: 1.27786
+
+03/09/2026 22:04:28 >> Train-loss at step 230400: 1.19421
+
+03/09/2026 22:04:33 >> Train-loss at step 230500: 1.21592
+
+03/09/2026 22:04:39 >> Train-loss at step 230600: 1.24616
+
+03/09/2026 22:04:44 >> Train-loss at step 230700: 1.26706
+
+03/09/2026 22:04:48 >> Train-loss at step 230800: 1.35139
+
+03/09/2026 22:04:54 >> Train-loss at step 230900: 1.19537
+
+03/09/2026 22:04:59 >> Train-loss at step 231000: 1.24293
+
+03/09/2026 22:05:05 >> Train-loss at step 231100: 1.21284
+
+03/09/2026 22:05:10 >> Train-loss at step 231200: 1.16600
+
+03/09/2026 22:05:15 >> Train-loss at step 231300: 1.35613
+
+03/09/2026 22:05:21 >> Train-loss at step 231400: 1.22752
+
+03/09/2026 22:05:26 >> Train-loss at step 231500: 1.12834
+
+03/09/2026 22:05:31 >> Train-loss at step 231600: 1.17360
+
+03/09/2026 22:05:37 >> Train-loss at step 231700: 1.30027
+
+03/09/2026 22:05:42 >> Train-loss at step 231800: 1.26114
+
+03/09/2026 22:05:47 >> Train-loss at step 231900: 1.23029
+
+03/09/2026 22:05:52 >> Train-loss at step 232000: 1.18786
+
+03/09/2026 22:05:58 >> Train-loss at step 232100: 1.13918
+
+03/09/2026 22:06:03 >> Train-loss at step 232200: 1.27703
+
+03/09/2026 22:06:09 >> Train-loss at step 232300: 1.15002
+
+03/09/2026 22:06:16 >> Train-loss at step 232400: 1.20450
+
+03/09/2026 22:06:21 >> Train-loss at step 232500: 1.26294
+
+03/09/2026 22:06:26 >> Train-loss at step 232600: 1.16977
+
+03/09/2026 22:06:31 >> Train-loss at step 232700: 1.33971
+
+03/09/2026 22:06:37 >> Train-loss at step 232800: 1.30658
+
+03/09/2026 22:06:42 >> Train-loss at step 232900: 1.22040
+
+03/09/2026 22:06:47 >> Train-loss at step 233000: 1.20508
+
+03/09/2026 22:06:52 >> Train-loss at step 233100: 1.25108
+
+03/09/2026 22:06:58 >> Train-loss at step 233200: 1.22805
+
+03/09/2026 22:07:03 >> Train-loss at step 233300: 1.25304
+
+03/09/2026 22:07:08 >> Train-loss at step 233400: 1.27665
+
+03/09/2026 22:07:13 >> Train-loss at step 233500: 1.21436
+
+03/09/2026 22:07:18 >> Train-loss at step 233600: 1.22543
+
+03/09/2026 22:07:24 >> Train-loss at step 233700: 1.19050
+
+03/09/2026 22:07:29 >> Train-loss at step 233800: 1.31223
+
+03/09/2026 22:07:34 >> Train-loss at step 233900: 1.16852
+
+03/09/2026 22:07:40 >> Train-loss at step 234000: 1.41041
+
+03/09/2026 22:07:45 >> Train-loss at step 234100: 1.23228
+
+03/09/2026 22:07:50 >> Train-loss at step 234200: 1.20551
+
+03/09/2026 22:07:55 >> Train-loss at step 234300: 1.30675
+
+03/09/2026 22:08:01 >> Train-loss at step 234400: 1.31604
+
+03/09/2026 22:08:06 >> Train-loss at step 234500: 1.14849
+
+03/09/2026 22:08:12 >> Train-loss at step 234600: 1.27770
+
+03/09/2026 22:08:17 >> Train-loss at step 234700: 1.26447
+
+03/09/2026 22:08:22 >> Train-loss at step 234800: 1.17576
+
+03/09/2026 22:08:28 >> Train-loss at step 234900: 1.20373
+
+03/09/2026 22:08:33 >> Train-loss at step 235000: 1.28219
+
+03/09/2026 22:08:39 >> Train-loss at step 235100: 1.29994
+
+03/09/2026 22:08:41 >> Evaluating on split = val
+03/09/2026 22:08:44 >> Result on val split at train step 235136: {'auroc': 0.7931906721837204, 'auprc': 0.3325283315060743, 'minrp': 0.36215173535130557, 'f1_0_5': 0.3784458872621087, 'best_f1': 0.4061058715550962, 'los_mae_hours': 47.588875910934966, 'los_n_valid': 4600}
+
+03/09/2026 22:08:44 >> Per-outcome val results:
+                                   auroc     auprc     minrp    f1_0_5  \
+outcome                                                                  
+CARDIO-VASCULAR_DISORDER_EVENT  0.942281  0.391208  0.492537  0.468900   
+DEATH_EVENT                     0.866198  0.474038  0.482201  0.447980   
+HYPERGLYCEMIA_EVENT             0.717991  0.491040  0.491585  0.541417   
+HYPOGLYCEMIA_EVENT              0.753965  0.116316  0.169697  0.194656   
+INFECTION_EVENT                 0.641819  0.020518  0.033333  0.039604   
+KIDNEY_COMPLICATION_EVENT       0.921496  0.579291  0.542429  0.603239   
+SEVERE_HYPERGLYCEMIA_EVENT      0.755334  0.490806  0.495349  0.550424   
+SEVERE_HYPOGLYCEMIA_EVENT       0.746440  0.097009  0.190083  0.181347   
+
+                                 best_f1  n_pos  n_neg  
+outcome                                                 
+CARDIO-VASCULAR_DISORDER_EVENT  0.573171     64   4536  
+DEATH_EVENT                     0.482201    309   4291  
+HYPERGLYCEMIA_EVENT             0.562745   1426   3174  
+HYPOGLYCEMIA_EVENT              0.202783    165   4435  
+INFECTION_EVENT                 0.049080     37   4563  
+KIDNEY_COMPLICATION_EVENT       0.608879    514   4086  
+SEVERE_HYPERGLYCEMIA_EVENT      0.572359   1286   3314  
+SEVERE_HYPOGLYCEMIA_EVENT       0.197628    117   4483  
+03/09/2026 22:08:44 >> Updating wait to 1
+
+03/09/2026 22:08:47 >> Train-loss at step 235200: 1.10626
+
+03/09/2026 22:08:53 >> Train-loss at step 235300: 1.11308
+
+03/09/2026 22:08:59 >> Train-loss at step 235400: 1.31550
+
+03/09/2026 22:09:05 >> Train-loss at step 235500: 1.16146
+
+03/09/2026 22:09:10 >> Train-loss at step 235600: 1.23926
+
+03/09/2026 22:09:15 >> Train-loss at step 235700: 1.23721
+
+03/09/2026 22:09:20 >> Train-loss at step 235800: 1.25301
+
+03/09/2026 22:09:26 >> Train-loss at step 235900: 1.28800
+
+03/09/2026 22:09:30 >> Train-loss at step 236000: 1.27946
+
+03/09/2026 22:09:36 >> Train-loss at step 236100: 1.18041
+
+03/09/2026 22:09:42 >> Train-loss at step 236200: 1.13893
+
+03/09/2026 22:09:47 >> Train-loss at step 236300: 1.20957
+
+03/09/2026 22:09:52 >> Train-loss at step 236400: 1.21873
+
+03/09/2026 22:09:59 >> Train-loss at step 236500: 1.16386
+
+03/09/2026 22:10:04 >> Train-loss at step 236600: 1.29418
+
+03/09/2026 22:10:09 >> Train-loss at step 236700: 1.23157
+
+03/09/2026 22:10:14 >> Train-loss at step 236800: 1.11218
+
+03/09/2026 22:10:19 >> Train-loss at step 236900: 1.11845
+
+03/09/2026 22:10:24 >> Train-loss at step 237000: 1.26386
+
+03/09/2026 22:10:29 >> Train-loss at step 237100: 1.20359
+
+03/09/2026 22:10:34 >> Train-loss at step 237200: 1.31753
+
+03/09/2026 22:10:39 >> Train-loss at step 237300: 1.21475
+
+03/09/2026 22:10:45 >> Train-loss at step 237400: 1.18825
+
+03/09/2026 22:10:50 >> Train-loss at step 237500: 1.24950
+
+03/09/2026 22:10:55 >> Train-loss at step 237600: 1.20002
+
+03/09/2026 22:11:01 >> Train-loss at step 237700: 1.24001
+
+03/09/2026 22:11:06 >> Train-loss at step 237800: 1.25749
+
+03/09/2026 22:11:12 >> Train-loss at step 237900: 1.25112
+
+03/09/2026 22:11:17 >> Train-loss at step 238000: 1.18806
+
+03/09/2026 22:11:22 >> Train-loss at step 238100: 1.33542
+
+03/09/2026 22:11:27 >> Train-loss at step 238200: 1.28262
+
+03/09/2026 22:11:33 >> Train-loss at step 238300: 1.20100
+
+03/09/2026 22:11:38 >> Train-loss at step 238400: 1.29996
+
+03/09/2026 22:11:44 >> Train-loss at step 238500: 1.24724
+
+03/09/2026 22:11:50 >> Train-loss at step 238600: 1.14946
+
+03/09/2026 22:11:55 >> Train-loss at step 238700: 1.28503
+
+03/09/2026 22:12:00 >> Train-loss at step 238800: 1.21490
+
+03/09/2026 22:12:06 >> Train-loss at step 238900: 1.26717
+
+03/09/2026 22:12:11 >> Train-loss at step 239000: 1.12326
+
+03/09/2026 22:12:16 >> Train-loss at step 239100: 1.25480
+
+03/09/2026 22:12:21 >> Train-loss at step 239200: 1.19899
+
+03/09/2026 22:12:26 >> Train-loss at step 239300: 1.30460
+
+03/09/2026 22:12:32 >> Train-loss at step 239400: 1.22915
+
+03/09/2026 22:12:38 >> Train-loss at step 239500: 1.15998
+
+03/09/2026 22:12:43 >> Train-loss at step 239600: 1.29255
+
+03/09/2026 22:12:49 >> Train-loss at step 239700: 1.14551
+
+03/09/2026 22:12:54 >> Train-loss at step 239800: 1.28101
+
+03/09/2026 22:12:59 >> Train-loss at step 239900: 1.23617
+
+03/09/2026 22:13:05 >> Train-loss at step 240000: 1.28257
+
+03/09/2026 22:13:10 >> Train-loss at step 240100: 1.34817
+
+03/09/2026 22:13:16 >> Train-loss at step 240200: 1.20287
+
+03/09/2026 22:13:21 >> Train-loss at step 240300: 1.23733
+
+03/09/2026 22:13:27 >> Train-loss at step 240400: 1.26192
+
+03/09/2026 22:13:32 >> Train-loss at step 240500: 1.27997
+
+03/09/2026 22:13:37 >> Train-loss at step 240600: 1.30990
+
+03/09/2026 22:13:41 >> Train-loss at step 240700: 1.17939
+
+03/09/2026 22:13:47 >> Train-loss at step 240800: 1.29748
+
+03/09/2026 22:13:52 >> Train-loss at step 240900: 1.27884
+
+03/09/2026 22:13:57 >> Train-loss at step 241000: 1.17658
+
+03/09/2026 22:14:02 >> Train-loss at step 241100: 1.27742
+
+03/09/2026 22:14:07 >> Train-loss at step 241200: 1.15927
+
+03/09/2026 22:14:12 >> Train-loss at step 241300: 1.30895
+
+03/09/2026 22:14:18 >> Train-loss at step 241400: 1.23768
+
+03/09/2026 22:14:24 >> Train-loss at step 241500: 1.24276
+
+03/09/2026 22:14:29 >> Train-loss at step 241600: 1.20487
+
+03/09/2026 22:14:34 >> Train-loss at step 241700: 1.27891
+
+03/09/2026 22:14:39 >> Train-loss at step 241800: 1.17322
+
+03/09/2026 22:14:44 >> Train-loss at step 241900: 1.18475
+
+03/09/2026 22:14:49 >> Train-loss at step 242000: 1.16680
+
+03/09/2026 22:14:54 >> Train-loss at step 242100: 1.26413
+
+03/09/2026 22:14:59 >> Train-loss at step 242200: 1.30142
+
+03/09/2026 22:15:04 >> Train-loss at step 242300: 1.25307
+
+03/09/2026 22:15:10 >> Train-loss at step 242400: 1.30848
+
+03/09/2026 22:15:16 >> Train-loss at step 242500: 1.22336
+
+03/09/2026 22:15:21 >> Train-loss at step 242600: 1.23598
+
+03/09/2026 22:15:27 >> Train-loss at step 242700: 1.16564
+
+03/09/2026 22:15:32 >> Train-loss at step 242800: 1.20869
+
+03/09/2026 22:15:37 >> Train-loss at step 242900: 1.20567
+
+03/09/2026 22:15:42 >> Train-loss at step 243000: 1.26158
+
+03/09/2026 22:15:48 >> Train-loss at step 243100: 1.24785
+
+03/09/2026 22:15:52 >> Train-loss at step 243200: 1.25371
+
+03/09/2026 22:15:57 >> Train-loss at step 243300: 1.22900
+
+03/09/2026 22:16:02 >> Train-loss at step 243400: 1.16363
+
+03/09/2026 22:16:08 >> Train-loss at step 243500: 1.27978
+
+03/09/2026 22:16:13 >> Train-loss at step 243600: 1.14553
+
+03/09/2026 22:16:17 >> Train-loss at step 243700: 1.28373
+
+03/09/2026 22:16:22 >> Train-loss at step 243800: 1.25269
+
+03/09/2026 22:16:28 >> Train-loss at step 243900: 1.22827
+
+03/09/2026 22:16:32 >> Train-loss at step 244000: 1.22308
+
+03/09/2026 22:16:38 >> Train-loss at step 244100: 1.30361
+
+03/09/2026 22:16:43 >> Train-loss at step 244200: 1.16539
+
+03/09/2026 22:16:48 >> Train-loss at step 244300: 1.29010
+
+03/09/2026 22:16:53 >> Train-loss at step 244400: 1.12930
+
+03/09/2026 22:16:58 >> Train-loss at step 244500: 1.22630
+
+03/09/2026 22:17:04 >> Train-loss at step 244600: 1.14613
+
+03/09/2026 22:17:09 >> Train-loss at step 244700: 1.16502
+
+03/09/2026 22:17:14 >> Train-loss at step 244800: 1.32707
+
+03/09/2026 22:17:20 >> Train-loss at step 244900: 1.27880
+
+03/09/2026 22:17:25 >> Train-loss at step 245000: 1.14441
+
+03/09/2026 22:17:31 >> Train-loss at step 245100: 1.19033
+
+03/09/2026 22:17:36 >> Train-loss at step 245200: 1.28442
+
+03/09/2026 22:17:41 >> Train-loss at step 245300: 1.24204
+
+03/09/2026 22:17:46 >> Train-loss at step 245400: 1.27436
+
+03/09/2026 22:17:52 >> Train-loss at step 245500: 1.21817
+
+03/09/2026 22:17:57 >> Train-loss at step 245600: 1.20370
+
+03/09/2026 22:18:02 >> Train-loss at step 245700: 1.22197
+
+03/09/2026 22:18:07 >> Train-loss at step 245800: 1.25090
+
+03/09/2026 22:18:12 >> Train-loss at step 245900: 1.21599
+
+03/09/2026 22:18:16 >> Train-loss at step 246000: 1.18527
+
+03/09/2026 22:18:22 >> Train-loss at step 246100: 1.18801
+
+03/09/2026 22:18:27 >> Train-loss at step 246200: 1.29277
+
+03/09/2026 22:18:33 >> Train-loss at step 246300: 1.18626
+
+03/09/2026 22:18:34 >> Evaluating on split = val
+03/09/2026 22:18:37 >> Result on val split at train step 246333: {'auroc': 0.7968443760824004, 'auprc': 0.33286708595407366, 'minrp': 0.3696184945369331, 'f1_0_5': 0.3724249895768493, 'best_f1': 0.4022424418847382, 'los_mae_hours': 47.74085143383228, 'los_n_valid': 4600}
+
+03/09/2026 22:18:37 >> Per-outcome val results:
+                                   auroc     auprc     minrp    f1_0_5  \
+outcome                                                                  
+CARDIO-VASCULAR_DISORDER_EVENT  0.942633  0.394887  0.538462  0.483721   
+DEATH_EVENT                     0.885239  0.490713  0.488673  0.414113   
+HYPERGLYCEMIA_EVENT             0.723990  0.503997  0.495098  0.563351   
+HYPOGLYCEMIA_EVENT              0.754353  0.104765  0.175532  0.162651   
+INFECTION_EVENT                 0.639474  0.026038  0.055556  0.051282   
+KIDNEY_COMPLICATION_EVENT       0.920723  0.560578  0.556420  0.595084   
+SEVERE_HYPERGLYCEMIA_EVENT      0.758267  0.501163  0.498447  0.567784   
+SEVERE_HYPOGLYCEMIA_EVENT       0.750076  0.080795  0.148760  0.141414   
+
+                                 best_f1  n_pos  n_neg  
+outcome                                                 
+CARDIO-VASCULAR_DISORDER_EVENT  0.551724     64   4536  
+DEATH_EVENT                     0.488818    309   4291  
+HYPERGLYCEMIA_EVENT             0.567091   1426   3174  
+HYPOGLYCEMIA_EVENT              0.186969    165   4435  
+INFECTION_EVENT                 0.082759     37   4563  
+KIDNEY_COMPLICATION_EVENT       0.612188    514   4086  
+SEVERE_HYPERGLYCEMIA_EVENT      0.569750   1286   3314  
+SEVERE_HYPOGLYCEMIA_EVENT       0.158640    117   4483  
+03/09/2026 22:18:37 >> Updating wait to 0
+03/09/2026 22:18:37 >> Patience reached
+03/09/2026 22:18:37 >> Final val res: {'auroc': 0.8032290001113747, 'auprc': 0.3361673605019436, 'minrp': 0.3606923928856293, 'f1_0_5': 0.3543619428076249, 'best_f1': 0.4046372764575458, 'los_mae_hours': 47.94849286019883, 'los_n_valid': 4600}
+
+03/09/2026 22:18:37 >> Evaluating on split = test
+03/09/2026 22:18:41 >> Final test res: {'auroc': 0.8199385959692906, 'auprc': 0.36527628839698134, 'minrp': 0.3755039810152483, 'f1_0_5': 0.3707977128885273, 'best_f1': 0.4273930210399942, 'los_mae_hours': 47.68616859183133, 'los_n_valid': 4686}

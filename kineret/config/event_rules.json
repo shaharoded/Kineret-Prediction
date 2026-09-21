@@ -1,0 +1,1176 @@
+{
+ "attributes": {
+  "ADMISSION": [
+   "ADMISSION"
+  ],
+  "ALANINE-AMINOTRANSFERASE_MEASURE": [
+   "ALANINE-AMINOTRANSFERASE_MEASURE"
+  ],
+  "ALBUMIN_MEASURE": [
+   "ALBUMIN_MEASURE",
+   "ALBUMIN_SERUM_MEASURE"
+  ],
+  "ANTIBIOTIC_IV_BITZUA": [
+   "ANTIBIOTIC_IV_BITZUA"
+  ],
+  "ANTIBIOTIC_PO_BITZUA": [
+   "ANTIBIOTIC_PO_BITZUA"
+  ],
+  "ANTIDIABETIC_HOME_BITZUA": [
+   "ANTIDIABETIC_HIGH_HYPO_HOME_BITZUA"
+  ],
+  "ANTIDIABETIC_HOSPITAL_BITZUA": [
+   "ANTIDIABETIC_HIGH_HYPO_HOSPITAL_BITZUA"
+  ],
+  "ASPARATE-AMINOTRANSFERASE_MEASURE": [
+   "ASPARATE-AMINOTRANSFERASE_MEASURE"
+  ],
+  "BASAL_BITZUA": [
+   "BASAL_DOSAGE"
+  ],
+  "BASAL_HOME_BITZUA": [
+   "BASAL_HOME_BITZUA"
+  ],
+  "BASE_GLUCOSE_MEASURE": [
+   "BASE_GLUCOSE_MEASURE"
+  ],
+  "BICARBONATE_BITZUA": [
+   "BICARBONATE_BITZUA"
+  ],
+  "BICARBONATE_MEASURE": [
+   "BICARBONATE_MEASURE"
+  ],
+  "BLOOD_CULTURE": [
+   "BLOOD_CULTURE"
+  ],
+  "BLOOD_PRESSURE_DIASTOLIC_MEASURE": [
+   "BLOOD_PRESSURE_DIASTOLIC_MEASURE"
+  ],
+  "BLOOD_PRESSURE_SYSTOLIC_MEASURE": [
+   "BLOOD_PRESSURE_SYSTOLIC_MEASURE"
+  ],
+  "BMI_MEASURE": [
+   "BMI_MEASURE"
+  ],
+  "BODY_TEMPERATURE_MEASURE": [
+   "BODY_TEMPERATURE_MEASURE",
+   "BODY_TEMPERATURE"
+  ],
+  "BOLUS_BITZUA": [
+   "BOLUS_DOSAGE"
+  ],
+  "CALCIUM-GLUCONATE_BITZUA": [
+   "CALCIUM-GLUCONATE_BITZUA"
+  ],
+  "CARDIO-VASCULAR_DISORDER": [
+   "CARDIO-VASCULAR_DISORDER",
+   "CARDIOVASCULAR_DISORDER"
+  ],
+  "CHEST_XRAY": [
+   "CHEST_XRAY"
+  ],
+  "CREATINE-KINASE_MEASURE": [
+   "CREATINE-KINASE_MEASURE"
+  ],
+  "CREATININE_SERUM_MEASURE": [
+   "CREATININE_SERUM_MEASURE"
+  ],
+  "DEATH": [
+   "DEATH"
+  ],
+  "DEXTROSE_BITZUA": [
+   "DEXTROSE_BITZUA"
+  ],
+  "DIABETES_DIAGNOSIS": [
+   "DIABETES_DIAGNOSIS"
+  ],
+  "DIALYSIS": [
+   "DIALYSIS"
+  ],
+  "E-GFR_MEASURE": [
+   "E-GFR_MEASURE",
+   "EGFR_MEASURE"
+  ],
+  "GLUCOSE_MEASURE": [
+   "GLUCOSE_MEASURE"
+  ],
+  "HEART_RATE_MEASURE": [
+   "HEART_RATE_MEASURE"
+  ],
+  "HEMATOCRIT_MEASURE": [
+   "HEMATOCRIT_MEASURE"
+  ],
+  "HEMOGLOBIN_MEASURE": [
+   "HEMOGLOBIN_MEASURE"
+  ],
+  "HEPARIN_IV_BITZUA": [
+   "HEPARIN_IV_BITZUA"
+  ],
+  "HEPARIN_SC_BITZUA": [
+   "HEPARIN_SC_BITZUA"
+  ],
+  "HIGH_GLUCOSE_IND": [
+   "GLUCOSE_MEASURE"
+  ],
+  "HYPEROSMOLALITY": [
+   "HYPEROSMOLALITY"
+  ],
+  "HYPERTONIC-SALINE_BITZUA": [
+   "HYPERTONIC-SALINE_BITZUA",
+   "HYPERTONIC_SALINE_BITZUA"
+  ],
+  "INFECTION": [
+   "INFECTION"
+  ],
+  "INFECTION_WBC_MEASURE": [
+   "INFECTION_WBC_MEASURE"
+  ],
+  "INSULIN_BITZUA": [
+   "INSULIN_IV_DOSAGE"
+  ],
+  "K-BINDER_BITZUA": [
+   "K-BINDER_BITZUA",
+   "K_BINDER_BITZUA"
+  ],
+  "KETOACIDOSIS": [
+   "KETOACIDOSIS"
+  ],
+  "KETONES_SERUM_MEASURE": [
+   "KETONES_SERUM_MEASURE"
+  ],
+  "KETONES_URINE_MEASURE": [
+   "KETONES_URINE_MEASURE"
+  ],
+  "KIDNEY_COMPLICATION": [
+   "KIDNEY_COMPLICATION",
+   "KIDNEY_COMPLICATION_OBS"
+  ],
+  "LOW_GLUCOSE_IND": [
+   "GLUCOSE_MEASURE"
+  ],
+  "MEAL": [
+   "MEAL"
+  ],
+  "METFORMIN_HOME_BITZUA": [
+   "METFORMIN_HOME_BITZUA"
+  ],
+  "METFORMIN_HOSPITAL_BITZUA": [
+   "METFORMIN_HOSPITAL_BITZUA"
+  ],
+  "NEUTROPHILS_MEASURE": [
+   "NEUTROPHILS_MEASURE"
+  ],
+  "NORMAL_GLUCOSE_IND": [
+   "GLUCOSE_MEASURE"
+  ],
+  "PH_MEASURE": [
+   "PH_MEASURE"
+  ],
+  "PLT_MEASURE": [
+   "PLT_MEASURE"
+  ],
+  "POTASSIUM_MEASURE": [
+   "POTASSIUM_MEASURE"
+  ],
+  "RELEASE": [
+   "RELEASE"
+  ],
+  "SGLT2_HOME_BITZUA": [
+   "SGLT2_HOME_BITZUA"
+  ],
+  "SGLT2_HOSPITAL_BITZUA": [
+   "SGLT2_HOSPITAL_BITZUA"
+  ],
+  "SODIUM_MEASURE": [
+   "SODIUM_MEASURE"
+  ],
+  "STEROIDS_IV_BITZUA": [
+   "STEROIDS_IV_BITZUA"
+  ],
+  "STEROIDS_PO_BITZUA": [
+   "STEROIDS_PO_BITZUA"
+  ],
+  "TROPONIN_MEASURE": [
+   "TROPONIN_MEASURE"
+  ],
+  "UREA_MEASURE": [
+   "UREA_MEASURE"
+  ],
+  "URINE_CULTURE": [
+   "URINE_CULTURE"
+  ],
+  "WEIGHT_MEASURE": [
+   "WEIGHT_MEASURE"
+  ]
+ },
+ "clippers": {
+  "ALANINE-AMINOTRANSFERASE_MEASURE": [
+   5.0,
+   1000.0
+  ],
+  "ALBUMIN_MEASURE": [
+   1.5,
+   7.0
+  ],
+  "ASPARATE-AMINOTRANSFERASE_MEASURE": [
+   5.0,
+   7000.0
+  ],
+  "BASE_GLUCOSE_MEASURE": [
+   20.0,
+   800.0
+  ],
+  "BICARBONATE_MEASURE": [
+   1.0,
+   60.0
+  ],
+  "BLOOD_PRESSURE_DIASTOLIC_MEASURE": [
+   30.0,
+   200.0
+  ],
+  "BLOOD_PRESSURE_SYSTOLIC_MEASURE": [
+   50.0,
+   300.0
+  ],
+  "BMI_MEASURE": [
+   10.0,
+   250.0
+  ],
+  "BODY_TEMPERATURE_MEASURE": [
+   25.0,
+   42.5
+  ],
+  "CREATINE-KINASE_MEASURE": [
+   10.0,
+   200000.0
+  ],
+  "CREATININE_SERUM_MEASURE": [
+   0.1,
+   20.0
+  ],
+  "E-GFR_MEASURE": [
+   1.0,
+   200.0
+  ],
+  "GLUCOSE_MEASURE": [
+   20.0,
+   1200.0
+  ],
+  "HEART_RATE_MEASURE": [
+   30.0,
+   280.0
+  ],
+  "HEMATOCRIT_MEASURE": [
+   10.0,
+   80.0
+  ],
+  "HEMOGLOBIN_MEASURE": [
+   3.0,
+   22.0
+  ],
+  "INFECTION_WBC_MEASURE": [
+   0.1,
+   500.0
+  ],
+  "KETONES_SERUM_MEASURE": [
+   0.1,
+   300.0
+  ],
+  "KETONES_URINE_MEASURE": [
+   0.1,
+   300.0
+  ],
+  "NEUTROPHILS_MEASURE": [
+   0.1,
+   200.0
+  ],
+  "PH_MEASURE": [
+   6.5,
+   14.0
+  ],
+  "PLT_MEASURE": [
+   10.0,
+   1500.0
+  ],
+  "POTASSIUM_MEASURE": [
+   0.8,
+   15.0
+  ],
+  "SODIUM_MEASURE": [
+   100.0,
+   200.0
+  ],
+  "TROPONIN_MEASURE": [
+   0.1,
+   100000.0
+  ],
+  "UREA_MEASURE": [
+   0.1,
+   300.0
+  ],
+  "WEIGHT_MEASURE": [
+   0.5,
+   500.0
+  ]
+ },
+ "events": {
+  "ADMISSION_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "equal",
+         "value": "True"
+        }
+       ],
+       "source": "ADMISSION",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "True"
+    }
+   ]
+  },
+  "AKI_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "min",
+         "value": 3.0
+        }
+       ],
+       "source": "CREATININE_SERUM_MEASURE",
+       "transform": {
+        "kind": "ratio_to_baseline"
+       },
+       "via": "CREATININE_REL_SERUM_MEASURE"
+      },
+      {
+       "constraints": [
+        {
+         "type": "min",
+         "value": 4.0
+        }
+       ],
+       "source": "CREATININE_SERUM_MEASURE",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "Stage 3"
+    },
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "max": 3.0,
+         "min": 2.0,
+         "type": "range"
+        }
+       ],
+       "source": "CREATININE_SERUM_MEASURE",
+       "transform": {
+        "kind": "ratio_to_baseline"
+       },
+       "via": "CREATININE_REL_SERUM_MEASURE"
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "Stage 2"
+    },
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "min",
+         "value": 0.3
+        }
+       ],
+       "source": "CREATININE_RISE_SERUM_MEASURE",
+       "transform": null,
+       "via": null
+      },
+      {
+       "constraints": [
+        {
+         "max": 2.0,
+         "min": 1.5,
+         "type": "range"
+        }
+       ],
+       "source": "CREATININE_SERUM_MEASURE",
+       "transform": {
+        "kind": "ratio_to_baseline"
+       },
+       "via": "CREATININE_REL_SERUM_MEASURE"
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "Stage 1"
+    }
+   ]
+  },
+  "ANTIBIOTIC_BITZUA_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "equal",
+         "value": "True"
+        }
+       ],
+       "source": "ANTIBIOTIC_IV_BITZUA",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "IV"
+    },
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "equal",
+         "value": "True"
+        }
+       ],
+       "source": "ANTIBIOTIC_PO_BITZUA",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "PO"
+    }
+   ]
+  },
+  "ANTIDIABETIC_BITZUA_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "equal",
+         "value": "True"
+        }
+       ],
+       "source": "ANTIDIABETIC_HOSPITAL_BITZUA",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "True"
+    }
+   ]
+  },
+  "BICARBONATE_BITZUA_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "equal",
+         "value": "True"
+        }
+       ],
+       "source": "BICARBONATE_BITZUA",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "True"
+    }
+   ]
+  },
+  "BLOOD_CULTURE_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "equal",
+         "value": "True"
+        }
+       ],
+       "source": "BLOOD_CULTURE",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "True"
+    }
+   ]
+  },
+  "CALCIUM-GLUCONATE_BITZUA_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "equal",
+         "value": "True"
+        }
+       ],
+       "source": "CALCIUM-GLUCONATE_BITZUA",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "True"
+    }
+   ]
+  },
+  "CARDIO-VASCULAR_DISORDER_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "equal",
+         "value": "True"
+        }
+       ],
+       "source": "CARDIO-VASCULAR_DISORDER",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "True"
+    }
+   ]
+  },
+  "CHEST_XRAY_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "equal",
+         "value": "True"
+        }
+       ],
+       "source": "CHEST_XRAY",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "True"
+    }
+   ]
+  },
+  "DEATH_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "equal",
+         "value": "True"
+        }
+       ],
+       "source": "DEATH",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "True"
+    }
+   ]
+  },
+  "DEXTROSE_BITZUA_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "equal",
+         "value": "True"
+        }
+       ],
+       "source": "DEXTROSE_BITZUA",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "True"
+    }
+   ]
+  },
+  "DIALYSIS_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "equal",
+         "value": "True"
+        }
+       ],
+       "source": "DIALYSIS",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "True"
+    }
+   ]
+  },
+  "ELECTROLYTE_DERANGEMENT_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "max",
+         "value": 2.5
+        }
+       ],
+       "source": "POTASSIUM_MEASURE",
+       "transform": null,
+       "via": null
+      },
+      {
+       "constraints": [
+        {
+         "type": "min",
+         "value": 6.5
+        }
+       ],
+       "source": "POTASSIUM_MEASURE",
+       "transform": null,
+       "via": null
+      },
+      {
+       "constraints": [
+        {
+         "type": "max",
+         "value": 120.0
+        }
+       ],
+       "source": "SODIUM_MEASURE",
+       "transform": null,
+       "via": null
+      },
+      {
+       "constraints": [
+        {
+         "type": "min",
+         "value": 160.0
+        }
+       ],
+       "source": "SODIUM_MEASURE",
+       "transform": null,
+       "via": null
+      },
+      {
+       "constraints": [
+        {
+         "type": "max",
+         "value": 7.1
+        }
+       ],
+       "source": "PH_MEASURE",
+       "transform": null,
+       "via": null
+      },
+      {
+       "constraints": [
+        {
+         "type": "min",
+         "value": 7.55
+        }
+       ],
+       "source": "PH_MEASURE",
+       "transform": null,
+       "via": null
+      },
+      {
+       "constraints": [
+        {
+         "type": "max",
+         "value": 10.0
+        }
+       ],
+       "source": "BICARBONATE_MEASURE",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "True"
+    }
+   ]
+  },
+  "HEPARIN_BITZUA_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "equal",
+         "value": "True"
+        }
+       ],
+       "source": "HEPARIN_IV_BITZUA",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "IV"
+    },
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "equal",
+         "value": "True"
+        }
+       ],
+       "source": "HEPARIN_SC_BITZUA",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "SC"
+    }
+   ]
+  },
+  "HYPERGLYCEMIA_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "min",
+         "value": 250.0
+        }
+       ],
+       "source": "GLUCOSE_MEASURE",
+       "transform": null,
+       "via": null
+      },
+      {
+       "constraints": [
+        {
+         "type": "min",
+         "value": 180.0
+        }
+       ],
+       "source": "GLUCOSE_MEASURE",
+       "transform": {
+        "gate_op": "ge",
+        "gate_value": 180.0,
+        "kind": "sustained",
+        "window": "24h"
+       },
+       "via": "STEADY_GLUCOSE_MEASURE_HIGH"
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "True"
+    }
+   ]
+  },
+  "HYPEROSMOLALITY_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "equal",
+         "value": "True"
+        }
+       ],
+       "source": "HYPEROSMOLALITY",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "True"
+    }
+   ]
+  },
+  "HYPERTONIC-SALINE_BITZUA_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "equal",
+         "value": "True"
+        }
+       ],
+       "source": "HYPERTONIC-SALINE_BITZUA",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "True"
+    }
+   ]
+  },
+  "HYPOGLYCEMIA_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "max",
+         "value": 54.0
+        }
+       ],
+       "source": "GLUCOSE_MEASURE",
+       "transform": null,
+       "via": null
+      },
+      {
+       "constraints": [
+        {
+         "type": "max",
+         "value": 70.0
+        }
+       ],
+       "source": "GLUCOSE_MEASURE",
+       "transform": {
+        "gate_op": "le",
+        "gate_value": 70.0,
+        "kind": "sustained",
+        "window": "24h"
+       },
+       "via": "STEADY_GLUCOSE_MEASURE_LOW"
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "True"
+    }
+   ]
+  },
+  "INFECTION_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "equal",
+         "value": "True"
+        }
+       ],
+       "source": "INFECTION",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "True"
+    }
+   ]
+  },
+  "K-BINDER_BITZUA_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "equal",
+         "value": "True"
+        }
+       ],
+       "source": "K-BINDER_BITZUA",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "True"
+    }
+   ]
+  },
+  "KETOACIDOSIS_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "equal",
+         "value": "True"
+        }
+       ],
+       "source": "KETOACIDOSIS",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "True"
+    }
+   ]
+  },
+  "KIDNEY_COMPLICATION_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "min",
+         "value": 2.0
+        }
+       ],
+       "source": "CREATININE_SERUM_MEASURE",
+       "transform": {
+        "kind": "ratio_to_baseline"
+       },
+       "via": "CREATININE_REL_SERUM_MEASURE"
+      },
+      {
+       "constraints": [
+        {
+         "type": "min",
+         "value": 4.0
+        }
+       ],
+       "source": "CREATININE_SERUM_MEASURE",
+       "transform": null,
+       "via": null
+      },
+      {
+       "constraints": [
+        {
+         "type": "equal",
+         "value": "True"
+        }
+       ],
+       "source": "KIDNEY_COMPLICATION",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "True"
+    }
+   ]
+  },
+  "MYOCARDIAL_INJURY_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "min",
+         "value": 600.0
+        }
+       ],
+       "source": "TROPONIN_MEASURE",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "True"
+    }
+   ]
+  },
+  "RELEASE_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "equal",
+         "value": "True"
+        }
+       ],
+       "source": "RELEASE",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "True"
+    }
+   ]
+  },
+  "SEVERE_HYPERGLYCEMIA_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "min",
+         "value": 250.0
+        }
+       ],
+       "source": "GLUCOSE_MEASURE",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "True"
+    }
+   ]
+  },
+  "SEVERE_HYPOGLYCEMIA_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "max",
+         "value": 54.0
+        }
+       ],
+       "source": "GLUCOSE_MEASURE",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "True"
+    }
+   ]
+  },
+  "STEROIDS_BITZUA_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "equal",
+         "value": "True"
+        }
+       ],
+       "source": "STEROIDS_IV_BITZUA",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "IV"
+    },
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "equal",
+         "value": "True"
+        }
+       ],
+       "source": "STEROIDS_PO_BITZUA",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "PO"
+    }
+   ]
+  },
+  "URINE_CULTURE_EVENT": {
+   "rules": [
+    {
+     "clauses": [
+      {
+       "constraints": [
+        {
+         "type": "equal",
+         "value": "True"
+        }
+       ],
+       "source": "URINE_CULTURE",
+       "transform": null,
+       "via": null
+      }
+     ],
+     "operator": "or",
+     "unsupported": [],
+     "value": "True"
+    }
+   ]
+  }
+ }
+}

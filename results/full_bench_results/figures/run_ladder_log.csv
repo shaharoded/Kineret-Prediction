@@ -1,0 +1,8 @@
+arm,label,status,minutes,detail
+logreg,LogReg (raw),skipped,0.0,/workspace/notebooks/code/Predictions/kineret-prediction/outputs/logreg/noqa
+logreg_qa,LogReg (raw + QA),skipped,0.0,/workspace/notebooks/code/Predictions/kineret-prediction/outputs/logreg/qa
+strats,ss-STraTS (raw),skipped,0.0,/workspace/notebooks/code/Predictions/kineret-prediction/outputs/strats/noqa
+strats_qa,ss-STraTS (raw + QA),skipped,0.0,/workspace/notebooks/code/Predictions/kineret-prediction/outputs/strats/qa
+intervene_std,INTERVenE-Enc (σ-bins),skipped,0.0,/workspace/notebooks/code/Predictions/kineret-prediction/outputs/intervene_enc_std/noqa
+intervene_kb,INTERVenE-Enc (KB),ok,915.59,/workspace/notebooks/code/Predictions/kineret-prediction/outputs/intervene_enc/noqa
+intervene_kb_qa,INTERVenE-Enc (KB + QA),ok,1022.34,/workspace/notebooks/code/Predictions/kineret-prediction/outputs/intervene_enc/qa
