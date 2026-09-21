@@ -5,8 +5,18 @@ import torch.nn as nn
 import torch.nn.functional as F
 import sklearn.preprocessing
 import math
+import os
 from pathlib import Path
 from tqdm.auto import tqdm
+
+# Progress-style toggle. Default 'verbose' preserves the current per-epoch
+# multi-line prints; set the environment variable `INTERVENE_PROGRESS=tqdm`
+# (or pass `progress='tqdm'` where supported) to collapse each phase into a
+# single tqdm bar that updates in place and vanishes on completion. Useful
+# in notebooks running the ladder several times (per-hospital LOO) where
+# the per-epoch print rate would trip Jupyter's IOPub rate limit.
+_PROGRESS = os.environ.get("INTERVENE_PROGRESS", "verbose").lower()
+_QUIET_EPOCHS = _PROGRESS == "tqdm"
 
 # ───────── local code ─────────────────────────────────────────────────── #
 from kineret.intervene.dataset import EMRTokenizer
@@ -649,7 +659,11 @@ def train_embedder(embedder, train_loader, val_loader, resume=True, checkpoint_p
         )
 
     # ----- Training loop -----
-    for epoch in range(start_epoch, training_settings["phase1_n_epochs"] + 1):
+    epoch_iter = range(start_epoch, training_settings["phase1_n_epochs"] + 1)
+    _pbar = tqdm(epoch_iter, desc="Phase-1", leave=False,
+                  dynamic_ncols=True, mininterval=1.0) if _QUIET_EPOCHS else None
+    _iter = _pbar if _QUIET_EPOCHS else epoch_iter
+    for epoch in _iter:
         tr_tot, tr_bce, tr_dt, tr_dt_raw = run_epoch(train_loader, epoch=epoch, train_flag=True)
         vl_tot, vl_bce, vl_dt, _ = run_epoch(val_loader, epoch=epoch, train_flag=False)
 
@@ -663,8 +677,9 @@ def train_embedder(embedder, train_loader, val_loader, resume=True, checkpoint_p
             tr_main=tr_bce,
             dt=tr_dt_raw,
         )
-        for msg in schedule_events:
-            print(msg)
+        if not _QUIET_EPOCHS:
+            for msg in schedule_events:
+                print(msg)
 
         # Step the plateau scheduler on the validation total
         scheduler.step(vl_tot)
@@ -673,11 +688,15 @@ def train_embedder(embedder, train_loader, val_loader, resume=True, checkpoint_p
         train_losses.append(tr_tot)
         val_losses.append(vl_tot)
 
-        print(f"""[Phase-1] Epoch {epoch:03d}
+        if _QUIET_EPOCHS:
+            _pbar.set_postfix(train=f"{tr_tot:.3f}", val=f"{vl_tot:.3f}",
+                              best=f"{best_val:.3f}")
+        else:
+            print(f"""[Phase-1] Epoch {epoch:03d}
             --> Train={tr_tot:.4f} (BCE={tr_bce:.4f}  Δt={tr_dt:.4f})
             --> Val={vl_tot:.4f} (BCE={vl_bce:.4f}  Δt={vl_dt:.4f})
             --> RawTrain dt={tr_dt_raw:.7f}""")
-        print("   " + _timer.report())
+            print("   " + _timer.report())
         _timer.reset()
 
         # Save best model only after aux-scheduler warmup is complete.

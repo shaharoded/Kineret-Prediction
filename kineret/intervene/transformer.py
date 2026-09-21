@@ -29,8 +29,15 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.utils.checkpoint as checkpoint
 from torch.nn.attention import sdpa_kernel, SDPBackend
+import os
 from pathlib import Path
 from tqdm.auto import tqdm
+
+# Progress-style toggle mirroring embedder.py. Set INTERVENE_PROGRESS=tqdm
+# to collapse each phase's epoch loop into a single tqdm bar and silence
+# the per-epoch multi-line print blocks. See embedder.py for the rationale.
+_PROGRESS = os.environ.get("INTERVENE_PROGRESS", "verbose").lower()
+_QUIET_EPOCHS = _PROGRESS == "tqdm"
 
 # ───────── local code ─────────────────────────────────────────────────── #
 from kineret.intervene.embedder import EMREmbedding
@@ -909,7 +916,11 @@ def pretrain_transformer(model, train_dl, val_dl, resume=True,
             total_tlocal_raw / n,
         )
 
-    for epoch in range(start_epoch, training_settings["phase2_n_epochs"] + 1):
+    _p2_range = range(start_epoch, training_settings["phase2_n_epochs"] + 1)
+    _pbar2 = tqdm(_p2_range, desc="Phase-2", leave=False,
+                   dynamic_ncols=True, mininterval=1.0) if _QUIET_EPOCHS else None
+    _p2_iter = _pbar2 if _QUIET_EPOCHS else _p2_range
+    for epoch in _p2_iter:
         tr_tot, tr_mlm, tr_tpos, tr_tlocal, tr_tpos_raw, tr_tlocal_raw = run_epoch(
             train_dl, epoch=epoch, train_flag=True,
         )
@@ -921,8 +932,9 @@ def pretrain_transformer(model, train_dl, val_dl, resume=True,
             epoch=epoch, vl_total=vl_tot, tr_main=tr_mlm,
             t_pos=tr_tpos_raw, t_local=tr_tlocal_raw,
         )
-        for msg in schedule_events:
-            print(msg)
+        if not _QUIET_EPOCHS:
+            for msg in schedule_events:
+                print(msg)
 
         train_losses.append(tr_tot)
         val_losses.append(vl_tot)
@@ -930,10 +942,14 @@ def pretrain_transformer(model, train_dl, val_dl, resume=True,
             _lr_now = scheduler.get_last_lr()[0]
         except Exception:
             _lr_now = optimizer.param_groups[0]["lr"]
-        print(f"[Phase-2] Epoch {epoch:03d}  lr={_lr_now:.3e}\n"
-              f"    --> Train={tr_tot:.4f} (MLM={tr_mlm:.4f}  tPos={tr_tpos:.4f}  tLoc={tr_tlocal:.4f})\n"
-              f"    --> Val  ={vl_tot:.4f} (MLM={vl_mlm:.4f}  tPos={vl_tpos:.4f}  tLoc={vl_tlocal:.4f})")
-        print("   " + _timer.report())
+        if _QUIET_EPOCHS:
+            _pbar2.set_postfix(train=f"{tr_tot:.3f}", val=f"{vl_tot:.3f}",
+                                best=f"{best_val:.3f}")
+        else:
+            print(f"[Phase-2] Epoch {epoch:03d}  lr={_lr_now:.3e}\n"
+                  f"    --> Train={tr_tot:.4f} (MLM={tr_mlm:.4f}  tPos={tr_tpos:.4f}  tLoc={tr_tlocal:.4f})\n"
+                  f"    --> Val  ={vl_tot:.4f} (MLM={vl_mlm:.4f}  tPos={vl_tpos:.4f}  tLoc={vl_tlocal:.4f})")
+            print("   " + _timer.report())
         _timer.reset()
 
         warmup_gate = schedule_controller.current_warmup_end_epoch()
@@ -1211,16 +1227,24 @@ def finetune_transformer(model, train_dl, val_dl, resume=True,
         n = len(loader)
         return total_loss / n, total_risk / n, total_time / n
 
-    for epoch in range(start_epoch, training_settings["phase3_n_epochs"] + 1):
+    _p3_range = range(start_epoch, training_settings["phase3_n_epochs"] + 1)
+    _pbar3 = tqdm(_p3_range, desc="Phase-3", leave=False,
+                   dynamic_ncols=True, mininterval=1.0) if _QUIET_EPOCHS else None
+    _p3_iter = _pbar3 if _QUIET_EPOCHS else _p3_range
+    for epoch in _p3_iter:
         tr_tot, tr_risk, tr_time = run_epoch(train_dl, train_flag=True)
         vl_tot, vl_risk, vl_time = run_epoch(val_dl,   train_flag=False)
 
         train_losses.append(tr_tot)
         val_losses.append(vl_tot)
-        print(f"[Phase-3] Epoch {epoch:03d}\n"
-              f"    --> Train={tr_tot:.4f} (Risk={tr_risk:.4f}  Time={tr_time:.4f})\n"
-              f"    --> Val  ={vl_tot:.4f} (Risk={vl_risk:.4f}  Time={vl_time:.4f})")
-        print("   " + _timer.report())
+        if _QUIET_EPOCHS:
+            _pbar3.set_postfix(train=f"{tr_tot:.3f}", val=f"{vl_tot:.3f}",
+                                best=f"{best_val:.3f}")
+        else:
+            print(f"[Phase-3] Epoch {epoch:03d}\n"
+                  f"    --> Train={tr_tot:.4f} (Risk={tr_risk:.4f}  Time={tr_time:.4f})\n"
+                  f"    --> Val  ={vl_tot:.4f} (Risk={vl_risk:.4f}  Time={vl_time:.4f})")
+            print("   " + _timer.report())
         _timer.reset()
 
         min_delta_rel = training_settings.get("early-stop-min-delta-rel", 1e-3)

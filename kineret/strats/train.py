@@ -131,7 +131,8 @@ def _train_loop(args, dataset, model, evaluator, model_path_best):
     wait, best_val_metric, best_val_res = args.patience, -np.inf, None
 
     model.train()
-    for step in tqdm(range(args.max_steps), desc="ss-STraTS"):
+    for step in tqdm(range(args.max_steps), desc="ss-STraTS",
+                      leave=False, dynamic_ncols=True, mininterval=1.0):
         batch = {k: v.to(args.device) for k, v in dataset.get_batch().items()}
         loss = model(**batch)
 
