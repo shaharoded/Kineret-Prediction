@@ -1,8 +1,8 @@
 # Kineret-Prediction
 
 Complication prediction on Mediator-abstracted EMR data — the closing
-**transferability study** for the thesis, moving the ladder built on MIMIC and
-Rambam onto the six-hospital **Kineret** cohort. Manuscript in preparation.
+**transferability study** for the thesis, moving the ladder built on MIMIC onto
+the six-hospital **Kineret** cohort. Manuscript in preparation.
 
 The repo pins the shared cohort, runs the full seven-arm comparison, and
 snapshots the exact outputs quoted in the thesis under `results/`.
@@ -273,5 +273,5 @@ never included.
 ## Citation
 
 Manuscript in preparation. For the methodology behind the ladder, the
-knowledge-containment argument, and the earlier MIMIC / Rambam stages this
+knowledge-containment argument, and the earlier MIMIC stages this
 study builds on, see the thesis.
