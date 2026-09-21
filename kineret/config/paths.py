@@ -73,12 +73,21 @@ ABSTRACT_FILE     = _src("ABSTRACT", "mediator_output")
 CONTEXT_FILE      = _src("CONTEXT", "context_data")
 QA_FILE           = _src("QA", "qa_scores")
 
+# Optional -- not part of the training pipeline, only consumed by
+# `kineret/loo.py` for the per-hospital leave-one-out notebook. Carries the
+# `hospital` and `person_id` columns keyed by `visit_id` (= our PatientId /
+# admission id). Absence is fine for every canonical run; LOO fails with a
+# legible message if the file is missing.
+VISITS_MASTER_FILE = _src("VISITS_MASTER", "visits_master")
+
 # Canonical stems, for error messages and the packaging check.
 SOURCE_STEMS = {
     "RAW_TEMPORAL": "mediator_input",
     "ABSTRACT": "mediator_output",
     "CONTEXT": "context_data",
     "QA": "qa_scores",
+    # Optional -- LOO-only, canonical runs never open this.
+    "VISITS_MASTER": "visits_master",
 }
 
 COHORT_PKL = os.path.join(PROCESSED_DIR, "cohort.pkl")
