@@ -567,3 +567,379 @@ def collect_runs(output_root: str = None) -> pd.DataFrame:
         return pd.DataFrame(columns=["run", "model", "context_days", "use_qa", "average"])
     return pd.DataFrame(rows).sort_values(
         ["model", "context_days", "use_qa", "average"]).reset_index(drop=True)
+
+
+# ---------------------------------------------------------------------------
+# Post-hoc analyses added for the AIIM paper.
+#
+# Every function below reads only `test_predictions.csv` (plus optional
+# per-patient covariates for subgroup work) -- no re-training required.
+# These support the AIIM open-items in `papers-drafts/AIIM2027/tasks.tex`.
+# ---------------------------------------------------------------------------
+
+
+def load_predictions(run_dir: str) -> pd.DataFrame:
+    """
+    Purpose: Load a single arm's `test_predictions.csv` with the columns the
+             downstream helpers expect (patient id, per-outcome labels /
+             probabilities / times, and LoS true/pred).
+    Method:  Read + light validation.
+
+    Args:
+        run_dir (str): Path to an arm's output directory (contains
+                       `test_predictions.csv` and `run_meta.json`).
+
+    Returns:
+        pd.DataFrame: Row per test patient. Columns include `PatientId`,
+                      `label_<outcome>`, `prob_<outcome>`, `time_true_<outcome>`,
+                      `time_pred_<outcome>`, `los_true_hours`, `los_pred_hours`.
+    """
+    pred_path = os.path.join(run_dir, "test_predictions.csv")
+    if not os.path.exists(pred_path):
+        raise FileNotFoundError(pred_path)
+    return pd.read_csv(pred_path)
+
+
+def outcome_names_from(preds: pd.DataFrame) -> list:
+    """Purpose: Recover the ordered outcome list from a prediction frame."""
+    return [c[len("prob_"):] for c in preds.columns if c.startswith("prob_")]
+
+
+# ---------------------------------------------------------------------------
+# Subgroup / fairness metrics
+# ---------------------------------------------------------------------------
+
+def subgroup_metrics(
+    run_dir: str,
+    subgroup_frame: pd.DataFrame,
+    subgroup_col: str,
+    id_col: str = "PatientId",
+    metrics=("auroc", "auprc", "best_f1"),
+    min_positives: int = 5,
+) -> pd.DataFrame:
+    """
+    Purpose: Split an arm's held-out predictions by a subgroup column
+             (e.g., age band, sex, admitting-department) and compute
+             per-outcome metrics inside each subgroup, so fairness /
+             heterogeneity questions can be read off one table.
+    Method:  Left-join predictions onto the caller-supplied subgroup frame,
+             then loop over subgroup values applying `per_outcome_metrics`
+             independently. Rows with fewer than `min_positives` are marked
+             `ci_reliable=False`; the estimate is kept but not to be quoted
+             alone.
+
+    Args:
+        run_dir           (str):  Arm's output dir (has `test_predictions.csv`).
+        subgroup_frame    (DataFrame): One row per patient, indexed by
+                          `id_col`; must carry `subgroup_col`.
+        subgroup_col      (str):  Column to split on.
+        id_col            (str):  Patient key. Default `PatientId`, matching
+                          the prediction schema.
+        metrics           (tuple): Metric names to include. Any subset of
+                          `METRIC_NAMES`.
+        min_positives     (int):  Cell-level positive-count floor for
+                          `ci_reliable`. Matches `MIN_POSITIVES_FOR_CI`.
+
+    Returns:
+        pd.DataFrame: Long-form table with columns
+                      [`subgroup`, `outcome`, `n`, `n_pos`, `ci_reliable`,
+                       *metrics].
+    """
+    preds = load_predictions(run_dir)
+    outcomes = outcome_names_from(preds)
+    if id_col not in subgroup_frame.columns:
+        raise KeyError(f"{id_col!r} not in subgroup_frame")
+    if subgroup_col not in subgroup_frame.columns:
+        raise KeyError(f"{subgroup_col!r} not in subgroup_frame")
+
+    merged = preds.merge(
+        subgroup_frame[[id_col, subgroup_col]].drop_duplicates(id_col),
+        on=id_col, how="left",
+    )
+    missing = merged[subgroup_col].isna().sum()
+    if missing:
+        warnings.warn(
+            f"{missing} patients missing subgroup value; dropped from analysis"
+        )
+        merged = merged.dropna(subset=[subgroup_col])
+
+    rows = []
+    for value, chunk in merged.groupby(subgroup_col, sort=True):
+        labels = chunk[[f"label_{o}" for o in outcomes]].to_numpy(dtype=float)
+        probs  = chunk[[f"prob_{o}"  for o in outcomes]].to_numpy(dtype=float)
+        table = per_outcome_metrics(labels, probs, outcomes)
+        for _, r in table.iterrows():
+            n_pos = int(r["n_pos"])
+            rows.append({
+                "subgroup": value,
+                "outcome": r["outcome"],
+                "n": int(len(chunk)),
+                "n_pos": n_pos,
+                "ci_reliable": n_pos >= min_positives,
+                **{m: r[m] for m in metrics if m in r},
+            })
+    return pd.DataFrame(rows)
+
+
+# ---------------------------------------------------------------------------
+# Paired-bootstrap Δ for cross-arm significance
+# ---------------------------------------------------------------------------
+
+def paired_bootstrap_delta(
+    run_a: str,
+    run_b: str,
+    metric: str = "auprc",
+    n_resamples: int = 2000,
+    seed: int = 42,
+    average: str = "weighted",
+) -> dict:
+    """
+    Purpose: Test whether arm A beats arm B on a given metric under a
+             paired patient-level bootstrap -- so cross-arm comparisons
+             report a Δ CI and a p-value rather than only overlap-of-CIs.
+    Method:  Both arms are scored on the same test patients. Resample the
+             patient set with replacement `n_resamples` times, compute the
+             metric on each arm on the same resample, and take the
+             difference. Report the Δ mean, 95% CI, and a two-sided p-value
+             derived from the sign of Δ across resamples (fraction crossing
+             zero, doubled).
+
+    Args:
+        run_a, run_b   (str):  Two arm output directories.
+        metric         (str):  One of METRIC_NAMES.
+        n_resamples    (int):  Bootstrap replicates.
+        seed           (int):  RNG seed.
+        average        (str):  "weighted" (support-weighted) or "macro".
+
+    Returns:
+        dict: {'metric_a': float, 'metric_b': float,
+               'delta_mean': float, 'delta_lo': float, 'delta_hi': float,
+               'p_value_two_sided': float, 'n_test': int}.
+    """
+    if metric not in METRIC_NAMES:
+        raise ValueError(f"metric must be one of {METRIC_NAMES}")
+    a = load_predictions(run_a)
+    b = load_predictions(run_b)
+    if len(a) != len(b) or not a["PatientId"].equals(b["PatientId"]):
+        raise ValueError("run_a and run_b were not scored on the same "
+                         "patients in the same order; wiring check failed")
+
+    outcomes = outcome_names_from(a)
+    if outcome_names_from(b) != outcomes:
+        raise ValueError("run_a and run_b have different outcome sets")
+
+    lab = a[[f"label_{o}" for o in outcomes]].to_numpy(dtype=float)
+    pa  = a[[f"prob_{o}"  for o in outcomes]].to_numpy(dtype=float)
+    pb  = b[[f"prob_{o}"  for o in outcomes]].to_numpy(dtype=float)
+
+    rng = np.random.default_rng(seed)
+    n = lab.shape[0]
+    deltas = np.empty(n_resamples, dtype=float)
+
+    def _aggr(labels_sub, probs_sub):
+        per = per_outcome_metrics(labels_sub, probs_sub, outcomes)
+        agg = aggregate(per)
+        row = agg[agg["average"] == average].iloc[0]
+        return float(row[metric])
+
+    metric_a = _aggr(lab, pa)
+    metric_b = _aggr(lab, pb)
+
+    for i in range(n_resamples):
+        idx = rng.integers(0, n, size=n)
+        deltas[i] = _aggr(lab[idx], pa[idx]) - _aggr(lab[idx], pb[idx])
+
+    deltas = deltas[np.isfinite(deltas)]
+    if len(deltas) == 0:
+        return dict(metric_a=metric_a, metric_b=metric_b,
+                    delta_mean=np.nan, delta_lo=np.nan, delta_hi=np.nan,
+                    p_value_two_sided=np.nan, n_test=n)
+
+    # Two-sided empirical p from the resample distribution.
+    p_pos = np.mean(deltas > 0.0)
+    p_val = 2.0 * min(p_pos, 1.0 - p_pos)
+
+    return dict(
+        metric_a=metric_a, metric_b=metric_b,
+        delta_mean=float(deltas.mean()),
+        delta_lo=float(np.quantile(deltas, 0.025)),
+        delta_hi=float(np.quantile(deltas, 0.975)),
+        p_value_two_sided=float(p_val),
+        n_test=int(n),
+    )
+
+
+def benjamini_hochberg(pvalues, alpha: float = 0.05):
+    """
+    Purpose: Adjust a set of p-values with the Benjamini--Hochberg FDR
+             procedure, so per-outcome comparisons across the arm ladder
+             can be controlled at q < alpha.
+    Method:  Standard BH: sort p, threshold at (i/m)*alpha, retain all
+             p_(i) up to the largest one that passes; report adjusted
+             p-values as the step-up transform.
+
+    Args:
+        pvalues (array-like of float): Raw p-values.
+        alpha   (float):               FDR level.
+
+    Returns:
+        dict: {'reject': np.ndarray[bool], 'p_adjusted': np.ndarray[float]}.
+              Order matches the input.
+    """
+    p = np.asarray(pvalues, dtype=float)
+    m = len(p)
+    order = np.argsort(p)
+    ranked = p[order]
+    adjusted = np.minimum.accumulate(
+        ranked[::-1] * m / np.arange(m, 0, -1)
+    )[::-1]
+    adjusted = np.clip(adjusted, 0.0, 1.0)
+    p_adj = np.empty_like(p)
+    p_adj[order] = adjusted
+    reject = p_adj < alpha
+    return {"reject": reject, "p_adjusted": p_adj}
+
+
+# ---------------------------------------------------------------------------
+# Calibration
+# ---------------------------------------------------------------------------
+
+def reliability_data(
+    y_true, y_prob,
+    n_bins: int = 10,
+    strategy: str = "quantile",
+) -> pd.DataFrame:
+    """
+    Purpose: Bin predicted probabilities against observed positive rates,
+             so a reliability diagram can be plotted or a summary ECE
+             computed.
+    Method:  `quantile` bins put roughly equal test patients in each bin
+             (good for skewed prevalence); `uniform` bins split [0, 1]
+             into `n_bins` equal ranges (matches the standard ECE
+             definition). Empty bins are dropped.
+
+    Args:
+        y_true      (array-like of {0, 1}): True labels.
+        y_prob      (array-like of float [0, 1]): Predicted probabilities.
+        n_bins      (int): Number of bins.
+        strategy    (str): 'quantile' or 'uniform'.
+
+    Returns:
+        pd.DataFrame: Row per bin with `bin_low`, `bin_high`, `n`,
+                      `mean_pred`, `mean_obs`.
+    """
+    y_true = np.asarray(y_true, dtype=float)
+    y_prob = np.asarray(y_prob, dtype=float)
+    mask = np.isfinite(y_prob) & np.isfinite(y_true)
+    y_true, y_prob = y_true[mask], y_prob[mask]
+    if len(y_prob) == 0:
+        return pd.DataFrame(columns=["bin_low", "bin_high", "n",
+                                      "mean_pred", "mean_obs"])
+
+    if strategy == "quantile":
+        edges = np.quantile(y_prob, np.linspace(0, 1, n_bins + 1))
+        edges = np.unique(edges)  # collapse ties -- may yield fewer bins
+    elif strategy == "uniform":
+        edges = np.linspace(0.0, 1.0, n_bins + 1)
+    else:
+        raise ValueError("strategy must be 'quantile' or 'uniform'")
+
+    idx = np.clip(np.digitize(y_prob, edges[1:-1]), 0, len(edges) - 2)
+    rows = []
+    for b in range(len(edges) - 1):
+        m = idx == b
+        if not m.any():
+            continue
+        rows.append({
+            "bin_low":   float(edges[b]),
+            "bin_high":  float(edges[b + 1]),
+            "n":         int(m.sum()),
+            "mean_pred": float(y_prob[m].mean()),
+            "mean_obs":  float(y_true[m].mean()),
+        })
+    return pd.DataFrame(rows)
+
+
+def expected_calibration_error(
+    y_true, y_prob,
+    n_bins: int = 15,
+    strategy: str = "uniform",
+) -> float:
+    """
+    Purpose: Summarise reliability with the expected calibration error --
+             the average |predicted - observed| gap across bins, weighted
+             by bin population.
+    Method:  Uses `reliability_data`; defaults to uniform bins to match
+             the ECE convention in the calibration literature.
+
+    Args:
+        y_true, y_prob   (array-like): Labels and predicted probabilities.
+        n_bins           (int): Number of bins.
+        strategy         (str): 'uniform' (standard ECE) or 'quantile'.
+
+    Returns:
+        float: ECE in probability units.
+    """
+    rel = reliability_data(y_true, y_prob, n_bins=n_bins, strategy=strategy)
+    if rel.empty:
+        return float("nan")
+    weights = rel["n"] / rel["n"].sum()
+    return float(np.sum(weights * np.abs(rel["mean_pred"] - rel["mean_obs"])))
+
+
+def fit_temperature(y_true, y_logit_or_prob, is_prob: bool = True,
+                     tol: float = 1e-4, max_iter: int = 100) -> float:
+    """
+    Purpose: Fit a single scalar temperature T that minimises NLL on a
+             held-out set (typically validation), so per-outcome
+             temperature scaling can be applied unchanged to test.
+    Method:  Simple bisection over log(T) on the sigmoid-BCE loss. Robust
+             enough for the modest sizes (~4.7k patients) here without
+             pulling in scipy.
+
+    Args:
+        y_true              (array-like): {0, 1}.
+        y_logit_or_prob     (array-like): Either raw logits or sigmoid
+                            probabilities (see `is_prob`).
+        is_prob             (bool): True if `y_logit_or_prob` is already
+                            in [0, 1]; internally converted back to
+                            logits via logit(p).
+        tol, max_iter       Bisection stopping criteria.
+
+    Returns:
+        float: Optimal temperature. Values > 1 downweight confidence;
+               values < 1 sharpen it.
+    """
+    y_true = np.asarray(y_true, dtype=float)
+    z = np.asarray(y_logit_or_prob, dtype=float)
+    mask = np.isfinite(z) & np.isfinite(y_true)
+    y_true, z = y_true[mask], z[mask]
+    if is_prob:
+        # Clip to avoid inf logits at 0 or 1.
+        z = np.clip(z, 1e-6, 1.0 - 1e-6)
+        z = np.log(z / (1.0 - z))
+
+    def _nll(T):
+        s = z / max(T, 1e-6)
+        # log(1 + exp(-|s|)) + max(-s, 0) -- numerically stable BCE.
+        return float(np.mean(np.logaddexp(0.0, -s * (2.0 * y_true - 1.0))))
+
+    lo, hi = 0.05, 20.0
+    for _ in range(max_iter):
+        mid1 = lo + (hi - lo) / 3.0
+        mid2 = hi - (hi - lo) / 3.0
+        if _nll(mid1) < _nll(mid2):
+            hi = mid2
+        else:
+            lo = mid1
+        if hi - lo < tol:
+            break
+    return 0.5 * (lo + hi)
+
+
+def apply_temperature(y_prob, T: float):
+    """Purpose: Rescale sigmoid probabilities by temperature T."""
+    p = np.clip(np.asarray(y_prob, dtype=float), 1e-6, 1.0 - 1e-6)
+    z = np.log(p / (1.0 - p)) / max(T, 1e-6)
+    return 1.0 / (1.0 + np.exp(-z))
+
