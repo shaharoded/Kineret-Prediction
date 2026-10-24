@@ -104,18 +104,30 @@ def _sample(cohort, raw, visits_path, n, seed):
 def run_stability(cohort, directory, mediator_root, repository_pickle, visits_path,
                   n_people=500, repeats=2, n_resamples=2000, seed=2023):
     mediator_root, repository_pickle = Path(mediator_root), Path(repository_pickle)
-    if not (mediator_root/"core/tak").is_dir() or not repository_pickle.is_file():
-        raise FileNotFoundError("Supply the deployed Mediator checkout and Kineret TAK repository pickle.")
+    if not (mediator_root/"core/tak").is_dir() or not repository_pickle.exists():
+        raise FileNotFoundError("Supply the deployed Mediator checkout and Kineret knowledge-base folder or repository pickle.")
     sys.path.insert(0, str(mediator_root.resolve()))
     from core.tak.repository import set_tak_repository
     from core.mediator import Mediator
-    with repository_pickle.open("rb") as f:
-        repo = pickle.load(f)
+    if repository_pickle.is_dir():
+        from types import SimpleNamespace
+        # Repository parsing needs no database connection or patient processing.
+        builder = Mediator(repository_pickle, data_access=SimpleNamespace(db_path=None))
+        repo = builder.build_repository(silent=True)
+        repository_stamp = {
+            str(p.relative_to(repository_pickle)): _stamp(p)
+            for p in sorted(repository_pickle.rglob("*"))
+            if p.is_file() and p.suffix.lower() in (".xml", ".json", ".xsd")
+        }
+    else:
+        with repository_pickle.open("rb") as f:
+            repo = pickle.load(f)
+        repository_stamp = _stamp(repository_pickle)
     set_tak_repository(repo)
     specs, coverage = repository_scope(repo)
     if not specs: raise ValueError("No eligible direct numeric state/trend definitions.")
     directory = Path(directory); directory.mkdir(parents=True, exist_ok=True)
-    design = dict(cohort=fingerprint(cohort), repository=_stamp(repository_pickle), hours=96,
+    design = dict(cohort=fingerprint(cohort), repository=repository_stamp, hours=96,
                   n_people=n_people, repeats=repeats, conditions=CONDITIONS, seed=seed,
                   inputs=_stamp(paths.RAW_TEMPORAL_FILE), visits=_stamp(visits_path),
                   state_engine=_stamp(mediator_root/"core/tak/state.py"),
