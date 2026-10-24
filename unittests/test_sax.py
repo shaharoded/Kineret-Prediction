@@ -131,3 +131,25 @@ def test_sax_training_and_frozen_multi_k_reuse(cohort, tmp_path, monkeypatch):
     other = predict_arm("intervene_sax", c, checkpoint, k=2, device="cpu")
     assert len(other) >= len(predicted)
     assert hashlib.sha256(checkpoint.read_bytes()).hexdigest() == before
+
+
+def test_missing_kb_measurement_gets_plain_sax_root(tmp_path, monkeypatch):
+    import json
+    from kineret.sax import build_repository
+    from kineret.config import paths
+    base = tmp_path / "base.json"
+    original = {"taks": {"KNOWN": {"name": "KNOWN", "derived_from": None}}}
+    base.write_text(json.dumps(original), encoding="utf-8")
+    monkeypatch.setattr(paths, "TAK_REPO_PATH", str(base))
+    concept = "ALBUMIN_SERUM_MEASURE"
+    raw = frame(1, [1, 2], [3., 4.], concept)
+    stats = fit_statistics(raw, [1])
+    repo_path, known = build_repository(stats, raw, tmp_path)
+    taks = json.loads(Path(repo_path).read_text())["taks"]
+    assert taks[concept]["derived_from"] is None
+    assert taks[concept]["family"] == "raw-concept"
+    for symbol in SYMBOLS:
+        assert taks[f"{concept}_SAX_{symbol}"]["derived_from"] == concept
+        assert f"{concept}_SAX_{symbol}" in known
+    assert json.loads(base.read_text()) == original
+    assert pd.read_csv(tmp_path / "sax_added_raw_roots.csv").ConceptName.tolist() == [concept]

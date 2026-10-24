@@ -100,13 +100,25 @@ def prefix_view(table, k=None):
 def build_repository(stats, raw, directory):
     base = json.loads(Path(paths.TAK_REPO_PATH).read_text(encoding="utf-8"))
     taks = base["taks"]
+    added_roots = []
+    observed = set(raw.ConceptName)
     for concept in stats.index:
         if concept not in taks:
-            raise ValueError(f"SAX numeric concept {concept!r} has no raw hierarchy entry.")
+            if concept not in observed:
+                raise ValueError(f"SAX training concept {concept!r} is absent from raw input.")
+            # Raw measurements need no clinical definition to be symbolized.
+            # Register a plain root, without inventing KB ancestry or thresholds.
+            taks[concept] = dict(name=concept, family="raw-concept", derived_from=None,
+                                 attributes=[], description="Raw input measurement for SAX")
+            added_roots.append(concept)
         for symbol in SYMBOLS:
             name = f"{concept}_SAX_{symbol}"
             taks[name] = dict(name=name, family="state", derived_from=concept, attributes=[],
                               description=f"Population-relative SAX symbol {symbol} of {concept}")
+    pd.DataFrame({"ConceptName": added_roots}).to_csv(
+        Path(directory)/"sax_added_raw_roots.csv", index=False)
+    if added_roots:
+        print(f"[SAX] Registered {len(added_roots)} raw measurement roots missing from the KB hierarchy.")
     target = Path(directory)/"tak_repo_sax.json"
     target.write_text(json.dumps(base), encoding="utf-8")
     return str(target), set(taks)
