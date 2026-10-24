@@ -12,7 +12,7 @@ in the archive.
 
 **Nothing under `data/`, `checkpoints/` or `outputs/` is ever included.** The
 cohort is private and must not leave the environment it lives in; the target
-machine trains from scratch on its own tables. Those directories are recreated
+machine reuses its own checkpoints or explicitly trains missing models. Those directories are recreated
 empty inside the zip so the first run does not trip on a missing path.
 """
 

@@ -344,6 +344,17 @@ def run(context_days=None, use_qa=False, cohort: Cohort = None, raw: pd.DataFram
     with open(os.path.join(run_dir, "run_meta.json"), "w") as f:
         json.dump(meta, f, indent=2)
 
+    # Complete inference artifact; no change to fitting, selection, or predictions.
+    feature_mean = X_train.to_numpy().mean(axis=0, keepdims=True)
+    feature_std = X_train.to_numpy().std(axis=0, keepdims=True)
+    torch.save(dict(state={k: v.detach().cpu() for k, v in model.state_dict().items()},
+                    outcomes=outcomes, keep_vars=keep_vars, medians=medians,
+                    columns=list(X_train.columns), mean=feature_mean,
+                    std=np.where(feature_std > 0, feature_std, 1.),
+                    time_mean=time_mean, time_std=time_std,
+                    los_mean=los_mean, los_std=los_std),
+               os.path.join(run_dir, "model_bundle.pt"))
+
     # Coefficients are the reason to run a linear model at all -- keep them.
     coef = pd.DataFrame(model.risk.weight.detach().cpu().numpy().T,
                         index=X_train.columns, columns=outcomes)

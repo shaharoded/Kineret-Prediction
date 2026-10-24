@@ -48,7 +48,7 @@ Every arm answers the same three questions per complication:
 
 ---
 
-## The seven arms
+## The benchmark arms
 
 | Rung | Arm | Input |
 |---|---|---|
@@ -59,6 +59,7 @@ Every arm answers the same three questions per complication:
 | 5 | INTERVenE-Enc (σ-bins) | knowledge-**free** intervals over the same raw data |
 | 6 | INTERVenE-Enc (KB) | knowledge-**based** Mediator abstractions |
 | 7 | INTERVenE-Enc (KB + QA) | + treatment-quality pattern tokens |
+| 8 | INTERVenE-Enc (SAX) | training-population scaling + four-hour means + seven symbols |
 
 Rungs **5 → 6** isolate the knowledge base; **6 → 7** isolate the
 treatment-quality signal; rungs **2 / 4** ask the same QA question of the models
@@ -131,17 +132,31 @@ pip install -e .
 Drop the four source tables into `data/source/` under their canonical names,
 then open **`notebooks/benchmark.ipynb`** and run it top to bottom.
 
-| Section | What it does |
-|---|---|
-| 1 | Study configuration — every shared decision, in one cell |
-| 2 | Target support; choose the evaluation window from evidence |
-| 3 | Wiring check — all seven arms, one epoch each, minutes |
-| 4 | Train the ladder — all seven arms, one pass |
-| 5–9 | Tables and paper figures, read back from `outputs/` |
+The first configuration cell activates the complete study: primary evaluation,
+paired contrasts, calibration, age/sex/hospital subgroups, K sensitivity, hospital
+LOO, trained embedding UMAP, Mediator stability, and sparse-transcoder XAI.
+The primary window remains 96 hours. New evaluation and future training begin
+on **2022-08-01**, as specified by the thesis and JAMIA methods.
 
-Section 4 skips any arm that already has a `test_predictions.csv`. Delete an
-arm's directory to force a retrain. All three models are PyTorch — the LogReg
-included — so everything trains on the same device.
+Existing checkpoint weights and original patient splits are reused. Predictions
+are filtered to the agreed dates; checkpoint training dates remain historical.
+New outputs go to `outputs/final_recipe_aug2022/`. Frozen thesis artifacts under
+`results/` are preserved. The legacy training recipes are retained; new artifact
+exports make future LogReg and STraTS runs reproducible at inference time.
+
+The notebook's `RUN` switches control cost. SAX is included in the arm list: a missing SAX checkpoint is trained once and then reused. Its recipe is
+global training normalization, four-hour segments, seven symbols and no imputation
+or QA. Primary post-hoc analyses and missing-primary-model training are on; K sensitivity, LOO, UMAP, XAI, and stability are explicit opt-ins. Matching fold checkpoints are reused.
+One fold/model runs at a time. No multi-seed or point-event experiment is added.
+
+Install UMAP support with `pip install -e ".[experiments]"`. Stability also needs
+the deployed Mediator environment and the actual **Kineret** TAK repository
+pickle; configure both paths in the notebook. `visits_master.csv` supplies
+hospital IDs. The only active notebook is `notebooks/benchmark.ipynb`; it runs all selected
+analyses. Notebooks under `results/` are historical records.
+
+See [the experiment recipe](kineret/experiments/README.md) for saved outputs,
+legacy preprocessing recovery, clinical-attribution claims and the fixed SAX recipe.
 
 **No data yet?** `python scripts/make_synthetic_data.py --patients 400 --out
 data/source_synth` generates a synthetic drop that reproduces the raw-vs-Mediator

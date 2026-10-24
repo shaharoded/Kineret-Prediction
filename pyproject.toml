@@ -21,6 +21,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest", "jupyter"]
+experiments = ["umap-learn>=0.5"]
 
 [tool.setuptools.packages.find]
 where = ["."]

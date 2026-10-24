@@ -839,6 +839,10 @@ def reliability_data(
     if strategy == "quantile":
         edges = np.quantile(y_prob, np.linspace(0, 1, n_bins + 1))
         edges = np.unique(edges)  # collapse ties -- may yield fewer bins
+        if len(edges) == 1:
+            return pd.DataFrame([{"bin_low": float(edges[0]), "bin_high": float(edges[0]),
+                                  "n": len(y_prob), "mean_pred": float(y_prob.mean()),
+                                  "mean_obs": float(y_true.mean())}])
     elif strategy == "uniform":
         edges = np.linspace(0.0, 1.0, n_bins + 1)
     else:

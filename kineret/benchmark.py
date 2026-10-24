@@ -43,6 +43,7 @@ ARMS = [
     ("intervene_std",     "intervene_enc_std", False, "INTERVenE-Enc (σ-bins)"),
     ("intervene_kb",      "intervene_enc",     False, "INTERVenE-Enc (KB)"),
     ("intervene_kb_qa",   "intervene_enc",     True,  "INTERVenE-Enc (KB + QA)"),
+    ("intervene_sax",     "intervene_enc_sax", False, "INTERVenE-Enc (SAX)"),
 ]
 
 # arm_key -> (model_key, use_qa) and arm_key -> display label.
@@ -52,13 +53,14 @@ ARM_ORDER = [key for key, *_ in ARMS]
 
 # Which interval source each INTERVenE model key feeds the encoder. The other
 # models read raw measurements and have no abstraction layer at all.
-MODEL_ABSTRACTION = {"intervene_enc": "kb", "intervene_enc_std": "std"}
+MODEL_ABSTRACTION = {"intervene_enc": "kb", "intervene_enc_std": "std", "intervene_enc_sax": "sax"}
 
 # Kept for the run artefacts, which are keyed by the underlying model.
 MODEL_LABELS = {
     "logreg": "LogReg",
     "strats": "ss-STraTS",
     "intervene_enc_std": "INTERVenE-Enc (σ-bins)",
+    "intervene_enc_sax": "INTERVenE-Enc (SAX)",
     "intervene_enc": "INTERVenE-Enc (KB)",
 }
 
@@ -78,6 +80,7 @@ SMOKE_OVERRIDES = {
     },
 }
 SMOKE_OVERRIDES["intervene_enc_std"] = SMOKE_OVERRIDES["intervene_enc"]
+SMOKE_OVERRIDES["intervene_enc_sax"] = SMOKE_OVERRIDES["intervene_enc"]
 
 
 def arm_label(arm_key: str) -> str:

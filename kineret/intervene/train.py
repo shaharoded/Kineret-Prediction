@@ -126,16 +126,22 @@ def _prepare_split(abstract_df, cohort, samples, use_qa, tokenizer, scaler,
     tak_repo_path = tak_repo_path or paths.TAK_REPO_PATH
     patient_ids = samples["PatientId"].drop_duplicates().to_numpy()
     df = abstract_df[abstract_df["PatientId"].isin(set(patient_ids.tolist()))].copy()
+    is_sax = "SAXAvailableHour" in df
+    full_view = df.copy()
+    if is_sax:
+        from kineret.sax import prefix_view
+        full_view = prefix_view(df)
 
     # Phase 1/2 view: full trajectory, one row-group per patient. Its context is
     # taken at the evaluation window so the self-supervised stages condition on
     # the same static vector the supervised stage will use.
     full_ctx = cohort.context_for_k(C.EVAL_CONTEXT_DAYS, use_qa) \
                      .reindex(patient_ids).reset_index()
-    full_proc = DataProcessor(df.copy(), full_ctx, tak_repo_path=tak_repo_path,
+    full_proc = DataProcessor(full_view, full_ctx, tak_repo_path=tak_repo_path,
                               max_input_days=None, scaler=scaler,
                               checkpoint_path=MCFG.CHECKPOINT_PATH)
     full_df, full_ctx_df = full_proc.run()
+    del full_view
 
     trunc_df = trunc_ctx_df = None
     if truncate:
@@ -151,8 +157,11 @@ def _prepare_split(abstract_df, cohort, samples, use_qa, tokenizer, scaler,
             # the sample-id map came back NaN -- thirteen times over the full
             # table, for nothing.
             window_ids = set(group["PatientId"])
+            window_view = df[df["PatientId"].isin(window_ids)].copy()
+            if is_sax:
+                window_view = prefix_view(window_view, int(k))
             proc = DataProcessor(
-                df[df["PatientId"].isin(window_ids)].copy(), ctx,
+                window_view, ctx,
                 tak_repo_path=tak_repo_path,
                 max_input_days=int(k), scaler=fitted,
                 checkpoint_path=MCFG.CHECKPOINT_PATH,
@@ -300,6 +309,8 @@ def run(context_days=None, use_qa=False, cohort: Cohort = None, output_root=None
     if abstraction not in C.ABSTRACTION_SOURCES:
         raise ValueError(f"abstraction must be one of {C.ABSTRACTION_SOURCES}, "
                          f"got {abstraction!r}")
+    if abstraction == "sax" and use_qa:
+        raise ValueError("SAX is a knowledge-free arm without QA.")
 
     # The ported phase functions each resolve their own device as
     # `cuda if available else cpu`, so an explicit `cuda:N` is honoured by
@@ -367,6 +378,10 @@ def run(context_days=None, use_qa=False, cohort: Cohort = None, output_root=None
             abstract, patient_ids=cohort.patients["PatientId"],
             kb_events=True, verbose=True)
         tak_repo_path = paths.TAK_REPO_PATH
+    elif abstraction == "sax":
+        from kineret.sax import ensure_sax_temporal
+        table_path, tak_repo_path = ensure_sax_temporal(cohort, MCFG.CHECKPOINT_PATH)
+        abstract = normalise_temporal(load_table(table_path))
     else:
         from kineret.abstraction import ensure_std_temporal
         table_path, tak_repo_path = ensure_std_temporal(cohort)

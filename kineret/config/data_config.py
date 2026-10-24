@@ -71,7 +71,7 @@ ADD_CONTEXT_LENGTH_FEATURES = True
 # negatives simply because the extract stops — a censoring artefact that looks
 # exactly like a real negative to every model. The count dropped is logged.
 # ---------------------------------------------------------------------------
-DATE_RANGE_START = "2022-07-01"
+DATE_RANGE_START = "2022-08-01"
 DATE_RANGE_END   = "2025-12-31"
 DATE_RANGE_REQUIRE_FULL_HORIZON = True
 
@@ -389,7 +389,7 @@ QA_AGGREGATIONS = ["mean"]          # any of: mean, min, max, last, count, std
 # Seven bins at ±0.5σ, ±1σ, ±2σ. Under a true N(0,1) that gives roughly
 # NORMAL 38 %, each ±0.5–1σ band 15 %, each ±1–2σ band 14 %, each tail 2.3 %.
 # ---------------------------------------------------------------------------
-ABSTRACTION_SOURCES = ["kb", "std"]
+ABSTRACTION_SOURCES = ["kb", "std", "sax"]
 
 STD_BIN_EDGES = [float("-inf"), -2.0, -1.0, -0.5, 0.5, 1.0, 2.0, float("inf")]
 STD_BIN_LABELS = ["VERY_LOW", "LOW", "SLIGHTLY_LOW", "NORMAL",

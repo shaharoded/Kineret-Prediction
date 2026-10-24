@@ -12,7 +12,7 @@ class Dataset:
         filepath = os.path.abspath(
             os.path.join(os.path.dirname(__file__), '..', '..', 'data', 'processed', args.dataset+'.pkl')
         )
-        loaded = pickle.load(open(filepath,'rb'))
+        loaded = pickle.load(open(getattr(args, 'dataset_path', filepath),'rb'))
         if len(loaded)==6:
             data, oc, train_ids, val_ids, test_ids, metadata = loaded
         else:
@@ -152,6 +152,14 @@ class Dataset:
             times[row.ts_ind].append(row.minute)
             varis[row.ts_ind].append(var_to_ind[row.variable])
         self.values, self.times, self.varis = values, times, varis
+        # Artifact export only: preserve exactly the preprocessing used by this run.
+        self.inference_schema = dict(
+            args={k: v for k, v in vars(args).items() if k not in ('logger', 'device')},
+            static_varis=static_varis, static_mean=self._static_mean,
+            static_std=self._static_std, means_stds=means_stds,
+            max_minute=max_minute, var_to_ind=var_to_ind,
+            selected_eval_observations=data.loc[data.ts_id.isin(np.r_[val_ids, test_ids]),
+                                                ['ts_id', 'variable', 'value', 'minute']].copy())
 
     def get_static_varis(self, dataset):
         """Purpose: Static feature names, always supplied by the pickle metadata."""
@@ -177,6 +185,7 @@ class Dataset:
         means = demo[train_ind].mean(axis=0, keepdims=True)
         stds = demo[train_ind].std(axis=0, keepdims=True)
         stds = (stds==0) + (stds>0)*stds
+        self._static_mean, self._static_std = means.copy(), stds.copy()
         demo = (demo-means)/stds
         self.args.logger.write('# static features: '+str(D))
         # to save

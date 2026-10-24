@@ -211,7 +211,11 @@ def run(context_days=None, use_qa=False, output_root=None, device=None,
     args.logger.write(f"\n[ss-STraTS] {vars(args)}")
     set_all_seeds(seed)
 
+    if _ignored.get("dataset_path"):
+        args.dataset_path = str(_ignored["dataset_path"])
     dataset = Dataset(args)
+    import joblib
+    joblib.dump(dataset.inference_schema, os.path.join(run_dir, "inference_schema.pkl"))
     model = Strats(args).to(args.device)
     count_parameters(args.logger, model)
 
