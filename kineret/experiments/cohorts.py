@@ -60,8 +60,12 @@ def date_subset(cohort, start=START, end=END):
 
 def hospital_series(cohort, visits_path):
     from kineret.loo import load_visits_master
-    visits = load_visits_master(visits_path).set_index("VisitId").hospital
-    result = visits.reindex(cohort.patients.PatientId)
+    master = load_visits_master(visits_path)
+    conflicts = master.attrs.get("conflicting_visit_ids", [])
+    visits = master.set_index("VisitId").hospital
+    eligible = cohort.patients.loc[~cohort.patients.PatientId.isin(conflicts), "PatientId"]
+    result = visits.reindex(eligible)
+    result.attrs["conflicting_visit_ids"] = conflicts
     if result.isna().any():
         raise ValueError(f"Hospital missing for {result.isna().sum()} admissions; resolve before LOO.")
     return result

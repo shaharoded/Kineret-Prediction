@@ -259,3 +259,22 @@ def test_encoder_checkpoint_and_named_xai(adapter_cohort, tmp_path, monkeypatch,
     assert not attribution.empty
     assert (pd.read_csv(tmp_path/"xai/forward_invariance.csv").max_logit_difference <= 1e-6).all()
     assert hashlib.sha256(checkpoint.read_bytes()).hexdigest() == before
+
+
+def test_hospital_conflicts_excluded_from_both_sides_of_loo(repeated_cohort, tmp_path):
+    from kineret.loo import load_visits_master
+    from kineret.experiments.cohorts import hospital_series
+    visits = tmp_path / "conflicts.csv"
+    rows = pd.DataFrame(dict(visit_id=range(20), hospital=["A"]*17+["B"]*3))
+    rows = pd.concat([rows, pd.DataFrame(dict(visit_id=[0, 1], hospital=["B", "A"]))])
+    rows.to_csv(visits, index=False)
+    master = load_visits_master(visits)
+    assert 0 not in set(master.VisitId)
+    assert master.attrs["conflicting_visit_ids"] == [0]
+    assert master.VisitId.tolist().count(1) == 1
+    sites = hospital_series(repeated_cohort, visits)
+    assert 0 not in sites.index
+    fold = site_split(repeated_cohort, "B", visits)
+    assert 0 not in set(fold.patients.PatientId)
+    assert set(fold.patients.loc[fold.patients.split == "test", "PatientId"]) == {17, 18, 19}
+    validate_split(fold)

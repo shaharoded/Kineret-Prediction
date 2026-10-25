@@ -280,6 +280,9 @@ def run_holdout(cohort, directory, arms, device=None, n_resamples=2000):
 def hospital_loo(cohort, directory, visits_path, arms=("strats", "intervene_kb", "intervene_kb_qa"),
                  hospitals=None, **kwargs):
     sites = hospital_series(cohort, visits_path)
+    Path(directory).mkdir(parents=True, exist_ok=True)
+    pd.DataFrame({"PatientId": sites.attrs.get("conflicting_visit_ids", [])}).to_csv(
+        Path(directory)/"excluded_hospital_conflicts.csv", index=False)
     tables = []
     for site in (hospitals if hospitals is not None else sorted(sites.unique())):
         folded = site_split(cohort, site, visits_path)

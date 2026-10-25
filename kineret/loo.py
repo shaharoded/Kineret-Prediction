@@ -26,8 +26,8 @@ def load_visits_master(path: Optional[str] = None) -> pd.DataFrame:
 
     Method:  Locate the file via `paths.VISITS_MASTER_FILE` unless overridden.
              Standardize the visit-id column to `VisitId`, keep only that and
-             `hospital`, and reduce to one row per VisitId (last by insertion
-             order, matching the mediator notebook's dedup).
+             `hospital`, exclude admissions with conflicting hospital assignments, then reduce
+             identical assignments to one row per VisitId.
 
     Args:
         path (str|None): Override for the source path.
@@ -66,15 +66,17 @@ def load_visits_master(path: Optional[str] = None) -> pd.DataFrame:
 
     assignments = df[[id_col, hosp_col]].dropna().drop_duplicates()
     conflicts = assignments.groupby(id_col)[hosp_col].nunique()
-    if (conflicts > 1).any():
-        raise ValueError("Admissions have conflicting hospital assignments in visits_master.")
+    excluded_ids = conflicts.index[conflicts > 1].tolist()
+    if excluded_ids:
+        print(f"[hospital] Excluding {len(excluded_ids)} admissions with conflicting hospital assignments.")
     out = (
-        df[[id_col, hosp_col]]
+        df.loc[~df[id_col].isin(excluded_ids), [id_col, hosp_col]]
         .rename(columns={id_col: "VisitId", hosp_col: "hospital"})
         .dropna(subset=["VisitId", "hospital"])
         .drop_duplicates(subset=["VisitId"], keep="last")
         .reset_index(drop=True)
     )
+    out.attrs["conflicting_visit_ids"] = excluded_ids
     return out
 
 

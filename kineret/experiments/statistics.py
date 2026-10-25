@@ -149,7 +149,7 @@ def subgroups(frame, demographics, n_resamples=2000, seed=2023):
     for column in ("age_band", "sex", "hospital"):
         if column not in joined:
             continue
-        for group, chunk in joined.groupby(column, observed=True, dropna=False):
+        for group, chunk in joined.groupby(column, observed=True, dropna=(column == "hospital")):
             table = score_predictions(chunk, n_resamples, seed)
             table["subgroup_type"], table["subgroup"] = column, str(group)
             tables.append(table)

@@ -80,6 +80,9 @@ def _sample(cohort, raw, visits_path, n, seed):
     frame["PersonId"] = people(cohort, frame.PatientId)
     frame = frame.sample(frac=1, random_state=seed).drop_duplicates("PersonId")
     frame["hospital"] = frame.PatientId.map(hospital_series(cohort, visits_path))
+    frame = frame.dropna(subset=["hospital"]).copy()
+    if frame.empty:
+        raise ValueError("No test admissions with unambiguous hospital assignments.")
     frame["count"] = frame.PatientId.map(raw.groupby("PatientId").size()).fillna(0)
     frame["density"] = pd.qcut(frame["count"].rank(method="first"), 4, labels=False, duplicates="drop")
     frame["stratum"] = frame.hospital.astype(str)+":"+frame.density.astype(str)
