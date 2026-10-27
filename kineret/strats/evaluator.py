@@ -1,4 +1,4 @@
-from tqdm import tqdm
+from tqdm.auto import tqdm
 import torch
 from sklearn.metrics import average_precision_score, f1_score, roc_auc_score, precision_recall_curve
 import numpy as np
@@ -149,7 +149,7 @@ class Evaluator:
         model.eval()
 
         pbar = tqdm(range(0,num_samples,self.args.eval_batch_size),
-                    desc='running forward pass')
+                    desc='Validation/inference', leave=False, mininterval=5.0)
         true, pred = [], []
         for start in pbar:
             batch_ind = eval_ind[start:min(num_samples,

@@ -25,7 +25,7 @@ import os
 
 import numpy as np
 import torch
-from tqdm import tqdm
+from tqdm.auto import tqdm
 
 from kineret.config import data_config as C
 from kineret.config import paths
@@ -131,8 +131,11 @@ def _train_loop(args, dataset, model, evaluator, model_path_best):
     wait, best_val_metric, best_val_res = args.patience, -np.inf, None
 
     model.train()
-    for step in tqdm(range(args.max_steps), desc="ss-STraTS",
-                      leave=False, dynamic_ncols=True, mininterval=1.0):
+    progress = tqdm(range(args.max_steps), desc="ss-STraTS",
+                    leave=False, dynamic_ncols=True, mininterval=5.0)
+    for step in progress:
+        epoch = step // args.validate_every + 1
+        progress.set_description(f"ss-STraTS epoch {epoch}/{args.max_epochs} | batch {step % args.validate_every + 1}/{args.validate_every}", refresh=False)
         batch = {k: v.to(args.device) for k, v in dataset.get_batch().items()}
         loss = model(**batch)
 

@@ -230,7 +230,10 @@ def prepare_sigma(cohort, directory):
     stats.to_csv(directory/"sigma_training_statistics.csv")
 
 
-def run_holdout(cohort, directory, arms, device=None, n_resamples=2000):
+def run_holdout(cohort, directory, arms, device=None, n_resamples=2000,
+                compact_output=False, progress_label="Holdout"):
+    from .progress import compact_training
+    from contextlib import nullcontext
     """Train missing fold models only. Matching completed checkpoints go straight to inference."""
     from kineret.benchmark import run_one
     directory = Path(directory); directory.mkdir(parents=True, exist_ok=True)
@@ -241,39 +244,58 @@ def run_holdout(cohort, directory, arms, device=None, n_resamples=2000):
                                ("RAW_TEMPORAL_FILE", "ABSTRACT_FILE", "CONTEXT_FILE", "QA_FILE", "TAK_REPO_PATH")},
                 train_windows=list(C.TRAIN_CONTEXT_DAYS), seed=C.SEED)
     manifest = directory/"training_design.json"
-    if manifest.exists() and json.loads(manifest.read_text()) != spec:
-        raise ValueError("Fold design changed. Choose a new experiment directory; existing checkpoints are preserved.")
-    write_json(manifest, spec); export_split(cohort, directory)
+    if manifest.exists():
+        previous = json.loads(manifest.read_text())
+        # Selecting fewer models does not change any model's training design.
+        previous_design = {k: v for k, v in previous.items() if k != "arms"}
+        requested_design = {k: v for k, v in spec.items() if k != "arms"}
+        if previous_design != requested_design or not set(arms).issubset(previous["arms"]):
+            raise ValueError("Fold design changed. Choose a new experiment directory; existing checkpoints are preserved.")
+    else:
+        write_json(manifest, spec)
+    write_json(directory/"requested_arms.json", list(arms))
+    export_split(cohort, directory)
     support = support_table(cohort, 4)
     support.to_csv(directory/"support_before_training.csv", index=False)
     print(support.to_string(index=False))
     if (support.n_admissions == 0).any():
         raise ValueError("A fold has no eligible admissions at the 96-hour window; inspect support_before_training.csv.")
     with evaluation_window(4), isolated_processing(processed):
-        for arm in arms:
+        for model_index, arm in enumerate(arms, 1):
+            print(f"{progress_label} | model {model_index}/{len(arms)}: {arm}", flush=True)
             ckpt = checkpoint_for(arm, str(outputs), str(checkpoints))
             if ckpt.exists():
                 print(f"[reuse] {arm}: {ckpt}")
                 continue
-            if arm == "intervene_std":
-                prepare_sigma(cohort, processed)
-            if ARM_SPEC[arm][0] == "strats":
-                from kineret.strats.preprocess import build_pickle
-                from kineret.strats.train import run
-                data_path = build_pickle(cohort, ARM_SPEC[arm][1])
-                run(use_qa=ARM_SPEC[arm][1], output_root=str(outputs), device=device,
-                    dataset_path=data_path, bootstrap_resamples=0)
-            else:
-                run_one(arm, cohort=cohort, output_root=str(outputs), checkpoint_root=str(checkpoints),
-                        bootstrap_resamples=0, device=device)
+            log_path = directory / "logs" / f"{arm}.log"
+            if compact_output:
+                print(f"Full model log: {log_path}", flush=True)
+            context = compact_training(
+                f"{progress_label} | model {model_index}/{len(arms)}: {arm}", log_path
+            ) if compact_output else nullcontext()
+            with context:
+                if arm == "intervene_std":
+                    prepare_sigma(cohort, processed)
+                if ARM_SPEC[arm][0] == "strats":
+                    from kineret.strats.preprocess import build_pickle
+                    from kineret.strats.train import run
+                    data_path = build_pickle(cohort, ARM_SPEC[arm][1])
+                    run(use_qa=ARM_SPEC[arm][1], output_root=str(outputs), device=device,
+                        dataset_path=data_path, bootstrap_resamples=0)
+                else:
+                    run_one(arm, cohort=cohort, output_root=str(outputs), checkpoint_root=str(checkpoints),
+                            bootstrap_resamples=0, device=device)
             gc.collect()
-        result = evaluate(cohort, directory/"evaluation", arms, source_outputs=str(outputs),
-                          checkpoint_root=str(checkpoints), device=device, n_resamples=n_resamples,
-                          std_table=str(processed/"std_temporal_data.csv"), std_repo=str(processed/"tak_repo_std.json"))
-        require_predictions(result[0], arms)
-        analyze(result[0], directory/"evaluation", n_resamples=n_resamples)
-        from .figures import export_figures
-        export_figures(directory/"evaluation")
+        print(f"{progress_label} | evaluating all selected models and exporting analyses", flush=True)
+        context = compact_training(f"{progress_label} | evaluation/export", directory/"logs/evaluation.log") if compact_output else nullcontext()
+        with context:
+            result = evaluate(cohort, directory/"evaluation", arms, source_outputs=str(outputs),
+                              checkpoint_root=str(checkpoints), device=device, n_resamples=n_resamples,
+                              std_table=str(processed/"std_temporal_data.csv"), std_repo=str(processed/"tak_repo_std.json"))
+            require_predictions(result[0], arms)
+            analyze(result[0], directory/"evaluation", n_resamples=n_resamples)
+            from .figures import export_figures
+            export_figures(directory/"evaluation")
     return result
 
 
@@ -284,10 +306,16 @@ def hospital_loo(cohort, directory, visits_path, arms=("strats", "intervene_kb",
     pd.DataFrame({"PatientId": sites.attrs.get("conflicting_visit_ids", [])}).to_csv(
         Path(directory)/"excluded_hospital_conflicts.csv", index=False)
     tables = []
-    for site in (hospitals if hospitals is not None else sorted(sites.unique())):
+    selected_sites = list(hospitals) if hospitals is not None else sorted(sites.unique())
+    print(f"[LOO] {len(selected_sites)} folds x {len(arms)} models = {len(selected_sites)*len(arms)} fits maximum; saved checkpoints reused.", flush=True)
+    for fold_index, site in enumerate(selected_sites, 1):
+        label = f"[LOO fold {fold_index}/{len(selected_sites)} | hospital {site}]"
+        print(label, flush=True)
         folded = site_split(cohort, site, visits_path)
         tag = hashlib.sha256(str(site).encode()).hexdigest()[:12]
-        _, table, _ = run_holdout(folded, Path(directory)/tag, arms, **kwargs)
+        _, table, _ = run_holdout(folded, Path(directory)/tag, arms,
+                                  compact_output=True, progress_label=label, **kwargs)
+        print(f"{label} complete", flush=True)
         tables.append(table.assign(hospital=site))
     result = pd.concat(tables, ignore_index=True)
     result.to_csv(Path(directory)/"site_metrics.csv", index=False)

@@ -278,3 +278,30 @@ def test_hospital_conflicts_excluded_from_both_sides_of_loo(repeated_cohort, tmp
     assert 0 not in set(fold.patients.PatientId)
     assert set(fold.patients.loc[fold.patients.split == "test", "PatientId"]) == {17, 18, 19}
     validate_split(fold)
+
+
+def test_compact_training_captures_noise_and_restores_hooks_on_interrupt(tmp_path, capsys):
+    import sys
+    from kineret.experiments.progress import compact_training
+    from kineret.strats import train
+    from kineret.intervene import transformer, utils
+    original_tqdm, original_stdout = train.tqdm, sys.stdout
+    original_tee = utils._active_tee
+    quiet_before = transformer._QUIET_EPOCHS
+    log = tmp_path / "model.log"
+    with pytest.raises(KeyboardInterrupt):
+        with compact_training("fold 2/6 | KB", log, interval=0):
+            print("VERBOSE MODEL OUTPUT")
+            for _ in train.tqdm(range(3), desc="Training"):
+                pass
+            assert transformer._QUIET_EPOCHS
+            utils._ensure_tee_active()
+            raise KeyboardInterrupt
+    assert train.tqdm is original_tqdm
+    assert sys.stdout is original_stdout
+    assert utils._active_tee is original_tee
+    assert transformer._QUIET_EPOCHS == quiet_before
+    assert "VERBOSE MODEL OUTPUT" in log.read_text()
+    output = capsys.readouterr().out
+    assert "VERBOSE MODEL OUTPUT" not in output
+    assert "fold 2/6" in output and "interrupted or failed" in output

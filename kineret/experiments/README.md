@@ -118,3 +118,16 @@ SAX inherits the sigma arm's knowledge-free event access, receives static contex
 and uses the same prediction heads and training schedule. The original LR/STraTS
 QA controls remain in the established benchmark; no SAX+QA arm is introduced.
 Multi-seed and point-event ablations remain outside scope.
+
+## LOO progress
+
+`LOO_ARMS` and `LOO_HOSPITALS` in the setup cell select the models and sites.
+The default is KB only. Each selected model requires one fit per selected site;
+completed checkpoints are reused. A narrower arm selection can reuse an existing
+fold design; expanding it requires a new experiment directory.
+
+LOO reports fold number, hospital and model before each fit. A compact live
+status displays phase/epoch and batch progress, refreshed at most every five
+seconds. Verbose stdout/stderr goes to `loo/<fold>/logs/<arm>.log`; evaluation
+output goes to `logs/evaluation.log`. Completion/interruption is shown explicitly.
+Epoch/phase ETA is local to that progress bar, not a total-study ETA.
