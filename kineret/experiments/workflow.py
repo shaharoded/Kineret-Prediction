@@ -230,6 +230,14 @@ def prepare_sigma(cohort, directory):
     stats.to_csv(directory/"sigma_training_statistics.csv")
 
 
+def release_training_memory():
+    """Collect released models/loaders, then return unused CUDA cache blocks."""
+    gc.collect()
+    import torch
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+
+
 def run_holdout(cohort, directory, arms, device=None, n_resamples=2000,
                 compact_output=False, progress_label="Holdout"):
     from .progress import compact_training
@@ -264,9 +272,14 @@ def run_holdout(cohort, directory, arms, device=None, n_resamples=2000,
         for model_index, arm in enumerate(arms, 1):
             print(f"{progress_label} | model {model_index}/{len(arms)}: {arm}", flush=True)
             ckpt = checkpoint_for(arm, str(outputs), str(checkpoints))
-            if ckpt.exists():
-                print(f"[reuse] {arm}: {ckpt}")
+            model_outputs = Path(run_dir_for(arm, str(outputs)))
+            completed = (model_outputs/"run_meta.json").is_file() and (model_outputs/"test_predictions.csv").is_file()
+            if ckpt.exists() and completed:
+                print(f"[reuse completed] {arm}: {ckpt}")
                 continue
+            if ckpt.exists():
+                print(f"[incomplete] {arm}: best weights exist but run did not finish; entering trainer resume path.")
+            release_training_memory()
             log_path = directory / "logs" / f"{arm}.log"
             if compact_output:
                 print(f"Full model log: {log_path}", flush=True)
@@ -285,7 +298,7 @@ def run_holdout(cohort, directory, arms, device=None, n_resamples=2000,
                 else:
                     run_one(arm, cohort=cohort, output_root=str(outputs), checkpoint_root=str(checkpoints),
                             bootstrap_resamples=0, device=device)
-            gc.collect()
+            release_training_memory()
         print(f"{progress_label} | evaluating all selected models and exporting analyses", flush=True)
         context = compact_training(f"{progress_label} | evaluation/export", directory/"logs/evaluation.log") if compact_output else nullcontext()
         with context:
@@ -317,6 +330,8 @@ def hospital_loo(cohort, directory, visits_path, arms=("strats", "intervene_kb",
                                   compact_output=True, progress_label=label, **kwargs)
         print(f"{label} complete", flush=True)
         tables.append(table.assign(hospital=site))
+        del folded
+        release_training_memory()
     result = pd.concat(tables, ignore_index=True)
     result.to_csv(Path(directory)/"site_metrics.csv", index=False)
     return result
