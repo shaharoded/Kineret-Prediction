@@ -73,25 +73,111 @@ def embedding_geometry(model, directory, seed=19):
             distances[group].append(float(1-unit[i] @ unit[j]))
     pd.DataFrame([dict(relation=k, n_pairs=len(v), median=np.median(v) if v else np.nan)
                   for k, v in distances.items()]).to_csv(directory/"cosine_distances.csv", index=False)
-    fig, ax = plt.subplots(figsize=(9, 6))
-    for _, pair in frame.groupby("value"):
-        if set(pair.boundary) == {"START", "END"}:
-            ax.plot(pair.x, pair.y, color="gray", alpha=.15, lw=.5, zorder=0)
-    group = np.select([frame.concept.str.contains("GLUCOSE"), frame.concept.str.contains("CREATININE"),
-                       frame.concept.str.contains("PATTERN")], ["glucose", "creatinine", "QA patterns"], default="other")
-    for label in np.unique(group):
-        for boundary, marker in (("START", "o"), ("END", "^")):
-            m = (group == label) & (frame.boundary == boundary)
-            ax.scatter(frame.loc[m, "x"], frame.loc[m, "y"], s=15, marker=marker,
-                       alpha=.35 if label == "other" else .85, label=f"{label} {boundary}")
-    labeled = frame[(frame.boundary == "START") &
-                    frame.concept.str.contains("GLUCOSE|CREATININE")].head(24)
-    for row in labeled.itertuples():
-        ax.annotate(row.value, (row.x, row.y), fontsize=5, xytext=(2, 2), textcoords="offset points")
-    ax.legend(fontsize=7); ax.set_title("Trained input embeddings · timestamp held fixed")
-    fig.tight_layout(); fig.savefig(directory/"embedding_umap.png", dpi=180)
-    fig.savefig(directory/"embedding_umap.pdf"); plt.close(fig)
+    plot_embedding_geometry(frame, directory)
     return frame
+
+
+def plot_embedding_geometry(frame, directory, zoom_pattern="GLUCOSE", max_labels=12):
+    """Replot saved coordinates; zooms retain the full projection's coordinates.
+
+    Labels are placed in separate rows beside each detail panel, with leader
+    lines to START tokens. Increase figure height when requesting more labels.
+    """
+    import matplotlib.pyplot as plt
+    import textwrap
+
+    if max_labels < 1:
+        raise ValueError("max_labels must be positive")
+    directory = Path(directory)
+    directory.mkdir(parents=True, exist_ok=True)
+    frame = frame.reset_index(drop=True).copy()
+    selected = frame.concept.str.contains(zoom_pattern, case=False, na=False, regex=True)
+    groups = np.select([
+        frame.concept.str.contains("GLUCOSE", case=False, na=False),
+        frame.concept.str.contains("CREATININE", case=False, na=False),
+        frame.concept.str.contains("PATTERN", case=False, na=False),
+    ], ["glucose", "creatinine", "QA patterns"], default="other")
+    # Match the original plot's sorted groups and START/END color cycle.
+    palette = plt.rcParams["axes.prop_cycle"].by_key()["color"]
+    colors = {(label, boundary): palette[(2*i+j) % len(palette)]
+              for i, label in enumerate(np.unique(groups))
+              for j, boundary in enumerate(("START", "END"))}
+
+    def scatter(ax, data):
+        for _, pair in data.groupby("value"):
+            if set(pair.boundary) == {"START", "END"}:
+                ax.plot(pair.x, pair.y, color="gray", alpha=.15, lw=.5, zorder=0)
+        for label in np.unique(groups):
+            for boundary, marker in (("START", "o"), ("END", "^")):
+                mask = (groups[data.index] == label) & (data.boundary == boundary)
+                points = data.loc[mask]
+                if not points.empty:
+                    ax.scatter(points.x, points.y, s=18, marker=marker, color=colors[label, boundary],
+                               alpha=.35 if label == "other" else .85,
+                               label=f"{label} {boundary}", rasterized=True)
+        ax.set(xlabel="UMAP 1", ylabel="UMAP 2")
+        ax.spines[["top", "right"]].set_visible(False)
+
+    detail = frame.loc[selected]
+    if detail.empty:
+        raise ValueError(f"No concepts match zoom_pattern={zoom_pattern!r}")
+    labels = detail[detail.boundary == "START"].sort_values(["y", "value"])
+    if len(labels) > max_labels:
+        labels = labels.iloc[np.linspace(0, len(labels)-1, max_labels, dtype=int)]
+    fig, (overview, zoom) = plt.subplots(1, 2, figsize=(16, max(6, .55*len(labels))))
+    fig.subplots_adjust(left=.06, right=.76, bottom=.19, top=.9, wspace=.3)
+    scatter(overview, frame)
+    scatter(zoom, detail)
+    zoom.margins(.18)
+    overview.set_title("A  All trained input embeddings", loc="left", fontsize=11)
+    zoom.set_title(f"B  Detail: {zoom_pattern}", loc="left", fontsize=11)
+    # The rectangle marks the detail limits in the original projection.
+    from matplotlib.patches import Rectangle
+    xmin, xmax = zoom.get_xlim()
+    ymin, ymax = zoom.get_ylim()
+    overview.add_patch(Rectangle((xmin, ymin), xmax-xmin, ymax-ymin,
+                                fill=False, edgecolor=".35", linestyle="--", lw=.8))
+    for slot, row in enumerate(labels.itertuples()):
+        zoom.annotate(textwrap.fill(str(row.value), width=36),
+                      xy=(row.x, row.y), xycoords="data",
+                      xytext=(1.07, (slot+.5)/len(labels)), textcoords="axes fraction",
+                      fontsize=8, ha="left", va="center", annotation_clip=False,
+                      arrowprops=dict(arrowstyle="-", color=".55", lw=.6),
+                      bbox=dict(facecolor="white", edgecolor="none", pad=1))
+    handles, names = overview.get_legend_handles_labels()
+    fig.legend(handles, names, loc="lower center", bbox_to_anchor=(.44, .01),
+               ncol=4, fontsize=8, frameon=False)
+    for extension in ("png", "pdf"):
+        fig.savefig(directory / f"embedding_umap.{extension}", dpi=300, bbox_inches="tight")
+    plt.close(fig)
+
+    manifest = []
+    for index, (concept, detail) in enumerate(frame.loc[selected].groupby("concept", sort=True), 1):
+        labels = detail[detail.boundary == "START"].sort_values(["y", "value"])
+        # Evenly sample the vertical extent instead of taking the first tokens.
+        if len(labels) > max_labels:
+            labels = labels.iloc[np.linspace(0, len(labels)-1, max_labels, dtype=int)]
+        height = max(5, .55 * len(labels))
+        fig, ax = plt.subplots(figsize=(12, height))
+        fig.subplots_adjust(left=.08, right=.55, top=.9, bottom=.12)
+        scatter(ax, detail)
+        ax.margins(.18)
+        ax.set_title(concept, fontsize=10, wrap=True)
+        for slot, row in enumerate(labels.itertuples()):
+            y = (slot + .5) / len(labels)
+            ax.annotate(textwrap.fill(str(row.value), width=48),
+                        xy=(row.x, row.y), xycoords="data",
+                        xytext=(1.08, y), textcoords="axes fraction",
+                        fontsize=8, ha="left", va="center", annotation_clip=False,
+                        arrowprops=dict(arrowstyle="-", color=".55", lw=.6),
+                        bbox=dict(facecolor="white", edgecolor="none", pad=1))
+        filename = f"embedding_umap_detail_{index:02d}"
+        for extension in ("png", "pdf"):
+            fig.savefig(directory / f"{filename}.{extension}", dpi=300, bbox_inches="tight")
+        plt.close(fig)
+        manifest.append(dict(file=filename, concept=concept, n_tokens=len(detail),
+                             labeled_values=labels.value.tolist()))
+    write_json(directory / "embedding_umap_details.json", manifest)
 
 
 def _sample(cohort, split, n, seed):
@@ -138,7 +224,7 @@ def sparse_xai(arm, cohort, checkpoint, directory, device=None, n_fit=300, n_val
                n_explain=300, tokens_per_admission=256, n_epochs=20, expansion=16, seed=2023):
     """Fit on training people, validate reconstruction on validation people, explain test people.
 
-    Scores are local gradient×activation sensitivities through sparse features.
+    Scores are local gradientÃ—activation sensitivities through sparse features.
     Named tokens provide the clinical vocabulary, not a causal explanation.
     """
     from kineret.intervene.dataset import collate_emr
@@ -272,6 +358,6 @@ def _plot_attributions(summary, directory):
         ax.set_title(outcome, fontsize=9); ax.tick_params(axis="y", labelsize=6)
         ax.axvline(0, color="black", lw=.5)
     for ax in list(axes.flat)[len(outcomes):]: ax.axis("off")
-    fig.suptitle("Named-concept local sensitivity · sparse-transcoder attribution")
+    fig.suptitle("Named-concept local sensitivity Â· sparse-transcoder attribution")
     fig.tight_layout(); fig.savefig(Path(directory)/"named_concept_attribution.png", dpi=180)
     fig.savefig(Path(directory)/"named_concept_attribution.pdf"); plt.close(fig)
