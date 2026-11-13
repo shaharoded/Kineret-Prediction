@@ -1,0 +1,20 @@
+{
+  "purpose": "Local source consulted for manuscript preparation; not a verified execution manifest",
+  "date": "2026-11-12",
+  "git_head": "3ead4dda93d8d945be5976f64f58e971656777a4",
+  "files": {
+    "notebooks/benchmark.ipynb": "1aac3b8857bfd136c641b0cef18b5d26ccac2b684c679244a64b53d453afcb41",
+    "kineret/config/final_recipe.json": "b584b2c6e50820e8e57c37dc780bd4bbebe9836359cbd51ecf118bce86ae75b7",
+    "kineret/multi_k.py": "c54c3fe98588f0af9e58e08aedd90c6b37671559e86df3e712f7263b574dc341",
+    "kineret/experiments/cohorts.py": "62cec28d4819f7f6fffd5099e8e1f884c95776a7b0eb848211bf6410982baca1",
+    "kineret/experiments/figures.py": "9342846e7fe7d4186c4526af410e3c0f8e922228d1dbec47b0479e8f8b2e5464",
+    "kineret/experiments/inference.py": "3546a6cf5a2b869322cd7c4a673583bce4d2866a576982b918f749a7983a345d",
+    "kineret/experiments/interpretability.py": "b7624b89ea23781778e1fb55603d6386a2dcee7eb32ac09ca16e3c83fbb7a75f",
+    "kineret/experiments/io.py": "371f434a9ba943da8c886a4edae9e4fe4472bbab6e95094452f3aec424926cd3",
+    "kineret/experiments/progress.py": "ca5a9a8b8b964d5213ba0d9466e47d08259d8fd1c47eb50994a3aebbb3e3aaf3",
+    "kineret/experiments/stability.py": "8bed7e7ea0b1749a38e40896f43508e09c5ad4056b904c2eab35016915835a53",
+    "kineret/experiments/statistics.py": "b94fc59bcac43efc084de3ac08cc89346146981d8bb67d43b7685a8f8e63e30d",
+    "kineret/experiments/workflow.py": "9af7fd42104decde18f99737b6c613d09ef0851d133fc35ad27d519b5fb23918",
+    "kineret/experiments/__init__.py": "a7fc33d5f042fbe663f0a3f621dfc637c87d4cb30687c45cd458d1a55a9d328b"
+  }
+}

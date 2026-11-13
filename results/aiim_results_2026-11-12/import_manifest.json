@@ -1,0 +1,411 @@
+{
+  "source_archive": "for_export_2.zip / aiim_results.zip",
+  "import_date": "2026-11-12",
+  "excluded": ".ipynb_checkpoints",
+  "files": [
+    {
+      "file": "export_inventory.csv",
+      "sha256": "0c9d623cdfc35dbf45343610fcda472ad0564c68698a46ce12c7db6557408e1f"
+    },
+    {
+      "file": "README.txt",
+      "sha256": "5642223faf84655977439f38bcb74f3945249c302dbcf21d626bf8e28ee3fb4b"
+    },
+    {
+      "file": "embedding_geometry/cosine_distances.csv",
+      "sha256": "d498671cd5407563c9aa9c5671830c02a4f9ad2babb97a2ec5c7b6fef7045f57"
+    },
+    {
+      "file": "embedding_geometry/embedding_umap.pdf",
+      "sha256": "a1317a967aa65ccd9e46a5878ffe95214d0daaee48db5c0271a2de258d9d2ed8"
+    },
+    {
+      "file": "embedding_geometry/embedding_umap.png",
+      "sha256": "57d304b56b7312474334e6ff8b8c4cd4a71d2ba846338a65a4d1e74d9323cf46"
+    },
+    {
+      "file": "embedding_geometry/embedding_umap_detail_01.pdf",
+      "sha256": "5b36c91e0f8d9fb19e3c49f453d5e3fd90c83f16b33b7bbbc0ca73e415240b88"
+    },
+    {
+      "file": "embedding_geometry/embedding_umap_detail_01.png",
+      "sha256": "91fc8494a1c85a41491bc01bb513fc4a062a0b8de92e3fa2223b18ceb83be1f6"
+    },
+    {
+      "file": "embedding_geometry/embedding_umap_detail_02.pdf",
+      "sha256": "906bb1aebb6978547c67f5daec9e0aa5b6696d8624ad654546681de89336e218"
+    },
+    {
+      "file": "embedding_geometry/embedding_umap_detail_02.png",
+      "sha256": "406971264a4df5de84520a3a66848955a148f3c24d4881f2553610d10ef3a8c3"
+    },
+    {
+      "file": "embedding_geometry/embedding_umap_detail_03.pdf",
+      "sha256": "cfe66271255be00b2ca1fecf53022ad9a83423dbe47bab0bf3f8938afdbbc2bf"
+    },
+    {
+      "file": "embedding_geometry/embedding_umap_detail_03.png",
+      "sha256": "b012338326f2238dfd1dc77297d99869c23d082b8021a01c586b659f8b4f7d6e"
+    },
+    {
+      "file": "embedding_geometry/embedding_umap_detail_04.pdf",
+      "sha256": "ed126f48490a41ef47666bd29fafe09813b5e884c243aca702470eb307de2c21"
+    },
+    {
+      "file": "embedding_geometry/embedding_umap_detail_04.png",
+      "sha256": "a12787793d3a1ed22d1cb7aa911a00645bb627145a4400b13200eff1df2b5986"
+    },
+    {
+      "file": "embedding_geometry/embedding_umap_detail_05.pdf",
+      "sha256": "f7e758fcbf9a76ce4f472d45e044c404a31b62eebf43c5fc704f86b81f3b8410"
+    },
+    {
+      "file": "embedding_geometry/embedding_umap_detail_05.png",
+      "sha256": "f9171db2fff9518d52812ebb62271445b5a07e9f34e86189c829de638d330d74"
+    },
+    {
+      "file": "embedding_geometry/embedding_umap_detail_06.pdf",
+      "sha256": "bc7d081211dd1c850a78861cf518b05439278f684dcc14bbde1f7b2e0da54035"
+    },
+    {
+      "file": "embedding_geometry/embedding_umap_detail_06.png",
+      "sha256": "fdc21c2554c2de86c8e3df5c9af3bb0ce135c4220398f469559f5d6262a6ee06"
+    },
+    {
+      "file": "loo/site_metrics.csv",
+      "sha256": "080af3e685c7d6810cd78bde347c8cd51a36bb96b0af4d7078d19e68b6796d99"
+    },
+    {
+      "file": "loo/18d95b4c739a/evaluation/calibration.csv",
+      "sha256": "5a17916f23cdf0b18a19ed4ad95ff6211227fa166d4ecfd6833a1a622858ee95"
+    },
+    {
+      "file": "loo/18d95b4c739a/evaluation/ladder_auprc.pdf",
+      "sha256": "4e9449f3d1612411637ce893eb3ffb5da5a69395ef17746019057dc33bc36a67"
+    },
+    {
+      "file": "loo/18d95b4c739a/evaluation/ladder_auprc.png",
+      "sha256": "a7fa8d496f7aca203c16fc7756b8914e064563cb5b6e0817990cdee3d8e29281"
+    },
+    {
+      "file": "loo/18d95b4c739a/evaluation/metrics.csv",
+      "sha256": "ff5ccb5e56cc4c101ba7c7fdb67dbdcdf2f489891fd50a9411f8af47073641f3"
+    },
+    {
+      "file": "loo/18d95b4c739a/evaluation/reliability.csv",
+      "sha256": "c7870796ab2b1accbd41fd0dd6d7ddb086c6db64f55c4ff115997cb6e954a68e"
+    },
+    {
+      "file": "loo/18d95b4c739a/evaluation/reliability.pdf",
+      "sha256": "db66c44e5b4aa2736790200e4002b3b8c3d84816dfbc9ef193b2bfb3e7cc8e19"
+    },
+    {
+      "file": "loo/18d95b4c739a/evaluation/reliability.png",
+      "sha256": "c1d5f5aa2f67c54f2fcedadd7573fda7f81d1fad581d01dff9a0fe72e5e905b1"
+    },
+    {
+      "file": "loo/18d95b4c739a/evaluation/support.csv",
+      "sha256": "53d630794c62f95ab68f80cdb909845489f3053fe625681687bdaa7aded7f3f1"
+    },
+    {
+      "file": "loo/1a5aa4f48388/evaluation/calibration.csv",
+      "sha256": "31984c1ca2d473527e60e8da405ba134856617f7354c1824c28f4e0a20737f49"
+    },
+    {
+      "file": "loo/1a5aa4f48388/evaluation/ladder_auprc.pdf",
+      "sha256": "d92616201cc6f22a3cb43ce21c4af9feacdfb7a0d28d1cdaad937f60959f31b8"
+    },
+    {
+      "file": "loo/1a5aa4f48388/evaluation/ladder_auprc.png",
+      "sha256": "9e97c001f3fc78006a36f1c1cb84e76a5ca40d73b61668653582dff587e9ea60"
+    },
+    {
+      "file": "loo/1a5aa4f48388/evaluation/metrics.csv",
+      "sha256": "ffcac9a923a61cae2262102acff127f48e549a17d9e3890e3068781617b51de5"
+    },
+    {
+      "file": "loo/1a5aa4f48388/evaluation/reliability.csv",
+      "sha256": "f4f3ad06a4ade2e3600577a5e76ebf0d28165cddafb9bfe91094e2690481dbb4"
+    },
+    {
+      "file": "loo/1a5aa4f48388/evaluation/reliability.pdf",
+      "sha256": "44efac7423ffbae30a573ed96d76f637057a190982c55304bf53c1a6f2a9c8df"
+    },
+    {
+      "file": "loo/1a5aa4f48388/evaluation/reliability.png",
+      "sha256": "17533dc074ceffe8b53c7409397f33ea082bc1278c5b26d97e048abe1ef57fad"
+    },
+    {
+      "file": "loo/1a5aa4f48388/evaluation/support.csv",
+      "sha256": "b55719397f4cf135e366716932b94a7561f7018a79f9cf1142f7cc74f6772f28"
+    },
+    {
+      "file": "loo/41ef78aabe22/evaluation/calibration.csv",
+      "sha256": "f3eddb5071a53a4891f7c9c988a50992070e94656e4e4b9118e1b2cd9eb357d5"
+    },
+    {
+      "file": "loo/41ef78aabe22/evaluation/ladder_auprc.pdf",
+      "sha256": "23462dafc307d7e4aa718d9e837ad4dc6e10520bd7e238a6eddd806ba591199d"
+    },
+    {
+      "file": "loo/41ef78aabe22/evaluation/ladder_auprc.png",
+      "sha256": "0e536b913c4ed9f8073d56b30d7fd10871c3ac892a4a06b7691d6cf1bcf73385"
+    },
+    {
+      "file": "loo/41ef78aabe22/evaluation/metrics.csv",
+      "sha256": "70db96b5e985ed69767be31c1bcf249a6d4d4c502f3fba37bcbcd060a290bad5"
+    },
+    {
+      "file": "loo/41ef78aabe22/evaluation/reliability.csv",
+      "sha256": "2417a4ab35f357b66c36e4f91042142bb58e078efc47c947d75b1b77db7d8f27"
+    },
+    {
+      "file": "loo/41ef78aabe22/evaluation/reliability.pdf",
+      "sha256": "cb48e43dfeef37b4a0b79f7ce7017ff1eb45a4f8803e8984e6d962fa09cbc2c0"
+    },
+    {
+      "file": "loo/41ef78aabe22/evaluation/reliability.png",
+      "sha256": "305c46e3004aacc02a317471bf5e9249101011f2287b7a4161b6e5644cfed35a"
+    },
+    {
+      "file": "loo/41ef78aabe22/evaluation/support.csv",
+      "sha256": "0a85f811faee7fe413e2d437ca452ec0286acbd4574736246dc53b00f8267218"
+    },
+    {
+      "file": "loo/7c95eb2a5161/evaluation/calibration.csv",
+      "sha256": "2ba262c692055978bc2656554199f403e81a591ae427fdff4943afab0731474e"
+    },
+    {
+      "file": "loo/7c95eb2a5161/evaluation/ladder_auprc.pdf",
+      "sha256": "e979179aec11e1f007159ef02c9d5e90851aba9447f96c9f94ede94b962892c7"
+    },
+    {
+      "file": "loo/7c95eb2a5161/evaluation/ladder_auprc.png",
+      "sha256": "16e103f0279a8fbe0a417980e0cb86db528d01256815a4ce3819be98bc197fac"
+    },
+    {
+      "file": "loo/7c95eb2a5161/evaluation/metrics.csv",
+      "sha256": "37797c7bcbb290173bb0aea75266ee017aa5d0e7b7b80e55e00d6253cd1f5480"
+    },
+    {
+      "file": "loo/7c95eb2a5161/evaluation/reliability.csv",
+      "sha256": "c4798dda0d6aa9e8b21f8e92833d2cc1a13aa2ad9fb1c6e0e9f1a01b94e9b8ae"
+    },
+    {
+      "file": "loo/7c95eb2a5161/evaluation/reliability.pdf",
+      "sha256": "5b287a00a5bcd53164cd595f6bd35989e681e19b88c619cb84e6c0eb7aaa2092"
+    },
+    {
+      "file": "loo/7c95eb2a5161/evaluation/reliability.png",
+      "sha256": "fcfa2b9641f3764dd0086ea347df78254fec4ec0c2f96ba71acb4eaaf8b65d12"
+    },
+    {
+      "file": "loo/7c95eb2a5161/evaluation/support.csv",
+      "sha256": "0c6b14c6019953ffbfd323fae40bf9d23b8b0799ac1aedeaeb0ffb1a95d9b734"
+    },
+    {
+      "file": "loo/b96f788564e0/evaluation/calibration.csv",
+      "sha256": "0d6ab9cc1b330ef35b57de9de8629ebb5777ab6afb6bbd807fdafbaf7fc8cf96"
+    },
+    {
+      "file": "loo/b96f788564e0/evaluation/ladder_auprc.pdf",
+      "sha256": "51d6fa1a54ec206c59264923ecb8ab681f8c8381b7880dfe727c732d14a7dbdc"
+    },
+    {
+      "file": "loo/b96f788564e0/evaluation/ladder_auprc.png",
+      "sha256": "151ef38b83600a7f4e4c28707b91ee8dca56c24d45ff059d9e0a3cd418606bd8"
+    },
+    {
+      "file": "loo/b96f788564e0/evaluation/metrics.csv",
+      "sha256": "3ad5976265c2e3efea0e70ac0d9ba06b35bbb0e957dc00e0412ead585d8ea762"
+    },
+    {
+      "file": "loo/b96f788564e0/evaluation/reliability.csv",
+      "sha256": "74affb56b9bf0989c2ef89a1bb39e2b5ddcae4d04039cb589580b8cd10b545b4"
+    },
+    {
+      "file": "loo/b96f788564e0/evaluation/reliability.pdf",
+      "sha256": "c347e2ed96470689daad24f30df0a48c7358b79d07c63c529c92d5100089a4e0"
+    },
+    {
+      "file": "loo/b96f788564e0/evaluation/reliability.png",
+      "sha256": "4b29813aa2919a9fee784097686c182a5ca316a0c5f3098db4d2995ef8eb99f8"
+    },
+    {
+      "file": "loo/b96f788564e0/evaluation/support.csv",
+      "sha256": "5b6f5e34e731e96006b9de2ff8f1a7759e95fcc5c26c1d3a608c825bf8cf51e2"
+    },
+    {
+      "file": "loo/d06b953fd0dc/evaluation/calibration.csv",
+      "sha256": "fcb1364bee3d8ac5497648668b1ab9d7a7d230de9d1181369d196c46447b8858"
+    },
+    {
+      "file": "loo/d06b953fd0dc/evaluation/ladder_auprc.pdf",
+      "sha256": "c919cae5ee7995d63a87eb18f99b5f5ff0c7cfb5b4e2ebdb647e934784d8a19f"
+    },
+    {
+      "file": "loo/d06b953fd0dc/evaluation/ladder_auprc.png",
+      "sha256": "886205f0f6f7a64e83837ff1c86a99aca300ba586e783a71eb40c2f37f00c34f"
+    },
+    {
+      "file": "loo/d06b953fd0dc/evaluation/metrics.csv",
+      "sha256": "3ac2d63f743243e9cc39c9f50a61846b2ee1d8ec9ebf48726539bf5810f61590"
+    },
+    {
+      "file": "loo/d06b953fd0dc/evaluation/reliability.csv",
+      "sha256": "4c4ee456272eef5c5c4ba0d690433a01b4ebbaf6cc98b2238b1f5174e077f311"
+    },
+    {
+      "file": "loo/d06b953fd0dc/evaluation/reliability.pdf",
+      "sha256": "501b5e96d338e8728b9967efa96cf63d0239e32675650206e32389b8d7c04529"
+    },
+    {
+      "file": "loo/d06b953fd0dc/evaluation/reliability.png",
+      "sha256": "5afaedb1230579413ceaf54c45a402674a221c1e52b5deb612e680e26cb0baac"
+    },
+    {
+      "file": "loo/d06b953fd0dc/evaluation/support.csv",
+      "sha256": "63caaeedd4b424b74025c8e1632ba9bc1962d893e2b997b369deb0382ec07360"
+    },
+    {
+      "file": "mediator_stability/definition_coverage.csv",
+      "sha256": "dc0ec594ce477bb6000811cff1c5be4bfd6c0e1a3f89dfe69abc6ebb665ca611"
+    },
+    {
+      "file": "mediator_stability/stability_summary.csv",
+      "sha256": "e4b59032855a82da2c27ff916f018f881b5c1c4b1499cc12217ead0332ad5d4e"
+    },
+    {
+      "file": "multi_k/window_metrics.csv",
+      "sha256": "2359b5adca8294b9923f545e194c5c0813c4b8ab3315d498511da7c7e8353a9e"
+    },
+    {
+      "file": "multi_k/window_sensitivity.pdf",
+      "sha256": "5b891440013fc597cb182d34ff5491b1d1f89d6641880b6c78ba565f2e426932"
+    },
+    {
+      "file": "multi_k/window_sensitivity.png",
+      "sha256": "0ed04981069c4e247c858b52bfe9f9fd6493559aa49628e4dc7bb577d3fc7e33"
+    },
+    {
+      "file": "multi_k/k2/metrics.csv",
+      "sha256": "10ad97fd1c62cd7ccfd648c0c8844c50b7ab8160992fb83bb936854a8b7b46f6"
+    },
+    {
+      "file": "multi_k/k2/paired_contrasts.csv",
+      "sha256": "777985109cc21b309a5e21e9f6bd5f91edfcccda1448be69cbf3a8223365f833"
+    },
+    {
+      "file": "multi_k/k2/support.csv",
+      "sha256": "baebd9d19ddbd99cfee96862a98b69f4cc2cb0e4b788c8b0ebc3007702e395ec"
+    },
+    {
+      "file": "multi_k/k3/metrics.csv",
+      "sha256": "e7632156d190c42640883d398f49b0e7edd3a6f7b62fe4dc935cae9d2580aa1c"
+    },
+    {
+      "file": "multi_k/k3/paired_contrasts.csv",
+      "sha256": "47f0bee56f624251735c3f972668559f3835e35c02f1d47a9fc317c6e1565915"
+    },
+    {
+      "file": "multi_k/k3/support.csv",
+      "sha256": "eb7f5755a2d34c5bcf23fc9b3cb71c343aa8fc6a1282666cecab4b51e011293c"
+    },
+    {
+      "file": "multi_k/k4/metrics.csv",
+      "sha256": "75e324f0306a311e350e436eea6d9757d989c1a8519332d2795fb768ec3e3bbe"
+    },
+    {
+      "file": "multi_k/k4/paired_contrasts.csv",
+      "sha256": "5399a0c0eb4b45106f818503ac9e07cbadbcd251eae9d4203965069172a6436c"
+    },
+    {
+      "file": "multi_k/k4/support.csv",
+      "sha256": "3ea07c479547ca2e28ff47a965cbfb27e32bf3cee6b102f70ba70208b5bd0af7"
+    },
+    {
+      "file": "multi_k/k5/metrics.csv",
+      "sha256": "44678eccdd17f0104bfa24f7bdd835597728c6bcd9ae4c140774d4c40f1d89a3"
+    },
+    {
+      "file": "multi_k/k5/paired_contrasts.csv",
+      "sha256": "92647cb0d16e5923bee92d13f503991c54c7092ea1fd3e91dfe131e5781a5c23"
+    },
+    {
+      "file": "multi_k/k5/support.csv",
+      "sha256": "caf9b45f53cfb604eb83ab4adc0b103d8f21c0925784149dbe50fc60b74c72df"
+    },
+    {
+      "file": "multi_k/k6/metrics.csv",
+      "sha256": "98d2c40017782e5b27f97ff2c55585ed2285a348afa729456e4d10ec6358d193"
+    },
+    {
+      "file": "multi_k/k6/paired_contrasts.csv",
+      "sha256": "43660b3a3707a33aa1c33a9976759cba4fb7bc1e74a71471e735cea10777b1dd"
+    },
+    {
+      "file": "multi_k/k6/support.csv",
+      "sha256": "885c8adef90c583ca771f7c6a9fcbe7089952f1cc09fd35c953b4cd5935d733e"
+    },
+    {
+      "file": "primary/calibration.csv",
+      "sha256": "7d8f76dbf6df53ab628259720d21282db2159d7f7dcbc400169d576dfd262139"
+    },
+    {
+      "file": "primary/ladder_auprc.pdf",
+      "sha256": "c5025104e8350cb58e4c7e7f02e40f1fd20cdbf6c85bc521de31586106eaf2c4"
+    },
+    {
+      "file": "primary/ladder_auprc.png",
+      "sha256": "2180e13ed46c29598a9127794200686e21c89ce5fadc90f38cac124533c0b02d"
+    },
+    {
+      "file": "primary/metrics.csv",
+      "sha256": "830ed47700a128e9663c30b690a5da880b77c981c001b773d463d6327f18d5da"
+    },
+    {
+      "file": "primary/paired_contrasts.csv",
+      "sha256": "6373a04369a570c63aa7e92229c9951722839e420854d675903a5871b215aa89"
+    },
+    {
+      "file": "primary/reliability.csv",
+      "sha256": "e06cd44bf7d9d65422c52b6366959a82e5e5cdefe07a00b630f48d1418465c41"
+    },
+    {
+      "file": "primary/reliability.pdf",
+      "sha256": "9f0bf23a71680399306cd2bfade8262610ab4cbcb53d142ef7ed88f887ea7256"
+    },
+    {
+      "file": "primary/reliability.png",
+      "sha256": "0787a1caa3107501ee450972885052ebf0ca7e721593de835716350a5a09bcb8"
+    },
+    {
+      "file": "primary/subgroups.csv",
+      "sha256": "befcedb195944d68ae066dfaaeb5cef9237b02e5799d4cb31294dc2e9869230d"
+    },
+    {
+      "file": "primary/support.csv",
+      "sha256": "3ea07c479547ca2e28ff47a965cbfb27e32bf3cee6b102f70ba70208b5bd0af7"
+    },
+    {
+      "file": "xai/forward_invariance_summary.csv",
+      "sha256": "64a834e50e24153f8b9c7fb460a9475b7f0456c282abed3661c43fd1e7e41287"
+    },
+    {
+      "file": "xai/named_concept_attribution.csv",
+      "sha256": "6dcd0d199dc9a4adfcf4c5e6dea43d75d48d62f2612b9d32275af47facc47c1f"
+    },
+    {
+      "file": "xai/named_concept_attribution.pdf",
+      "sha256": "5d196e5178dc24efbff9a0b1de61112eecba043be823a42ce1860dc44e041b60"
+    },
+    {
+      "file": "xai/named_concept_attribution.png",
+      "sha256": "9c788bb751e9400cd8d536c7abcf270abaac0419cdeac895e34715bd64df6836"
+    },
+    {
+      "file": "xai/reconstruction_validation.csv",
+      "sha256": "a781b819867f19fb1833bb2ba1010e82500af23ba9e5ffe23f096e1462906bd9"
+    }
+  ]
+}

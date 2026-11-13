@@ -1,0 +1,5 @@
+relation,n_pairs,median
+matching_boundaries,205,0.1804155111312866
+same_concept,1500,0.2264414131641388
+same_raw,1484,0.4429356753826141
+different_raw,80656,0.5902430713176727
