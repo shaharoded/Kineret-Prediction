@@ -484,6 +484,10 @@ def ensure_prepared(arms=None, rebuild=False, verbose=True) -> Cohort:
     if os.path.exists(paths.COHORT_PKL) and not rebuild:
         cached = Cohort.load()
         drift = cohort_drift(cached)
+        needs_qa = any(qa for _key, _model, qa in triples)
+        if needs_qa and any(not any(col.endswith("_present") for col in block.columns)
+                            for block in cached.qa_by_k.values() if block.shape[1]):
+            drift.append(("QA pattern presence indicators", False, True))
         if drift:
             # The cached cohort answers a different question than the one now
             # configured. Rebuilding is the only safe move: reusing it would
@@ -508,7 +512,7 @@ def ensure_prepared(arms=None, rebuild=False, verbose=True) -> Cohort:
             f"block. Check {paths.QA_FILE} and rebuild with rebuild=True.")
 
     strats_arms = sorted({qa for _k, m, qa in triples if m == "strats"})
-    missing = [qa for qa in strats_arms if not os.path.exists(SC.dataset_pkl(qa))]
+    missing = [qa for qa in strats_arms if rebuild or not os.path.exists(SC.dataset_pkl(qa))]
     if missing:
         say(f"[prepare] Building {len(missing)} ss-STraTS pickle(s)...")
         raw = raw_with_hours(cohort)
@@ -972,7 +976,7 @@ def qa_delta_table(average="weighted", metrics=("auroc", "auprc", "best_f1"),
     """
     Purpose: Answer the ablation question directly -- does the QA signal help?
     Method:  Pair each model's two arms. They differ by exactly the aggregated
-             `QA_<pattern>` context columns (plus, for INTERVenE only, the
+             QA score and occurrence columns (plus, for INTERVenE only, the
              pattern token stream it can natively represent) -- same patients,
              same labels, same events, same seed -- so the delta is attributable
              to the treatment-quality signal rather than to run-to-run variance.

@@ -37,7 +37,7 @@ class DataProcessor:
                  scaler=None, 
                  checkpoint_path=CHECKPOINT_PATH,
                  inclusion_exclusion_criteria=None,
-                 enforce_min_duration=True):
+                 enforce_min_duration=True, qa_from_context=False):
         # Load TAK repository from JSON. Defaults to the copy that ships inside
         # the package; the sigma-bin arm passes its augmented copy instead.
         if tak_repo_path is None:
@@ -70,6 +70,7 @@ class DataProcessor:
         # reach the cut are kept rather than dropped, because cohort membership
         # was already settled upstream.
         self.enforce_min_duration = enforce_min_duration
+        self.qa_from_context = qa_from_context
         self.scaler = scaler
         self.checkpoint_path = checkpoint_path
         self.inclusion_exclusion_criteria = (
@@ -97,7 +98,8 @@ class DataProcessor:
         if 'index' in self.context_df.columns:
             self.context_df = self.context_df.drop(columns=['index'])
         # QA features must be merged BEFORE indexing/scaling so the scaler picks them up.
-        self._add_qa_features()
+        if not self.qa_from_context:
+            self._add_qa_features()
         self.context_df = self.context_df.set_index("PatientId").drop(columns=["PatientId"], errors="ignore").astype("float32")
         self._fit_scaler()
         return self.df, self.context_df
@@ -178,22 +180,7 @@ class DataProcessor:
         return out_df
 
     def _add_qa_features(self):
-        """
-        Purpose: Augment context_df with per-patient, per-PatternName mean ComplianceScore
-                 over the first `qa_history_hours` after admission.
-        Method:  Load qa_scores (path from config); compute elapsed hours from each
-                 patient's earliest StartDateTime in self.df; filter QA rows to
-                 [0, qa_history_hours]; group by (PatientId, PatternName) and mean
-                 the score; pivot to wide; reindex to the canonical PatternName set
-                 read from the FULL qa file (stable schema across train/val); reindex
-                 to all PatientIds in context_df with zero-fill; merge as new columns.
-
-                 No-op when USE_QA_DATA is False so the gate is a single config flag.
-
-        Args:    None (uses self.df, self.context_df, self.max_input_days).
-
-        Returns: None. Mutates self.context_df in place.
-        """
+        """Add the mean compliance score and occurrence flag per pattern in the input window."""
         if not USE_QA_DATA:
             return
 
@@ -212,11 +199,6 @@ class DataProcessor:
             qa["StartDateTime"], format="ISO8601", utc=True, errors="raise"
         ).dt.tz_convert(None)
 
-        # Canonical pattern column set comes from the FULL qa file so train and val
-        # splits always produce the same column layout. Sorted for determinism.
-        canonical_patterns = sorted(qa["PatternName"].unique())
-        qa_cols = [f"QA_{p}" for p in canonical_patterns]
-
         # Per-patient admission time = earliest StartDateTime cached in _normalize_time
         # (self.df no longer has StartDateTime after _expand_tokens replaced it with TimePoint).
         # Patients that were dropped (e.g. by _cut_after_k_days) still appear here, which
@@ -225,49 +207,14 @@ class DataProcessor:
             raise RuntimeError(
                 "_add_qa_features called before _normalize_time — admission timestamps unavailable."
             )
-        admission = self._patient_admission_time.rename("AdmissionTime").reset_index()
+        from kineret.cohort import _build_qa_block
 
-        qa_history_hours = (
-            float(self.max_input_days) * 24.0 if self.max_input_days else float(OBSERVATION_WINDOW_HOURS)
-        )
-
-        qa = qa.merge(admission, on="PatientId", how="inner")
-        qa["elapsed_h"] = (qa["StartDateTime"] - qa["AdmissionTime"]).dt.total_seconds() / 3600.0
-        qa = qa[(qa["elapsed_h"] >= 0.0) & (qa["elapsed_h"] <= qa_history_hours)]
-
-        if len(qa) == 0:
-            # No QA rows fell in the window for any patient — still emit zero-filled
-            # columns so the schema is stable across runs.
-            wide = pd.DataFrame(
-                0.0,
-                index=self.context_df["PatientId"].unique(),
-                columns=qa_cols,
-            )
-        else:
-            agg = qa.groupby(["PatientId", "PatternName"])["ComplianceScore"].mean().reset_index()
-            wide = agg.pivot(index="PatientId", columns="PatternName", values="ComplianceScore")
-            wide = wide.reindex(columns=canonical_patterns, fill_value=0.0)
-            wide.columns = qa_cols
-
-        all_pids = self.context_df["PatientId"].unique()
-        wide = wide.reindex(all_pids, fill_value=0.0)
-        wide.index.name = "PatientId"
-        wide = wide.reset_index()
-
-        # Drop any pre-existing QA columns so re-running DataProcessor stays idempotent.
-        stale = [c for c in qa_cols if c in self.context_df.columns]
-        if stale:
-            self.context_df = self.context_df.drop(columns=stale)
-
-        self.context_df = self.context_df.merge(wide, on="PatientId", how="left")
-        for c in qa_cols:
-            self.context_df[c] = self.context_df[c].fillna(0.0)
-
-        print(
-            f"[DataProcessor] QA features added: {len(qa_cols)} columns, "
-            f"window=[0, {qa_history_hours:.1f}h], {len(qa)} qa rows in window."
-        )
-
+        days = self.max_input_days or float(OBSERVATION_WINDOW_HOURS) / 24.0
+        wide = _build_qa_block(qa, self._patient_admission_time,
+                               self.context_df["PatientId"].unique(), days, ["mean"])
+        self.context_df = self.context_df.drop(columns=wide.columns, errors="ignore")
+        self.context_df = self.context_df.join(wide, on="PatientId")
+        print(f"[DataProcessor] Added {len(wide.columns)} QA features over {days:g} days.")
 
     def _fit_scaler(self):
         """

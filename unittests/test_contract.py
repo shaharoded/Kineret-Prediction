@@ -198,11 +198,34 @@ class TestQaArms:
         assert all(c.startswith(C.QA_COLUMN_PREFIX) for c in added)
         assert with_qa[base.columns].equals(base)
 
-    def test_one_column_per_pattern_per_aggregation(self, cohort):
+    def test_each_pattern_has_an_occurrence_indicator(self, cohort):
         block = cohort.qa_by_k[4]
-        n_patterns = len({c for c in block.columns})
-        assert block.shape[1] == n_patterns
-        assert block.shape[1] % max(len(C.QA_AGGREGATIONS), 1) == 0
+        patterns = [c.removesuffix("_present") for c in block if c.endswith("_present")]
+        assert patterns
+        aggregations = C.QA_AGGREGATIONS or ["mean"]
+        expected = {p if len(aggregations) == 1 else f"{p}_{agg}"
+                    for p in patterns for agg in aggregations}
+        assert set(block.columns) == expected | {f"{p}_present" for p in patterns}
+
+    def test_presence_is_based_on_a_dated_occurrence_even_when_the_score_is_zero(self):
+        from kineret.cohort import _build_qa_block
+
+        start = pd.Timestamp("2024-08-01")
+        admission = pd.Series(start, index=[1, 2, 3, 4])
+        qa = pd.DataFrame({
+            "PatientId": [1, 1, 2, 3, 3, 4],
+            "StartDateTime": start + pd.to_timedelta([0, 24, 24.1, -1, 2, 2], unit="h"),
+            "PatternName": ["A", "A", "A", "A", "B", "A"],
+            "ComplianceScore": [0.5, 1.0, 0.8, 1.0, None, 0.0],
+        })
+        block = _build_qa_block(qa, admission, admission.index, 1, ["mean"])
+        assert block["QA_A"].tolist() == [0.75, 0, 0, 0]
+        assert block["QA_A_present"].tolist() == [1, 0, 0, 1]
+        assert block["QA_B_present"].tolist() == [0, 0, 1, 0]
+        assert block["QA_B"].eq(0).all()
+        empty = _build_qa_block(qa, admission + pd.Timedelta(days=2), admission.index, 1)
+        assert empty.columns.equals(block.columns)
+        assert empty.eq(0).all().all()
 
     def test_single_mean_keeps_the_plain_column_name(self, cohort):
         """`QA_<pattern>` when only `mean` is configured -- the thesis convention."""

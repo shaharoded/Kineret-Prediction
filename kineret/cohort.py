@@ -85,7 +85,7 @@ class Cohort:
         dropped_outcomes (dict): outcome -> train prevalence, for the ones cut.
         context (pd.DataFrame): PatientId-indexed static features, unscaled.
         qa_by_k (dict[int, pd.DataFrame]): K -> PatientId-indexed QA_<pattern>
-            columns aggregated over [0, K*24] hours.
+            score summaries and occurrence indicators over [0, K*24] hours.
         outcome_aliases (dict[str, list[str]]): canonical -> observed
             ConceptName spellings across both source tables. Doubles as the
             leakage blocklist for the STraTS / LogReg input builders.
@@ -1027,66 +1027,33 @@ def _reconcile_events(raw_events: pd.DataFrame, abstract_events: pd.DataFrame,
 
 
 def _build_qa_block(qa_df: pd.DataFrame, admission: pd.Series,
-                    patient_ids: np.ndarray, k: int) -> pd.DataFrame:
-    """
-    Purpose: Aggregate treatment-quality compliance into static features for one K.
-    Method:  Mean ComplianceScore per (PatientId, PatternName) over [0, k*24]
-             hours from admission, pivoted wide and reindexed to the canonical
-             pattern set taken from the FULL qa file -- so the column layout is
-             identical across K, across splits and across models. Patients with
-             no QA row in the window are zero-filled.
+                    patient_ids: np.ndarray, k: float, aggregations=None) -> pd.DataFrame:
+    """Summarize scores and record pattern occurrence from admission through day k.
 
-    Args:
-        qa_df       (pd.DataFrame): QA table with PatternName / ComplianceScore.
-        admission   (pd.Series):    PatientId -> admission timestamp.
-        patient_ids (np.ndarray):   Cohort patients.
-        k           (int):          Context-window length in days.
-
-    Returns:
-        pd.DataFrame: PatientId-indexed QA_<pattern> columns, float32.
+    The full QA table defines a stable set of pattern names. Each presence flag
+    is based on a dated pattern row in the window, independently of its score.
     """
     canonical = sorted(qa_df[C.QA_PATTERN_COLUMN].dropna().astype(str).unique())
-    aggregations = list(C.QA_AGGREGATIONS) or ["mean"]
-    single = len(aggregations) == 1
+    if aggregations is None:
+        aggregations = C.QA_AGGREGATIONS or ["mean"]
     index = pd.Index(patient_ids, name="PatientId")
-
-    def column_name(pattern, agg):
-        """A lone `mean` keeps the plain `QA_<pattern>` name used in the thesis code."""
-        return (f"{C.QA_COLUMN_PREFIX}{pattern}" if single
-                else f"{C.QA_COLUMN_PREFIX}{pattern}_{agg}")
-
-    cols = [column_name(p, a) for a in aggregations for p in canonical]
-
-    qa = qa_df.copy()
-    qa["hours"] = _hours_from_admission(qa, admission)
-    qa = qa[(qa["hours"] >= 0.0) & (qa["hours"] <= k * 24.0)]
+    hours = _hours_from_admission(qa_df, admission)
+    qa = qa_df.loc[hours.between(0.0, k * 24.0)].copy()
     qa[C.QA_SCORE_COLUMN] = pd.to_numeric(qa[C.QA_SCORE_COLUMN], errors="coerce")
-    qa = qa.dropna(subset=[C.QA_SCORE_COLUMN])
-
-    if len(qa) == 0:
-        return pd.DataFrame(0.0, index=index, columns=cols).astype("float32")
-
-    # `last` needs chronological order within each (patient, pattern).
-    qa = qa.sort_values(["PatientId", C.QA_PATTERN_COLUMN, "hours"])
+    qa = qa.sort_values("StartDateTime", kind="stable")
     grouped = qa.groupby(["PatientId", C.QA_PATTERN_COLUMN])[C.QA_SCORE_COLUMN]
 
     blocks = []
     for agg in aggregations:
-        series = grouped.last() if agg == "last" else grouped.agg(agg)
-        wide = series.unstack(C.QA_PATTERN_COLUMN)
-        wide = wide.reindex(columns=canonical, fill_value=0.0)
-        wide.columns = [column_name(p, agg) for p in canonical]
-        blocks.append(wide.reindex(index, fill_value=0.0))
+        scores = grouped.agg(agg).unstack().reindex(index=index, columns=canonical)
+        suffix = "" if len(aggregations) == 1 else f"_{agg}"
+        scores.columns = [f"{C.QA_COLUMN_PREFIX}{p}{suffix}" for p in canonical]
+        blocks.append(scores)
 
-    out = pd.concat(blocks, axis=1).reindex(columns=cols)
-    # A patient with no QA row in the window scores 0 -- "no recorded
-    # compliance", which is the same thing the models see for an absent pattern.
-    return out.fillna(0.0).astype("float32")
+    present = grouped.size().unstack().reindex(index=index, columns=canonical).gt(0)
+    present.columns = [f"{C.QA_COLUMN_PREFIX}{p}_present" for p in canonical]
+    return pd.concat([*blocks, present], axis=1).fillna(0.0).astype("float32")
 
-
-# ===========================================================================
-# Public builder
-# ===========================================================================
 
 def build_cohort(verbose: bool = True) -> Cohort:
     """

@@ -168,7 +168,7 @@ class Strats(TimeSeriesModel):
                     obs_mask = obs_mask*(1-mask_pos)
 
         # Static context, projected. In the QA arm this vector already carries
-        # the aggregated QA_<pattern> compliance block.
+        # per-pattern compliance summaries and occurrence indicators.
         demo_emb = self.demo_emb(demo)
         # initial triplet embedding
         time_emb = self.cve_time(times)

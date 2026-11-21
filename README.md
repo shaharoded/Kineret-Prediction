@@ -53,12 +53,12 @@ Every arm answers the same three questions per complication:
 | Rung | Arm | Input |
 |---|---|---|
 | 1 | LogReg (raw) | raw measurements, distribution-summarised — no temporal model |
-| 2 | LogReg (raw + QA) | + aggregated compliance in the context vector |
+| 2 | LogReg (raw + QA) | + per-pattern mean compliance and occurrence in the context vector |
 | 3 | ss-STraTS (raw) | raw measurements + learned temporal attention |
-| 4 | ss-STraTS (raw + QA) | + aggregated compliance in the context vector |
+| 4 | ss-STraTS (raw + QA) | + per-pattern mean compliance and occurrence in the context vector |
 | 5 | INTERVenE-Enc (σ-bins) | knowledge-**free** intervals over the same raw data |
 | 6 | INTERVenE-Enc (KB) | knowledge-**based** Mediator abstractions |
-| 7 | INTERVenE-Enc (KB + QA) | + treatment-quality pattern tokens |
+| 7 | INTERVenE-Enc (KB + QA) | + the same QA vector and dated treatment-quality pattern tokens |
 | 8 | INTERVenE-Enc (SAX) | training-population scaling + four-hour means + seven symbols |
 
 Rungs **5 → 6** isolate the knowledge base; **6 → 7** isolate the

@@ -138,7 +138,7 @@ def _prepare_split(abstract_df, cohort, samples, use_qa, tokenizer, scaler,
     full_ctx = cohort.context_for_k(C.EVAL_CONTEXT_DAYS, use_qa) \
                      .reindex(patient_ids).reset_index()
     full_proc = DataProcessor(full_view, full_ctx, tak_repo_path=tak_repo_path,
-                              max_input_days=None, scaler=scaler,
+                              max_input_days=None, scaler=scaler, qa_from_context=True,
                               checkpoint_path=MCFG.CHECKPOINT_PATH)
     full_df, full_ctx_df = full_proc.run()
     del full_view
@@ -163,7 +163,7 @@ def _prepare_split(abstract_df, cohort, samples, use_qa, tokenizer, scaler,
             proc = DataProcessor(
                 window_view, ctx,
                 tak_repo_path=tak_repo_path,
-                max_input_days=int(k), scaler=fitted,
+                max_input_days=int(k), scaler=fitted, qa_from_context=True,
                 checkpoint_path=MCFG.CHECKPOINT_PATH,
                 # The cohort already decided who is in the study, against both
                 # source tables. Letting the processor re-decide would hand

@@ -18,3 +18,7 @@ __pycache__/
 kineret_deploy/
 kineret_deploy.zip
 .hf_cache/
+
+# Local notebook exports excluded from the manuscript push
+notebooks/median_timing_baseline.ipynb
+notebooks/paper_followup_exports.ipynb

@@ -366,7 +366,8 @@ QA_COLUMN_PREFIX     = "QA_"
 # compliance score per pattern over the window. Adding more aggregations widens
 # the block for every model at once, so the arms stay comparable.
 # With a single "mean" the columns are `QA_<pattern>`; with several they become
-# `QA_<pattern>_<agg>`.
+# `QA_<pattern>_<agg>`. Each pattern also contributes `QA_<pattern>_present`,
+# equal to one if any occurrence starts inside the observation window.
 QA_AGGREGATIONS = ["mean"]          # any of: mean, min, max, last, count, std
 
 # ---------------------------------------------------------------------------
