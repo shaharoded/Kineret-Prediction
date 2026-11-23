@@ -37,7 +37,7 @@ class DataProcessor:
                  scaler=None, 
                  checkpoint_path=CHECKPOINT_PATH,
                  inclusion_exclusion_criteria=None,
-                 enforce_min_duration=True, qa_from_context=False):
+                 enforce_min_duration=True, qa_from_context=False, admission_times=None):
         # Load TAK repository from JSON. Defaults to the copy that ships inside
         # the package; the sigma-bin arm passes its augmented copy instead.
         if tak_repo_path is None:
@@ -71,6 +71,7 @@ class DataProcessor:
         # was already settled upstream.
         self.enforce_min_duration = enforce_min_duration
         self.qa_from_context = qa_from_context
+        self.admission_times = admission_times
         self.scaler = scaler
         self.checkpoint_path = checkpoint_path
         self.inclusion_exclusion_criteria = (
@@ -85,6 +86,15 @@ class DataProcessor:
 
         # Process on temporal_df
         self._validate_and_align_inputs()
+        if self.max_input_days:
+            from kineret.cohort import completed_qa_mask
+            patterns = self.df.ConceptName.str.contains("_PATTERN", regex=False, na=False)
+            if patterns.any():
+                origins = (self.df.PatientId.map(self.admission_times) if self.admission_times is not None
+                           else self.df.groupby("PatientId").StartDateTime.transform("min"))
+                complete = completed_qa_mask(self.df.loc[patterns], origins.loc[patterns],
+                                             self.max_input_days * 24.0)
+                self.df = self.df.drop(index=complete.index[~complete])
         self._fix_back_to_back_intervals()
         self._truncate_after_terminal_event()
         self._normalize_time()

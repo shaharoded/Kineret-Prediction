@@ -488,6 +488,8 @@ def ensure_prepared(arms=None, rebuild=False, verbose=True) -> Cohort:
         if needs_qa and any(not any(col.endswith("_present") for col in block.columns)
                             for block in cached.qa_by_k.values() if block.shape[1]):
             drift.append(("QA pattern presence indicators", False, True))
+        if needs_qa and cached.qa_by_k and not cached.meta.get("qa_window_completed"):
+            raise ValueError("Cached QA summaries predate completion gating. Prepare a fresh cohort and QA inputs for training.")
         if drift:
             # The cached cohort answers a different question than the one now
             # configured. Rebuilding is the only safe move: reusing it would

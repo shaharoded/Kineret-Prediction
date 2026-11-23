@@ -293,6 +293,9 @@ class Cohort:
         """
         ctx = self.context.copy()
         if use_qa:
+            if self.qa_by_k and not self.meta.get("qa_window_completed"):
+                raise ValueError("The cached QA summaries do not document completion gating. "
+                                 "Rebuild from evaluation deadlines or use a verified VM cohort.")
             qa = self.qa_by_k.get(k)
             if qa is None or qa.shape[1] == 0:
                 raise RuntimeError(
@@ -1026,6 +1029,18 @@ def _reconcile_events(raw_events: pd.DataFrame, abstract_events: pd.DataFrame,
             audit_df)
 
 
+def completed_qa_mask(rows, origins, cutoff_hours):
+    """Use completion of the evaluation window, including the wait for a missing action."""
+    if rows.empty:
+        return pd.Series(False, index=rows.index, dtype=bool)
+    if C.QA_EVALUATION_END_COLUMN not in rows:
+        raise ValueError("QA cutoff requires EvaluationEndDateTime for each assessment. "
+                         "A Mediator event marker may end before the response window closes.")
+    end = pd.to_datetime(rows[C.QA_EVALUATION_END_COLUMN], utc=True, errors="coerce").dt.tz_convert(None)
+    cutoff = origins + pd.Timedelta(hours=cutoff_hours)
+    return rows.StartDateTime.ge(origins) & end.ge(rows.StartDateTime) & end.le(cutoff)
+
+
 def _build_qa_block(qa_df: pd.DataFrame, admission: pd.Series,
                     patient_ids: np.ndarray, k: float, aggregations=None) -> pd.DataFrame:
     """Summarize scores and record pattern occurrence from admission through day k.
@@ -1037,8 +1052,8 @@ def _build_qa_block(qa_df: pd.DataFrame, admission: pd.Series,
     if aggregations is None:
         aggregations = C.QA_AGGREGATIONS or ["mean"]
     index = pd.Index(patient_ids, name="PatientId")
-    hours = _hours_from_admission(qa_df, admission)
-    qa = qa_df.loc[hours.between(0.0, k * 24.0)].copy()
+    eligible = completed_qa_mask(qa_df, qa_df.PatientId.map(admission), k * 24.0)
+    qa = qa_df.loc[eligible].copy()
     qa[C.QA_SCORE_COLUMN] = pd.to_numeric(qa[C.QA_SCORE_COLUMN], errors="coerce")
     qa = qa.sort_values("StartDateTime", kind="stable")
     grouped = qa.groupby(["PatientId", C.QA_PATTERN_COLUMN])[C.QA_SCORE_COLUMN]
@@ -1510,6 +1525,7 @@ def build_cohort(verbose: bool = True) -> Cohort:
         "raw_temporal_file": paths.RAW_TEMPORAL_FILE,
         "abstract_file": paths.ABSTRACT_FILE,
         "context_file": paths.CONTEXT_FILE,
+        "qa_window_completed": True,
         "qa_file": paths.QA_FILE if qa_df is not None else None,
         "n_raw_rows": int(len(raw)),
         "n_abstract_rows": int(len(abstract)),

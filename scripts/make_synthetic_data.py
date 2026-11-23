@@ -314,7 +314,7 @@ def generate(n_patients, seed, min_days, max_days):
             t = float(rng.uniform(0, 12))
             while t < los_h:
                 qa_rows.append({
-                    "PatientId": pid, "PatternName": pattern,
+                    "PatientId": pid, "PatternName": pattern, "EvaluationEndDateTime": stamp(t + 1),
                     "StartDateTime": stamp(t), "EndDateTime": stamp(t + 1),
                     "ComplianceScore": float(np.round(rng.beta(5, 2), 3)),
                 })

@@ -214,7 +214,8 @@ class TestQaArms:
         admission = pd.Series(start, index=[1, 2, 3, 4])
         qa = pd.DataFrame({
             "PatientId": [1, 1, 2, 3, 3, 4],
-            "StartDateTime": start + pd.to_timedelta([0, 24, 24.1, -1, 2, 2], unit="h"),
+            "StartDateTime": start + pd.to_timedelta([0, 24, 23, -1, 2, 2], unit="h"),
+            "EvaluationEndDateTime": start + pd.to_timedelta([1, 24, 26, 2, 4, 2], unit="h"),
             "PatternName": ["A", "A", "A", "A", "B", "A"],
             "ComplianceScore": [0.5, 1.0, 0.8, 1.0, None, 0.0],
         })

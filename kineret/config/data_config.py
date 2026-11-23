@@ -355,6 +355,9 @@ SPLIT_GROUP_BY_PERSON = True
 
 QA_PATTERN_COLUMN    = "PatternName"
 QA_SCORE_COLUMN      = "ComplianceScore"
+# Set this to the field carrying the evaluation deadline in both QA exports.
+# A timestamp used only to draw a point marker does not meet this contract.
+QA_EVALUATION_END_COLUMN = "EvaluationEndDateTime"
 QA_COLUMN_PREFIX     = "QA_"
 
 # How per-pattern compliance is summarised over the [0, K*24] observation window

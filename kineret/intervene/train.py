@@ -164,6 +164,7 @@ def _prepare_split(abstract_df, cohort, samples, use_qa, tokenizer, scaler,
                 window_view, ctx,
                 tak_repo_path=tak_repo_path,
                 max_input_days=int(k), scaler=fitted, qa_from_context=True,
+                admission_times=cohort.patients.set_index("PatientId").admission_time,
                 checkpoint_path=MCFG.CHECKPOINT_PATH,
                 # The cohort already decided who is in the study, against both
                 # source tables. Letting the processor re-decide would hand

@@ -99,7 +99,8 @@ def encoder_dataset(arm, cohort, samples, tokenizer, scaler, k=4, std_table=None
     abstract = abstract[abstract.PatientId.isin(samples.PatientId)].copy()
     context = cohort.context_for_k(k, qa).reindex(samples.PatientId).reset_index()
     proc = DataProcessor(abstract, context, tak_repo_path=repo, max_input_days=k,
-                         scaler=scaler, enforce_min_duration=False, qa_from_context=True)
+                         scaler=scaler, enforce_min_duration=False, qa_from_context=True,
+                         admission_times=cohort.patients.set_index("PatientId").admission_time)
     tokens, ctx = proc.run()
     mapping = dict(zip(samples.PatientId, samples.sample_id))
     tokens.PatientId = tokens.PatientId.map(mapping)
